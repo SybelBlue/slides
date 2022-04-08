@@ -57,12 +57,3 @@ for (Enclosure pen : enclosures.length) {
 }
 /*     Hurray for Syntax Sugar!        */
 ```
----
-
-## But why do I want this?
-> Well... It's sweeter?
-+++
-## But why do *I* want this?
-> ~~Well... It's sweeter?~~
-
-No, no, no Logan. **What is it good for?**

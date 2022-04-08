@@ -23,6 +23,16 @@
 			.reveal h6 {
 			text-transform: none;
 			}
+			.container {
+				display: flex;
+			}
+			.col {
+				flex: 1;
+			}
+			.col > pre {
+				font-size: medium;
+				line-height: normal;
+			}
 		</style>
 		<div class="reveal">
 			<div class="slides">
@@ -31,6 +41,43 @@
 					data-separator="---"
 					data-separator-vertical="\+\+\+"
 					data-separator-notes="^Note:">
+				</section>
+				<section>
+					<h2>C-Style vs For-Loop</h2>
+					<div class="container">
+						<div class="col">
+							<pre><code class="language-java"><script type="text/template">
+	int animals = 0;
+	for (int i = 0; i < enclosures.length; i++) {
+		Enclosure pen = enclosures.get(i);
+		animals += pen.getAnimalCount();
+	}
+							</script></code></pre>
+						</div>
+						<div class="col">
+							<pre><code class="language-java"><script type="text/template">
+	int animals = 0;
+	for (Enclosure pen : enclosures) {
+		animals += pen.getAnimalCount();
+	}
+							</script></code></pre>
+							<p class="fragment fade-up" style="color: #1b91ff; font-size: smaller;">Yay Syntax Sugar!</p>
+						</div>
+					</div>
+				</section>
+				<section data-markdown
+					data-separator="---"
+					data-separator-vertical="\+\+\+"
+					data-separator-notes="^Note:">
+					<textarea data-template>
+						## But why do I want this?
+						> Well... It's sweeter?
+						+++
+						## But why do *I* want this?
+						> ~~Well... It's sweeter?~~
+
+						No, no, no Logan. **What is it good for?**
+					</textarea>
 				</section>
 			</div>
 		</div>
