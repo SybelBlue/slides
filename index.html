@@ -8,45 +8,30 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/sky.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-dark.min.css">
 	</head>
 	<body>
+		<style>
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4,
+			.reveal h5,
+			.reveal h6 {
+			text-transform: none;
+			}
+		</style>
 		<div class="reveal">
 			<div class="slides">
 				<!-- see https://revealjs.com/markdown/ for more -->
-				<section data-markdown 
+				<section data-markdown="intro-slides.md"
 					data-separator="---"
 					data-separator-vertical="\+\+\+"
 					data-separator-notes="^Note:">
-					<textarea data-template>
-						*(why we care about)*
-						# Iterators
-						---
-						The `Iterator` Interface
-
-						``` java [|2]
-						public interface Iterator<Item> {
-							public Item next();
-							public boolean hasNext();
-						}
-						```
-						+++
-						Here's an inner one
-						---
-						## Slide 2
-						> This is a blockquote?
-						---
-						## Slide 3
-						```js [1-2|3|4] <!-- using bars conveys transitions! -->
-						let a = 1;
-						let b = 2;
-						let c = x => 1 + 2 + x;
-						c(3);
-					</textarea>
-				  </section>
+				</section>
 			</div>
 		</div>
 
