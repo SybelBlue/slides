@@ -39,21 +39,3 @@ Set animals to 0
 For each animal enclosure in the zoo:
     Add the number of animals in the enclsoure to animals
 ```
-
----
-## Comparing C-style with For-Each
-``` java
-// C-style For loop
-int animals = 0;
-for (int i = 0; i < enclosures.length; i++) {
-    Enclosure pen = enclosures.get(i);
-    animals += pen.getAnimalCount();
-}
-
-// For-Each loop
-int animals = 0;
-for (Enclosure pen : enclosures.length) {
-    animals += pen.getAnimalCount();
-}
-/*     Hurray for Syntax Sugar!        */
-```
