@@ -11,13 +11,33 @@
 		<link rel="stylesheet" href="dist/theme/sky.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-dark.min.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-dark.min.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<!-- see https://revealjs.com/markdown/ for more -->
+				<section data-markdown 
+					data-separator="---"
+					data-separator-vertical="\+\+\+"
+					data-separator-notes="^Note:">
+					<textarea data-template>
+					  # Slide 1
+					  A paragraph with some text and a [link](http://hakim.se).
+					  +++
+					  Here's an inner one
+					  ---
+					  ## Slide 2
+					  > This is a blockquote?
+					  ---
+					  ## Slide 3
+					  ```js [1-2|3|4] <!-- using bars conveys transitions! -->
+					  let a = 1;
+					  let b = 2;
+					  let c = x => 1 + 2 + x;
+					  c(3);
+					</textarea>
+				  </section>
 			</div>
 		</div>
 
