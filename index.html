@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>(Why We Care About) Iterators</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -22,20 +22,29 @@
 					data-separator-vertical="\+\+\+"
 					data-separator-notes="^Note:">
 					<textarea data-template>
-					  # Slide 1
-					  A paragraph with some text and a [link](http://hakim.se).
-					  +++
-					  Here's an inner one
-					  ---
-					  ## Slide 2
-					  > This is a blockquote?
-					  ---
-					  ## Slide 3
-					  ```js [1-2|3|4] <!-- using bars conveys transitions! -->
-					  let a = 1;
-					  let b = 2;
-					  let c = x => 1 + 2 + x;
-					  c(3);
+						*(why we care about)*
+						# Iterators
+						---
+						The `Iterator` Interface
+
+						``` java [|2]
+						public interface Iterator<Item> {
+							public Item next();
+							public boolean hasNext();
+						}
+						```
+						+++
+						Here's an inner one
+						---
+						## Slide 2
+						> This is a blockquote?
+						---
+						## Slide 3
+						```js [1-2|3|4] <!-- using bars conveys transitions! -->
+						let a = 1;
+						let b = 2;
+						let c = x => 1 + 2 + x;
+						c(3);
 					</textarea>
 				  </section>
 			</div>
