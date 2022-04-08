@@ -14,30 +14,149 @@
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-dark.min.css">
 	</head>
 	<body>
+		<style>
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4,
+			.reveal h5,
+			.reveal h6 {
+				text-transform: none;
+			}
+			.reveal .col-container {
+				display: flex;
+			}
+			.reveal .col {
+				flex: 1;
+				font-size: 80%;
+			}
+			.reveal i {
+				font-style: italic !important;
+			}
+			.reveal .demph {
+				font-size: 80%;
+				font-style: italic !important;
+			}
+			.reveal blockquote {
+				background-color: rgb(134, 184, 194);
+			}
+		</style>
 		<div class="reveal">
 			<div class="slides">
-				<!-- see https://revealjs.com/markdown/ for more -->
-				<section data-markdown 
-					data-separator="---"
-					data-separator-vertical="\+\+\+"
-					data-separator-notes="^Note:">
-					<textarea data-template>
-					  # Slide 1
-					  A paragraph with some text and a [link](http://hakim.se).
-					  +++
-					  Here's an inner one
-					  ---
-					  ## Slide 2
-					  > This is a blockquote?
-					  ---
-					  ## Slide 3
-					  ```js [1-2|3|4] <!-- using bars conveys transitions! -->
-					  let a = 1;
-					  let b = 2;
-					  let c = x => 1 + 2 + x;
-					  c(3);
-					</textarea>
-				  </section>
+				<section>
+					<i>demystifying</i>
+					<h2>Heuristic Evaluation</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Heuristic</h2>
+						<p class="fragment fade-in">
+							<i>A measure of how well something performs</i>
+						</p>
+					</section>
+					<section>
+						<h2>Heuristic Evaluation</h2>
+						<i class="fragment fade-in">
+							A User Study to see how an artifact measure up using our heuristics
+						</i>
+					</section>
+				</section>
+				<section>
+					<h2>Our Heuristics</h2>
+					<section>
+						We have 10 broad heuristics from a paper* <br> written in the 90s.
+						<br>
+						<br>
+						<br>
+						<i style="font-size: small;">*Nielsen, J., & Molich, R. (1990). Heuristic evaluation of user interfaces</i>
+					</section>
+					<section>
+						<div class="demph">For our class, we'll bucket into</div> 
+						3 Broad Categories
+						<blockquote class="fragment fade-in">Seeing is Believing</blockquote>
+						<blockquote class="fragment fade-in">Shoot for the Sky (not your Foot)</blockquote>
+						<blockquote class="fragment fade-in">The Best Kind of Rut</blockquote>
+					</section>
+				</section>
+				<section>
+					<blockquote>Seeing is Believing</blockquote>
+					<p class="demph">Your tool should create a mental model at a glance.</p>
+					<ul>
+						<li class="fragment fade-in">Visibility of System Status</li>
+						<li class="fragment fade-in">Match between System and the Real World</li>
+						<li class="fragment fade-in">Recognition rather than Recall</li>
+					</ul>
+					<aside class="notes">
+						Fast feedback <br>
+						Notation, format should be familiar <br>
+						Reduce cognitive load
+					</aside>
+				</section>
+				<section>
+					<blockquote>Shoot for the Sky (not your Foot)</blockquote>
+					<p class="demph">Powerful tools are great -- if they don't destroy stuff.</p>
+					<ul>
+						<div class="fragment fade-in">
+							<li>User Freedom</li>
+							<li>Flexibility and Efficiency</li>
+						</div>
+						<div class="fragment fade-in">
+							<li>Error Prevention</li>
+							<li>Error Discovery and Recovery</li>
+						</div>
+					</ul>
+					<aside class="notes">
+						Users will and should make mistakes <br>
+						Errors are best prevented, but if not, easy to recover from
+					</aside>
+				</section>
+				<section>
+					<blockquote>The Best Kind of Rut</blockquote>
+					<p class="demph">Offer exactly one clear way to perform tasks.</p>
+					<ul>
+						<li class="fragment fade-in">Consistency</li>
+						<li class="fragment fade-in">Aesthetics and Minimalism</li>
+						<li class="fragment fade-in">Help and Documentation</li>
+					</ul>
+					<aside class="notes">
+						Words/Actions should always mean the same thing <br>
+						Docs and Aesthetics should both have the goldilocks amount <br>
+						Docs should be easy to search, and offer actionable tutorial
+					</aside>
+				</section>
+				<section>
+					<h2>Our Heuristics</h2>
+					<div class="col-container">
+						<div class="col">
+							<blockquote>Seeing is Believing</blockquote>
+							<ul class="fragment fade-in">
+								<li>Visibility of System Status</li>
+								<li>Match between System and the Real World</li>
+								<li>Recognition rather than Recall</li>
+							</ul>
+						</div>
+						<div class="col">
+							<blockquote>Shoot for the Sky <br> (not your Foot)</blockquote>
+							<ul class="fragment fade-in">
+								<li>User Freedom</li>
+								<li>Flexibility and Efficiency</li>
+								<div>
+									<li>Error Prevention</li>
+									<li>Error Discovery and Recovery</li>
+								</div>
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div style="font-size: 80%; width: 50%; margin-left: 25%;">
+						<blockquote>The Best Kind of Rut</blockquote>
+						<ul class="fragment fade-in" style="text-align: left;">
+							<li>Consistency</li>
+							<li>Aesthetics and Minimalism</li>
+							<li>Help and Documentation</li>
+						</ul>
+					</div>
+				</section>
 			</div>
 		</div>
 
