@@ -1,0 +1,23 @@
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+}
+.reveal .caps {
+    text-transform: capitalize;
+}
+.reveal .col-container {
+    display: flex;
+}
+.reveal .col {
+    flex: 1;
+    font-size: 80%;
+}
+.reveal i {
+    font-style: italic !important;
+}
+.reveal .demph {
+    font-size: 80%;
+    font-style: italic !important;
+}
+.reveal blockquote {
+    background-color: rgb(134, 184, 194);
+}
