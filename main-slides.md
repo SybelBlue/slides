@@ -555,7 +555,8 @@ public class Person {
 ```
 <!-- .element: class="fragment fade-in" -->
 
-Anyone can edit names! <!-- .element: class="fragment fade-in" -->
+Anyone can edit names! 
+<!-- .element: class="fragment fade-in" -->
 
 ---
 
@@ -653,7 +654,7 @@ public class Person {
     // ...
     public ? toString() {
         return "Person{ _name = " + _name + 
-            ", _age = " + _age + "};
+            ", _age = " + _age + "}";
     }
 }
 ```
@@ -667,7 +668,7 @@ public class Person {
     // ...
     public String toString() {
         return "Person{ _name = " + _name + 
-            ", _age = " + _age + " };
+            ", _age = " + _age + " }";
     }
 }
 ```
