@@ -2,6 +2,12 @@
 # Iterators
 ---
 
+## Recap:
+
+> Interfaces characterize common __behavior__
+
+---
+
 ## The __`Iterator`__ Interface
 
 ``` java [|2]
@@ -18,9 +24,7 @@ public interface Iterable<Item> {
 }
 ```
 Note that this just turns an object into an `Iterator`.
-+++
-Main Takeaway:
-> Interfaces characterize common __behavior__
+
 ---
 
 ## But why do I want this?
