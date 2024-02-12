@@ -25,3 +25,7 @@
 .reveal .invis {
     color: #0000;
 }
+
+.reveal blockquote.bad {
+    background-color: rgb(232, 131, 131);
+}
