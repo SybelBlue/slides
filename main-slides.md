@@ -3,31 +3,92 @@
 #### **Serena Caraco**, *Nelson Lojo*, <br> Michael Verdicchio, Armando Fox
 
 ---
+<!-- .slide: data-auto-animate -->
 
-## Perlis' 27th Epigram:
-> Once you understand how to write a program,
-> get someone else to write it.
+> I am not a great programmer, <br>
+> I am a good programmer <br>
+> with great habits.
+
+*Kent Beck*
+<!-- .element: class="fragment fade-in" -->
+
+*How do we impart good habits?*
+<!-- .element: class="fragment fade-in" -->
+
+---
+<!-- .slide: data-auto-animate -->
+### Students *must* learn proper style.
+
+*How do we impart good habits?*
+
++++
+<!-- .slide: data-auto-animate -->
+
+*How do we impart good habits?*
+
+``` js
+function isEven(n: Number) {
+    // your recursive code here.
+}
+```
+
++++
+<!-- .slide: data-auto-animate -->
+
+*How do we impart good habits?*
+
+``` js
+function isEven(n: Number) {
+    if (n /* is this the first base case?*/) {
+        return true;
+    }
+    // try to make it recursive!.
+}
+```
+
++++
+<!-- .slide: data-auto-animate -->
+
+*How do we impart good habits?*
+
+``` js
+function isEven(n: Number) {
+    if (n == 0) {
+        return true;
+    } else if (isEven(n - 1) == false) {
+        return false;
+    } else if (isEven(n - 2) == true) {
+        return true;
+    } else if (isEven(n - 3) == false) {
+        return false;
+    } else if (isEven(n - 4) == true) {
+        return true;
+    } else if (isEven(n - 5) == false) {
+        return false;
+    } else if (isEven(n - 6) == true) {
+        return true;
+    } else if (isEven(n - 7) == false) {
+        return false;
+    } else if (isEven(n - 8) == true) {
+        return true;
+    } else if (isEven(n - 9) == false) {
+        return false;
+    }
+}
+```
+<!-- .element: class="fragment fade-in" -->
+
++++
+<!-- .slide: data-auto-animate -->
+
+*How do we impart good habits?*
+
+### Faded Parsons Problems
 
 ---
 <!-- .slide: data-auto-animate -->
 
-### Students *must* learn proper style.
-
-+++
-<!-- .slide: data-auto-animate -->
-
-### Students *must* learn proper style.
-
-*How do we impart good habits?*
-
-Note: I am a good programmer with great habits. Kent Beck
-
-+++
-<!-- .slide: data-auto-animate -->
-
-*How do we impart good habits?*
-
-> Faded Parsons Problems
+### Faded Parsons Problems
 
 ![a simple FPP](img/dragging-simple.png)
 
@@ -36,96 +97,105 @@ Note: Guiding idea: force expert solution reconstruction.
 +++
 <!-- .slide: data-auto-animate -->
 
-> Faded Parsons Problems
+### Faded Parsons Problems
 
-Comparing to Code-Writing...
-- At Least as Effective
+*At Least as Effective as Code-Writing*
 <!-- .element: class="fragment fade-in" -->
-- More Efficient
-<!-- .element: class="fragment fade-in" -->
-- Strong Pattern Retention
+*Designed for Picking Up Good Habits*
 <!-- .element: class="fragment fade-in" -->
 
 Note: \*citation needed
 
 ---
+<!-- .slide: data-auto-animate -->
 
-Sounds Great!
+### Faded Parsons Problems
 
-<i><small>How do I use it...</small></i>
+*Is this actually usable?*
 
----
-
-You'll need:
-
-- A Prompt
-- Your Solution
-- The Spec (a Test Suite)
-
-*These can be all in one file!*
-
-<!-- +++ -->
-
-<!-- todo: adoption -->
+- *It must be autogradable.*
+<!-- .element: class="fragment fade-in" -->
+- *It must not be meaningully harder <br> to make than code writing.*
+<!-- .element: class="fragment fade-in" -->
 
 ---
+<!-- .slide: data-auto-animate -->
+### Autograding
 
-### Students *must* learn to write tests.
+*It must be autogradable.*
 
-- Instructors provide Applications
-- Students write Test Suites.
-
-Note: Ideally test suites find bugs.
+- (Good) code is meant to run.
+- (Good) platforms tighten the inner dev loop.
 
 ---
+<!-- .slide: data-auto-animate -->
+### Authoring
 
-Gatekeepers for New Curricula:
-- How do we scaffold it?
-- How do we grade it?
-- *A secret third thing?*
+> The No-Compromises Approach to Bettering Your Authoring UX
 
 +++
+<!-- .slide: data-auto-animate -->
+### Authoring <span class="invis">Faded</span> Parsons Problems
 
-*So how do we scaffold test-writing?*
-
-> Problem Sequences
-
-> Faded Parsons Problems
-
-
-Note:
-- Scaffolding is hard.
-- Scaffolding reduces cognitive load.
-- Scaffold by imposing Guiding Structure.
+1. Start with your Code Writing Exercise.
+2. Run FPPgen.
 
 +++
+<!-- .slide: data-auto-animate -->
+### Authoring Faded Parsons Problems
 
-*So how do we grade test-writing?*
+1. Start with your Code Writing Exercise.
+2. Mark `?Blanks?`.
+3. Run FPPgen.
 
-We need to evaluate students' test suites.
+*No-Compromises?*
+<!-- .element: class="fragment fade-in" -->
+💯
+<!-- .element: class="fragment fade-in" -->
 
-*Spec-Based* Autograders won't work here.
+
+---
+<!-- .slide: data-auto-animate -->
+
+*Yeah, okay. What about...*
+
+### Authoring From Scratch
 
 +++
+<!-- .slide: data-auto-animate -->
+### Python Code Writing From Scratch
 
-*So how do we grade test-writing?*
+2. Use PrairieLearn to Generate Templates.
+3. Rewrite the Question Config.
+4. Update the Server File.
+5. Write Your Prompt (XML).
+6. Write Your Question (XML).
+7. Write Your Solution.
+8. Write Your Tests.
 
-> Mutation-Based Autograding
+Note: PL testing grades against your solution.
 
-This is a known technique.
++++
+<!-- .slide: data-auto-animate -->
+### Python Faded Parsons From Scratch
 
-*Remember: Students write a test suite*
+1. Write your Prompt.
+2. Write your Solution.
+3. Write your Tests.
+4. Run FPPgen.
+
+*Better than No-Compromises: <br> FPPgen is Win-Win*
+<!-- .element: class="fragment fade-in" -->
+
+Note: prompt embellishment, solution presentation.
 
 ---
-
-Gatekeepers for New Curricula:
-- How do we scaffold it?
-- How do we grade it?
-- **How much effort to adopt it?**
+<!-- .slide: data-auto-animate -->
+*This is cool, but aren't blocks for babies?*
 
 ---
+<!-- .slide: data-auto-animate -->
+### Students *must* learn test writing.
 
-<!-- todo: adoption pt 2 -->
-
-
-<a href="#/0">Back to the first</a>
+*How do we impart good habits?*
+<!-- .element: class="fragment fade-in" -->
