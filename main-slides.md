@@ -6,6 +6,7 @@
 ---
 <!-- .slide: data-auto-animate -->
 ## 60 Second Talk
+#### Part 1
 - Teaching Good Habits is Hard
 - Faded Parsons Problems help
 - **FPPgen** makes Authoring FPPs easy
@@ -13,7 +14,7 @@
 +++
 <!-- .slide: data-auto-animate -->
 ## 60 Second Talk
-
+#### Part 2
 - Strong Test Writing is a Good Habit
 - **FPPgen** can scale scaffolding and <br> support broad dependencies
 - **Mutation-Based Autograders** can <br> grade Test Suites
@@ -61,7 +62,7 @@ def isEven(n: int):
 
 ``` py
 def isEven(n: int):
-    if n == 0:
+    if n == 2:
         return True
     else if isEven(n - 1) == False:
         return False
@@ -92,6 +93,7 @@ def isEven(n: int):
 *How do we impart good habits?*
 
 ### Faded Parsons Problems
+<!-- .element: class="fragment fade-in" -->
 
 ---
 <!-- .slide: data-auto-animate -->
@@ -195,6 +197,7 @@ First, a recap of authoring Code Writing problems.
 1. Write Your Question (XML).
 1. Write Your Solution.
 1. Write Your Spec.
+<!-- .element: class="fragment highlight-red" -->
 
 Note: PL testing grades against your solution with a Spec-Based Autograder.
 
@@ -249,3 +252,55 @@ I'll do you one better.
 <!-- .element: class="fragment fade-in" -->
 ### Faded Parsons Problems <span class="fragment fade-in">++</span>
 <!-- .element: class="fragment fade-in" -->
+
++++
+<!-- .slide: data-auto-animate -->
+
+#### Difficult to Scaffold.
+
+*A simple one-tray pre-/post-text rspec example*
+
++++
+<!-- .slide: data-auto-animate -->
+
+#### Difficult to Scaffold.
+
+*A progression of a multipart problem*
+
+---
+<!-- .slide: data-auto-animate -->
+### Students *must* learn test writing.
+
+#### ✅ Difficult to Scaffold.
+#### Even Harder to Grade.
+
++++
+<!-- .slide: data-auto-animate -->
+#### Even Harder to Grade.
+
+Problem Components:
+<!-- .element: class="fragment fade-in" -->
+- A System Under Test that we provide
+<!-- .element: class="fragment fade-in" -->
+- A Test Suite that
+<!-- .element: class="fragment fade-in" -->
+*we want to grade*
+
+> Spec-Based Autograding <br>
+> doesn't work here.
+<!-- .element: class="fragment fade-in" -->
+
++++
+<!-- .slide: data-auto-animate -->
+#### Even Harder to Grade.
+- A System Under Test that we provide
+- A Test Suite that *we want to grade*
+- A Set of Mutants we create
+<!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+Borrow Mutant Generation from Industry QA
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+Make a *Mutation-Based Autograder* that <br>
+grades a test suite on killed mutants
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
