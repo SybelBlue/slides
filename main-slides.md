@@ -1,6 +1,6 @@
 <!-- todo: prairielearn, adoption, fppgen -->
 ## Automatic Generation of <br> Faded Parsons Problems
-#### **Serena Caraco**, *Nelson Lojo*, <br> Michael Verdicchio, Armando Fox
+#### **Serena Caraco**, Nelson Lojo, <br> Michael Verdicchio, *Armando Fox*
 
 
 ---
@@ -8,8 +8,8 @@
 ## 60 Second Talk
 #### Part 1
 - Teaching Good Habits is Hard
-- Faded Parsons Problems help
-- **FPPgen** makes Authoring FPPs easy
+- Faded Parsons Problems Help
+- **FPPgen** Streamlines Authoring
 
 +++
 <!-- .slide: data-auto-animate -->
@@ -33,7 +33,6 @@
 > with great habits.
 
 *Kent Beck*
-<!-- .element: class="fragment fade-in" -->
 
 *How do we impart good habits?*
 <!-- .element: class="fragment fade-in" -->
@@ -42,7 +41,7 @@
 <!-- .slide: data-auto-animate -->
 
 ``` py
-def isEven(n: int):
+def is_even(n: int):
     # your recursive code here.
 ```
 
@@ -50,7 +49,7 @@ def isEven(n: int):
 <!-- .slide: data-auto-animate -->
 
 ``` py
-def isEven(n: int):
+def is_even(n: int):
     # think: what's the base case here?
     if base_case:
         return True
@@ -61,26 +60,26 @@ def isEven(n: int):
 <!-- .slide: data-auto-animate -->
 
 ``` py
-def isEven(n: int):
+def is_even(n: int):
     if n == 2:
         return True
-    else if isEven(n - 1) == False:
+    else if is_even(n - 1) == False:
         return False
-    else if isEven(n - 2) == True:
+    else if is_even(n - 2) == True:
         return True
-    elif isEven(n - 3) == False:
+    elif is_even(n - 3) == False:
         return False
-    else if isEven(n - 4) == True:
+    else if is_even(n - 4) == True:
         return True
-    else if isEven(n - 5) == False:
+    else if is_even(n - 5) == False:
         return False
-    else if isEven(n - 6) == True:
+    else if is_even(n - 6) == True:
         return True
-    else if isEven(n - 7) == False:
+    else if is_even(n - 7) == False:
         return False
-    else if isEven(n - 8) == True:
+    else if is_even(n - 8) == True:
         return True
-    else if isEven(n - 9) == False:
+    else if is_even(n - 9) == False:
         return False
 ```
 
@@ -137,7 +136,7 @@ Note: \*citation needed
 
 - It must be autogradable.
 <!-- .element: class="fragment fade-in" -->
-- It must not be meaningully harder to <br> author than a code writing problem.
+- It must not be meaningully harder to <br> author than a Code-Writing problem.
 <!-- .element: class="fragment fade-in" -->
 
 ---
@@ -153,7 +152,7 @@ Let's start with Converting to FPPs.
 <!-- .slide: data-auto-animate -->
 ### Converting to <span class="invis">Faded</span> Parsons Problems
 
-1. Start with your Code Writing Exercise.
+1. Start with your Code-Writing Exercise.
 <!-- .element: class="fragment fade-in" -->
 2. Run FPPgen.
 <!-- .element: class="fragment fade-in" -->
@@ -164,7 +163,7 @@ Let's start with Converting to FPPs.
 <!-- .slide: data-auto-animate -->
 ### Converting to Faded Parsons Problems
 
-1. Start with your Code Writing Exercise.
+1. Start with your Code-Writing Exercise.
 2. Mark `?Blanks?`.
 3. Run FPPgen.
 4. Done.
@@ -182,13 +181,13 @@ Let's start with Converting to FPPs.
 
 ### Authoring From Scratch
 
-First, a recap of authoring Code Writing problems.
+First, a recap of authoring Code-Writing problems.
 <!-- .element: class="fragment fade-in" -->
 
 
 +++
 <!-- .slide: data-auto-animate -->
-### Code Writing From Scratch
+### Code-Writing From Scratch
 
 1. Use PrairieLearn to Generate Templates.
 1. Rewrite the Question Config.
@@ -236,7 +235,7 @@ I'll do you one better.
 
 ---
 <!-- .slide: data-auto-animate -->
-### Students *must* learn test writing.
+### Test writing is a critical habit.
 
 #### Difficult to Scaffold.
 <!-- .element: class="fragment fade-in" -->
@@ -269,7 +268,7 @@ I'll do you one better.
 
 ---
 <!-- .slide: data-auto-animate -->
-### Students *must* learn test writing.
+### Test writing is a critical habit.
 
 #### ✅ Difficult to Scaffold.
 #### Even Harder to Grade.
@@ -290,17 +289,27 @@ Problem Components:
 > doesn't work here.
 <!-- .element: class="fragment fade-in" -->
 
+Note: arbitrary SUT dependencies! arbitrary test deps!
+
 +++
 <!-- .slide: data-auto-animate -->
 #### Even Harder to Grade.
 - A System Under Test that we provide
 - A Test Suite that *we want to grade*
 - A Set of Mutants we create
-<!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
 
 Borrow Mutant Generation from Industry QA
-<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
 
 Make a *Mutation-Based Autograder* that <br>
 grades a test suite on killed mutants
-<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+---
+
+### Future Work
+
+- Automated Mutant Generation
+- Streamlined Multi-Part Problem Writing
+- Study Efficacy specific to Test Writing
+- Use FPPgen with more Topics
