@@ -5,28 +5,6 @@
 
 ---
 <!-- .slide: data-auto-animate -->
-## 60 Second Talk
-#### Part 1
-- Teaching Good Habits is Hard
-- Faded Parsons Problems Help
-- **FPPgen** Streamlines Authoring
-
-+++
-<!-- .slide: data-auto-animate -->
-## 60 Second Talk
-#### Part 2
-- Strong Test Writing is a Good Habit
-- **FPPgen** can scale scaffolding and <br> support broad dependencies
-- **Mutation-Based Autograders** can <br> grade Test Suites
-
-+++
-<!-- .slide: data-auto-animate -->
-## 60 Second Talk
-
-*Regardless of students' skill-levels, <br> FPPgen can help you.*
-
----
-<!-- .slide: data-auto-animate -->
 
 > I am not a great programmer, <br>
 > I am a good programmer <br>
@@ -39,25 +17,76 @@
 
 ---
 <!-- .slide: data-auto-animate -->
+## Motivation
 
-``` py
-def is_even(n: int):
-    # your recursive code here.
-```
+### Faded Parsons is Usable at Any Scale
 
 +++
 <!-- .slide: data-auto-animate -->
+## Motivation
 
-``` py
+- Complex Problems need Scaffolding
+- Students need to form Good Habits Early
+
+> Faded Parsons Problems work, <br>
+> but are hard to write from scratch.
+<!-- .element: class="fragment fade-in" -->
+
+Note: Intro-Level Learning
+
++++
+<!-- .slide: data-auto-animate -->
+## Motivation
+
+- Test Writing is a *Complex* Problem
+- Test Writing is a Good Habit
+
+> Code-Writing Problems and Existing Autograders falter here.
+<!-- .element: class="fragment fade-in" -->
+
+Note: Upper-Level Learning
+
++++
+<!-- .slide: data-auto-animate -->
+## Motivation
+
+> **FPPgen** streamlines Authoring,<br>
+> supports Arbitrary Complexity.
+
+> **Mutation-Based Autograders** <br> assess Test Quality.
+<!-- .element: class="fragment fade-in good" -->
+
+*No matter the problem skill level or complexity, <br> our tools can help.*
+<!-- .element: class="fragment fade-in" -->
+
+Note: Our Tools solve these Issues.
+
+---
+<!-- .slide: data-auto-animate -->
+*How do we impart good habits?*
+
+#### An Example:
+<!-- .element: class="fragment fade-in" -->
+### Recursion
+<!-- .element: class="fragment fade-in" -->
+
+---
+<!-- .slide: data-auto-animate -->
+
+### Recursion
+
+``` py [1,5|]
 def is_even(n: int):
     # think: what's the base case here?
     if base_case:
         return True
     # solve the rest with recursion!
 ```
+<!-- .element: class="fragment fade-in" -->
 
 +++
 <!-- .slide: data-auto-animate -->
+### Recursion
 
 ``` py
 def is_even(n: int):
@@ -145,14 +174,14 @@ Note: \*citation needed
 
 > The No-Compromises Approach to Bettering Your Authoring UX
 
-Let's start with Converting to FPPs.
+Let's start with Converting from Code-Writing.
 <!-- .element: class="fragment fade-in" -->
 
 +++
 <!-- .slide: data-auto-animate -->
 ### Converting to <span class="invis">Faded</span> Parsons Problems
 
-1. Start with your Code-Writing Exercise.
+1. Start with your Code-Writing Solution.
 <!-- .element: class="fragment fade-in" -->
 2. Run FPPgen.
 <!-- .element: class="fragment fade-in" -->
@@ -163,7 +192,7 @@ Let's start with Converting to FPPs.
 <!-- .slide: data-auto-animate -->
 ### Converting to Faded Parsons Problems
 
-1. Start with your Code-Writing Exercise.
+1. Start with your Code-Writing Solution.
 2. Mark `?Blanks?`.
 3. Run FPPgen.
 4. Done.
@@ -177,7 +206,7 @@ Let's start with Converting to FPPs.
 +++
 <!-- .slide: data-auto-animate -->
 
-*Yeah, okay. What about...*
+*Well, what about...*
 
 ### Authoring From Scratch
 
@@ -192,11 +221,10 @@ First, a recap of authoring Code-Writing problems.
 1. Use PrairieLearn to Generate Templates.
 1. Rewrite the Question Config.
 1. Update the Server File.
-1. Write Your Prompt (XML).
+1. Write Your Prompt (HTML).
 1. Write Your Question (XML).
 1. Write Your Solution.
 1. Write Your Spec.
-<!-- .element: class="fragment highlight-red" -->
 
 Note: PL testing grades against your solution with a Spec-Based Autograder.
 
@@ -214,6 +242,21 @@ Note: PL testing grades against your solution with a Spec-Based Autograder.
 
 Note: prompt embellishment, solution presentation.
 
++++
+<!-- .slide: data-auto-animate -->
+
+### Note: Spec-Based Autograders
+
+3. Write your Spec.
+
+<hr>
+
+- All Autograders are Spec-Based
+<!-- .element: class="fragment fade-in" -->
+- Test Inputs and a Reference Solution <br>
+create a Spec for Student Solutions
+<!-- .element: class="fragment fade-in" -->
+
 ---
 <!-- .slide: data-auto-animate -->
 
@@ -224,18 +267,13 @@ Note: prompt embellishment, solution presentation.
 > for teaching software engineering.
 <!-- .element: class="bad" -->
 
-
-*This is cool, but aren't blocks for babies?*
-<!-- .element: class="fragment fade-in" -->
-
-<hr>
-
 I'll do you one better.
 <!-- .element: class="fragment fade-in" -->
 
 ---
 <!-- .slide: data-auto-animate -->
-### Test writing is a critical habit.
+
+### Test Writing
 
 #### Difficult to Scaffold.
 <!-- .element: class="fragment fade-in" -->
@@ -255,23 +293,81 @@ I'll do you one better.
 +++
 <!-- .slide: data-auto-animate -->
 
-#### Difficult to Scaffold.
+#### Single-Tray Problems with Context
 
-*A simple one-tray pre-/post-text rspec example*
+<img src="img/giftcard-sequence/0.png">
 
 +++
 <!-- .slide: data-auto-animate -->
 
-#### Difficult to Scaffold.
+#### Mutli-Part Faded Parsons
 
-*A progression of a multipart problem*
+
+<div class="col-container">
+    <div class="col">
+        <img src="img/giftcard-sequence/0.png">
+        <h4 class="demph fragment fade-in">Solved!</h4>
+    </div>
+    <div class="col">
+        <img class="fragment fade-in" src="img/giftcard-sequence/1.png">
+    </div>
+</div>
+
++++
+<!-- .slide: data-auto-animate -->
+
+#### Mutli-Part Faded Parsons
+
+
+<div class="col-container">
+    <div class="col">
+        <img class="fragment" src="img/giftcard-sequence/1.png">
+        <h4 class="demph fragment fade-in">Solved!</h4>
+    </div>
+    <div class="col">
+        <img class="fragment fade-in" src="img/giftcard-sequence/2.png">
+    </div>
+</div>
+
++++
+<!-- .slide: data-auto-animate -->
+
+#### Mutli-Part Faded Parsons
+
+
+<div class="col-container">
+    <div class="col">
+        <img src="img/giftcard-sequence/0.png">
+    </div>
+    <div class="col">
+        <img src="img/giftcard-sequence/1.png">
+    </div>
+    <div class="col">
+        <img src="img/giftcard-sequence/2.png">
+    </div>
+</div>
+
++++
+<!-- .slide: data-auto-animate -->
+
+#### Mutli-Part Faded Parsons
+
+![a final question to DRY out code](img/giftcard-sequence/dry-cropped.png)
+<!-- .element: class="taper-fade" -->
 
 ---
 <!-- .slide: data-auto-animate -->
-### Test writing is a critical habit.
+### Test Writing
 
 #### ✅ Difficult to Scaffold.
 #### Even Harder to Grade.
+
++++
+<!-- .slide: data-auto-animate -->
+
+### PrairieLearn's Spec-Based Autograder
+
+`$$\text{Inputs} \xrightarrow[\text{Ref Function}]{\text{Student Function}} \text{Scores}$$`
 
 +++
 <!-- .slide: data-auto-animate -->
@@ -305,11 +401,45 @@ Make a *Mutation-Based Autograder* that <br>
 grades a test suite on killed mutants
 <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
 
++++
+<!-- .slide: data-auto-animate -->
+
+#### Spec-Based Autograders
+
+`$$\text{Inputs} \xrightarrow[\text{Ref Function}]{\text{Student Function}} \text{Scores}$$`
+
+#### Mutation-Based Autograders
+
+`$$\text{Mutants} \times \text{SUT} \xrightarrow[\text{Ref Suite}]{\text{Student Suite}} \text{Scores}$$`
+<!-- .element: class="fragment fade-in" -->
+
+<hr>
+
+Mutation-Based has Higher-Level Inputs, <br>
+but the Same Scoring Process
+<!-- .element: class="fragment fade-in" -->
+
+---
+<!-- .slide: data-auto-animate -->
+### Test Writing
+
+#### ✅ Difficult to Scaffold.
+#### ✅ Even Harder to Grade.
+
+*What about authoring these...*
+<!-- .element: class="fragment fade-in" -->
+
 ---
 
 ### Future Work
 
-- Automated Mutant Generation
-- Streamlined Multi-Part Problem Writing
+- Continue the No-Compromises Approach
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+  - Automated Mutant Generation
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+  - Streamlined Multi-Part Problem Writing
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
 - Study Efficacy specific to Test Writing
-- Use FPPgen with more Topics
+<!-- .element: class="fragment fade-in" -->
+- Use Faded Parsons in more Upper Div Topics
+<!-- .element: class="fragment fade-in" -->

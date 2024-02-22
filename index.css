@@ -5,7 +5,7 @@
     text-transform: capitalize;
 }
 .reveal .col-container {
-    display: flex;
+    display: flex !important;
 }
 .reveal .col {
     flex: 1;
@@ -30,4 +30,12 @@
 
 .reveal blockquote.bad {
     background-color: rgb(232, 131, 131);
+}
+
+.reveal blockquote.good {
+    background-color: rgb(94, 203, 94);
+}
+
+.reveal .taper-fade {
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,1) 40%, rgba(0,0,0,0));
 }
