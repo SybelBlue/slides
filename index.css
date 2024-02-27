@@ -39,3 +39,7 @@
 .reveal .taper-fade {
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,1) 40%, rgba(0,0,0,0));
 }
+
+.reveal hr {
+    color: black;
+}
