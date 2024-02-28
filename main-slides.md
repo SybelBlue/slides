@@ -1,60 +1,8 @@
 <!-- todo: prairielearn, adoption, fppgen -->
 ## Automatic Generation of <br> Faded Parsons Problems <br> For All Levels of Coursework
-#### **Serena Caraco**, Nelson Lojo, <br> Michael Verdicchio, *Armando Fox*
+#### **Serena Caraco**, Nelson Lojo, <br> *Michael Verdicchio*, Armando Fox
 
-
----
-<!-- .slide: data-auto-animate -->
-## Motivation
-
-### Faded Parsons is Usable at Any Scale
-
-+++
-<!-- .slide: data-auto-animate -->
-## Motivation
-
-- Complex Problems need Scaffolding
-- Students need to form Good Habits Early
-
-> Faded Parsons Problems work, <br>
-> but are hard to write from scratch.
-<!-- .element: class="fragment fade-in" -->
-
-Note: Intro-Level Learning
-
-+++
-<!-- .slide: data-auto-animate -->
-## Motivation
-
-- Test Writing is a *Complex* Problem
-- Test Writing is a Good Habit
-
-> Code-Writing Problems and Existing Autograders falter here.
-<!-- .element: class="fragment fade-in" -->
-
-Note: Upper-Level Learning
-
-+++
-<!-- .slide: data-auto-animate -->
-## Motivation
-
-> **FPPgen** streamlines Authoring,<br>
-> supports Arbitrary Complexity.
-
-> **Mutation-Based Autograders** <br> assess Test Quality.
-<!-- .element: class="fragment fade-in good" -->
-
-*No matter the problem skill level or complexity, <br> our tools can help.*
-<!-- .element: class="fragment fade-in" -->
-
-Note: Our Tools solve these Issues.
-
----
-
-### Part One
-<hr>
-
-## Authoring
+Note: Prof Verdicchio in from Charelston, SC
 
 ---
 <!-- .slide: data-auto-animate -->
@@ -70,10 +18,16 @@ Note: Our Tools solve these Issues.
 
 ---
 
-#### An Example:
+### Part Zero
+<hr>
+
+## Background
+
+---
+
+#### Forming Bad Habits in Real Time with
 
 ### Recursion
-<!-- .element: class="fragment fade-in" -->
 
 ``` py
 def is_even(n: int):
@@ -165,31 +119,31 @@ Note: \*citation needed
 
 ---
 <!-- .slide: data-auto-animate -->
-### Authoring Experience
+## Motivation
 
-> The No-Compromises Approach to Bettering Your Authoring UX
+> Faded Parsons Problems work, <br> but are hard to write
 
-Let's start with Converting from Code-Writing.
+> We want to bring Faded Parsons <br> to higher levels of learning
+<!-- .element: class="fragment fade-in good" -->
+
+Note: - others focus on
+    - student ux
+    - fading strategies
+- bring scaffolding, grading, habits
+
+---
+<!-- .slide: data-auto-animate -->
+
+### Part One
+<hr>
+
+## Authoring Experience
+
+### Authoring From Scratch
 <!-- .element: class="fragment fade-in" -->
 
 +++
 <!-- .slide: data-auto-animate -->
-### Converting to Faded Parsons Problems
-
-1. Start with your Code-Writing Solution.
-2. Mark
-<!-- .element: class="fragment fade-in" -->
-`?Blanks?`.
-3. Run FPPgen.
-<!-- .element: class="fragment fade-in" -->
-
-Note: no compromises!!
-
-
-+++
-<!-- .slide: data-auto-animate -->
-
-*Well, what about...*
 
 ### Authoring From Scratch
 
@@ -201,29 +155,51 @@ First, a recap of authoring Code-Writing problems.
 <!-- .slide: data-auto-animate -->
 ### Code-Writing From Scratch
 
-1. Use PrairieLearn to Generate Templates
-1. Rewrite the Question Config
-1. Update the Server File
-1. Write Your Prompt (HTML)
-1. Write Your Question (XML)
-1. Write Your Solution
-1. Write Your Spec
+1. Spin-up PrairieLearn
+1. Generate Templates
+1. Edit info.json
+1. Update server.py
+1. Write your prompt (HTML)
+1. Write your question (XML)
+1. Write your solution (BYOL + XML)
+1. Write your spec
 
 Note: PL testing grades against your solution with a Spec-Based Autograder.
 
 +++
-<!-- .slide: data-auto-animate -->
+
 ### Faded Parsons From Scratch
 
-1. Write your Prompt
-1. Write your Solution
-1. Write your Spec
-1. Run FPPgen
+1. Write your prompt
+2. Write your solution
+3. Write your spec
+4. Run **FPPgen**
 
-*Better than No-Compromises: <br> FPPgen is Win-Win*
+*Minimal Overhead*
 <!-- .element: class="fragment fade-in" -->
 
-Note: prompt embellishment, solution presentation.
+Note: prompt embellishment, reference solution presentation.
+
++++
+<!-- .slide: data-auto-animate -->
+
+*Well, what about...*
+
+### Conversion from Code-Writing
+
++++
+<!-- .slide: data-auto-animate -->
+### Conversion from Code-Writing
+
+1. Start with your Code-Writing Solution.
+2. Mark
+<!-- .element: class="fragment fade-in" -->
+`?Blanks?`.
+3. Run FPPgen.
+<!-- .element: class="fragment fade-in" -->
+
+*Better than Minimal Overhead: <br> **Win-Win***
+<!-- .element: class="fragment fade-in" -->
 
 ---
 
@@ -301,7 +277,7 @@ Note: narrows solution space while scaffolding!
         <img class="fragment" src="img/giftcard-sequence/1.png">
         <h4 class="fragment fade-in">. . . Solved!</h4>
     </div>
-    <div class="col">
+    <div class="col fragment fade-in">
         <img src="img/giftcard-sequence/2.png">
     </div>
 </div>
@@ -350,9 +326,10 @@ Note: narrows solution space while scaffolding!
     </div>
     <div class="col">
         <h4>At Grading</h4>
-        <p style="font-size:6pt; color:#00000000"> spacer </p>
-        <p class="col fragment fade-in">$\rangle$ Reference Output</p>
-        <p class="col fragment fade-in">$\rangle$ Student Output</p>
+        <hr class="invis"></hr>
+        <p class="col fragment fade-in" style="text-align: left;">$\big \}~~$ Reference Output</p>
+        <p class="col fragment fade-in" style="text-align: left;">$\big \}~~~~$ Student Output</p>
+        <hr class="invis"></hr>
         <hr class="col fragment fade-in">
         <p class="col fragment fade-in"><b>Score</b></p>
     </div>
@@ -415,16 +392,14 @@ grades a test suite on killed mutants
         <div class="col-container">
             <div class="col">
                 <p class="col">&nbsp</p>
-                <p style="font-size:4pt; color:#00000000"> spacer </p>
-                <p class="col">$\rangle\rangle\rangle$ Mutants</p>
+                <p class="col fragment fade-in">$\bigg \}$ Mutants</p>
             </div>
             <div class="col">
-                <p style="font-size:6pt; color:#00000000"> spacer </p>
-                <p class="col">$\rangle$ Reference Output</p>
-                <p class="col">&nbsp</p>
-                <p class="col">$\rangle$ Student Output</p>
-                <hr class="col">
-                <p class="col"><b>Score</b></p>
+                <p class="col fragment fade-in" style="text-align: left;">$\bigg \}~~$ Reference Output</p>
+                <hr style="color:#00000000"></hr>
+                <p class="col fragment fade-in" style="text-align: left;">$\bigg \}~~~~$ Student Output</p>
+                <hr class="col fragment fade-in">
+                <p class="col fragment fade-in"><b>Score</b></p>
             </div>
         </div>
     </div>
@@ -480,4 +455,18 @@ Note: Only one set of mutations is necessary across all parts of a problem.
 - Study Efficacy specific to Test Writing
 <!-- .element: class="fragment fade-in" -->
 - Use Faded Parsons in more Upper Div Topics
+<!-- .element: class="fragment fade-in" -->
+
+---
+<!-- .slide: data-auto-animate -->
+### Conclusion
+
+> **FPPgen** streamlines Authoring,<br>
+> supports Arbitrary Complexity.
+<!-- .element: class="fragment fade-in" -->
+
+> **Mutation-Based Autograders** <br> assess Test Quality.
+<!-- .element: class="fragment fade-in good" -->
+
+*No matter the problem skill level or complexity, <br> our tools can help.*
 <!-- .element: class="fragment fade-in" -->
