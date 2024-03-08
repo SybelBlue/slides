@@ -51,6 +51,21 @@ def is_even(n: int):
 <!-- .slide: data-auto-animate -->
 ### Recursion
 
+*Send it!*
+
+*New Grading Request...*
+<!-- .element: class="fragment fade-in" -->
+
+Note: beefy uplifting descriptors for student feedback:
+- elegant
+- brilliant
+- luminary
+- prodigious
+
++++
+<!-- .slide: data-auto-animate -->
+### Recursion
+
 ``` py
 def is_even(n: int):
     if n == 2:
@@ -107,17 +122,21 @@ Note: Guiding idea: force expert solution reconstruction.
 ### Faded Parsons Problems
 *Do they work?*
 
-- As effective as Code-Writing
+- At least as effective as Code-Writing
 <!-- .element: class="fragment fade-in" -->
 - Designed for learning Good Habits
 <!-- .element: class="fragment fade-in" -->
-- Highly constrain Solution Space
+- Highly constrain the Solution Space
 <!-- .element: class="fragment fade-in" -->
 
-Note: \*citation needed
-- others focus on
-    - student ux
-    - fading strategies
+<p>&nbsp</p>
+
+[Ericson '18, Zhi '19, Weinmann '20]
+<!-- .element: class="demph" -->
+
+Note: - Ericson FPP efficacy
+- Zhi efficiency
+- Weinmann ease of use, good habits
 
 ---
 <!-- .slide: data-auto-animate -->
@@ -211,13 +230,11 @@ First, a recap of authoring Code-Writing problems.
 3. Write your spec
 4. Run **FPPgen**
 
-*Viewing formatted output requires PrairieLearn, <br> but we aren't blocking on it.*
-<!-- .element: class="fragment fade-in" -->
-
 **Minimal Overhead**
 <!-- .element: class="fragment fade-in" -->
 
-Note: - human readable output
+Note: - no longer blocking on PrairieLearn, but still need it
+- human readable output
 - prompt embellishment, reference solution presentation.
 
 +++
@@ -295,7 +312,7 @@ Note: narrows solution space while scaffolding!
 +++
 <!-- .slide: data-auto-animate -->
 
-#### Mutli-Part Faded Parsons
+#### Multi-Part Faded Parsons
 
 
 <div class="col-container">
@@ -319,7 +336,7 @@ Note: narrows solution space while scaffolding!
         <img class="fragment" src="img/giftcard-sequence/1.png">
         <h4 class="fragment fade-in">. . . Solved!</h4>
     </div>
-    <div class="col fragment fade-in">
+    <div class="col">
         <img src="img/giftcard-sequence/2.png">
     </div>
 </div>

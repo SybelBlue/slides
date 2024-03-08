@@ -1,4 +1,38 @@
-<!-- todo: prairielearn, adoption, fppgen -->
+<!-- Feedback
+ Lisa:
+    Good habits quote *good*
+    Conclusion slide colors and content **good**
+    Feels like a research report
+    Still unclear where we're going next
+    Start with the Conclusion slide (as a roadmap)
+    Generalize away from PrairieLearn
+    Maybe cut down on code examples
+    => your talk should quickly prime questions and adoption
+ Narges:
+    Highlight the process of how things are generated
+    Sell us more on how this tool helps
+    QR Code to paper
+ Dan:
+    Answer this fast and early:
+        what is it, how do I use it, where do I get it.
+    slide numbers
+    you faced the screen a lot, face us
+    clicker with laser rather than physical pointer since you may not be near the physical screen
+    demo of fppgen?
+    testing never taught in software engineering (huh?)
+    are you trying to get us to adopt your tool?
+    (from an instructor’s perspective) what’s in it for me?
+ Nelson
+    make it sparse
+    shoot for way shorter than time, needs to include setup/tear-down
+
+ Lots of slidespecs feedback:
+    https://slidespecs.berkeley.edu/review/ZoBcQqr3665ReeWxw
+
+ *don't take them on a journey without telling them where you're going*
+ Fix the ending
+ -->
+
 ## Automatic Generation of <br> Faded Parsons Problems <br> (For All Levels of Learning)
 #### **Serena Caraco**, Nelson Lojo, <br> *Michael Verdicchio*, Armando Fox
 
@@ -46,6 +80,21 @@ def is_even(n: int):
         return True
     # solve the rest with recursion!
 ```
+
++++
+<!-- .slide: data-auto-animate -->
+### Recursion
+
+*Send it!*
+
+*New Grading Request...*
+<!-- .element: class="fragment fade-in" -->
+
+Note: beefy uplifting descriptors for student feedback:
+- elegant
+- brilliant
+- luminary
+- prodigious
 
 +++
 <!-- .slide: data-auto-animate -->
@@ -107,17 +156,21 @@ Note: Guiding idea: force expert solution reconstruction.
 ### Faded Parsons Problems
 *Do they work?*
 
-- As effective as Code-Writing
+- At least as effective as Code-Writing
 <!-- .element: class="fragment fade-in" -->
 - Designed for learning Good Habits
 <!-- .element: class="fragment fade-in" -->
-- Highly constrain Solution Space
+- Highly constrain the Solution Space
 <!-- .element: class="fragment fade-in" -->
 
-Note: \*citation needed
-- others focus on
-    - student ux
-    - fading strategies
+<p>&nbsp</p>
+
+[Ericson '18, Zhi '19, Weinmann '20]
+<!-- .element: class="demph" -->
+
+Note: - Ericson FPP efficacy
+- Zhi efficiency
+- Weinmann ease of use, good habits
 
 ---
 <!-- .slide: data-auto-animate -->
@@ -211,13 +264,11 @@ First, a recap of authoring Code-Writing problems.
 3. Write your spec
 4. Run **FPPgen**
 
-*Viewing formatted output requires PrairieLearn, <br> but we aren't blocking on it.*
-<!-- .element: class="fragment fade-in" -->
-
 **Minimal Overhead**
 <!-- .element: class="fragment fade-in" -->
 
-Note: - human readable output
+Note: - no longer blocking on PrairieLearn, but still need it
+- human readable output
 - prompt embellishment, reference solution presentation.
 
 +++
@@ -295,7 +346,7 @@ Note: narrows solution space while scaffolding!
 +++
 <!-- .slide: data-auto-animate -->
 
-#### Mutli-Part Faded Parsons
+#### Multi-Part Faded Parsons
 
 
 <div class="col-container">
@@ -319,7 +370,7 @@ Note: narrows solution space while scaffolding!
         <img class="fragment" src="img/giftcard-sequence/1.png">
         <h4 class="fragment fade-in">. . . Solved!</h4>
     </div>
-    <div class="col fragment fade-in">
+    <div class="col">
         <img src="img/giftcard-sequence/2.png">
     </div>
 </div>
