@@ -33,10 +33,59 @@
  Fix the ending
  -->
 
-## Automatic Generation of <br> Faded Parsons Problems <br> (For All Levels of Learning)
+## Automatic Generation of <br> Faded Parsons Problems
+### (For Test Writing Problems and Beyond)
 #### **Serena Caraco**, Nelson Lojo, <br> *Michael Verdicchio*, Armando Fox
 
 Note: Prof Verdicchio in from Charelston, SC
+
+--- <!-- .slide: data-auto-animate -->
+
+### What's Exciting About Our Work?
+
+We know Faded Parsons impart good habits
+<!-- .element: class="fragment fade-in" -->
+
+We want to impart strong Test-Writing
+<!-- .element: class="fragment fade-in" -->
+
+--- <!-- .slide: data-auto-animate -->
+
+### What's **Challenging** About Our Work?
+
+We know Faded Parsons impart good habits
+
+> Old content is laborious to convert. <br>
+> Writing from scratch can be worse.
+<!-- .element: class="fragment bad" -->
+
+We want to impart strong Test-Writing
+
+> No coherent theory of "correctness" or  practical autograder
+<!-- .element: class="fragment fade-in bad" -->
+
+
+--- <!-- .slide: data-auto-animate -->
+### Our Contributions
+
+> **FPPgen** streamlines Authoring,<br>
+> supports Arbitrary Complexity.
+<!-- .element: class="fragment fade-in" -->
+
+> **Mutation-Based Autograders** <br>
+> assess Test Quality.
+<!-- .element: class="fragment fade-in good" -->
+
+*No matter the problem skill level or complexity, <br> our tools can help.*
+<!-- .element: class="fragment fade-in" -->
+
+--- <!-- .slide: data-auto-animate -->
+
+### Roadmap
+
+0. Faded Parsons Background
+1. Authoring Experience
+2. Assessing Test-Writing
 
 ---
 
@@ -205,26 +254,7 @@ We needed more inventive scaffolding <br> and more powerful autograders
 
 Note: bring scaffolding, grading, habits
 
-
 ---
-## Contribution Overview
-
-> FPPs are difficult to author.
-<!-- .element: class="bad" -->
-
-> **FPPgen**
-<!-- .element: class="fragment fade-in good" -->
-
-<hr>
-
-> Existing Spec-Based Autograders <br> can't assess Test Writing.
-<!-- .element: class="bad" -->
-
-> **Mutation-Based Autograders**
-<!-- .element: class="fragment fade-in good" -->
-
----
-<!-- .slide: data-auto-animate -->
 
 ### Part One
 <hr>
@@ -299,7 +329,7 @@ Note: win-win
 ### Part Two
 <hr>
 
-## Faded Parsons at Scale
+## Assessing Test-Writing
 
 ---
 <!-- .slide: data-auto-animate -->
