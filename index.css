@@ -44,8 +44,6 @@
     color: black;
 }
 
-.reveal .table-data,
-.reveal th {
-    text-align: center !important;
+.reveal .table-data {
     vertical-align: middle;
 }

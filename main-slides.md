@@ -49,7 +49,7 @@ Note: Prof Verdicchio in from Charelston, SC
 We want to impart strong Test-Writing
 <!-- .element: class="fragment fade-in" -->
 
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### What's **Challenging** About Our Work?
 
@@ -65,7 +65,7 @@ We want to impart strong Test-Writing
 <!-- .element: class="fragment fade-in bad" -->
 
 
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 ### Our Contributions
 
 > **FPPgen** streamlines Authoring,<br>
@@ -354,7 +354,7 @@ Note: bring scaffolding, grading, habits
 
 Note: we diverge from previous work here.
 
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Presenting Faded Parsons
 
@@ -374,35 +374,35 @@ Note: we diverge from previous work here.
 <thead>
   <tr>
     <th></th>
-    <th>Parsons Codelines</th>
-    <th>Autograder Solution</th>
-    <th>Example Solution</th>
+    <th align="center">Parsons Codelines</th>
+    <th align="center">Autograder Solution</th>
+    <th align="center">Example Solution</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td class="fragment fade-in" data-fragment-index="1">Codelines</td>
-    <td class="fragment fade-in table-data" data-fragment-index="1">✅</td>
-    <td class="fragment fade-in table-data" data-fragment-index="2">✅</td>
-    <td class="fragment fade-in table-data" data-fragment-index="3">✅</td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="1">✅</td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="2">✅</td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="3">✅</td>
   </tr>
   <tr>
     <td class="fragment fade-in" data-fragment-index="1">Formatting & Prompt</td>
-    <td class="fragment fade-in table-data" data-fragment-index="1">✅</td>
-    <td class="fragment fade-in table-data" data-fragment-index="2"></td>
-    <td class="fragment fade-in table-data" data-fragment-index="3"></td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="1">✅</td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="2"></td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="3"></td>
   </tr>
   <tr>
     <td class="fragment fade-in" data-fragment-index="2">Spec</td>
-    <td class="fragment fade-in table-data" data-fragment-index="1"></td>
-    <td class="fragment fade-in table-data" data-fragment-index="2">✅</td>
-    <td class="fragment fade-in table-data" data-fragment-index="3"></td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="1"></td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="2">✅</td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="3"></td>
   </tr>
   <tr>
     <td class="fragment fade-in" data-fragment-index="3">Commentary</td>
-    <td class="fragment fade-in table-data" data-fragment-index="1"></td>
-    <td class="fragment fade-in table-data" data-fragment-index="2"></td>
-    <td class="fragment fade-in table-data" data-fragment-index="3">✅</td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="1"></td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="2"></td>
+    <td class="fragment fade-in table-data" align="center" data-fragment-index="3">✅</td>
   </tr>
 </tbody>
 </table>
@@ -494,20 +494,11 @@ I'll do you one better.
 ### Test Writing
 
 #### Difficult to Scaffold
-<!-- .element: class="fragment fade-in" -->
-#### Even Harder to Grade.
-<!-- .element: class="fragment fade-in" -->
 
-+++ <!-- .slide: data-auto-animate -->
+> Faded Parsons Problems <span class="fragment fade-in">++</span>
+<!-- .element: class="fragment fade-in good" -->
 
-*How do we scaffold and constrain solution space?*
-
-*How do we impart good habits?*
-<!-- .element: class="fragment fade-in" -->
-### Faded Parsons Problems <span class="fragment fade-in">++</span>
-<!-- .element: class="fragment fade-in" -->
-
-Note: narrows solution space while scaffolding!
+Note: solution space, scaffolding, style!
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -518,7 +509,6 @@ Note: narrows solution space while scaffolding!
 +++ <!-- .slide: data-auto-animate -->
 
 #### Multi-Part Faded Parsons
-
 
 <div class="col-container">
     <div class="col">
@@ -573,9 +563,15 @@ Note: narrows solution space while scaffolding!
 ### Test Writing
 
 #### Difficult to Scaffold
-> Multi-Part Faded Parsons
+
+> Faded Parsons Problems ++
 <!-- .element: class="fragment fade-in good" -->
-#### Even Harder to Grade.
+
+#### Impossible to Grade
+<!-- .element: class="fragment fade-in" -->
+
+> Mutation-Based Autograding
+<!-- .element: class="fragment fade-in good" -->
 
 --- <!-- .slide: data-auto-animate -->
 ### Aside: Spec-Based Autograder
@@ -695,19 +691,10 @@ Note: - Only one mutation set for all parts.
 ![Overview of Feedback](img/ag-feedback/incorrect-feedback.png)
 
 --- <!-- .slide: data-auto-animate -->
-### Test Writing
-
-#### Difficult to Scaffold
-> Multi-Part Faded Parsons
-<!-- .element: class="fragment fade-in good" -->
-#### Even Harder to Grade.
-> Mutation-Based Autograder
-<!-- .element: class="fragment fade-in good" -->
 
 *What about authoring these...*
-<!-- .element: class="fragment fade-in" -->
 
----
++++
 
 ### Future Work
 
@@ -727,11 +714,18 @@ Note: - Only one mutation set for all parts.
 
 > **FPPgen** streamlines Authoring,<br>
 > supports Arbitrary Complexity.
-<!-- .element: class="fragment fade-in" -->
 
 > **Mutation-Based Autograders** <br>
 > assess Test Quality.
-<!-- .element: class="fragment fade-in good" -->
+<!-- .element: class="good" -->
 
 *No matter the problem skill level or complexity, <br> our tools can help.*
-<!-- .element: class="fragment fade-in" -->
+
+--- <!-- .slide: data-auto-animate -->
+
+### Thank You!
+
+*No matter the problem skill level or complexity, <br> our tools can help.*
+
+
+<img alt-text="qr code here" style="width: 300px; height: 300px">
