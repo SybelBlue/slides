@@ -43,7 +43,7 @@ Note: Prof Verdicchio in from Charelston, SC
 
 ### What's Exciting About Our Work?
 
-We know Faded Parsons impart good habits
+*We know Faded Parsons impart good habits*
 <!-- .element: class="fragment fade-in" -->
 
 We want to impart strong Test-Writing
@@ -53,7 +53,7 @@ We want to impart strong Test-Writing
 
 ### What's **Challenging** About Our Work?
 
-We know Faded Parsons impart good habits
+*We know Faded Parsons impart good habits*
 
 > Old content is laborious to convert. <br>
 > Writing from scratch can be worse.
@@ -94,8 +94,7 @@ We want to impart strong Test-Writing
 
 ## Background
 
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 
 > I am not a great programmer, <br>
 > I am a good programmer <br>
@@ -106,83 +105,14 @@ We want to impart strong Test-Writing
 *How do we impart good habits?*
 <!-- .element: class="fragment fade-in" -->
 
----
-#### An Example:
-
-### Recursion
-
-``` py
-def is_even(n: int):
-    # solve with recursion!
-```
-<!-- .element: class="fragment fade-in" -->
-
-+++
-<!-- .slide: data-auto-animate -->
-
-### Recursion
-
-``` py
-def is_even(n: int):
-    # think: what's the base case here?
-    if base_case:
-        return True
-    # solve the rest with recursion!
-```
-
-+++
-<!-- .slide: data-auto-animate -->
-### Recursion
-
-*Send it!*
-
-*New Grading Request...*
-<!-- .element: class="fragment fade-in" -->
-
-Note: beefy uplifting descriptors for student feedback:
-- elegant
-- brilliant
-- luminary
-- prodigious
-
-+++
-<!-- .slide: data-auto-animate -->
-### Recursion
-
-``` py
-def is_even(n: int):
-    if n == 2:
-        return True
-    else if is_even(n - 1) == False:
-        return False
-    else if is_even(n - 2) == True:
-        return True
-    elif is_even(n - 3) == False:
-        return False
-    else if is_even(n - 4) == True:
-        return True
-    else if is_even(n - 5) == False:
-        return False
-    else if is_even(n - 6) == True:
-        return True
-    else if is_even(n - 7) == False:
-        return False
-    else if is_even(n - 8) == True:
-        return True
-    else if is_even(n - 9) == False:
-        return False
-```
-
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 
 *How do we impart good habits?*
 
 ### Faded Parsons Problems
 <!-- .element: class="fragment fade-in" -->
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Faded Parsons Problems
 #### An Example
@@ -191,16 +121,14 @@ def is_even(n: int):
 
 Note: Guiding idea: force expert solution reconstruction.
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Faded Parsons Problems
 #### Another Example
 
 ![an FPP of the examples above](img/dragging-simple.png)
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Faded Parsons Problems
 *Do they work?*
@@ -221,35 +149,130 @@ Note: - Ericson FPP efficacy
 - Zhi efficiency
 - Weinmann ease of use, good habits
 
----
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
+
+*So how does any of this apply to writing test suites?*
+
+*Let's follow an expert as they write a test suite...*
+<!-- .element: class="fragment fade-in" -->
+
+### An Expert Tests `Giftcard`
+
++++ <!-- .slide: data-auto-animate -->
+
+### An Expert Tests `Giftcard`
+
+``` rb [|1,2,5||3|4|5|]
+describe 'Giftcard' do
+    it 'changes the balance' do
+        @gift_card = Giftcard.new(20)
+        @result = @gift_card.withdraw(15)
+        expect(@gift_card.balance).to eq(5)
+    end
+end
+```
+
+-  Tricky RSpec Syntax
+<!-- .element: class="demph"-->
+-  Arrange-Act-Assert Pattern
+<!-- .element: class="demph" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### An Expert Tests `Giftcard`
+
+``` rb [|2,3,8,9,13,14|]
+describe 'Giftcard' do
+    it 'changes the balance' do
+        @gift_card = Giftcard.new(20)
+        @result = @gift_card.withdraw(15)
+        expect(@gift_card.balance).to eq(5)
+    end
+
+    it 'successfully inits a positive balance' do
+        @gift_card = Giftcard.new(20)
+        expect(@gift_card.balance).to eq(20)
+    end
+
+    it 'does not result in error messages' do
+        @gift_card = Giftcard.new(20)
+        @result = @gift_card.withdraw(15)
+        expect(@gift_card.error).to be_empty
+    end
+end
+```
+
+-  Tricky RSpec Syntax
+<!-- .element: class="demph"-->
+-  Arrange-Act-Assert Pattern
+<!-- .element: class="demph" -->
+-  File-length Solutions
+<!-- .element: class="demph" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### An Expert Tests `Giftcard`
+
+``` rb [|2-4|]
+describe 'Giftcard' do
+    before(:each) do
+        @gift_card = Giftcard.new(20)
+    end
+
+    it 'changes the balance' do
+        @result = @gift_card.withdraw(15)
+        expect(@gift_card.balance).to eq(5)
+    end
+
+    it 'successfully assigns a positive balance on instantiation' do
+        expect(@gift_card.balance).to eq(20)
+    end
+
+    it 'does not result in error messages' do
+        @result = @gift_card.withdraw(15)
+        expect(@gift_card.error).to be_empty
+    end
+end
+```
+
+-  Tricky RSpec Syntax
+<!-- .element: class="demph"-->
+-  Arrange-Act-Assert Pattern
+<!-- .element: class="demph" -->
+-  File-length Solutions
+<!-- .element: class="demph" -->
+-  Use DRY Style
+<!-- .element: class="demph" -->
+
+
++++ <!-- .slide: data-auto-animate -->
+
+### Student Difficulties with Test Writing
+
+-  Tricky RSpec Syntax
+<!-- .element: class="demph"-->
+-  Arrange-Act-Assert Pattern
+<!-- .element: class="demph" -->
+-  File-length Solutions
+<!-- .element: class="demph" -->
+-  Use DRY Style
+<!-- .element: class="demph" -->
+
+*Imparting style? Scaffolding syntax? Unweildy solutions?*
+<!-- .element: class="fragment fade-in demph" -->
+
+> Faded Parsons Problems!
+<!-- .element: class="fragment fade-in good" -->
+
++++ <!-- .slide: data-auto-animate -->
 ## Motivation
 
-*So we began integrating Faded Parsons Problems.*
+*So we started writing new content...*
 
-Time consuming for TAs to write from scratch
-<!-- .element: class="fragment fade-in" -->
-
-Even slower to convert from old curriculum
-<!-- .element: class="fragment fade-in" -->
-
-> Faded Parsons Problems work, <br> but are difficult to author.
+> Faded Parsons Problems work here, <br> but are difficult to author.
 <!-- .element: class="fragment fade-in bad" -->
 
-
-+++
-<!-- .slide: data-auto-animate -->
-## Motivation
-
-*Then we looked for upper division topics.*
-
-From Software Engineering, we picked Test Writing
-<!-- .element: class="fragment fade-in" -->
-
-We needed more inventive scaffolding <br> and more powerful autograders
-<!-- .element: class="fragment fade-in" -->
-
-> Existing Spec-Based Autograders <br> can't assess Test Writing.
+> Existing Spec-Based Autograders <br> fail practically and theoretically.
 <!-- .element: class="fragment fade-in bad" -->
 
 Note: bring scaffolding, grading, habits
@@ -263,8 +286,7 @@ Note: bring scaffolding, grading, habits
 
 Note: we diverge from previous work here.
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Authoring From Scratch
 
@@ -272,8 +294,7 @@ First, a recap of authoring Code-Writing problems.
 <!-- .element: class="fragment fade-in" -->
 
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 ### Code-Writing From Scratch
 
 1. Spin-up PrairieLearn
@@ -301,15 +322,13 @@ Note: - no longer blocking on PrairieLearn, but still need it
 - human readable output
 - prompt embellishment, reference solution presentation.
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 *Well, what about...*
 
 ### Conversion from Code-Writing
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 ### Conversion from Code-Writing
 
 1. Start with your Code-Writing Solution
@@ -331,8 +350,7 @@ Note: win-win
 
 ## Assessing Test-Writing
 
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 
 ### Common Misconception
 
@@ -344,8 +362,7 @@ Note: win-win
 I'll do you one better.
 <!-- .element: class="fragment fade-in" -->
 
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 
 ### Test Writing
 
@@ -354,8 +371,7 @@ I'll do you one better.
 #### Even Harder to Grade.
 <!-- .element: class="fragment fade-in" -->
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 *How do we scaffold and constrain solution space?*
 
@@ -366,15 +382,13 @@ I'll do you one better.
 
 Note: narrows solution space while scaffolding!
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 #### Single-Tray Problems with Context
 
 <img src="img/giftcard-sequence/0.png">
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 #### Multi-Part Faded Parsons
 
@@ -389,8 +403,7 @@ Note: narrows solution space while scaffolding!
     </div>
 </div>
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 #### Mutli-Part Faded Parsons
 
@@ -405,8 +418,7 @@ Note: narrows solution space while scaffolding!
     </div>
 </div>
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 #### Mutli-Part Faded Parsons
 
@@ -423,16 +435,14 @@ Note: narrows solution space while scaffolding!
     </div>
 </div>
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 #### Mutli-Part Faded Parsons
 
 ![a final question to DRY out code](img/giftcard-sequence/dry-cropped.png)
 <!-- .element: class="taper-fade" -->
 
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 ### Test Writing
 
 #### Difficult to Scaffold
@@ -440,8 +450,7 @@ Note: narrows solution space while scaffolding!
 <!-- .element: class="fragment fade-in good" -->
 #### Even Harder to Grade.
 
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 ### Aside: Spec-Based Autograder
 
 <div class="col-container">
@@ -468,8 +477,7 @@ Note: narrows solution space while scaffolding!
 </div>
 
 
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 ### Assessing Test Suites
 
 #### Problem Components:
@@ -486,8 +494,7 @@ Note: narrows solution space while scaffolding!
 
 Note: arbitrary SUT dependencies! arbitrary test deps!
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 ### Assessing Test Suites
 - A System Under Test that we provide
 - A Test Suite that *we want to grade*
@@ -500,8 +507,7 @@ Make a *Mutation-Based Autograder* that <br>
 grades a test suite on killed mutants
 <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Mutation-Based Autograders
 
@@ -540,32 +546,28 @@ grades a test suite on killed mutants
 Note: - Only one mutation set for all parts.
 - This scheme does not require FPPs
 
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 
 ### Mutation-Based Autograders
 #### Sample Feedback
 
 ![Overview of Feedback](img/ag-feedback/feedback-overview.png)
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Mutation-Based Autograders
 #### Sample Feedback
 
 ![Overview of Feedback](img/ag-feedback/correct-feedback.png)
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Mutation-Based Autograders
 #### Sample Feedback
 
 ![Overview of Feedback](img/ag-feedback/incorrect-feedback.png)
 
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 ### Test Writing
 
 #### Difficult to Scaffold
@@ -593,8 +595,7 @@ Note: - Only one mutation set for all parts.
 - Use FPPs in more upper division topics
 <!-- .element: class="fragment fade-in" -->
 
----
-<!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 ### Conclusion
 
 > **FPPgen** streamlines Authoring,<br>
