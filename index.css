@@ -43,3 +43,9 @@
 .reveal hr {
     color: black;
 }
+
+.reveal .table-data,
+.reveal th {
+    text-align: center !important;
+    vertical-align: middle;
+}

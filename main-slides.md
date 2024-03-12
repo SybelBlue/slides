@@ -354,16 +354,88 @@ Note: bring scaffolding, grading, habits
 
 Note: we diverge from previous work here.
 
+--- <!-- .slide: data-auto-animate -->
+
+### Presenting Faded Parsons
+
+- Serve Faded Parsons Codelines
+<!-- .element: class="fragment fade-in" -->
+- Grade the Student Submission
+<!-- .element: class="fragment fade-in" -->
+-
+<!-- .element: class="fragment fade-in" -->
+*Provide an Example Solution*
+
 +++ <!-- .slide: data-auto-animate -->
 
-### Authoring From Scratch
+### Presenting Faded Parsons
 
-First, a recap of authoring Code-Writing problems.
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>Parsons Codelines</th>
+    <th>Autograder Solution</th>
+    <th>Example Solution</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="fragment fade-in" data-fragment-index="1">Codelines</td>
+    <td class="fragment fade-in table-data" data-fragment-index="1">✅</td>
+    <td class="fragment fade-in table-data" data-fragment-index="2">✅</td>
+    <td class="fragment fade-in table-data" data-fragment-index="3">✅</td>
+  </tr>
+  <tr>
+    <td class="fragment fade-in" data-fragment-index="1">Formatting & Prompt</td>
+    <td class="fragment fade-in table-data" data-fragment-index="1">✅</td>
+    <td class="fragment fade-in table-data" data-fragment-index="2"></td>
+    <td class="fragment fade-in table-data" data-fragment-index="3"></td>
+  </tr>
+  <tr>
+    <td class="fragment fade-in" data-fragment-index="2">Spec</td>
+    <td class="fragment fade-in table-data" data-fragment-index="1"></td>
+    <td class="fragment fade-in table-data" data-fragment-index="2">✅</td>
+    <td class="fragment fade-in table-data" data-fragment-index="3"></td>
+  </tr>
+  <tr>
+    <td class="fragment fade-in" data-fragment-index="3">Commentary</td>
+    <td class="fragment fade-in table-data" data-fragment-index="1"></td>
+    <td class="fragment fade-in table-data" data-fragment-index="2"></td>
+    <td class="fragment fade-in table-data" data-fragment-index="3">✅</td>
+  </tr>
+</tbody>
+</table>
+
++++ <!-- .slide: data-auto-animate -->
+
+> Manually synchronizing data is like <br> baking with sugar glass.
+<!-- .element: class="fragment fade-in bad" -->
+
+- long waits kill creative loops
+<!-- .element: class="fragment fade-in" -->
+- instantly and perpetually brittle
+<!-- .element: class="fragment fade-in" -->
+- attracts
+<!-- .element: class="fragment fade-in" -->
+**so many** bugs
+
++++ <!-- .slide: data-auto-animate -->
+
+### Faded Parsons with FPPgen
+
+In one file, write your prompt, solution, and spec.
 <!-- .element: class="fragment fade-in" -->
 
+Add `?blanks?` and mark `#given` lines.
+<!-- .element: class="fragment fade-in" -->
+
+Run FPPgen, and repeat.
+<!-- .element: class="fragment fade-in" -->
 
 +++ <!-- .slide: data-auto-animate -->
-### Code-Writing From Scratch
+
+### Code-Writing **without** FPPgen
 
 1. Spin-up PrairieLearn
 2. Generate Templates
@@ -373,18 +445,6 @@ First, a recap of authoring Code-Writing problems.
 6. Format your question (XML)
 7. Write your solution (BYOL)
 8. Write your spec
-
-+++
-
-### Faded Parsons From Scratch
-
-1. Write your prompt
-2. Write your solution
-3. Write your spec
-4. Run **FPPgen**
-
-**Minimal Overhead**
-<!-- .element: class="fragment fade-in" -->
 
 Note: - no longer blocking on PrairieLearn, but still need it
 - human readable output
@@ -399,14 +459,13 @@ Note: - no longer blocking on PrairieLearn, but still need it
 +++ <!-- .slide: data-auto-animate -->
 ### Conversion from Code-Writing
 
-1. Start with your Code-Writing Solution
-2. Mark
-<!-- .element: class="fragment fade-in" -->
-`?Blanks?`
-3. Run FPPgen
+Start with your Code-Writing Solution
 <!-- .element: class="fragment fade-in" -->
 
-**Done.**
+Add `?blanks?` and mark `#given` lines.
+<!-- .element: class="fragment fade-in" -->
+
+Run FPPgen, and repeat.
 <!-- .element: class="fragment fade-in" -->
 
 Note: win-win
