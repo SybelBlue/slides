@@ -107,26 +107,64 @@ We want to impart strong Test-Writing
 
 --- <!-- .slide: data-auto-animate -->
 
+#### An Example:
+### Recursion
+
++++ <!-- .slide: data-auto-animate -->
+
+### Recursion
+
+``` py [1,5|]
+def is_even(n: int):
+    # think: what's the base case here?
+    if base_case:
+        return True
+    # solve the rest with recursion!
+```
+
++++ <!-- .slide: data-auto-animate -->
+### Recursion
+
+``` py
+def is_even(n: int):
+    if n == 2:
+        return True
+    else if is_even(n - 1) == False:
+        return False
+    else if is_even(n - 2) == True:
+        return True
+    elif is_even(n - 3) == False:
+        return False
+    else if is_even(n - 4) == True:
+        return True
+    else if is_even(n - 5) == False:
+        return False
+    else if is_even(n - 6) == True:
+        return True
+    else if is_even(n - 7) == False:
+        return False
+    else if is_even(n - 8) == True:
+        return True
+    else if is_even(n - 9) == False:
+        return False
+```
+
+--- <!-- .slide: data-auto-animate -->
+
 *How do we impart good habits?*
 
 ### Faded Parsons Problems
 <!-- .element: class="fragment fade-in" -->
 
+Goal: reconstruct an expert solution
+<!-- .element: class="fragment fade-in" -->
+
 +++ <!-- .slide: data-auto-animate -->
-
 ### Faded Parsons Problems
-#### An Example
 
-![a simple FPP](img/is-even.png)
+![a simple FPP](img/is-even.gif)
 
 Note: Guiding idea: force expert solution reconstruction.
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Faded Parsons Problems
-#### Another Example
-
-![an FPP of the examples above](img/dragging-simple.png)
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -157,6 +195,35 @@ Note: - Ericson FPP efficacy
 <!-- .element: class="fragment fade-in" -->
 
 ### An Expert Tests `Giftcard`
+<!-- .element: class="fragment fade-in" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### An Expert Tests `Giftcard`
+
+``` rb
+# test Giftcard
+```
+
+\* Potential Student Roablocks *
+<!-- .element: class="fragment fade-in demph"-->
+
++++ <!-- .slide: data-auto-animate -->
+
+### An Expert Tests `Giftcard`
+
+``` rb
+describe 'Giftcard' do
+    it 'changes the balance' do
+        # test logic
+    end
+end
+```
+
+
+-  Tricky RSpec Syntax
+<!-- .element: class="demph"-->
+
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -224,7 +291,7 @@ describe 'Giftcard' do
         expect(@gift_card.balance).to eq(5)
     end
 
-    it 'successfully assigns a positive balance on instantiation' do
+    it 'successfully inits a positive balance' do
         expect(@gift_card.balance).to eq(20)
     end
 
@@ -248,7 +315,8 @@ end
 +++ <!-- .slide: data-auto-animate -->
 
 ### Student Difficulties with Test Writing
-
+Potential Student Roablocks
+<!-- .element: class="demph"-->
 -  Tricky RSpec Syntax
 <!-- .element: class="demph"-->
 -  Arrange-Act-Assert Pattern
@@ -269,10 +337,10 @@ end
 
 *So we started writing new content...*
 
-> Faded Parsons Problems work here, <br> but are difficult to author.
+> Existing Spec-Based Autograders <br> fail practically and theoretically.
 <!-- .element: class="fragment fade-in bad" -->
 
-> Existing Spec-Based Autograders <br> fail practically and theoretically.
+> Faded Parsons Problems work here, <br> but authoring is hard everywhere.
 <!-- .element: class="fragment fade-in bad" -->
 
 Note: bring scaffolding, grading, habits
