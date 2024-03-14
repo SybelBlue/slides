@@ -8,7 +8,7 @@
     slide numbers
     you faced the screen a lot, face us
     clicker with laser rather than physical pointer since you may not be near the physical screen
-    demo of fppgen?
+    demo of FPPgen?
     testing never taught in software engineering (huh?)
       are you trying to get us to adopt your tool?
     (from an instructor’s perspective) what’s in it for me?
@@ -27,7 +27,7 @@
 ### (The Journey to Scaffold Test Writing)
 #### **Serena Caraco**, Nelson Lojo, <br> *Michael Verdicchio*, Armando Fox
 
-Note: Prof Verdicchio in from Charelston, SC
+Note: Prof Verdicchio in from Charleston, SC
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -174,7 +174,7 @@ Note: Guiding idea: force expert solution reconstruction.
 
 - At least as effective as Code-Writing
 <!-- .element: class="fragment fade-in" -->
-- More effecient than Code-Writing
+- More efficient than Code-Writing
 <!-- .element: class="fragment fade-in" -->
 - Highly constrain the Solution Space
 <!-- .element: class="fragment fade-in" -->
@@ -206,7 +206,7 @@ Note: - Ericson FPP efficacy
 # test Giftcard
 ```
 
-\* Potential Student Roablocks *
+\* Potential Student Roadblocks *
 <!-- .element: class="fragment fade-in demph"-->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -316,7 +316,7 @@ end
 +++ <!-- .slide: data-auto-animate -->
 
 ### Student Difficulties with Test Writing
-Potential Student Roablocks
+Potential Student Roadblocks
 <!-- .element: class="demph"-->
 -  Tricky RSpec Syntax
 <!-- .element: class="demph"-->
@@ -532,7 +532,7 @@ Note: solution space, scaffolding, style!
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### Mutli-Part Faded Parsons
+#### Multi-Part Faded Parsons
 
 
 <div class="col-container">
@@ -547,7 +547,7 @@ Note: solution space, scaffolding, style!
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### Mutli-Part Faded Parsons
+#### Multi-Part Faded Parsons
 
 
 <div class="col-container">
@@ -564,7 +564,7 @@ Note: solution space, scaffolding, style!
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### Mutli-Part Faded Parsons
+#### Multi-Part Faded Parsons
 
 ![a final question to DRY out code](img/giftcard-sequence/dry-cropped.png)
 <!-- .element: class="taper-fade" -->
