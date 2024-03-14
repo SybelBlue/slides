@@ -1,90 +1,8 @@
-<!-- Feedback
- Lisa:
-    => your talk should quickly prime questions and adoption
- Narges:
-    Highlight the process of how things are generated
-    QR Code to paper
- Dan:
-    slide numbers
-    you faced the screen a lot, face us
-    clicker with laser rather than physical pointer since you may not be near the physical screen
-    demo of fppgen?
-    testing never taught in software engineering (huh?)
-      are you trying to get us to adopt your tool?
-    (from an instructor’s perspective) what’s in it for me?
- Nelson
-    make it sparse
-    shoot for way shorter than time, needs to include setup/tear-down
-
- Lots of slidespecs feedback:
-    https://slidespecs.berkeley.edu/review/ZoBcQqr3665ReeWxw
-
- *don't take them on a journey without telling them where you're going*
- Fix the ending
- -->
-
 ## Automatic Generation of <br> Faded Parsons Problems
 ### (The Journey to Scaffold Test Writing)
 #### **Serena Caraco**, Nelson Lojo, <br> *Michael Verdicchio*, Armando Fox
 
-Note: Prof Verdicchio in from Charelston, SC
-
---- <!-- .slide: data-auto-animate -->
-
-### What's Exciting About Our Work?
-
-*We know Faded Parsons impart good habits*
-<!-- .element: class="fragment fade-in" -->
-
-We want to teach strong Test-Writing
-<!-- .element: class="fragment fade-in" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### What's **Challenging** About Our Work?
-
-*We know Faded Parsons impart good habits*
-
-> Old content is laborious to convert. <br>
-> Writing from scratch can be worse.
-<!-- .element: class="fragment bad" -->
-
-We want to impart strong Test-Writing
-
-> No coherent theory of "correctness" or  practical autograder
-<!-- .element: class="fragment fade-in bad" -->
-
-
-+++ <!-- .slide: data-auto-animate -->
-### Our Contributions
-
-> **FPPgen** streamlines Authoring,<br>
-> supports Arbitrary Complexity.
-<!-- .element: class="fragment fade-in" -->
-
-> A **Mutation-Based Autograder** <br>
-> to assess Test Quality.
-<!-- .element: class="fragment fade-in good" -->
-
-*No matter the problem skill level or complexity, <br> our tools can help.*
-<!-- .element: class="fragment fade-in" -->
-
-Note: open source, online
-
---- <!-- .slide: data-auto-animate -->
-
-### Roadmap
-
-0. Faded Parsons Background
-1. Authoring Experience
-2. Assessing Test-Writing
-
----
-
-### Part Zero
-<hr>
-
-## Background
+Note: Prof Verdicchio in from Charleston, SC
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -97,34 +15,41 @@ Note: open source, online
 *How do we impart good habits?*
 <!-- .element: class="fragment fade-in" -->
 
++++ <!-- .slide: data-auto-animate -->
+
+*How do we impart good habits?*
+
+### Faded Parsons Problems
+<!-- .element: class="fragment fade-in" -->
+
+Goal: reconstruct an expert solution
+<!-- .element: class="fragment fade-in" -->
+
 --- <!-- .slide: data-auto-animate -->
 
-#### An Example:
-### Recursion
-
-+++ <!-- .slide: data-auto-animate -->
-
+#### An Example of Faded Parsons
 ### Recursion
 
 ``` py
 def is_even(n: int):
-    # solve with recursion!
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Recursion
-
-``` py
-def is_even(n: int):
-    # think: what's the base case here?
-    if base_case:
+    if n == 0:
         return True
-    # solve the rest with recursion!
+    return not is_even(n - 1)
 ```
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+Student Roadblocks:
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+- New Syntax
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+- Special Code Pattern
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+- Tricky Style
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
 
 +++ <!-- .slide: data-auto-animate -->
 ### Recursion
+#### **MOABH (Mother of All Bad Habits) Solution**
 
 ``` py
 def is_even(n: int):
@@ -150,22 +75,95 @@ def is_even(n: int):
         return False
 ```
 
++++
+### Recursion
+
+Student Roadblocks:
+- New Syntax
+- Special Code Pattern
+- Tricky Style
+- Constrained Solution
+<!-- .element: class="fragment fade-in" -->
+
+*Imparting style? Scaffolding syntax? Unwieldy solutions?*
+<!-- .element: class="fragment fade-in demph" -->
+
+> Faded Parsons Problem!
+<!-- .element: class="fragment fade-in good" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Faded Parsons Problems
+
+![a simple FPP](img/is-even.gif)
+
+Note: Guiding idea: force expert solution reconstruction.
+
+--- <!-- .slide: data-auto-animate -->
+
+### What's Exciting About Our Work?
+
+*We know Faded Parsons impart good habits*
+<!-- .element: class="fragment fade-in" -->
+
+We leverage them to teach Test-Writing
+<!-- .element: class="fragment fade-in" -->
+
+- We give them a System Under Test
+<!-- .element: class="fragment fade-in" -->
+- They write us a Test Suite
+<!-- .element: class="fragment fade-in" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### What **Challenges** Did We Face?
+
+*We know Faded Parsons impart good habits*
+
+> Both converting old content and <br>
+> writing from scratch is hard.
+<!-- .element: class="fragment bad" -->
+
+We want to impart strong Test-Writing
+
+> No coherent theory of "correctness" or practical autograder
+<!-- .element: class="fragment fade-in bad" -->
+
+
++++ <!-- .slide: data-auto-animate -->
+### Our Contributions
+
+> **FPPgen** streamlines Authoring, <br>
+> supports Arbitrary Complexity.
+<!-- .element: class="fragment fade-in" -->
+
+> A **Mutation-Based Autograder** <br>
+> to assess Test Quality.
+<!-- .element: class="fragment fade-in good" -->
+
+Note: open source, online
+
+--- <!-- .slide: data-auto-animate -->
+
+### Roadmap
+
+0. Faded Parsons Background
+1. Authoring Experience
+2. Assessing Test-Writing
+
+---
+
+### Part Zero
+<hr>
+
+## Background
+
 --- <!-- .slide: data-auto-animate -->
 
 *How do we impart good habits?*
 
 ### Faded Parsons Problems
 <!-- .element: class="fragment fade-in" -->
-
-Goal: reconstruct an expert solution
-<!-- .element: class="fragment fade-in" -->
-
-+++ <!-- .slide: data-auto-animate -->
-### Faded Parsons Problems
-
-![a simple FPP](img/is-even.gif)
-
-Note: Guiding idea: force expert solution reconstruction.
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -174,12 +172,12 @@ Note: Guiding idea: force expert solution reconstruction.
 
 - At least as effective as Code-Writing
 <!-- .element: class="fragment fade-in" -->
-- More effecient than Code-Writing
+- More efficient than Code-Writing
 <!-- .element: class="fragment fade-in" -->
 - Highly constrain the Solution Space
 <!-- .element: class="fragment fade-in" -->
 
-<p>&nbsp</p>
+<img class="fragment fade-in" src="img/kenobi.gif">
 
 [Ericson '18, Zhi '19, Weinmann '20]
 <!-- .element: class="demph" -->
@@ -206,7 +204,7 @@ Note: - Ericson FPP efficacy
 # test Giftcard
 ```
 
-\* Potential Student Roablocks *
+\* Student Roadblocks *
 <!-- .element: class="fragment fade-in demph"-->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -222,7 +220,7 @@ end
 ```
 
 
--  Tricky RSpec Syntax
+-  RSpec Syntax
 <!-- .element: class="demph"-->
 
 
@@ -230,7 +228,7 @@ end
 
 ### An Expert Tests `Giftcard`
 
-``` rb [|1,2,5||3|4|5|]
+``` rb [|3|4|5|]
 describe 'Giftcard' do
     it 'changes the balance' do
         @gift_card = Giftcard.new(20)
@@ -240,7 +238,7 @@ describe 'Giftcard' do
 end
 ```
 
--  Tricky RSpec Syntax
+-  RSpec Syntax
 <!-- .element: class="demph"-->
 -  Arrange-Act-Assert Pattern
 <!-- .element: class="demph" -->
@@ -270,11 +268,11 @@ describe 'Giftcard' do
 end
 ```
 
--  Tricky RSpec Syntax
+-  RSpec Syntax
 <!-- .element: class="demph"-->
 -  Arrange-Act-Assert Pattern
 <!-- .element: class="demph" -->
--  File-length Solutions
+-  File-length Solution
 <!-- .element: class="demph" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -303,28 +301,28 @@ describe 'Giftcard' do
 end
 ```
 
--  Tricky RSpec Syntax
+-  RSpec Syntax
 <!-- .element: class="demph"-->
 -  Arrange-Act-Assert Pattern
 <!-- .element: class="demph" -->
--  File-length Solutions
+-  File-length Solution
 <!-- .element: class="demph" -->
--  Use DRY Style
+-  DRY Style
 <!-- .element: class="demph" -->
 
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Student Difficulties with Test Writing
-Potential Student Roablocks
+Student Roadblocks
 <!-- .element: class="demph"-->
--  Tricky RSpec Syntax
+-  RSpec Syntax
 <!-- .element: class="demph"-->
 -  Arrange-Act-Assert Pattern
 <!-- .element: class="demph" -->
--  File-length Solutions
+-  File-length Solution
 <!-- .element: class="demph" -->
--  Use DRY Style
+-  DRY Style
 <!-- .element: class="demph" -->
 
 *Imparting style? Scaffolding syntax? Unwieldy solutions?*
@@ -362,7 +360,7 @@ Note: we diverge from previous work here.
 <!-- .element: class="fragment fade-in" -->
 -
 <!-- .element: class="fragment fade-in" -->
-*Provide an Example Solution*
+*Provide an Example Solution\**
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -379,13 +377,13 @@ Note: we diverge from previous work here.
 </thead>
 <tbody>
   <tr class="fragment fade-in">
-    <td>Codelines</td>
+    <td>Raw Code</td>
     <td class="table-data" align="center">✅</td>
     <td class="table-data" align="center">✅</td>
     <td class="table-data" align="center">✅</td>
   </tr>
   <tr class="fragment fade-in">
-    <td>Formatting & Prompt</td>
+    <td>Formatting</td>
     <td class="table-data" align="center">✅</td>
     <td class="table-data" align="center"></td>
     <td class="table-data" align="center"></td>
@@ -478,8 +476,6 @@ Surround your spec with `## test ##`.
 Run FPPgen, and repeat.
 <!-- .element: class="fragment fade-in" -->
 
-Note: win-win
-
 ---
 
 ### Part Two
@@ -505,7 +501,7 @@ I'll do you one better.
 
 #### Needs Scaffolding
 
-> Faded Parsons Problems <span class="fragment fade-in">++</span>
+> Faded Parsons Problems<span class="fragment fade-in">++!</span>
 <!-- .element: class="fragment fade-in good" -->
 
 Note: solution space, scaffolding, style!
@@ -532,7 +528,7 @@ Note: solution space, scaffolding, style!
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### Mutli-Part Faded Parsons
+#### Multi-Part Faded Parsons
 
 
 <div class="col-container">
@@ -547,8 +543,7 @@ Note: solution space, scaffolding, style!
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### Mutli-Part Faded Parsons
-
+#### Multi-Part Faded Parsons
 
 <div class="col-container">
     <div class="col">
@@ -564,7 +559,7 @@ Note: solution space, scaffolding, style!
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### Mutli-Part Faded Parsons
+#### Multi-Part Faded Parsons
 
 ![a final question to DRY out code](img/giftcard-sequence/dry-cropped.png)
 <!-- .element: class="taper-fade" -->
