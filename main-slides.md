@@ -6,21 +6,8 @@ Note: Prof Verdicchio in from Charleston, SC
 
 --- <!-- .slide: data-auto-animate -->
 
-> I am not a great programmer, <br>
-> I am a good programmer <br>
-> with great habits.
-
-*Kent Beck*
-
-*How do we impart good habits?*
-<!-- .element: class="fragment fade-in" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-*How do we impart good habits?*
-
+#### A Crash Course in
 ### Faded Parsons Problems
-<!-- .element: class="fragment fade-in" -->
 
 Goal: reconstruct an expert solution
 <!-- .element: class="fragment fade-in" -->
@@ -38,16 +25,8 @@ def is_even(n: int):
 ```
 <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
 
-Student Roadblocks:
-<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
-- New Syntax
-<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
-- Special Code Pattern
-<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
-- Tricky Style
-<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
-
 +++ <!-- .slide: data-auto-animate -->
+
 ### Recursion
 #### **MOABH (Mother of All Bad Habits) Solution**
 
@@ -75,27 +54,22 @@ def is_even(n: int):
         return False
 ```
 
-+++
++++ <!-- .slide: data-auto-animate -->
+
 ### Recursion
 
-Student Roadblocks:
-- New Syntax
-- Special Code Pattern
-- Tricky Style
-- Constrained Solution
-<!-- .element: class="fragment fade-in" -->
-
 *Imparting style? Scaffolding syntax? Unwieldy solutions?*
-<!-- .element: class="fragment fade-in demph" -->
+<!-- .element: class="demph" -->
 
-> Faded Parsons Problem!
+> Faded Parsons Problems!
 <!-- .element: class="fragment fade-in good" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Faded Parsons Problems
 
-![a simple FPP](img/is-even.gif)
+<!-- make this single cycle -->
+![a simple FPP](img/is-even-no-loop.gif)
 
 Note: Guiding idea: force expert solution reconstruction.
 
@@ -120,13 +94,15 @@ We leverage them to teach Test-Writing
 
 *We know Faded Parsons impart good habits*
 
-> Both converting old content and <br>
-> writing from scratch is hard.
+> Writing means syncing data by hand.
+<!-- .element: class="fragment bad" -->
+
+> Converting old material is laborious.
 <!-- .element: class="fragment bad" -->
 
 We want to impart strong Test-Writing
 
-> No coherent theory of "correctness" or practical autograder
+> No theory of "correctness" or <br> practical, reusable autograder
 <!-- .element: class="fragment fade-in bad" -->
 
 
@@ -140,6 +116,9 @@ We want to impart strong Test-Writing
 > A **Mutation-Based Autograder** <br>
 > to assess Test Quality.
 <!-- .element: class="fragment fade-in good" -->
+
+Available online now!
+<!-- .element: class="fragment fade-in demph" -->
 
 Note: open source, online
 
@@ -160,6 +139,17 @@ Note: open source, online
 
 --- <!-- .slide: data-auto-animate -->
 
+> I am not a great programmer, <br>
+> I am a good programmer <br>
+> with great habits.
+
+*Kent Beck*
+
+*How do we impart good habits?*
+<!-- .element: class="fragment fade-in" -->
+
+--- <!-- .slide: data-auto-animate -->
+
 *How do we impart good habits?*
 
 ### Faded Parsons Problems
@@ -177,7 +167,8 @@ Note: open source, online
 - Highly constrain the Solution Space
 <!-- .element: class="fragment fade-in" -->
 
-<img class="fragment fade-in" src="img/kenobi.gif">
+<!-- <img class="fragment fade-in" src="img/kenobi.gif"> -->
+<img class="fragment fade-in" src="img/kenobi.png">
 
 [Ericson '18, Zhi '19, Weinmann '20]
 <!-- .element: class="demph" -->
@@ -219,10 +210,10 @@ describe 'Giftcard' do
 end
 ```
 
-
 -  RSpec Syntax
 <!-- .element: class="demph"-->
-
+-  Arrange-Act-Assert Pattern  <!-- invisible!! here for spacing reasons -->
+<!-- .element: class="demph invis" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -247,7 +238,7 @@ end
 
 ### An Expert Tests `Giftcard`
 
-``` rb [|2,3,8,9,13,14|]
+``` rb [|3,9,14|]
 describe 'Giftcard' do
     it 'changes the balance' do
         @gift_card = Giftcard.new(20)
@@ -360,7 +351,7 @@ Note: we diverge from previous work here.
 <!-- .element: class="fragment fade-in" -->
 -
 <!-- .element: class="fragment fade-in" -->
-*Provide an Example Solution\**
+*Provide a Reference Solution\**
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -372,7 +363,7 @@ Note: we diverge from previous work here.
     <th></th>
     <th align="center">Parsons Codelines</th>
     <th align="center">Autograder Solution</th>
-    <th align="center">Example Solution</th>
+    <th align="center">Reference Solution</th>
   </tr>
 </thead>
 <tbody>
@@ -410,14 +401,17 @@ Note: we diverge from previous work here.
 
 - long creative loops kill inspiration
 <!-- .element: class="fragment fade-in" -->
-- instantly and perpetually brittle
+- constant "paper cuts" loose users
+<!-- .element: class="fragment fade-in" -->
+- instantly, perpetually brittle
 <!-- .element: class="fragment fade-in" -->
 - attracts
 <!-- .element: class="fragment fade-in" -->
 **so many** bugs
 
-Note:- unable to prototype quickly
-- begging to break
+Note:- takes so long to melt and dye
+- getting sugar burns **suck**
+- as soon as it sets, it shatters
 - so many bugs
 
 +++ <!-- .slide: data-auto-animate -->
@@ -430,7 +424,7 @@ In one file, write your prompt and solution.
 Add `?blanks?`, mark `#given` lines.
 <!-- .element: class="fragment fade-in" -->
 
-Surround your spec with `## test ##`.
+*Surround your spec with `## test ##`.*
 <!-- .element: class="fragment fade-in" -->
 
 Run FPPgen, and repeat.
@@ -579,51 +573,36 @@ Note: solution space, scaffolding, style!
 <!-- .element: class="fragment fade-in good" -->
 
 --- <!-- .slide: data-auto-animate -->
-### Aside: Spec-Based Autograder
-
-<div class="col-container">
-    <div class="col">
-        <h4>From Instructor</h4>
-        <p class="col fragment fade-in">Reference Solution</p>
-        <p class="col fragment fade-in">Test Inputs</p>
-    </div>
-    <div class="col">
-        <h4>From Student</h4>
-        <p class="col">&nbsp</p>
-        <p class="col">&nbsp</p>
-        <p class="col fragment fade-in">Student Solution</p>
-    </div>
-    <div class="col">
-        <h4>At Grading</h4>
-        <hr class="invis"></hr>
-        <p class="col fragment fade-in" style="text-align: left;">$\big \}~~$ Reference Output</p>
-        <p class="col fragment fade-in" style="text-align: left;">$\big \}~~~~$ Student Output</p>
-        <hr class="invis"></hr>
-        <hr class="col fragment fade-in">
-        <p class="col fragment fade-in"><b>Score</b></p>
-    </div>
-</div>
-
-
---- <!-- .slide: data-auto-animate -->
+<!-- .slide: data-auto-animate -->
 ### Assessing Test Suites
 
-#### Problem Components
-<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+#### Problem Components:
+<!-- .element: class="fragment fade-in" -->
 - A System Under Test that we provide
-<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+<!-- .element: class="fragment fade-in" -->
 - A Test Suite that
-<!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+<!-- .element: class="fragment fade-in" -->
 *we want to grade*
+
+> Spec-Based Autograding fails <br>
+> in practice and in theory.
+<!-- .element: class="fragment fade-in" -->
+
+Note: arbitrary SUT dependencies! arbitrary test deps!
+
++++
+<!-- .slide: data-auto-animate -->
+### Assessing Test Suites
+- A System Under Test that we provide
+- A Test Suite that *we want to grade*
 - A Set of Mutants we create
-<!-- .element: class="fragment fade-in" data-fragment-index="6" -->
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
 
 Borrow Mutant Generation from Industry QA
-<!-- .element: class="fragment fade-in" data-fragment-index="4" -->
 
 Make a *Mutation-Based Autograder* that <br>
-grades a test suite on caught mutations
-<!-- .element: class="fragment fade-in" data-fragment-index="5" -->
+grades a test suite on killed mutants
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -631,20 +610,20 @@ grades a test suite on caught mutations
 
 <div class="col-container">
     <div class="col" style="flex: 1 1 0">
-        <h4>From Instructor</h4>
-        <p class="col">Ref. Solution</p>
+        <h4><u>Instructor Writes</u></h4>
+        <p class="col">Reference Solution</p>
         <p class="col">System Under Test</p>
         <p class="col">Mutations</p>
     </div>
     <div class="col" style="flex: 1 1 0">
-        <h4>From Student</h4>
+        <h4><u>Student Writes</u></h4>
         <p class="col">&nbsp</p>
         <p class="col">&nbsp</p>
         <p class="col">&nbsp</p>
-        <p class="col">Stud. Solution</p>
+        <p class="col fragment fade-in">Student Solution</p>
     </div>
     <div class="col" style="flex: 2 1 0">
-        <h4>At Grading</h4>
+        <h4><u>Grader Generates on Submit</u></h4>
         <div class="col-container">
             <div class="col">
                 <p class="col">&nbsp</p>
@@ -699,10 +678,13 @@ Note: - Only one mutation set for all parts.
 <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
   - Automate Mutant Generation
 <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+- Automate the Fading in Conversion
+<!-- .element: class="fragment fade-in" -->
 - Use Parsons more in the upper division
 <!-- .element: class="fragment fade-in" -->
 
 --- <!-- .slide: data-auto-animate -->
+
 ### Conclusion
 
 > **FPPgen** streamlines Authoring,<br>
