@@ -14,7 +14,6 @@ Goal: reconstruct an expert solution
 
 --- <!-- .slide: data-auto-animate -->
 
-#### An Example of Faded Parsons
 ### Recursion
 
 ``` py
@@ -23,7 +22,11 @@ def is_even(n: int):
         return True
     return not is_even(n - 1)
 ```
-<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+<!-- .element: class="fragment fade-in -->
+
+Note: - early return
+- recursive syntax
+- tidy solution
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -68,22 +71,18 @@ def is_even(n: int):
 
 ### Faded Parsons Problems
 
-<!-- make this single cycle -->
 ![a simple FPP](img/is-even-no-loop.gif)
-
-Note: Guiding idea: force expert solution reconstruction.
 
 --- <!-- .slide: data-auto-animate -->
 
 ### What's Exciting About Our Work?
 
-*We know Faded Parsons impart good habits*
+*We know Faded Parsons impart good habits...*
+
+We leverage Faded Parsons to teach **Test-Writing**
 <!-- .element: class="fragment fade-in" -->
 
-We leverage them to teach Test-Writing
-<!-- .element: class="fragment fade-in" -->
-
-- We give them a System Under Test
+- We give students a System Under Test
 <!-- .element: class="fragment fade-in" -->
 - They write us a Test Suite
 <!-- .element: class="fragment fade-in" -->
@@ -92,17 +91,17 @@ We leverage them to teach Test-Writing
 
 ### What **Challenges** Did We Face?
 
-*We know Faded Parsons impart good habits*
+*We know Faded Parsons impart good habits...*
 
-> Writing means syncing data by hand.
+> Writing means tracking diffs by hand.
 <!-- .element: class="fragment bad" -->
 
-> Converting old material is laborious.
+> Converting old material is involved.
 <!-- .element: class="fragment bad" -->
 
-We want to impart strong Test-Writing
+We leverage Faded Parsons to teach Test-Writing
 
-> No theory of "correctness" or <br> practical, reusable autograder
+> No theory of "correctness" <br> or practical, reusable autograder
 <!-- .element: class="fragment fade-in bad" -->
 
 
@@ -110,7 +109,7 @@ We want to impart strong Test-Writing
 ### Our Contributions
 
 > **FPPgen** streamlines Authoring, <br>
-> supports Arbitrary Complexity.
+> supports new kinds of scaffolding.
 <!-- .element: class="fragment fade-in" -->
 
 > A **Mutation-Based Autograder** <br>
@@ -162,13 +161,10 @@ Note: open source, online
 
 - At least as effective as Code-Writing
 <!-- .element: class="fragment fade-in" -->
-- More efficient than Code-Writing
+- More efficient use of Student Time
 <!-- .element: class="fragment fade-in" -->
-- Highly constrain the Solution Space
+- Highly Constrains the Solution Space
 <!-- .element: class="fragment fade-in" -->
-
-<!-- <img class="fragment fade-in" src="img/kenobi.gif"> -->
-<img class="fragment fade-in" src="img/kenobi.png">
 
 [Ericson '18, Zhi '19, Weinmann '20]
 <!-- .element: class="demph" -->
@@ -195,7 +191,7 @@ Note: - Ericson FPP efficacy
 # test Giftcard
 ```
 
-\* Student Roadblocks *
+<u>Student Roadblocks</u>
 <!-- .element: class="fragment fade-in demph"-->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -305,8 +301,9 @@ end
 +++ <!-- .slide: data-auto-animate -->
 
 ### Student Difficulties with Test Writing
-Student Roadblocks
-<!-- .element: class="demph"-->
+
+<u>Student Roadblocks</u>
+
 -  RSpec Syntax
 <!-- .element: class="demph"-->
 -  Arrange-Act-Assert Pattern
@@ -327,7 +324,7 @@ Student Roadblocks
 
 *So we started writing new content...*
 
-> Authoring Faded Parsons Problems is hard everywhere.
+> Writing Faded Parsons Problems <br> is hard everywhere.
 <!-- .element: class="fragment fade-in bad" -->
 
 Note: bring scaffolding, grading, habits
@@ -436,7 +433,7 @@ Note: fully documented online, and more details in paper
 
 ### Code-Writing **without** FPPgen
 
-1. Spin-up PrairieLearn
+1. Spin-up our LMS on Docker
 2. Generate Templates
 3. Edit info.json
 4. Update server.py
@@ -445,9 +442,7 @@ Note: fully documented online, and more details in paper
 7. Write your solution (BYOL)
 8. Write your spec
 
-Note: - no longer blocking on PrairieLearn, but still need it
-- human readable output
-- prompt embellishment, reference solution presentation.
+Note: no longer blocking on PrairieLearn, but still need it
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -464,11 +459,15 @@ Start with your Code-Writing Solution
 Add `?blanks?` and mark `#given` lines.
 <!-- .element: class="fragment fade-in" -->
 
-Surround your spec with `## test ##`.
+*Surround your spec with `## test ##`.*
 <!-- .element: class="fragment fade-in" -->
 
 Run FPPgen, and repeat.
 <!-- .element: class="fragment fade-in" -->
+
+Note: - more in the docs
+- human readable output
+- prompt embellishment, reference solution presentation.
 
 ---
 
@@ -495,7 +494,7 @@ I'll do you one better.
 
 #### Needs Scaffolding
 
-> Faded Parsons Problems<span class="fragment fade-in">++!</span>
+> Faded Parsons Problems<span class="fragment fade-in">+++</span>
 <!-- .element: class="fragment fade-in good" -->
 
 Note: solution space, scaffolding, style!
@@ -510,10 +509,19 @@ Note: solution space, scaffolding, style!
 
 #### Multi-Part Faded Parsons
 
+<div class="r-stack">
+    <img src="img/giftcard-sequence/0.png" class="fragment fade-out" data-fragment-index="2">
+    <img src="img/giftcard-sequence/1.png" class="fragment fade-in taper-fade" data-fragment-index="2">
+</div>
+
++++ <!-- .slide: data-auto-animate -->
+
+#### Multi-Part Faded Parsons
+
 <div class="col-container">
     <div class="col">
         <img src="img/giftcard-sequence/0.png">
-        <h4 class="fragment fade-in">. . . Solved!</h4>
+        <h4>. . . Solved!</h4>
     </div>
     <div class="col">
         <img class="fragment fade-in" src="img/giftcard-sequence/1.png">
@@ -531,7 +539,7 @@ Note: solution space, scaffolding, style!
         <h4 class="fragment fade-in">. . . Solved!</h4>
     </div>
     <div class="col">
-        <img src="img/giftcard-sequence/2.png">
+        <img class="fragment fade-in" src="img/giftcard-sequence/2.png">
     </div>
 </div>
 
@@ -573,7 +581,7 @@ Note: solution space, scaffolding, style!
 <!-- .element: class="fragment fade-in good" -->
 
 --- <!-- .slide: data-auto-animate -->
-<!-- .slide: data-auto-animate -->
+
 ### Assessing Test Suites
 
 #### Problem Components:
@@ -590,8 +598,8 @@ Note: solution space, scaffolding, style!
 
 Note: arbitrary SUT dependencies! arbitrary test deps!
 
-+++
-<!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
+
 ### Assessing Test Suites
 - A System Under Test that we provide
 - A Test Suite that *we want to grade*
@@ -601,7 +609,7 @@ Note: arbitrary SUT dependencies! arbitrary test deps!
 Borrow Mutant Generation from Industry QA
 
 Make a *Mutation-Based Autograder* that <br>
-grades a test suite on killed mutants
+grades a test suite on caught mutations
 <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -687,8 +695,8 @@ Note: - Only one mutation set for all parts.
 
 ### Conclusion
 
-> **FPPgen** streamlines Authoring,<br>
-> supports Arbitrary Complexity.
+> **FPPgen** streamlines Authoring, <br>
+> supports new kinds of scaffolding.
 
 > A **Mutation-Based Autograder** <br>
 > to assess Test Quality.
@@ -702,7 +710,4 @@ Note: - Only one mutation set for all parts.
 
 *No matter the problem skill level or complexity, <br> our tools can help.*
 
-<div class="r-stack">
-<img alt-text="qr code here" style="width: 300px; height: 300px">
-<span> definitely a <br> QR code </span>
-</div>
+<img src="img/qr-code.png" style="width: 300px; height: 300px">
