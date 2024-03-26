@@ -33,7 +33,7 @@ Note: - early return
 ### Recursion
 #### **MOABH (Mother of All Bad Habits) Solution**
 
-``` py
+``` py [|8|]
 def is_even(n: int):
     if n == 2:
         return True
@@ -93,7 +93,7 @@ We leverage Faded Parsons to teach **Test-Writing**
 
 *We know Faded Parsons impart good habits...*
 
-> Writing means tracking diffs by hand.
+> Writing means syncing data by hand.
 <!-- .element: class="fragment bad" -->
 
 > Converting old material is involved.
@@ -119,13 +119,15 @@ We leverage Faded Parsons to teach Test-Writing
 Available online now!
 <!-- .element: class="fragment fade-in demph" -->
 
-Note: open source, online
+Note: spec-based!
+
+open source, online
 
 --- <!-- .slide: data-auto-animate -->
 
 ### Roadmap
 
-0. Faded Parsons Background
+0. Background
 1. Authoring Experience
 2. Assessing Test-Writing
 
@@ -163,7 +165,7 @@ Note: open source, online
 <!-- .element: class="fragment fade-in" -->
 - More efficient use of Student Time
 <!-- .element: class="fragment fade-in" -->
-- Highly Constrains the Solution Space
+- Highly Constrain the Solution Space
 <!-- .element: class="fragment fade-in" -->
 
 [Ericson '18, Zhi '19, Weinmann '20]
@@ -398,8 +400,6 @@ Note: we diverge from previous work here.
 
 - long creative loops kill inspiration
 <!-- .element: class="fragment fade-in" -->
-- constant "paper cuts" loose users
-<!-- .element: class="fragment fade-in" -->
 - instantly, perpetually brittle
 <!-- .element: class="fragment fade-in" -->
 - attracts
@@ -407,7 +407,6 @@ Note: we diverge from previous work here.
 **so many** bugs
 
 Note:- takes so long to melt and dye
-- getting sugar burns **suck**
 - as soon as it sets, it shatters
 - so many bugs
 
@@ -453,7 +452,7 @@ Note: no longer blocking on PrairieLearn, but still need it
 +++ <!-- .slide: data-auto-animate -->
 ### Conversion from Code-Writing
 
-Start with your Code-Writing Solution
+Start with your Code-Writing Solution.
 <!-- .element: class="fragment fade-in" -->
 
 Add `?blanks?` and mark `#given` lines.
@@ -478,23 +477,11 @@ Note: - more in the docs
 
 --- <!-- .slide: data-auto-animate -->
 
-### Common Misconception
-
-> While useful for beginners, <br>
-> FPPs are an impractical medium
-> for teaching software engineering.
-<!-- .element: class="bad" -->
-
-I'll do you one better.
-<!-- .element: class="fragment fade-in" -->
-
---- <!-- .slide: data-auto-animate -->
-
 ### Test Writing
 
 #### Needs Scaffolding
 
-> Faded Parsons Problems<span class="fragment fade-in">+++</span>
+> Faded Parsons Problems<span class="fragment fade-in">++</span>
 <!-- .element: class="fragment fade-in good" -->
 
 Note: solution space, scaffolding, style!
@@ -524,7 +511,7 @@ Note: solution space, scaffolding, style!
         <h4>. . . Solved!</h4>
     </div>
     <div class="col">
-        <img class="fragment fade-in" src="img/giftcard-sequence/1.png">
+        <img src="img/giftcard-sequence/1.png">
     </div>
 </div>
 
@@ -535,11 +522,11 @@ Note: solution space, scaffolding, style!
 
 <div class="col-container">
     <div class="col">
-        <img class="fragment" src="img/giftcard-sequence/1.png">
-        <h4 class="fragment fade-in">. . . Solved!</h4>
+        <img src="img/giftcard-sequence/1.png">
+        <h4>. . . Solved!</h4>
     </div>
     <div class="col">
-        <img class="fragment fade-in" src="img/giftcard-sequence/2.png">
+        <img src="img/giftcard-sequence/2.png">
     </div>
 </div>
 
@@ -571,16 +558,14 @@ Note: solution space, scaffolding, style!
 
 #### Needs Scaffolding
 
-> Faded Parsons Problems ++
-<!-- .element: class="fragment fade-in good" -->
+> Faded Parsons Problems++
 
 #### Needs Grading
-<!-- .element: class="fragment fade-in" -->
 
-> Mutation-Based Autograding
+> Mutation-Based Autograders
 <!-- .element: class="fragment fade-in good" -->
 
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Assessing Test Suites
 
@@ -686,9 +671,9 @@ Note: - Only one mutation set for all parts.
 <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
   - Automate Mutant Generation
 <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
-- Automate the Fading in Conversion
+- Automate Fading in Conversion
 <!-- .element: class="fragment fade-in" -->
-- Use Parsons more in the upper division
+- Use Parsons more in the Upper Division
 <!-- .element: class="fragment fade-in" -->
 
 --- <!-- .slide: data-auto-animate -->
