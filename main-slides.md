@@ -1,8 +1,6 @@
-## Automatic Generation of <br> Faded Parsons Problems
-### (The Journey to Scaffold Test Writing)
-#### **Serena Caraco**, Nelson Lojo, <br> *Michael Verdicchio*, Armando Fox
+#### *The Algorithms and Computing for Education Lab presents*
+## Scaffolding Test Writing with Faded Parsons Problems
 
-Note: Prof Verdicchio in from Charleston, SC
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -109,14 +107,14 @@ We leverage Faded Parsons to teach Test-Writing
 ### Our Contributions
 
 > **FPPgen** streamlines Authoring, <br>
-> supports new kinds of scaffolding.
+> supports new kinds of scaffolding.*
 <!-- .element: class="fragment fade-in" -->
 
 > A **Mutation-Based Autograder** <br>
 > to assess Test Quality.
 <!-- .element: class="fragment fade-in good" -->
 
-Available online now!
+*\* we'll be skipping this one today*
 <!-- .element: class="fragment fade-in demph" -->
 
 Note: spec-based!
@@ -128,8 +126,7 @@ open source, online
 ### Roadmap
 
 0. Background
-1. Authoring Experience
-2. Assessing Test-Writing
+1. Assessing Test-Writing
 
 ---
 
@@ -162,18 +159,11 @@ open source, online
 *Do they work?*
 
 - At least as effective as Code-Writing
-<!-- .element: class="fragment fade-in" -->
 - More efficient use of Student Time
-<!-- .element: class="fragment fade-in" -->
 - Highly Constrain the Solution Space
-<!-- .element: class="fragment fade-in" -->
 
 [Ericson '18, Zhi '19, Weinmann '20]
 <!-- .element: class="demph" -->
-
-Note: - Ericson FPP efficacy
-- Zhi efficiency
-- Weinmann ease of use, good habits
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -296,7 +286,7 @@ end
 <!-- .element: class="demph" -->
 -  File-length Solution
 <!-- .element: class="demph" -->
--  DRY Style
+-  Remove Repetition
 <!-- .element: class="demph" -->
 
 
@@ -312,7 +302,7 @@ end
 <!-- .element: class="demph" -->
 -  File-length Solution
 <!-- .element: class="demph" -->
--  DRY Style
+-  Remove Repetition
 <!-- .element: class="demph" -->
 
 *Imparting style? Scaffolding syntax? Unwieldy solutions?*
@@ -329,148 +319,13 @@ end
 > Writing Faded Parsons Problems <br> is hard everywhere.
 <!-- .element: class="fragment fade-in bad" -->
 
+*And if you want to know how we fixed this with programming language design concepts, <br> come chat after!*
+<!-- .element: class="fragment fade-in " -->
 Note: bring scaffolding, grading, habits
 
 ---
 
 ### Part One
-<hr>
-
-## Authoring Experience
-
-Note: we diverge from previous work here.
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Presenting Faded Parsons
-
-- Serve Faded Parsons Codelines
-<!-- .element: class="fragment fade-in" -->
-- Grade the Student Submission
-<!-- .element: class="fragment fade-in" -->
--
-<!-- .element: class="fragment fade-in" -->
-*Provide a Reference Solution\**
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Presenting Faded Parsons
-
-<table>
-<thead>
-  <tr>
-    <th></th>
-    <th align="center">Parsons Codelines</th>
-    <th align="center">Autograder Solution</th>
-    <th align="center">Reference Solution</th>
-  </tr>
-</thead>
-<tbody>
-  <tr class="fragment fade-in">
-    <td>Raw Code</td>
-    <td class="table-data" align="center">✅</td>
-    <td class="table-data" align="center">✅</td>
-    <td class="table-data" align="center">✅</td>
-  </tr>
-  <tr class="fragment fade-in">
-    <td>Formatting</td>
-    <td class="table-data" align="center">✅</td>
-    <td class="table-data" align="center"></td>
-    <td class="table-data" align="center"></td>
-  </tr>
-  <tr class="fragment fade-in">
-    <td>Spec</td>
-    <td class="table-data" align="center"></td>
-    <td class="table-data" align="center">✅</td>
-    <td class="table-data" align="center"></td>
-  </tr>
-  <tr class="fragment fade-in">
-    <td>Commentary</td>
-    <td class="table-data" align="center"></td>
-    <td class="table-data" align="center"></td>
-    <td class="table-data" align="center">✅</td>
-  </tr>
-</tbody>
-</table>
-
-+++ <!-- .slide: data-auto-animate -->
-
-> Manually synchronizing data <br> is like baking with sugar glass.
-<!-- .element: class="bad" -->
-
-- long creative loops kill inspiration
-<!-- .element: class="fragment fade-in" -->
-- instantly, perpetually brittle
-<!-- .element: class="fragment fade-in" -->
-- attracts
-<!-- .element: class="fragment fade-in" -->
-**so many** bugs
-
-Note:- takes so long to melt and dye
-- as soon as it sets, it shatters
-- so many bugs
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Faded Parsons with FPPgen
-
-In one file, write your prompt and solution.
-<!-- .element: class="fragment fade-in" -->
-
-Add `?blanks?`, mark `#given` lines.
-<!-- .element: class="fragment fade-in" -->
-
-*Surround your spec with `## test ##`.*
-<!-- .element: class="fragment fade-in" -->
-
-Run FPPgen, and repeat.
-<!-- .element: class="fragment fade-in" -->
-
-Note: fully documented online, and more details in paper
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Code-Writing **without** FPPgen
-
-1. Spin-up our LMS on Docker
-2. Generate Templates
-3. Edit info.json
-4. Update server.py
-5. Write your prompt (HTML)
-6. Format your question (XML)
-7. Write your solution (BYOL)
-8. Write your spec
-
-Note: no longer blocking on PrairieLearn, but still need it
-
-+++ <!-- .slide: data-auto-animate -->
-
-*Well, what about...*
-
-### Conversion from Code-Writing
-
-+++ <!-- .slide: data-auto-animate -->
-### Conversion from Code-Writing
-
-Start with your Code-Writing Solution.
-<!-- .element: class="fragment fade-in" -->
-
-Add `?blanks?` and mark `#given` lines.
-<!-- .element: class="fragment fade-in" -->
-
-*Surround your spec with `## test ##`.*
-<!-- .element: class="fragment fade-in" -->
-
-Run FPPgen, and repeat.
-<!-- .element: class="fragment fade-in" -->
-
-Note: - more in the docs
-- human readable output
-- prompt embellishment, reference solution presentation.
-
----
-
-### Part Two
 <hr>
 
 ## Assessing Test-Writing
@@ -481,7 +336,7 @@ Note: - more in the docs
 
 #### Needs Scaffolding
 
-> Faded Parsons Problems<span class="fragment fade-in">++</span>
+> Faded Parsons Problems++
 <!-- .element: class="fragment fade-in good" -->
 
 Note: solution space, scaffolding, style!
@@ -635,33 +490,7 @@ grades a test suite on caught mutations
 
 Note: - Only one mutation set for all parts.
 - This scheme does not require FPPs
-
 --- <!-- .slide: data-auto-animate -->
-
-### Mutation-Based Autograders
-#### Sample Feedback
-
-![Overview of Feedback](img/ag-feedback/feedback-overview.png)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Mutation-Based Autograders
-#### Sample Feedback
-
-![Overview of Feedback](img/ag-feedback/correct-feedback.png)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Mutation-Based Autograders
-#### Sample Feedback
-
-![Overview of Feedback](img/ag-feedback/incorrect-feedback.png)
-
---- <!-- .slide: data-auto-animate -->
-
-*What about authoring these...*
-
-+++
 
 ### Future Work
 
@@ -688,11 +517,3 @@ Note: - Only one mutation set for all parts.
 <!-- .element: class="good" -->
 
 *No matter the problem skill level or complexity, <br> our tools can help.*
-
---- <!-- .slide: data-auto-animate -->
-
-### Thank You!
-
-*No matter the problem skill level or complexity, <br> our tools can help.*
-
-<img src="img/qr-code.png" style="width: 300px; height: 300px">
