@@ -1,0 +1,32 @@
+/* serena's custom css */
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+}
+.reveal .caps {
+    text-transform: capitalize;
+}
+.reveal .invis {
+    color: #0000;
+}
+
+.reveal blockquote {
+    background-color: rgb(134, 184, 194);
+    border-radius: 12px;
+}
+
+.reveal blockquote.bad {
+    background-color: rgb(232, 131, 131);
+}
+
+.reveal blockquote.good {
+    background-color: rgb(94, 203, 94);
+}
+
+.reveal .taper-fade {
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,1) 40%, rgba(0,0,0,0));
+}
+
+.reveal hr {
+    color: black;
+}
