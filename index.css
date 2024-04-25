@@ -23,6 +23,15 @@
     background-color: rgb(94, 203, 94);
 }
 
+.reveal blockquote.wide {
+    width: 80%;
+}
+
+.reveal blockquote.outline {
+    outline: 4px solid;
+    outline-color: crimson;
+}
+
 .reveal .taper-fade {
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,1) 40%, rgba(0,0,0,0));
 }
