@@ -20,11 +20,11 @@
 ## Warning: A Work-in-Progress
 
 Info from a 1st-of-its-Kind work studying how CS
-- Legitimizes Diversity
+- Legitimizes
 <!-- .element: class="fragment fade-in" -->
-- Masks Diversity
+- Masks
 <!-- .element: class="fragment fade-in" -->
-- Gives a Place of Refuge for Diversity
+- Gives a Place of Refuge
 <!-- .element: class="fragment fade-in" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -50,8 +50,11 @@ Info from a 1st-of-its-Kind work studying how CS
 ### Study Population
 
 - ~20 students, faculty, industry workers
+<!-- .element: class="fragment fade-in" -->
 - A Mix of Self-Identified and Establishment-Diagnosed
+<!-- .element: class="fragment fade-in" -->
 - Some publicly identified, others individually disclosed
+<!-- .element: class="fragment fade-in" -->
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -83,8 +86,11 @@ Info from a 1st-of-its-Kind work studying how CS
 ### Special Interests
 
 - Vocational computing legitimized CS hobbies
+<!-- .element: class="fragment fade-in" -->
 - CS interest is used as a baseline for comparison
+<!-- .element: class="fragment fade-in" -->
 - CS hobbies were expected to be exclusive
+<!-- .element: class="fragment fade-in" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -93,8 +99,11 @@ Info from a 1st-of-its-Kind work studying how CS
 ### Attention
 
 - Hyperfocus is legitimized and given refuge
+<!-- .element: class="fragment fade-in" -->
 - Sometimes hyperfocus reported "essential"
+<!-- .element: class="fragment fade-in" -->
 - Some hyperfocus to medically dangerous extents
+<!-- .element: class="fragment fade-in" -->
 
 Note: extremes tend to come from compensation.
 
@@ -106,9 +115,13 @@ Not all bad news though
 
 ### Organization
 
-- *Proper-Styled™️* code reported "necessary in SE"
+-
+<!-- .element: class="fragment fade-in" -->
+*Proper-Styled™️* code reported "necessary in SE"
 - Sometimes hyperfocus is seen as "essential"
+<!-- .element: class="fragment fade-in" -->
 - Industry can sometimes accommodate cyclical attention patterns
+<!-- .element: class="fragment fade-in" -->
 
 Note: disadvantage to non-conformist/hypo-focusing individuals
 
@@ -136,8 +149,11 @@ Professionals in industry report:
 Professionals in industry report:
 
 - Ready access to free food and facilities
+<!-- .element: class="fragment fade-in" -->
 - Short meetings with non-confrontational tone
+<!-- .element: class="fragment fade-in" -->
 - High-degree of day-to-day flexibility
+<!-- .element: class="fragment fade-in" -->
 
 Note: viewed as normalized, inherent, universal accommodation
 
@@ -149,7 +165,8 @@ Note: viewed as normalized, inherent, universal accommodation
 
 One trans, non-binary, autistic individual's voice was especially platformed in the paper.
 
-They believe that CS is an artistic practice supportive of their identity.
+They believe that CS is an artistic practice supportive of their intersectional identity.
+<!-- .element: class="fragment fade-in" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -215,3 +232,18 @@ Kirdani-Ryan and Ko conclude with a few remarks:
 
 > There is much work to do yet.
 <!-- .element: class="outline" -->
+
+---
+
+## Conclusion
+
+Computing spaces can legitimize and accommodate neurodivergence.
+<!-- .element: class="fragment fade-in" -->
+
+Some neurodiverse behaviors are cast as "necessary for success."
+<!-- .element: class="fragment fade-in" -->
+
+*This is just the start for understanding this problem.*
+<!-- .element: class="fragment fade-in" -->
+
+<a class="small right fragment fade-in" href="#/0">jump to start</a>

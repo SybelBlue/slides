@@ -39,3 +39,12 @@
 .reveal hr {
     color: black;
 }
+
+.reveal .small {
+    size: 60%;
+    font-size: 70%;
+}
+
+.reveal .right {
+    float: right;
+}
