@@ -12,15 +12,23 @@
 
 .reveal blockquote {
     background-color: rgb(134, 184, 194);
+    /* color: var(--r-main-color); */
     border-radius: 12px;
 }
 
 .reveal blockquote.bad {
     background-color: rgb(232, 131, 131);
+    /* color: rgb(232, 131, 131); */
 }
 
 .reveal blockquote.good {
     background-color: rgb(94, 203, 94);
+    /* color: var(--r-inline-code-color); */
+}
+
+.reveal blockquote.alt {
+    /* background-color: rgb(205, 24, 184); */
+    color: #6b0383;
 }
 
 .reveal .taper-fade {
@@ -29,4 +37,16 @@
 
 .reveal hr {
     color: black;
+}
+.reveal .col-container {
+    display: flex !important;
+}
+.reveal .col {
+    flex: 1;
+    font-size: 80%;
+}
+
+.reveal .demph {
+    /* color: #BBACAC; */
+    color: #2229;
 }
