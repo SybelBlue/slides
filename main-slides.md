@@ -1,91 +1,56 @@
-<!-- .slide: data-auto-animate -->
+## Intro
 
-### my humble contribution to
-<!-- .element: class="demph" -->
-# CS Kickstart 2024!
-
---- <!-- .slide: data-auto-animate -->
-
-### Introduction
+*why are we here??*
 
 Notes: phil, psych & cog sci, education, history,
-anthroplogy, access & justice, studio & perf arts
-
-... business
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Introduction
-
-I'm an educator
-<!-- .element: class="fragment fade-in " -->
-
-I design tools and programming languages
-<!-- .element: class="fragment fade-in " -->
-
-I work in Human-Computer Interaction
-<!-- .element: class="fragment fade-in" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Introduction
-
-I work in Human-Computer Interaction
-
-<div class="col-container">
-    <div class="col fragment fade-up">
-    <blockquote class="">Philosophy</blockquote>
-    <blockquote class="">Cognitive Science</blockquote>
-    <blockquote class="">Education</blockquote>
-    <blockquote class="">Psychology</blockquote>
-    <blockquote class="">Studio Arts</blockquote>
-    </div>
-    <div class="col fragment fade-up">
-    <blockquote class="alt">Anthropology</blockquote>
-    <blockquote class="alt">History</blockquote>
-    <blockquote class="alt">Accessibility</blockquote>
-    <blockquote class="alt">Futuring</blockquote>
-    <blockquote class="alt">Performing Arts</blockquote>
-    </div>
-</div>
-
-+++ <!-- .slide: data-auto-animate -->
-
-*Cool... but, who are you?*
-
-### Introduction?
-<!-- .element: class="fragment fade-in " -->
-
-## Two fundamental truths
-<!-- .element: class="fragment fade-in" -->
+anthroplogy, access & justice, studio & perf arts,
+physics, chemistry, biology, math
 
 --- <!-- .slide: data-auto-animate -->
 
-## Two fundamental truths
+## computing is an art
+### of making meaning
+#### from meaningless things
 
-> Computing requires Context
-<!-- .element: class="good" -->
+## From Meaningless Things
+- Searching for Expressive Languages
+- Switch to CS
+  - ...From Math
+  - ...Into Research
+  - ...Into HCI
+- Meaningless Symbols
+> A good integral will make you nauseous in 15 mins flat
 
-> Computing is an Artform
-<!-- .element: class="fragment fade-out" -->
+*Follow the Joy*
 
-+++ <!-- .slide: data-auto-animate -->
+## Of Making Meaning
+- Representations
+  - Color
+  - UI
+- Abstractions
+  - Color
+  - UI
+- HCI
+  - The Venn Diagrams
+    - Sister fields
+  - Context
+    - Determines abstractions
+    - Accessibility
+    - Education
 
-## Two fundamental truths
+*Context is Key*
 
-> Computing requires Context
-<!-- .element: class="good" -->
+## Computing is an Art
 
-> Computing is Magic
-<!-- .element: class="alt" -->
+## Interlude: Enjoying College
+- Find Your Community
+- _Go to Office Hours_
+- Don't Forget to Have Fun
 
-
---- <!-- .slide: data-auto-animate -->
-
-### <em><u>Introduction!!</u></em>
-
-Oh, the yarns I could spin...
-<!-- .element: class="fragment fade-in" -->
-
-**Computing requires Context**
-<!-- .element: class="fragment fade-in" -->
+## Final Takeaways
+- Follow the Joy
+- Context is Key
+- This is an Artform
+  - Find Your Community
+  - _Go to Office Hours_
+  - Don't Forget to Have Fun

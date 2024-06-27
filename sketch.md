@@ -44,13 +44,11 @@ What does it take for a good passion project?
 
 Physics
 + Elegant, Powerful
-- Narrow Use, Static
+- Narrow Use, Capitalist
 
 Biology
-+ Names for Everything
-+ Intricate Diagrams
-- Names for Everything
-- Intricate Diagrams
++ Taxonomy and Names for Everything
+- Taxonomy and Names for Everything
 
 Chemistry
 + Functional Groups, Building Blocks
@@ -61,6 +59,7 @@ Math
 + Could Make a World on a Page
 + Elegance, Flow, Style
 - Esoteric
+- Literal, Pedantic
 - Symbols without Context!
 - Could only understand it with code.
 
