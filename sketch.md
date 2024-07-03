@@ -58,10 +58,9 @@ Math
 + Functional, Prescriptive
 + Could Make a World on a Page
 + Elegance, Flow, Style
-- Esoteric
+- Esoteric, Fully Constructed
 - Literal, Pedantic
 - Symbols without Context!
-- Could only understand it with code.
 
 
 => Computer Science!
@@ -129,3 +128,14 @@ No meaning without context, and CS is about constructing meaning from meaningles
 
 - Apollo 11
 - Software Engineering
+
+"My story"
+- open mindedness
+- checking biases internally
+- reconciling science and art
+  - multidisciplinarity is essential, not adverserial
+- computing in service of humanity
+- support networks
+  - mentors
+  - peers
+  - oler sisters
