@@ -86,7 +86,7 @@ growth mindset
 ### Computing's 3 "Can it..."s
 
 - Can it arithmetic
-- Can it function
+- Can it recipe
 - Can it chart
 
 
