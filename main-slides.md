@@ -4,57 +4,19 @@
 
 --- <!-- .slide: data-auto-animate -->
 
-## computing is an art
-## of making meaning
-<!-- .element: class="fragment fade-inout" -->
-
---- <!-- .slide: data-auto-animate -->
-### outline
-<hr>
-
-## computing is an art
-
-#### interlude: enjoying college
-
-## of making meaning
-
-#### interlude: hci
-
-## *conclusion*
-
---- <!-- .slide: data-auto-animate -->
-
-## computing is an art
-## of making meaning
-
---- <!-- .slide: data-auto-animate -->
-
-## computing is an art
-
-*donald knuth has my back.*
-
-+++ <!-- .slide: data-auto-animate -->
-
-*donald knuth has my back.*
-
-computing is an art because it...
-
-- applies accumulated knowledge to the world
-<!-- .element: class="fragment" -->
-- requires skill and ingenuity
-<!-- .element: class="fragment" -->
--
-<!-- .element: class="fragment" -->
-**produces objects of beauty**
-
-+++ <!-- .slide: data-auto-animate -->
-
-*donald knuth has my back.*
-
 > programmers who subconsciously view themselves
 > as artists will enjoy what they do and
 > will **do it better**.
 <!-- .element: class="fragment good" -->
+
+--- <!-- .slide: data-auto-animate -->
+
+## computing is an art
+
+--- <!-- .slide: data-auto-animate -->
+
+## computing is an art
+## of making meaning
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -65,22 +27,6 @@ gonna be like learning any other art
 <!-- .element: class="fragment" -->
 
 *so what lessons can we steal?*
-
-+++ <!-- .slide: data-auto-animate -->
-
-*so what lessons can we steal?*
-
-### skill requires practice
-<!-- .element: class="fragment" -->
-
-- practice the fundamentals
-<!-- .element: class="fragment" -->
-- practice with passion projects
-<!-- .element: class="fragment" -->
-- practice in community
-<!-- .element: class="fragment" -->
-
-*practice, practice, practice*
 <!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -89,18 +35,10 @@ gonna be like learning any other art
 
 - practice, practice, practice
 
-+++ <!-- .slide: data-auto-animate -->
-
-*so what lessons can we steal?*
-
-### learning happens best in community
-- Friends, Family, Enemies
-<!-- .element: class="fragment" -->
-- Peers, Experts, Pupils
-<!-- .element: class="fragment" -->
-
-*find a community*
-<!-- .element: class="fragment" -->
+Note:
+- set goals and challenges
+- fail in front of experts
+- pick up a passion project (or nine)
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -111,15 +49,12 @@ gonna be like learning any other art
 
 +++ <!-- .slide: data-auto-animate -->
 
-*so what lessons can we steal?*
-
 ### "wiz-kids" don't exist
 
-*usually*
+*well, usually...*
+<!-- .element: class="fragment small" -->
 
 ![aang.gif](aang.gif)
-
-*embrace a growth mindset*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -131,22 +66,9 @@ gonna be like learning any other art
 
 --- <!-- .slide: data-auto-animate -->
 
-## computing is an art
-
-+++ <!-- .slide: data-auto-animate -->
-
-## computing is an art
-## of making meaning
-
-+++ <!-- .slide: data-auto-animate -->
-
-## computing is an art
-
 ### interlude: enjoying college
 
-## of making meaning
-
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### interlude: enjoying college
 
@@ -172,20 +94,13 @@ gonna be like learning any other art
 
 ## of making meaning
 
-+++ <!-- .slide: data-auto-animate -->
-
-## computing is an art
-
-## of making meaning
-
 --- <!-- .slide: data-auto-animate -->
 
 ## of making meaning
 
 ### abstractions
 
-### abstraction Blindness
-
+### abstraction blindness
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -209,4 +124,56 @@ good abstractions...
 +++ <!-- .slide: data-auto-animate -->
 
 ### abstractions
-#### an example
+#### an example: steering controls
+
+- pac-man steering
+- car steering
+- tank steering
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstraction blindness
+
+you floor the gas, the car goes...
+
+...regardless of the brick wall in front of you
+
+*every abstraction has blind-spots*
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstraction blindness
+
+a good thinker tracks their abstraction blindness
+
+a responsible thinker looks for blindness to harm
+
+> learning lots of representations
+> can reveal your blind-spots
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstraction blindness
+
+*powerful, when used well*
+
+- study your context continually
+- understand the abstraction's limits
+- when in doubt, talk to a human
+
+--- <!-- .slide: data-auto-animate -->
+
+#### interlude: engineer brain
+
+*definitely highly researched, <br> not at all a rant*
+<!-- .element: class="fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+#### interlude: engineer brain
+
+> all interesting problems reduce to discrete components
+<!-- .element: class="fragment" -->
+
+meh by itself, terrible as the default
+<!-- .element: class="fragment" -->
