@@ -20,6 +20,123 @@
 
 --- <!-- .slide: data-auto-animate -->
 
+## of making meaning
+
+### abstractions
+
+### abstraction blindness
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+
+> The Way™️ of representing <br> some
+> structure or behavior <br> in a particular context
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+
+good abstractions...
+- are derived from context
+<!-- .element: class="fragment" -->
+- meaningfully limit what is possible
+<!-- .element: class="fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+#### an example: steering controls
+
+- pac-man steering
+- car steering
+- tank steering
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstraction blindness
+
+you floor the gas, the car goes...
+
+...regardless of the brick wall in front of you
+
+*every abstraction has blind-spots*
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstraction blindness
+
+a good thinker tracks their abstraction blindness
+
+a responsible thinker looks for blindness to harm
+
+> learning lots of representations
+> can reveal your blind-spots
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstraction blindness
+
+*powerful, when used well*
+
+- study your context continually
+- understand the abstraction's limits
+- when in doubt, talk to a human
+
+--- <!-- .slide: data-auto-animate -->
+
+#### interlude: engineer brain
+
+*definitely highly researched, <br> not at all a rant*
+<!-- .element: class="fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+#### interlude: engineer brain
+
+> "all interesting problems reduce to <br> modular components"
+<!-- .element: class="fragment" -->
+
+terrible as the default problem-solving approach
+<!-- .element: class="fragment" -->
+
+Note:
+- ignores context
+- blinds you to unexpected interactions
+- dismisses human factors
+
+
++++ <!-- .slide: data-auto-animate -->
+
+## of making meaning
+
+--- <!-- .slide: data-auto-animate -->
+
+## computing is an art
+## of making meaning
+
++++ <!-- .slide: data-auto-animate -->
+
+### computing is an art of making meaning
+
+like all other rational arts, we use abstractions
+
+in most places, abstractions only need to be
+legible to other practitioners
+
++++ <!-- .slide: data-auto-animate -->
+
+### computing is an art of making meaning
+
+in computing the abstractions in code are used by
+- the developers
+- the users
+- the computer
+
+Note: blindness, context, limitations
+
+--- <!-- .slide: data-auto-animate -->
+
 ## computing is an art
 
 learning computing is <br>
@@ -87,93 +204,3 @@ Note:
   - but you gotta be yourself
 
 --- <!-- .slide: data-auto-animate -->
-
-## computing is an art
-
-### interlude: enjoying college
-
-## of making meaning
-
---- <!-- .slide: data-auto-animate -->
-
-## of making meaning
-
-### abstractions
-
-### abstraction blindness
-
-+++ <!-- .slide: data-auto-animate -->
-
-### abstractions
-
-> The Way™️ of representing <br> some
-> structure or behavior <br> in a particular context
-
-+++ <!-- .slide: data-auto-animate -->
-
-### abstractions
-
-good abstractions...
-- are derived from context
-<!-- .element: class="fragment" -->
-- meaningfully limit what is possible
-<!-- .element: class="fragment" -->
-- play nicely with other abstractions
-<!-- .element: class="fragment" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### abstractions
-#### an example: steering controls
-
-- pac-man steering
-- car steering
-- tank steering
-
-+++ <!-- .slide: data-auto-animate -->
-
-### abstraction blindness
-
-you floor the gas, the car goes...
-
-...regardless of the brick wall in front of you
-
-*every abstraction has blind-spots*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### abstraction blindness
-
-a good thinker tracks their abstraction blindness
-
-a responsible thinker looks for blindness to harm
-
-> learning lots of representations
-> can reveal your blind-spots
-
-+++ <!-- .slide: data-auto-animate -->
-
-### abstraction blindness
-
-*powerful, when used well*
-
-- study your context continually
-- understand the abstraction's limits
-- when in doubt, talk to a human
-
---- <!-- .slide: data-auto-animate -->
-
-#### interlude: engineer brain
-
-*definitely highly researched, <br> not at all a rant*
-<!-- .element: class="fragment" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-#### interlude: engineer brain
-
-> all interesting problems reduce to discrete components
-<!-- .element: class="fragment" -->
-
-meh by itself, terrible as the default
-<!-- .element: class="fragment" -->
