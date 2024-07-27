@@ -9,70 +9,33 @@
 <!-- .element: class="fragment fade-inout" -->
 
 --- <!-- .slide: data-auto-animate -->
+### outline
+<hr>
 
 ## computing is an art
 
-### computing is experienced like art
-<!-- .element: class="fragment fade-in" -->
-### history seems to agree
-<!-- .element: class="fragment fade-in" -->
-### learning computing is an art
-<!-- .element: class="fragment fade-in" -->
+#### interlude: enjoying college
 
-+++ <!-- .slide: data-auto-animate -->
+## of making meaning
 
-### computing is experienced like art
+#### interlude: hci
 
-<iframe src="https://www.youtube.com/embed/sqjzauX2DAQ?si=ZK9YqZOYDzmZuK8D&amp;clip=UgkxdB6EGX49B_wR_OMCo5Db9sINNndEcsA7&amp;clipt=EJiGDBiksQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-+++ <!-- .slide: data-auto-animate -->
-
-### computing is experienced like art
-
-> art is defined by the <br> multiplicity of values it provides
-<!-- .element: class="" -->
-
-- education
-<!-- .element: class="fragment" -->
-- escapism
-<!-- .element: class="fragment" -->
-- aesthetic beauty
-<!-- .element: class="fragment" -->
-- intellectual challenge
-<!-- .element: class="fragment" -->
-- emotional stimulation
-<!-- .element: class="fragment" -->
+## *conclusion*
 
 --- <!-- .slide: data-auto-animate -->
 
+## computing is an art
+## of making meaning
+
+--- <!-- .slide: data-auto-animate -->
 
 ## computing is an art
 
-### computing is experienced like art
-### history seems to agree
-### learning computing is an art
-
-
-+++ <!-- .slide: data-auto-animate -->
-
-### history seems to agree
-
-the ACM called for converting computing <br>
-"from an art to a science" - '59
-<!-- .element: class="fragment" -->
-
-Donald Knuth's "The Art of Programming" - '68
-<!-- .element: class="fragment" -->
-
-$\vdots$
-<!-- .element: class="fragment" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### history seems to agree
-
 *donald knuth has my back.*
 
++++ <!-- .slide: data-auto-animate -->
+
+*donald knuth has my back.*
 
 computing is an art because it...
 
@@ -86,61 +49,164 @@ computing is an art because it...
 
 +++ <!-- .slide: data-auto-animate -->
 
-### history seems to agree
+*donald knuth has my back.*
 
-> Programmers who subconsciously view themselves
+> programmers who subconsciously view themselves
 > as artists will enjoy what they do and
 > will **do it better**.
-
--Donald Knuth
+<!-- .element: class="fragment good" -->
 
 --- <!-- .slide: data-auto-animate -->
 
 ## computing is an art
 
-### computing is experienced like art
-### history seems to agree
-### learning computing is an art
-
-+++ <!-- .slide: data-auto-animate -->
-
-*so what does that mean for me?*
+learning computing is <br>
+gonna be like learning any other art
 <!-- .element: class="fragment" -->
 
-### learning computing is an art
-
-#### skill demands practice
+*so what lessons can we steal?*
 
 +++ <!-- .slide: data-auto-animate -->
 
-### learning computing is an art
+*so what lessons can we steal?*
 
-#### skill demands practice
+### skill requires practice
 <!-- .element: class="fragment" -->
 
 - practice the fundamentals
-<!-- .element: class="fragment" -->
-- practice by failing challenges
 <!-- .element: class="fragment" -->
 - practice with passion projects
 <!-- .element: class="fragment" -->
 - practice in community
 <!-- .element: class="fragment" -->
 
+*practice, practice, practice*
+<!-- .element: class="fragment" -->
+
 +++ <!-- .slide: data-auto-animate -->
 
-### learning computing is an art
-#### learning is best in community
+*so what lessons can we steal?*
+
+- practice, practice, practice
+
++++ <!-- .slide: data-auto-animate -->
+
+*so what lessons can we steal?*
+
+### learning happens best in community
 - Friends, Family, Enemies
 <!-- .element: class="fragment" -->
 - Peers, Experts, Pupils
 <!-- .element: class="fragment" -->
 
+*find a community*
+<!-- .element: class="fragment" -->
+
 +++ <!-- .slide: data-auto-animate -->
 
-### learning computing is an art
-#### "wiz-kids"
+*so what lessons can we steal?*
+
+- practice, practice, practice
+- find a community
+
++++ <!-- .slide: data-auto-animate -->
+
+*so what lessons can we steal?*
+
+### "wiz-kids" don't exist
+
+*usually*
 
 ![aang.gif](aang.gif)
 
 *embrace a growth mindset*
+
++++ <!-- .slide: data-auto-animate -->
+
+*so what lessons can we steal?*
+
+- practice, practice, practice
+- find a community
+- embrace a growth mindset
+
+--- <!-- .slide: data-auto-animate -->
+
+## computing is an art
+
++++ <!-- .slide: data-auto-animate -->
+
+## computing is an art
+## of making meaning
+
++++ <!-- .slide: data-auto-animate -->
+
+## computing is an art
+
+### interlude: enjoying college
+
+## of making meaning
+
+--- <!-- .slide: data-auto-animate -->
+
+### interlude: enjoying college
+
+*joy is an art, too*
+- practice, practice, practice
+<!-- .element: class="fragment" -->
+  - go to events, try things, challenge yourself
+- find a community
+<!-- .element: class="fragment" -->
+  - ***go to office hours***
+- embrace a growth mindset
+<!-- .element: class="fragment" -->
+  - it'll take time and effort
+- be open to new stuff...
+<!-- .element: class="fragment" -->
+  - but you gotta be yourself
+
+--- <!-- .slide: data-auto-animate -->
+
+## computing is an art
+
+### interlude: enjoying college
+
+## of making meaning
+
++++ <!-- .slide: data-auto-animate -->
+
+## computing is an art
+
+## of making meaning
+
+--- <!-- .slide: data-auto-animate -->
+
+## of making meaning
+
+### abstractions
+
+### abstraction Blindness
+
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+
+> The Way™️ of representing <br> some
+> structure or behavior <br> in a particular context
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+
+good abstractions...
+- are derived from context
+<!-- .element: class="fragment" -->
+- meaningfully limit what is possible
+<!-- .element: class="fragment" -->
+- play nicely with other abstractions
+<!-- .element: class="fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+#### an example
