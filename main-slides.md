@@ -1,66 +1,195 @@
 <!-- .slide: data-auto-animate -->
 ## introductions
 
-
 --- <!-- .slide: data-auto-animate -->
+
+## computing is an art
+
++++ <!-- .slide: data-auto-animate -->
+
+## computing is an art
+
+<img style="width: 80%; height: 80%" src="data/acm%20excerpt.png" alt="acm exercpt">
+
+[ACM publication policies and plans. Journal of the ACM 6 (Apr. 1959)]
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+## computing is an art
 
 > programmers who subconsciously view themselves
 > as artists will enjoy what they do and
 > will **do it better**.
-<!-- .element: class="fragment good" -->
+<!-- .element: class="fragment good" data-fragment-index="1" -->
+
+-- Donald Knuth, Author of "The Art of Programming"
+<!-- .element: class="fragment citation" data-fragment-index="1" -->
 
 --- <!-- .slide: data-auto-animate -->
 
 ## computing is an art
 
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ## computing is an art
 ## of making meaning
+
+--- <!-- .slide: data-auto-animate -->
+
+#### outline
+
+## of making meaning
+
+### abstraction
+<!-- .element: class="fragment" -->
+### abstraction blindness
+<!-- .element: class="fragment" -->
+
+[What Computers Do, Doing With Computers: <br>
+a philosophical field guide to computing in the world - Rawn 2023]
+<!-- .element: class="fragment citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+#### outline
+
+## of making meaning
+
+#### interlude
+<!-- .element: class="fragment" -->
+
+
+## computing is an art <br> of making meaning
+<!-- .element: class="fragment" -->
+
+#### epilogue
+<!-- .element: class="fragment" -->
+
+#### bonus rounds
+<!-- .element: class="fragment" -->
 
 --- <!-- .slide: data-auto-animate -->
 
 ## of making meaning
 
 ### abstractions
+<!-- .element: class="fragment" -->
 
-### abstraction blindness
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### abstractions
 
-> The Way™️ of representing <br> some
-> structure or behavior <br> in a particular context
+> The Way™️ of representing some <br>
+> behavior in a particular context
+
+we build up big abstractions using smaller ones
+<!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### abstractions
 
 good abstractions...
-- are derived from context
+- mirror the structure of their context
 <!-- .element: class="fragment" -->
-- meaningfully limit what is possible
+- meaningfully limit actions in context
 <!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### abstractions
-#### an example: steering controls
+#### good example: pac-man's joystick
 
-- pac-man steering
-- car steering
-- tank steering
+![an image of pac-man](pacman.png)
+![an image of joystick](joystick.png)
+
+- mirrors the top-down 2d world
+- limits to 4 directions
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+#### good example: steering wheel & pedals
+
+- mirrors the...
+  - throttle
+  - brake
+  - wheel deflection
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+#### good example: steering wheel & pedals
+
+- imposes limits like...
+  - meaningful default: no gas, no brake
+  - maximum input: hard left, full stop
+  - *no sudden changes in input*
+  - *good feedback: wheel turning itself*
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+#### evaluation
+
+- joystick is good for pac-man
+- steering wheel & pedals <br> are good in a car
+
+*context is key when evaluating abstractions*
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstractions
+#### evaluation
+*context is key when evaluating abstractions*
+
+<img style="width: 60%; height: 60%;" src="data/wii-car.jpg" alt="wii controller in a car">
+
++++ <!-- .slide: data-auto-animate -->
+
+## of making meaning
+
+### abstractions
+
+### abstraction blindness
+<!-- .element: class="fragment" -->
+
+*...directs your attention to places of interest*
+<!-- .element: class="fragment" -->
+
+--- <!-- .slide: data-auto-animate -->
+
+### abstraction blindness
+
+![an image of pac-man](pacman.png)
+![an image of joystick](joystick.png)
+
+*the joystick blinds us to relative direction <br> and highlights absolute direction*
+<!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### abstraction blindness
 
-you floor the gas, the car goes...
+![an image of a car](car.png)
 
-...regardless of the brick wall in front of you
+*the controls hide the complexity of the engine*
+<!-- .element: class="fragment" -->
 
-*every abstraction has blind-spots*
+*the controls only function in their context*
+<!-- .element: class="fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### abstraction blindness
+
+> we seek **helpful** blindness, but...
+<!-- .element: class="fragment good" -->
+
+> no escape from **harmful** blindness.
+<!-- .element: class="fragment bad" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -77,130 +206,23 @@ a responsible thinker looks for blindness to harm
 
 ### abstraction blindness
 
-*powerful, when used well*
+good thinkers...
 
-- study your context continually
-- understand the abstraction's limits
+- understand each abstraction's blindness
+- expect weird interactions between them
+- study their context continually
 - when in doubt, talk to a human
 
 --- <!-- .slide: data-auto-animate -->
 
-#### interlude: engineer brain
+#### interlude
+<hr>
 
-*definitely highly researched, <br> not at all a rant*
-<!-- .element: class="fragment" -->
+**multi-disciplinarity and abstraction**
 
-+++ <!-- .slide: data-auto-animate -->
+wide study shows the history of our abstractions, <br>
+and exposes us to new viewpoints
 
-#### interlude: engineer brain
+searching far and wide shows us <br> *how often our abstractions fail*
 
-> "all interesting problems reduce to <br> modular components"
-<!-- .element: class="fragment" -->
-
-terrible as the default problem-solving approach
-<!-- .element: class="fragment" -->
-
-Note:
-- ignores context
-- blinds you to unexpected interactions
-- dismisses human factors
-
-
-+++ <!-- .slide: data-auto-animate -->
-
-## of making meaning
-
---- <!-- .slide: data-auto-animate -->
-
-## computing is an art
-## of making meaning
-
-+++ <!-- .slide: data-auto-animate -->
-
-### computing is an art of making meaning
-
-like all other rational arts, we use abstractions
-
-in most places, abstractions only need to be
-legible to other practitioners
-
-+++ <!-- .slide: data-auto-animate -->
-
-### computing is an art of making meaning
-
-in computing the abstractions in code are used by
-- the developers
-- the users
-- the computer
-
-Note: blindness, context, limitations
-
---- <!-- .slide: data-auto-animate -->
-
-## computing is an art
-
-learning computing is <br>
-gonna be like learning any other art
-<!-- .element: class="fragment" -->
-
-*so what lessons can we steal?*
-<!-- .element: class="fragment" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-*so what lessons can we steal?*
-
-- practice, practice, practice
-
-Note:
-- set goals and challenges
-- fail in front of experts
-- pick up a passion project (or nine)
-
-+++ <!-- .slide: data-auto-animate -->
-
-*so what lessons can we steal?*
-
-- practice, practice, practice
-- find a community
-
-+++ <!-- .slide: data-auto-animate -->
-
-### "wiz-kids" don't exist
-
-*well, usually...*
-<!-- .element: class="fragment small" -->
-
-![aang.gif](aang.gif)
-
-+++ <!-- .slide: data-auto-animate -->
-
-*so what lessons can we steal?*
-
-- practice, practice, practice
-- find a community
-- embrace a growth mindset
-
---- <!-- .slide: data-auto-animate -->
-
-### interlude: enjoying college
-
-+++ <!-- .slide: data-auto-animate -->
-
-### interlude: enjoying college
-
-*joy is an art, too*
-- practice, practice, practice
-<!-- .element: class="fragment" -->
-  - go to events, try things, challenge yourself
-- find a community
-<!-- .element: class="fragment" -->
-  - ***go to office hours***
-- embrace a growth mindset
-<!-- .element: class="fragment" -->
-  - it'll take time and effort
-- be open to new stuff...
-<!-- .element: class="fragment" -->
-  - but you gotta be yourself
-
---- <!-- .slide: data-auto-animate -->
+**this is why I love hci & cs education**

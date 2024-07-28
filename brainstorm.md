@@ -36,6 +36,30 @@ From Ria
 
 ## Bonus Round Topics
 
+
+### say more, serena
+
+#### so what is HCI?
+
+#### neurodiversity in CS
+
+
+### stem-femme woes
+
+#### imposter syndrome
+
+#### perfectionism
+
+
+### what next?
+
+#### learning computing
+
+#### enjoying your time
+
+
+## Old Topic Ideas
+
 ### Passion Projects
 
 Critical for success.

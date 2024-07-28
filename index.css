@@ -67,6 +67,17 @@
     color: #2229;
 }
 
+.reveal .citation {
+    /* color: #BBACAC; */
+    color: #2229;
+    font-size: 60%;
+    font-style: italic;
+}
+
+.reveal image {
+    align-items: center;
+}
+
 .reveal div.swatch {
     width: 80%;
     height: 0;
