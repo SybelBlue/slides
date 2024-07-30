@@ -1,4 +1,14 @@
 <!-- .slide: data-auto-animate -->
+## housekeeping
+
+feel free to address any human needs <br> *as they arise*
+
+for the sake of my human needs, <br> *please limit sidebars* during the talk
+
+held-hand system for answers, <br> open season for questions!
+
+--- <!-- .slide: data-auto-animate -->
+
 ## introductions
 
 Note:
@@ -7,7 +17,7 @@ Note:
 
 ## computing is an art
 
-Note:Did you know that the founders of computing believed that programming, and computing at large, was too artistic to allow for scientific research?
+Note: Did you know that the founders of computing believed that programming, and computing at large, was too artistic to allow for scientific research?
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -18,7 +28,10 @@ Note:Did you know that the founders of computing believed that programming, and 
 [ACM publication policies and plans. Journal of the ACM 6 (Apr. 1959)]
 <!-- .element: class="citation" -->
 
-Note: It’s true - in one of the earliest issues of the most prestigious journals in all of computer science, there was an official policy statement that called for programming to be codified into less of an artform. That was the fifties. We’ve come a long way in developing our understanding of science and art. Today, we know that science and art are not mutually exclusive.
+Note:
+- make programming less of an artform.
+- That was the fifties.
+- our understanding of science and art, not mutually exclusive
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -26,13 +39,16 @@ Note: It’s true - in one of the earliest issues of the most prestigious journa
 
 > programmers who subconsciously view themselves
 > as artists will enjoy what they do and
-> will **do it better**.
+> will do it better.
 <!-- .element: class="fragment good" data-fragment-index="1" -->
 
 -- Donald Knuth, Author of "The Art of Programming"
 <!-- .element: class="fragment citation" data-fragment-index="1" -->
 
-Note: Though some disagree with me, I believe that there is value in letting disciplines be practiced both as arts and sciences. There is a quote by a giant in the field that I think about all the time, “Programmers who subconsciously view themselves as artists will enjoy what they do and will do it better.” If joy and improvement are not good motivations to embrace computing as an art, I don’t know what is.
+Note:
+- some disagree: practice disciplines as both arts and sciences.
+- quote
+- joy and improvement are not good motivations to embrace computing as art
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -42,10 +58,12 @@ Note: In this talk, I want to add to this conversation around computing as an ar
 
 +++ <!-- .slide: data-auto-animate -->
 
-## computing is an art
-## of making meaning
+## computing is the art <br> of making meaning
 
-Note: Specifically, I claim that computing is the art of making meaning. I can feel some philosophers in the room bristling; this is not my intent, in fact, I need your help in a moment - but first an outline of the talk.
+Note:
+- philosophers in the room bristling
+- I need your help in a moment
+- first an outline of the talk.
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -59,8 +77,7 @@ Note: Specifically, I claim that computing is the art of making meaning. I can f
 #### interlude
 <!-- .element: class="fragment" -->
 
-## computing is an art
-## of making meaning
+## computing is the art <br> of making meaning
 
 #### epilogue
 <!-- .element: class="fragment" -->
@@ -117,8 +134,10 @@ Note: Good abstractions mirror their context, a sort of form from function, and 
 ### abstractions
 #### good example: pac-man's joystick
 
-![an image of pac-man](pacman.png)
-![an image of joystick](joystick.png)
+<div class="col-container r-stretch">
+  <div class="col"><img style="height: 90%" src="data/pacman.png" alt="an image of pac-man"></div>
+  <div class="col"><img style="height: 90%" src="data/joystick.png" alt="an image of a joystick"></div>
+</div>
 
 mirrors the top-down 2d world
 <!-- .element: class="fragment" -->
@@ -153,7 +172,7 @@ imposes limits like...
 - good feedback: wheel turning itself
 <!-- .element: class="fragment" -->
 
-Note: They impose some clear limits: things like meaningful default positions, the maximum wheel deflection or acceleration, but they also provide subtle limits: they leverage how fast an individual can move to mitigate sudden changes - you wouldn’t want your tires to suddenly change direction, or engine to flood - and they provide intuitive tactile feedback, like the wheel pulling itself to center.
+Note: They impose some clear limits: things like meaningful default positions, the maximum tire deflection or acceleration, but they also provide subtle limits: they leverage how fast an individual can move to mitigate sudden changes - you wouldn’t want your tires to suddenly change direction, or engine to flood - and they provide intuitive tactile feedback, like the wheel pulling itself to center.
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -185,8 +204,10 @@ Note: I want to formalize something we’ve been hinting at. The power and peril
 
 ### abstraction blindness
 
-![an image of pac-man](pacman.png)
-![an image of joystick](joystick.png)
+<div class="col-container r-stretch">
+  <div class="col"><img style="height: 90%; width: auto" src="data/pacman.png" alt="an image of pac-man"></div>
+  <div class="col"><img style="height: 90%; width: auto" src="data/joystick.png" alt="an image of a joystick"></div>
+</div>
 
 *the joystick blinds us to relative direction <br> to highlight absolute direction*
 <!-- .element: class="fragment" -->
@@ -198,7 +219,11 @@ Note: Let’s return to our examples. The Pac-Man’s joystick only concerns its
 
 ### abstraction blindness
 
-![an image of a car](car.png)
+[img credit - dave gray "mental model of a car"]
+<!-- .element: class="citation" -->
+![an image of a car](data/grays-car.png)
+<!-- .element: class="r-stretch" -->
+
 
 *the controls hide the complexity of the engine*
 <!-- .element: class="fragment" -->
@@ -209,13 +234,13 @@ Note: Let’s address the car. The pedals and wheel all work independently. This
 
 ### abstraction blindness
 
-![an image of a car](car.png)
+<img class="r-stretch" src="data/simpsons-car.gif" alt="gif of lisa and milhouse pressing both pedals">
 
 the controls are independent, <br>
 *but the underlying systems aren't!*
 <!-- .element: class="fragment" -->
 
-Note: Question - have you ever sat a four year old in a car? If you do, first make sure it’s off. The first thing they will likely do is depress both pedals at once. In the biz, we say that “the abstraction of pedals affords this interaction” - meaning the independent motion of the pedals make the child believe the systems are truly independent - but indeed if the car was on, this could do great damage both to the machine and the child. In this way, the blindness of “independent systems” can be both helpful and harmful in our interactions with the car.
+Note: Question - have you ever sat a kid in a car? If you do, first make sure it’s off. The first thing they will likely do is depress both pedals at once. In the biz, we say that “the abstraction of pedals affords this interaction” - meaning the independent motion of the pedals make the child believe the systems are truly independent - but indeed if the car was on, this could do great damage both to the machine and the child. In this way, the blindness of “independent systems” can be both helpful and harmful in our interactions with the car.
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -235,13 +260,11 @@ Note: Another question - have you ever tried slamming the gas when you’re two 
 
 *directing attention is very powerful*
 
-> we seek **helpful** blindness, but...
-<!-- .element: class="fragment good" -->
+> sometimes the abstraction's harm is <br>
+> obscured by the abstraction's blindness
+<!-- .element: class="fragment bad wide" -->
 
-> no escape from **harmful** blindness.
-<!-- .element: class="fragment bad" -->
-
-Note: In summary, we use abstraction because it blinds us to useless information, and highlights critical information. This selective attention is critically important - but in some situations, it directs our attention away from potentially harmful effects, particularly when used outside the context they are designed for.
+Note: In summary, we use abstraction because it blinds us to useless information, and highlights critical information. This directed attention is critically important, but particularly when used out of context or in unexpected ways, an abstraction can direct our attention away from its own harmful effects.
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -258,14 +281,14 @@ good thinkers...
 - when in doubt, talk to a human
 <!-- .element: class="fragment" -->
 
-Note: Good thinkers pick abstractions and are mindful of their blindnesses. They take care to predict and check how their blindnesses compose - think again of pressing two pedals at once. Responsible thinkers continuously check that their abstractions are still well-suited to their contexts, and always double-check how their abstractions blind them to human harm.
+Note: Good thinkers go to great lengths to avoid being blind to their own harm. They pick well-suited abstractions and are mindful of their blindness. They take care to predict how their blindnesses could compose dangerously - think again of pressing two pedals at once. Responsible thinkers continuously check that their abstractions are still well-suited to their contexts, as contexts are often dynamic and abstractions require updating to keep up. Lastly, they always double-check how their abstractions blind them to human harm, and when in doubt, they go talk to the humans who may be suffering under their abstractions.
 
 --- <!-- .slide: data-auto-animate -->
 
 #### interlude
 <hr>
 
-**multi-disciplinarity and abstraction**
+**multi-disciplinary study and abstraction**
 
 wide study shows the history of our abstractions, <br>
 and exposes us to new viewpoints
@@ -277,7 +300,7 @@ searching far and wide shows us <br> *how often our abstractions fail*
 **this is why I love hci & cs education**
 <!-- .element: class="fragment" -->
 
-Note: An aside: this is why mutli-disciplinary study is so vital. By drawing from many studies, you get to see how our abstractions evolve and change. You are exposed to many different contexts and what kinds of abstractions are valuable in those contexts. And perhaps most importantly, it gives you a long history of the failures due to harmful blindness, failures you must try not to repeat. This is why I love CS Education, and HCI at large - it gives me the freedom to explore many disciplines and learn from many mistakes. It makes me a stronger thinker.
+Note: An aside: mutli-disciplinary study is so critical to good thinking because it gives you many abstractions to use and understand. By drawing from so many disciplines, you get to see how our abstractions evolve, break, and are replaced with time. You are exposed to many different contexts and what kinds of abstractions are valuable in those contexts. And perhaps most importantly, it gives you a long history of the disasters due to harmful blindness. This is why I love CS Education, and HCI at large - it gives me the freedom to explore many disciplines and learn from many mistakes. It makes me a stronger thinker.
 
 
 +++ <!-- .slide: data-auto-animate -->
@@ -338,7 +361,7 @@ Note: The first audience is the computer itself. You will spend the most time in
 
 ### audience two
 
-> the user
+> the users
 <!-- .element: class="" -->
 
 - use your work to shape the world
@@ -354,7 +377,7 @@ Note: The second audience are your users - they must be able to pick up and comp
 
 ### audience three
 
-> the developers and maintainers
+> the developers
 <!-- .element: class="good" -->
 
 *look, it's you!*
@@ -387,13 +410,13 @@ Note: And unlike makers of physical machines, we programmers are unburdened by t
 
 <div class="col-container">
 <div class="col">
-  <blockquote class="wide bad">computer</blockquote>
+  <blockquote class="wide bad">computers</blockquote>
 </div>
 <div class="col">
-  <blockquote class="wide ">user</blockquote>
+  <blockquote class="wide">users</blockquote>
 </div>
 <div class="col">
-  <blockquote class="wide good">developer</blockquote>
+  <blockquote class="wide good">developers</blockquote>
 </div>
 </div>
 
@@ -431,7 +454,7 @@ Note: In conclusion, we build meaning out of abstraction. These abstractions com
 
 #### epilogue
 
-**where do I fit into all of this?**
+*so, where do **you** fit into all of this?*
 
 all art has style, structure, and composition
 <!-- .element: class="fragment" -->
@@ -448,21 +471,33 @@ Note: So where do I fit in to all of this? Well, this art, like all others, has 
 
 #### epilogue
 
-**where do *you* fit into all of this?**
+*and where do **I** fit into all of this?*
 
 wherever you like!
 <!-- .element: class="fragment" -->
 
-**a round of applause for <br> the CS Kickstart '24 leaders**
+people had all kinds of advice for you...
 <!-- .element: class="fragment" -->
+
+bonus round topics!
+<!-- .element: class="fragment" -->
+
 
 Note: And where do you fit in to all this? Well, nowhere, if you like, or right here beside me, if you’d rather. I surveyed a lot of femme folk in preparation for this talk, both in and out of STEM. They said all kinds of things - but some particular anxieties kept surfacing. Those anxieties and their antidotes are more bonus round topics, but for now I feel the need to end my talk today with this.
 
 *cs kickstart staff please help me, stand up for a moment
 
-For generations, women in this field have worked to make it a more hospitable place. I wish I could tell you that this work is done, and the field is ready, or promise that you will not encounter hostile idiots with something to prove. What I can promise is this - the women standing up here, the CS Kickstart leaders and myself, take the ongoing work of making computing a home seriously, and we will support you if you call on us for help. And what’s more, research has shown that the best defense against hate of this kind is a community of peers, which means that the women sitting next to you are an even greater asset than the ones standing up here. Just by coming to CS Kickstart, you are already more prepared to succeed in this field in the face of any adversity that may arise. And for providing that gift of community, I want to give our CS Kickstart leaders a round of applause.
++++ <!-- .slide: data-auto-animate -->
+
+#### some of my heros
+
+<img class="r-stretch" src="data/collage.jpg" alt="collage of my heros">
+
+Note: For generations, women in this field have worked to make it a more hospitable place. I wish I could tell you that this work is done, and the field is ready, or promise that you will not encounter hostile idiots with something to prove. What I can promise is this - the women standing up here, the CS Kickstart leaders and myself, take the ongoing work of making computing a home seriously, and we will support you if you call on us for help. And what’s more, research has shown that the best defense against hate of this kind is a community of peers, which means that the women sitting next to you are an even greater asset than the ones standing up here. Just by coming to CS Kickstart, you are already more prepared to succeed in this field in the face of any adversity that may arise. And for providing that gift of community, I want to give our CS Kickstart leaders a round of applause.
 
 --- <!-- .slide: data-auto-animate -->
 
 [bonus rounds, anyone?](https://docs.google.com/presentation/d/1XlGRr8MwTnJgvMHvZCDuMVAI1fFyFA1-nFge0DSgtSo/edit?usp=sharing)
 <!-- .element: class="fragment" -->
+
+Note: https://docs.google.com/presentation/d/1XlGRr8MwTnJgvMHvZCDuMVAI1fFyFA1-nFge0DSgtSo/edit?usp=sharing
