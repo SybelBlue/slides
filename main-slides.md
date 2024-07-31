@@ -118,8 +118,6 @@ Not all bad news though
 -
 <!-- .element: class="fragment fade-in" -->
 *Proper-Styled™️* code reported "necessary in SE"
-- Sometimes hyperfocus is seen as "essential"
-<!-- .element: class="fragment fade-in" -->
 - Industry can sometimes accommodate cyclical attention patterns
 <!-- .element: class="fragment fade-in" -->
 
