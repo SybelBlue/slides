@@ -3,9 +3,15 @@
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
     text-transform: none;
 }
+
 .reveal .caps {
     text-transform: capitalize;
 }
+
+.reveal .no-caps {
+    text-transform: lowercase;
+}
+
 .reveal .invis {
     color: #0000;
 }
@@ -23,10 +29,61 @@
     background-color: rgb(94, 203, 94);
 }
 
+.reveal blockquote.alt {
+    color: #6b0383;
+}
+
 .reveal .taper-fade {
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,1) 40%, rgba(0,0,0,0));
 }
 
 .reveal hr {
     color: black;
+}
+
+.reveal .col-container {
+    display: flex !important;
+    flex-direction: row;
+}
+
+.reveal .row-container {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.reveal .col, .reveal .row {
+    flex: 1;
+}
+
+.reveal .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reveal .demph {
+    /* color: #BBACAC; */
+    color: #2229;
+}
+
+.reveal .citation {
+    /* color: #BBACAC; */
+    color: #2229;
+    font-size: 60%;
+    font-style: italic;
+}
+
+.reveal image, .reveal img {
+    align-items: center;
+    margin: auto;
+    display: block;
+}
+
+.reveal iframe {
+    width: 80vw;
+    height: 80vh;
+}
+
+.reveal .wide {
+    width: 80%;
 }
