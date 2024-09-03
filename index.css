@@ -29,10 +29,6 @@
     background-color: rgb(94, 203, 94);
 }
 
-.reveal blockquote.alt {
-    color: #6b0383;
-}
-
 .reveal .taper-fade {
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,1) 40%, rgba(0,0,0,0));
 }
@@ -77,6 +73,13 @@
     align-items: center;
     margin: auto;
     display: block;
+}
+
+.reveal div.swatch {
+    width: 80%;
+    height: 0;
+    padding-top: 80%;
+    background-color: cornflowerblue;
 }
 
 .reveal iframe {
