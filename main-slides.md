@@ -22,73 +22,95 @@
 --- <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
-#### General Psychological Theories
 
-<table class="tg"><thead>
-  <tr>
-    <th class="citation" style="font-size:80%"></th>
-    <th class="">incongruity<br></th>
-    <th class="">superiority<br></th>
-    <th class="">arousal<br></th>
++++ <!-- .slide: data-auto-animate -->
+
+### Theories of Humor
+#### General Psychological Models
+
+<table class="tg">
+    <thead><tr>
+    <th></th>
+    <th>incongruity<br></th>
+    <th>superiority<br></th>
+    <th>arousal<br></th>
   </tr></thead>
 <tbody>
   <tr>
-    <td class="citation" style="font-size:80%">mechanism<br></td>
-    <td class="">cognitive mismatch</td>
-    <td class="">competitive play/mockery</td>
-    <td class="">emotional release</td>
+    <td>mechanism<br></td>
+    <td>cognitive mismatch</td>
+    <td>competitive play/mockery</td>
+    <td>emotional release</td>
   </tr>
   <tr>
-    <td class="citation" style="font-size:80%">relevance today</td>
-    <td class="">appropriate humor</td>
-    <td class="">inappropriate humor</td>
-    <td class="">printed humor</td>
+    <td>relevance today</td>
+    <td>appropriate humor</td>
+    <td>inappropriate humor</td>
+    <td>printed humor</td>
   </tr>
 </tbody>
 </table>
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### *A Quick Detour: The Superiority Model*
 ### Things You Definitely Shouldn't Do
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### *A Quick Detour: The Superiority Model*
 ### Things You Definitely Shouldn't Do
+#### *Lessons from the Superiority Model*
 
-**do not ridicule...**
-- your students, assistants, or colleagues
++++ <!-- .slide: data-auto-animate -->
+
+### Things You Definitely Shouldn't Do
+#### *Lessons from the Superiority Model*
+
+**never ridicule...**
+- any class member(s)
+- learners or learning
+- any nameable community
+
+Note:
+- your students, assistants, co-teachers, colleagues
 - learning speeds/styles/preferences/differences
 - any marginalized *(or identifiable)* community
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### *A Quick Detour: The Superiority Model*
 ### Things You Definitely Shouldn't Do
+#### *Lessons from the Superiority Model*
 
-**do not ridicule...**
+**usually best not to ridicule...**
 
-yourself!
-
-*(mostly\*)*
+yourself! <span class="fragment">*(mostly\*)*</span>
 
 *more on this later
+<!-- .element: class="citation fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
+
+### Things You Definitely Shouldn't Do
 
 offensive humor (including ridicule) <br>
 forms the basis of inappropriate humor
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### *An Even Quicker Detour: The Arousal Model*
 ### Things You Definitely Shouldn't Do
+#### *Lessons from the Arousal Model*
 
 **do not put jokes on exams**
 
 (though it did decrease exam anxiety for high anxiety students)
-<!-- .element: class="citation" -->
+<!-- .element: class="citation fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Things You Definitely Shouldn't Do
+#### *Lessons from the Arousal Model*
+
+in patient/doctor settings, <br>
+tension-relieving humor had inconclusive value
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -97,16 +119,23 @@ from here on out, we'll be running with <br> incongruity theory and appropriate 
 --- <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
+
++++ <!-- .slide: data-auto-animate -->
+
+### Theories of Humor
 **Instructional Humor Processing Theory**
 
 [Wanzer et al. - 2010]
 <!-- .element: class="citation" -->
 
 draws on *elaboration likelihood model* of persuasion
+<!-- .element: class="fragment" -->
 
 elaboration: internalization and processing
+<!-- .element: class="fragment" -->
 
 high elaboration = high likelihood of attitude shift
+<!-- .element: class="fragment" -->
 
 [Allport - 1935, Ross - 1908]
 <!-- .element: class="citation" -->
@@ -123,13 +152,19 @@ generally good for predictions:
 --- <!-- .slide: data-auto-animate -->
 
 ### Quantitative Work on Humor
+
++++ <!-- .slide: data-auto-animate -->
+
+### Quantitative Work on Humor
 **Frequency**
 
 attempt frequency is all over the place
 
 varies by uni, culture, country, experience...
 
-most profs don't use humor at all (< 2 attempts/hr)
+some profs don't use humor at all (< 2 attempts/hr)
+
+Note: sometimes upwards of 40% don't use, others less than 20%
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -163,6 +198,10 @@ among yarns, riddles, puns, sidebar and gags, <br>
 yarns are the most common
 
 --- <!-- .slide: data-auto-animate -->
+
+### Personal Effects of Humor
+
++++ <!-- .slide: data-auto-animate -->
 
 ### Personal Effects of Humor
 **by Speaker's Gender**
@@ -225,6 +264,10 @@ humor alone ups trustworthiness, goodwill, <br>
 
 ### Humor and Learning
 
++++ <!-- .slide: data-auto-animate -->
+
+### Humor and Learning
+
 *all of this is hotly contested in literature!*
 
 claims in this section draw on lit. consensus
@@ -267,6 +310,31 @@ some show positive correlation, particularly:
 - when retention checked after 2 months
 
 --- <!-- .slide: data-auto-animate -->
+
+### Advice for Educators
+
++++ <!-- .slide: data-auto-animate -->
+
+### Advice for Educators
+
+**Appropriate Lecture Humor**
+
+- Content-Relevant
+- Solidarity-Based
+- Self-Enhancing
+- Funny Stories
+- Short Sidebar
+
+note:
+-
+- amuse others, relieve tension
+- defending oneself, coping with spontaneous problems, emotional regulation
+-
+- keep it brief!
+
+other types: boundary setting and phone a friend - careful on appropriateness
+
++++ <!-- .slide: data-auto-animate -->
 
 ### Advice for Educators
 

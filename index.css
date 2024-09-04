@@ -69,6 +69,12 @@
     font-style: italic;
 }
 
+.reveal td:first-child {
+    color: #2229;
+    font-size: 80%;
+    font-style: italic;
+}
+
 .reveal image, .reveal img {
     align-items: center;
     margin: auto;
