@@ -21,75 +21,54 @@
 
 --- <!-- .slide: data-auto-animate -->
 
-- theories
-  - superiority for inappropriate humor
-  - arousal for print and spontaneity
-    - bell hooks pt one (ty lisa)
-  - incongruity going forward
-  - IHPT
-- personal stuff
-  - classroom traits: warmth, immediacy
-  - personality traits: humor orientation and style
-    - bell hooks pt 2: changing your traits, perception of marginalized people
-  - 90s studies on gender
-  - personal perception
-  - credibility!
-- quantitative stuff (cut it down)
-- humor and learning
-  - attention
-  - retention
-- advice for educators
-  - general checklist for humor
-  - guide for planning an effective joke
-
---- <!-- .slide: data-auto-animate -->
-
 ### Theories of Humor
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
+#### General Psychological Models
 
-#### superiority model
-
-#### arousal model
-
-#### incongruity model
-
-#### IHPT
+<table class="tg">
+    <thead><tr>
+    <th></th>
+    <th>incongruity<br></th>
+    <th>superiority<br></th>
+    <th>arousal<br></th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>mechanism<br></td>
+    <td>cognitive mismatch</td>
+    <td>competitive play/mockery</td>
+    <td>emotional release</td>
+  </tr>
+  <tr>
+    <td>relevance today</td>
+    <td>appropriate humor</td>
+    <td>inappropriate humor</td>
+    <td>printed humor</td>
+  </tr>
+</tbody>
+</table>
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Theories of Humor
-
-#### superiority model
-
-#### arousal model
+### Things You Definitely Shouldn't Do
 
 +++ <!-- .slide: data-auto-animate -->
 
+### Things You Definitely Shouldn't Do
 #### *Lessons from the Superiority Model*
 
-> Humor as Competitive Play
-
-most useful today to define inappropriate humor
-
 +++ <!-- .slide: data-auto-animate -->
 
+### Things You Definitely Shouldn't Do
 #### *Lessons from the Superiority Model*
-#### Things You Definitely Shouldn't Do
 
-+++ <!-- .slide: data-auto-animate -->
-
-#### *Lessons from the Superiority Model*
-#### Things You Definitely Shouldn't Do
-
-- mock any class member(s)
-<!-- .element: class="citation fragment" -->
-- ridicule learners or learning
-<!-- .element: class="citation fragment" -->
-- joke about any nameable community
-<!-- .element: class="citation fragment" -->
+**never ridicule...**
+- any class member(s)
+- learners or learning
+- any nameable community
 
 Note:
 - your students, assistants, co-teachers, colleagues
@@ -98,31 +77,26 @@ Note:
 
 +++ <!-- .slide: data-auto-animate -->
 
+### Things You Definitely Shouldn't Do
 #### *Lessons from the Superiority Model*
-#### Things You Definitely Shouldn't Do
 
-also avoid mocking yourself! <span class="fragment">*(mostly\*)*</span>
+**usually best not to ridicule...**
+
+yourself! <span class="fragment">*(mostly\*)*</span>
 
 *more on this later
 <!-- .element: class="citation fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### *Lessons from the Superiority Model*
+### Things You Definitely Shouldn't Do
 
 offensive humor (including ridicule) <br>
 forms the basis of inappropriate humor
 
 +++ <!-- .slide: data-auto-animate -->
 
-#### *Lessons from the Arousal Model*
-
-> Humor as Emotional/Subconscious Process
-
-most useful today for written/improvised jokes
-
-+++ <!-- .slide: data-auto-animate -->
-
+### Things You Definitely Shouldn't Do
 #### *Lessons from the Arousal Model*
 
 **do not put jokes on exams**
@@ -132,50 +106,23 @@ most useful today for written/improvised jokes
 
 +++ <!-- .slide: data-auto-animate -->
 
+### Things You Definitely Shouldn't Do
 #### *Lessons from the Arousal Model*
 
-humor as protection in unforeseen circumstances
-
-humor can be used to undercut dark material
-
-[hooks *Teaching Critical Thinking* 2010 - Ch.13] <br> thanks Lisa!
-<!-- .element: class="citation" -->
+in patient/doctor settings, <br>
+tension-relieving humor had inconclusive value
 
 +++ <!-- .slide: data-auto-animate -->
 
+from here on out, we'll be running with <br> incongruity theory and appropriate humor
+
+--- <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
-
-> superiority
-<!-- .element: class="bad" -->
-
-> arousal
-
-> incongruity
-
-> IHPT`
-<!-- .element: class="good" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
-
-> incongruity
-
-*humor as cognitive mismatch*
-
-> IHPT`
-<!-- .element: class="good" -->
-
-*humor as persuasion*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-> IHPT`
-<!-- .element: class="good" -->
-
 **Instructional Humor Processing Theory**
 
 [Wanzer et al. - 2010]
