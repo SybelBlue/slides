@@ -96,3 +96,7 @@
 .reveal .wide {
     width: 80%;
 }
+
+.reveal .green {
+    color: green;
+}
