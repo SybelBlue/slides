@@ -19,6 +19,9 @@
 
 *findings reported in these slides <br> only pertain to mature learners*
 
+10 crazy tips! <br>
+the results ***won't*** surprise you
+
 --- <!-- .slide: data-auto-animate -->
 
 ## Overview
@@ -29,7 +32,6 @@
 #### Quantitative Work on Humor
 ### Humor and Learning
 ### Advice for Educators
-
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -59,6 +61,9 @@
 
 *humor as competitive play (see monkeys)*
 
+doesn't require intention or imply malice
+<!-- .element: class="small fragment" -->
+
 most useful today to define inappropriate humor
 <!-- .element: class="fragment" -->
 
@@ -82,6 +87,7 @@ Note:
 - your students, assistants, co-teachers, colleagues
 - learning speeds/styles/preferences/differences
 - any marginalized *(or identifiable)* community
+**exaggerate, ridicule**
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -124,6 +130,7 @@ forms the basis of inappropriate humor
 mostly useful today for expert/printed humor
 <!-- .element: class="fragment" -->
 
+Note: **not as fun as it sounds**
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -152,6 +159,9 @@ to release tension following shock/surprise
 +++ <!-- .slide: data-auto-animate -->
 
 *from here on, we're talking about appropriate humor*
+
+but first, what did I do wrong so far...
+<!-- .element: class="fragment" -->
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -196,11 +206,8 @@ to release tension following shock/surprise
 
 draws on *elaboration likelihood model* of persuasion
 
-> what does it take to change minds <br> as a speaker
+> what does it take to change hearts <br> as a speaker
 <!-- .element: class="wide fragment" -->
-
-[Allport - 1935, Ross - 1908]
-<!-- .element: class="citation" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -217,7 +224,12 @@ high elaboration = high likelihood of attitude shift
 
 +++ <!-- .slide: data-auto-animate -->
 
+<img class="r-stretch" src="img/older_code.gif" alt="it's an older code but it checks out">s
+
++++ <!-- .slide: data-auto-animate -->
+
 ### Theories of Humor
+
 **instructional humor processing theory**
 
 generally good for predictions:
@@ -450,19 +462,33 @@ attempt frequency is all over the place
 
 varies by uni, culture, country, experience...
 
-some profs don't use humor at all (< 2 attempts/hr)
++++ <!-- .slide: data-auto-animate -->
 
-Note: sometimes upwards of 40% don't use, others less than 20%
+### Quantitative Work on Humor
+
+some conjecture on <br> collectivism/individualism on reception
+
+foreign language learner's attitude towards in-class humor
+and enjoyment of content had far greater effect on reception
+than proficiency in the language
+<!-- .element: class="fragment" -->
+
+[Neff & Dewaele - 2023]
+<!-- .element: class="citation fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Quantitative Work on Humor
+
+some profs don't use humor at all (< 2 attempts/hr)
 
 award-winning lecturers warn against frequent use <br>
 (avg 7.5 attempts/hr)
 
 experienced faculty use humor more than GSIs <br>
 (avg 6.5 vs 1.5 attempts/hr)
+
+Note: sometimes upwards of 40% don't use, others less than 20%
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -587,7 +613,35 @@ don't get upset if the joke doesn't work.
 
 ### Advice for Educators
 
-**"Always Appropriate" Classes of Humor**
+**what kinds of humor are out there?**
+
+<div class="col-container">
+<div class="col">
+<h4>more culturally sensitive</h4>
+<p>funny stories</p>
+<p>puns & jokes</p>
+<p>sidebar*</p>
+<p>comics/clips</p>
+<p>dark/witty humor</p>
+</div>
+<div style="flex: 0.1;"></div>
+<div class="col">
+<h4>less culturally sensitive</h4>
+<p>facial expression</p>
+<p>sound effects</p>
+<p>visual gags</p>
+<p>prop/object work</p>
+<p>comedy of attitude</p>
+</div>
+</div>
+
+Note: fav form of sidebar is written
+
++++ <!-- .slide: data-auto-animate -->
+
+### Advice for Educators
+
+**"always appropriate" classes of humor**
 
 - Content-Relevant
 - Solidarity-Based
