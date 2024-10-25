@@ -19,7 +19,7 @@
 
 *findings reported in these slides <br> only pertain to mature learners*
 
-10 crazy tips! <br>
+10(0) crazy tips! <br>
 the results ***won't*** surprise you
 
 --- <!-- .slide: data-auto-animate -->
@@ -224,7 +224,7 @@ high elaboration = high likelihood of attitude shift
 
 +++ <!-- .slide: data-auto-animate -->
 
-<img class="r-stretch" src="img/older_code.gif" alt="it's an older code but it checks out">s
+<img class="r-stretch" src="img/older_code.gif" alt="it's an older code but it checks out">
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -513,6 +513,8 @@ Note: sometimes upwards of 40% don't use, others less than 20%
 --- <!-- .slide: data-auto-animate -->
 
 ### Humor and Learning
+
+*what does the research say about utility?*
 
 +++ <!-- .slide: data-auto-animate -->
 
