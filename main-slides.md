@@ -37,10 +37,12 @@ the results ***won't*** surprise you
 
 ### Theories of Humor
 
-*what psychological models explain funniness?* <br>
-<em class="green">what pedagogical models explain humor in class?</em>
+what can psychology teach us about class humor?
 
-+++ <!-- .slide: data-auto-animate -->
+**I am going to be making mistakes intentionally\*** <br>
+*see if you can catch 'em*
+
+--- <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
 
@@ -51,30 +53,10 @@ the results ***won't*** surprise you
 **incongruity model**
 
 **instructional humor processing theory**
-<!-- .element: class="green" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Theories of Humor
-
-**superiority model**
-
-*humor as competitive play (see monkeys)*
-
-doesn't require intention or imply malice
-<!-- .element: class="small fragment" -->
-
-most useful today to define inappropriate humor
-<!-- .element: class="fragment" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-***Lessons from the Superiority Model***
-
-+++ <!-- .slide: data-auto-animate -->
-
-***Lessons from the Superiority Model***
-#### Things You Definitely Shouldn't Do
+***Things You Definitely Shouldn't Do***
 
 - mock any class member(s)
 <!-- .element: class="fragment" -->
@@ -82,6 +64,9 @@ most useful today to define inappropriate humor
 <!-- .element: class="fragment" -->
 - joke about any nameable community
 <!-- .element: class="fragment" -->
+
+*from superiority and arousal models*
+<!-- .element: class="citation" -->
 
 Note:
 - your students, assistants, co-teachers, colleagues
@@ -91,77 +76,53 @@ Note:
 
 +++ <!-- .slide: data-auto-animate -->
 
-***Lessons from the Superiority Model***
-#### Things You Definitely Shouldn't Do
+***Things You Definitely Shouldn't Do***
 
-avoid mocking yourself! <span class="fragment">*(mostly\*)*</span>
+- put jokes on exams
+<!-- .element: class="fragment" -->
+- mock yourself
+<!-- .element: class="fragment" -->
+*(mostly\*)*
 
 *students were divided on appropriateness, <br>
 but it may damage credibility regardless
 <!-- .element: class="citation fragment" -->
 
-+++ <!-- .slide: data-auto-animate -->
-
-***Lessons from the Superiority Model***
-
-offensive humor (including ridicule) <br>
-forms the basis of inappropriate humor
-
---- <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-*superiority model*
-
-**arousal model**
-
-**incongruity model**
-
-**instructional humor processing theory**
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-**arousal model**
-
-*humor as subconscious/emotional processing*
-
-mostly useful today for expert/printed humor
-<!-- .element: class="fragment" -->
-
-Note: **not as fun as it sounds**
-
-+++ <!-- .slide: data-auto-animate -->
-
-***Lessons from the Arousal Model***
-
-*avoid putting jokes on exams*
-<!-- .element: class="fragment" -->
-
-(though it did decrease exam anxiety for high anxiety students)
-<!-- .element: class="citation fragment" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-***Lessons from the Arousal Model***
-
-humor eases in-the-moment emotional processing
-
-it can be used to protect oneself or, <br>
-to release tension following shock/surprise
-
-*be careful, it can also backfire*
-
-[hooks *Teaching Critical Thinking* 2010 - Ch.13] <br> thanks Lisa!
+*from superiority and arousal models*
 <!-- .element: class="citation" -->
 
+Note: decreases exam anxiety for high anxiety students
+
 +++ <!-- .slide: data-auto-animate -->
+
+***Things You Definitely Shouldn't Do***
+
+offensive humor (including ridicule) <br>
+forms the basis of *inappropriate humor*
 
 *from here on, we're talking about appropriate humor*
 
-but first, what did I do wrong so far...
++++ <!-- .slide: data-auto-animate -->
+
+***Things You Might Do With Practice***
+
+*use humor to ease emotional processing*
+
+- call out expert/printed humor
 <!-- .element: class="fragment" -->
+- protect oneself from intrusion
+<!-- .element: class="fragment" -->
+- release tension following shock
+<!-- .element: class="fragment" -->
+
+*be careful, it can also backfire*
+<!-- .element: class="fragment" -->
+
+[hooks *Teaching Critical Thinking* 2010 - Ch.13] <br> thanks Lisa!
+<!-- .element: class="citation fragment" -->
+
+*from arousal model*
+<!-- .element: class="citation" -->
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -179,45 +140,46 @@ but first, what did I do wrong so far...
 
 ### Theories of Humor
 
-*superiority model*
+*humor as cognitive mismatch*
 
-*arousal model*
+content-related humor came out <br>
+the clear winner for planned humor
 
-**instructional humor processing theory**
+**use (planned) humor like a highlighter**
 
-**incongruity model**
+*from incongruity model*
+<!-- .element: class="citation" -->
+
+Note: surprising contradiction invites elaboration
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
 
-**instructional humor processing theory**
+**use (planned) humor like a highlighter**
+
+- choose an important concept
+<!-- .element: class="fragment" -->
+- add flair with surprising imagery
+<!-- .element: class="fragment" -->
+- don't rely on joke for recall
+<!-- .element: class="fragment" -->
+
+*from incongruity model*
+<!-- .element: class="citation" -->
+
+Note: surprising contradiction invites elaboration
+
++++ <!-- .slide: data-auto-animate -->
+
+### Theories of Humor
 
 *humor as invitation to elaborate*
 
-[Wanzer et al. - 2010]
-<!-- .element: class="citation" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-**instructional humor processing theory**
-
-draws on *elaboration likelihood model* of persuasion
-
-> what does it take to change hearts <br> as a speaker
-<!-- .element: class="wide fragment" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-**instructional humor processing theory**
-
-draws on *elaboration likelihood model* of persuasion
-
-high elaboration = high likelihood of attitude shift
+from elaboration likelihood model of persuasion
+<!-- .element: class="fragment" -->
+$$P(\text{elaboration}) \propto P(\text{shift})$$
+<!-- .element: class="fragment" -->
 
 [Allport - 1935, Ross - 1908]
 <!-- .element: class="citation" -->
@@ -236,46 +198,15 @@ generally good for predictions:
 - content-related humor correlated with learning
 - disparaging/offensive humor **didn't** correlate
 
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-*superiority model*
-
-*arousal model*
-
-*instructional humor processing theory*
-
-**incongruity model**
+[Wanzer et al. - 2010]
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
 
-**incongruity model**
+so what did inappropriate humor did we catch?
 
-*humor as cognitive mismatch*
-
-content-related humor came out <br>
-the clear winner for planned humor
-
-IHPT backs this up
-
-Note: surprising contradiction invites elaboration
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-*superiority model*
-
-*arousal model*
-
-*instructional humor processing theory*
-
-*incongruity model*
-
-+++ <!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 
 ## Overview
 <hr>
