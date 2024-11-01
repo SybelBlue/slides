@@ -29,7 +29,6 @@ the results ***won't*** surprise you
 
 ### Theories of Humor
 ### Personal Aspects of Humor
-#### Quantitative Work on Humor
 ### Humor and Learning
 ### Advice for Educators
 
@@ -46,33 +45,69 @@ what can psychology teach us about class humor?
 
 ### Theories of Humor
 
-**superiority model**
+*superiority model*
 
-**arousal model**
+*arousal model*
 
-**incongruity model**
+*incongruity model*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Theories of Humor
+
+*superiority model*
+
+(humor as competitve play)
+<!-- .element: class="citation" -->
+
+*arousal model*
+
+(humor as emotional processing)
+<!-- .element: class="citation" -->
+
+*incongruity model*
+
+(humor as cognitive mismatch)
+<!-- .element: class="citation" -->
+
+
++++ <!-- .slide: data-auto-animate -->
 
 **instructional humor processing theory**
+
+*humor as invitation to elaborate*
+
+from elaboration likelihood model of persuasion
+<!-- .element: class="fragment" -->
+$$\Delta\text{attitude} \propto \mathbf P(\text{elaboration})$$
+<!-- .element: class="fragment" -->
+
+generally good for predictions!
+<!-- .element: class="fragment" -->
+
+[Wanzer et al. - 2010, Allport - 1935, Ross - 1908]
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+<img class="r-stretch" src="img/older_code.gif" alt="it's an older code but it checks out">
 
 +++ <!-- .slide: data-auto-animate -->
 
 ***Things You Definitely Shouldn't Do***
 
-- mock any class member(s)
+- mock any groups or individuals
 <!-- .element: class="fragment" -->
 - ridicule learners or learning
 <!-- .element: class="fragment" -->
-- joke about any nameable community
-<!-- .element: class="fragment" -->
 
-*from superiority and arousal models*
+*from IHPT & superiority and arousal models*
 <!-- .element: class="citation" -->
 
 Note:
-- your students, assistants, co-teachers, colleagues
+- your students, assistants, co-teachers, colleagues, yourself
+- any marginalized *(or identifiable)* community **exaggerate, stereotype**
 - learning speeds/styles/preferences/differences
-- any marginalized *(or identifiable)* community
-**exaggerate, ridicule**
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -80,9 +115,8 @@ Note:
 
 - put jokes on exams
 <!-- .element: class="fragment" -->
-- mock yourself
+- ridicule yourself*
 <!-- .element: class="fragment" -->
-*(mostly\*)*
 
 *students were divided on appropriateness, <br>
 but it may damage credibility regardless
@@ -93,23 +127,12 @@ but it may damage credibility regardless
 
 Note: decreases exam anxiety for high anxiety students
 
-+++ <!-- .slide: data-auto-animate -->
-
-***Things You Definitely Shouldn't Do***
-
-offensive humor (including ridicule) <br>
-forms the basis of *inappropriate humor*
-
-*from here on, we're talking about appropriate humor*
-
-+++ <!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 
 ***Things You Might Do With Practice***
 
 *use humor to ease emotional processing*
 
-- call out expert/printed humor
-<!-- .element: class="fragment" -->
 - protect oneself from intrusion
 <!-- .element: class="fragment" -->
 - release tension following shock
@@ -126,79 +149,21 @@ forms the basis of *inappropriate humor*
 
 --- <!-- .slide: data-auto-animate -->
 
-### Theories of Humor
+***Things You Should Do***
 
-*superiority model*
-
-*arousal model*
-
-**incongruity model**
-
-**instructional humor processing theory**
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-*humor as cognitive mismatch*
-
-content-related humor came out <br>
-the clear winner for planned humor
-
-**use (planned) humor like a highlighter**
-
-*from incongruity model*
-<!-- .element: class="citation" -->
-
-Note: surprising contradiction invites elaboration
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-**use (planned) humor like a highlighter**
+**use humor like a highlighter**
 
 - choose an important concept
 <!-- .element: class="fragment" -->
-- add flair with surprising imagery
+- add flair with delivery/context
 <!-- .element: class="fragment" -->
-- don't rely on joke for recall
+- convey the concept genuinely
 <!-- .element: class="fragment" -->
 
 *from incongruity model*
 <!-- .element: class="citation" -->
 
 Note: surprising contradiction invites elaboration
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-*humor as invitation to elaborate*
-
-from elaboration likelihood model of persuasion
-<!-- .element: class="fragment" -->
-$$P(\text{elaboration}) \propto P(\text{shift})$$
-<!-- .element: class="fragment" -->
-
-[Allport - 1935, Ross - 1908]
-<!-- .element: class="citation" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-<img class="r-stretch" src="img/older_code.gif" alt="it's an older code but it checks out">
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Theories of Humor
-
-**instructional humor processing theory**
-
-generally good for predictions:
-- content-related humor correlated with learning
-- disparaging/offensive humor **didn't** correlate
-
-[Wanzer et al. - 2010]
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -206,14 +171,13 @@ generally good for predictions:
 
 so what did inappropriate humor did we catch?
 
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ## Overview
 <hr>
 
 ### Theories of Humor
 ### Personal Aspects of Humor
-#### Quantitative Work on Humor
 ### Humor and Learning
 ### Advice for Educators
 
@@ -274,17 +238,15 @@ as an **instructor**, you may be:
 </div>
 </div>
 
-
 *your style of humor should reflect <br> your classroom persona*
 
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ### Personal Aspects of Humor
 
-*how does my personality affect my humor?* <br>
-*how does humor change my image?*
+#### A Brief Detour on *You*
 
-+++ <!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 
 ### Personal Aspects of Humor
 **personal perception**
@@ -341,53 +303,10 @@ humor alone ups trustworthiness, goodwill, <br>
 *overuse upsets the balance by decreasing perceived goodwill
 <!-- .element: class="citation fragment" -->
 
-**inappropriate humor is bad for everything
-<!-- .element: class="citation fragment" -->
-
 +++ <!-- .slide: data-auto-animate -->
 
 ### Personal Aspects of Humor
-**(dated) gender observations**
-
-- men can use tendentious humor, <br> women shouldn't
-- men make more attempts at humor, <br> *be careful of overuse*
-
-*from students' reports in dated/small-n studies*
-
-Note: tendentious: promote a controversial opinion
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Personal Aspects of Humor
-**(dated) gender observations**
-
-according to students, <br>
-women used higher proportions of:
-- content-related humor
-- social stratifying humor
-
-statistically significant findings, but <br> *we may be showing our biases here*
-
-+++ <!-- .slide: data-auto-animate -->
-
-## Overview
-<hr>
-
-### Theories of Humor
-### Personal Aspects of Humor
-#### Quantitative Work on Humor
-### Humor and Learning
-### Advice for Educators
-
---- <!-- .slide: data-auto-animate -->
-
-### Quantitative Work on Humor
-
-*how much is \*too much\*?* <br>
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Quantitative Work on Humor
+**qualitative work**
 
 attempt frequency is all over the place
 
@@ -395,21 +314,8 @@ varies by uni, culture, country, experience...
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Quantitative Work on Humor
-
-some conjecture on <br> collectivism/individualism on reception
-
-foreign language learner's attitude towards in-class humor
-and enjoyment of content had far greater effect on reception
-than proficiency in the language
-<!-- .element: class="fragment" -->
-
-[Neff & Dewaele - 2023]
-<!-- .element: class="citation fragment" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Quantitative Work on Humor
+### Personal Aspects of Humor
+**qualitative work**
 
 some profs don't use humor at all (< 2 attempts/hr)
 
@@ -423,12 +329,30 @@ Note: sometimes upwards of 40% don't use, others less than 20%
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Quantitative Work on Humor
+### Personal Aspects of Humor
+**qualitative work**
 
 4 attempts/hr seems optimal <br>
 *(but again, your mileage __will__ vary)*
 
-**know your audience!**
++++ <!-- .slide: data-auto-animate -->
+
+### Personal Aspects of Humor
+**(dated) gender observations**
+
+$\text{men}$: lean into content-relevance
+
+$\overline{\text{men}}$: be wary of tendentious humor
+
++++ <!-- .slide: data-auto-animate -->
+
+### Personal Aspects of Humor
+**main takeaway**
+
+*you do you (appropriately)*
+
+(and pay attention to your audience)
+<!-- .element: class="citation" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -437,7 +361,6 @@ Note: sometimes upwards of 40% don't use, others less than 20%
 
 ### Theories of Humor
 ### Personal Aspects of Humor
-#### Quantitative Work on Humor
 ### Humor and Learning
 ### Advice for Educators
 
@@ -479,13 +402,10 @@ on the other hand, <br>
 some show positive correlation, particularly when:
 - format/appropriateness is controlled
 <!-- .element: class="fragment" -->
-- retention checked after 2 months
-<!-- .element: class="fragment" -->
-- humor is employed during lecture
-<!-- .element: class="fragment" -->
 - curriculum-relevant humor is used
 <!-- .element: class="fragment" -->
-
+- retention checked 2 months post-lecture
+<!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -494,7 +414,7 @@ some show positive correlation, particularly when:
 
 humor is good at gaining/keeping attention
 
-*this meshes with IHPT's predictions*
+*IHPT suggests this is positive for retention*
 
 Note: "substantial empirical support"
 
@@ -503,27 +423,9 @@ a humorous cognitive mismatch invites elaboration
 +++ <!-- .slide: data-auto-animate -->
 
 ### Humor and Learning
-**avoiding poor outcomes**
+**main takeaway**
 
-beware the propensity to "eat the onion"
-
-students may only remember the joke, <br> not the related content
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Humor and Learning
-**main learning takeaway**
-
-*think of humor like a verbal highlighter*
-
-b/c students may only remember the joke, <br>
-*be sure to repeat the content (if any) after*
-<!-- .element: class="fragment" -->
-
-don't highlight ironically. <br>
-don't pick your target at random. <br>
-don't get upset if the joke doesn't work.
-<!-- .element: class="fragment" -->
+*keep it brief \& purposeful*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -532,7 +434,6 @@ don't get upset if the joke doesn't work.
 
 ### Theories of Humor
 ### Personal Aspects of Humor
-#### Quantitative Work on Humor
 ### Humor and Learning
 ### Advice for Educators
 
@@ -551,9 +452,9 @@ don't get upset if the joke doesn't work.
 <div class="col-container">
 <div class="col">
 <h4>more culturally sensitive</h4>
-<p>funny stories</p>
+<p>stories & yarns</p>
 <p>puns & jokes</p>
-<p>sidebar*</p>
+<p>sidebar</p>
 <p>comics/clips</p>
 <p>dark/witty humor</p>
 </div>
@@ -597,7 +498,7 @@ other types: boundary setting and phone a friend - careful on appropriateness
 
 **General Checklist**
 
-*1. use humor you are comfortable with*
+*1. stay comfortable with change*
 
 *2. use appropriate humor*
 
@@ -609,9 +510,9 @@ other types: boundary setting and phone a friend - careful on appropriateness
 
 **General Checklist**
 
-*1. use humor you are comfortable with*
-- or use none, if you're uncomfortable
+*1. stay comfortable with change*
 - know your humor style & orientation
+- take stock of your goals and progress
 - use clips/cartoons where spontaneity fails
 
 +++ <!-- .slide: data-auto-animate -->
@@ -621,9 +522,9 @@ other types: boundary setting and phone a friend - careful on appropriateness
 **General Checklist**
 
 *2. use appropriate humor*
+- pick topics that need highlighting
+- shoot for 4 attempts/hr to start
 - **always** avoid isolating/disparaging humor
-- humor changes the class atmosphere quickly
-- use content-relevant or self-enhancing humor
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -632,10 +533,13 @@ other types: boundary setting and phone a friend - careful on appropriateness
 **General Checklist**
 
 *3. know your audience*
-- overuse of humor degrades credibility
+- get a read on credibility and taste
+- articulate why you are using humor
 - double-check (pop-)cultural references
-  - if you gotta explain it: don't use it
-  - if you use it: use it, don't re-enact it
+
+Note:
+*if you gotta explain it: don't use it.* <br>
+*if you use it: reference, don't re-enact*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -643,7 +547,7 @@ other types: boundary setting and phone a friend - careful on appropriateness
 
 **General Checklist**
 
-*1. use humor you are comfortable with*
+*1. stay comfortable with change*
 
 *2. use appropriate humor*
 
@@ -685,5 +589,5 @@ other types: boundary setting and phone a friend - careful on appropriateness
 
 [Banas, Dunbar, Rodriguez & Liu - 2011]
 <!-- .element: class="citation" -->
-[hooks - 2010]
+[hooks "Teaching Critical Thinking" - 2010]
 <!-- .element: class="citation" -->
