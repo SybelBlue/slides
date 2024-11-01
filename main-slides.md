@@ -127,7 +127,7 @@ but it may damage credibility regardless
 
 Note: decreases exam anxiety for high anxiety students
 
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
 
 ***Things You Might Do With Practice***
 
@@ -149,15 +149,23 @@ Note: decreases exam anxiety for high anxiety students
 
 --- <!-- .slide: data-auto-animate -->
 
-***Things You Should Do***
+*you're rambling, serena...*
 
-**use humor like a highlighter**
+**main takeaway**
+<!-- .element: class="fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Theories of Humor
+**main takeaway**
+
+*use humor like a highlighter*
 
 - choose an important concept
 <!-- .element: class="fragment" -->
 - add flair with delivery/context
 <!-- .element: class="fragment" -->
-- convey the concept genuinely
+- invite deep thinking (elaboration)
 <!-- .element: class="fragment" -->
 
 *from incongruity model*
@@ -498,22 +506,11 @@ other types: boundary setting and phone a friend - careful on appropriateness
 
 **General Checklist**
 
-*1. stay comfortable with change*
+*1. use humor like a highlighter*
 
-*2. use appropriate humor*
+*2. you do you (appropriately)*
 
-*3. know your audience*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Advice for Educators
-
-**General Checklist**
-
-*1. stay comfortable with change*
-- know your humor style & orientation
-- take stock of your goals and progress
-- use clips/cartoons where spontaneity fails
+*3. keep it brief and purposeful*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -521,9 +518,20 @@ other types: boundary setting and phone a friend - careful on appropriateness
 
 **General Checklist**
 
-*2. use appropriate humor*
+*1. use humor like a highlighter*
 - pick topics that need highlighting
+- always restate highlighted content
 - shoot for 4 attempts/hr to start
+
++++ <!-- .slide: data-auto-animate -->
+
+### Advice for Educators
+
+**General Checklist**
+
+*2. you do you (appropriately)*
+- know your humor style & orientation
+- get a read on credibility and taste
 - **always** avoid isolating/disparaging humor
 
 +++ <!-- .slide: data-auto-animate -->
@@ -532,9 +540,9 @@ other types: boundary setting and phone a friend - careful on appropriateness
 
 **General Checklist**
 
-*3. know your audience*
-- get a read on credibility and taste
+*3. keep it brief and purposeful*
 - articulate why you are using humor
+- use clips/cartoons where spontaneity fails
 - double-check (pop-)cultural references
 
 Note:
@@ -547,43 +555,56 @@ Note:
 
 **General Checklist**
 
-*1. stay comfortable with change*
+*1. use humor like a highlighter*
 
-*2. use appropriate humor*
+*2. you do you (appropriately)*
 
-*3. know your audience*
+*3. keep it brief and purposeful*
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Advice for Educators
 
-**When Planning a Joke:**
+**General Checklist**
 
-1. humor should be a conceptual highlighter
-2. paraphrase concept after the joke
-3. leverage memorability with a callback
+*0. know your audience*
+
+*1. use humor like a highlighter*
+
+*2. you do you (appropriately)*
+
+*3. keep it brief and purposeful*
 
 --- <!-- .slide: data-auto-animate -->
 
 ## Thanks!
 
+#### *0. know your audience*
+
 <div class="col-container">
 <div class="col">
-<h4>when should I use humor?</h4>
-<ol>
-<li>use <em>your</em> humor</li>
-<li>keep it appropriate</li>
-<li>know your audience</li>
-</ol>
+  <h4>1. use humor like a highlighter</h4>
+  <ul class="citation">
+    <li>pick important topics</li>
+    <li>always restate content</li>
+    <li>shoot for 4 attempts/hr</li>
+  </ul>
 </div>
-<div style="flex: 0.1;"></div>
 <div class="col">
-<h4>how should I plan humor?</h4>
-<ol>
-<li>humor is a highlighter</li>
-<li>rephrase afterwards</li>
-<li>use a callback</li>
-</ol>
+  <h4>2. you do you (appropriately)</h4>
+  <ul class="citation">
+    <li>know your style/persona</li>
+    <li>mind credibility and taste</li>
+    <li>avoid isolating humor</li>
+  </ul>
+</div>
+<div class="col">
+  <h4>3. keep it brief and purposeful</h4>
+  <ul class="citation">
+    <li>articulate why</li>
+    <li>outsource to experts</li>
+    <li>double-check references</li>
+  </ul>
 </div>
 </div>
 
