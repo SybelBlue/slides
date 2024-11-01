@@ -17,10 +17,11 @@
 [Banas, Dunbar, Rodriguez & Liu - 2011]
 <!-- .element: class="citation" style="font-size: 90%" -->
 
-*findings reported in these slides <br> only pertain to mature learners*
+findings reported in these slides <br> only pertain to mature learners
 
-10(0) crazy tips! <br>
-the results ***won't*** surprise you
+*100 shocking tips!*
+<br>
+<span class="citation">you won't believe what they researched next!</span>
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -36,10 +37,13 @@ the results ***won't*** surprise you
 
 ### Theories of Humor
 
-what can psychology teach us about class humor?
+why are jokes in class effective?
 
-**I am going to be making mistakes intentionally\*** <br>
+*<br>I am going to be making mistakes intentionally!*
+<!-- .element: class="fragment" -->
+
 *see if you can catch 'em*
+<!-- .element: class="citation fragment" -->
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -70,6 +74,17 @@ what can psychology teach us about class humor?
 (humor as cognitive mismatch)
 <!-- .element: class="citation" -->
 
++++ <!-- .slide: data-auto-animate -->
+
+### Theories of Humor
+
+**instructional humor processing theory**
+
+*superiority model*
+
+*arousal model*
+
+*incongruity model*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -96,22 +111,30 @@ generally good for predictions!
 
 ***Things You Definitely Shouldn't Do***
 
-- mock any groups or individuals
+*(f^&#ing obvious)*
+<!-- .element: class="citation" -->
+
+- use explicit humor
 <!-- .element: class="fragment" -->
 - ridicule learners or learning
+<!-- .element: class="fragment" -->
+- mock any groups or individuals
 <!-- .element: class="fragment" -->
 
 *from IHPT & superiority and arousal models*
 <!-- .element: class="citation" -->
 
 Note:
+- learning speeds/styles/preferences/differences
 - your students, assistants, co-teachers, colleagues, yourself
 - any marginalized *(or identifiable)* community **exaggerate, stereotype**
-- learning speeds/styles/preferences/differences
 
 +++ <!-- .slide: data-auto-animate -->
 
 ***Things You Definitely Shouldn't Do***
+
+*(less obvious)*
+<!-- .element: class="citation" -->
 
 - put jokes on exams
 <!-- .element: class="fragment" -->
@@ -178,6 +201,12 @@ Note: surprising contradiction invites elaboration
 ### Theories of Humor
 
 so what did inappropriate humor did we catch?
+
+Note:
+- sexual innuendo
+- obvious/less obvious
+- ridiculing learning gap
+- the sw gif
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -484,21 +513,20 @@ Note: fav form of sidebar is written
 ### Advice for Educators
 
 **"always appropriate" classes of humor**
+<div class="col-container">
+  <div class="col">
+    <p>Content-Relevant</p>
+    <p>Solidarity-Based</p>
+    <p>Self-Enhancing</p>
+    <p>Boundary-Setting</p>
+  </div>
+  <div class="col">
+    <p>Funny Stories</p>
+    <p>Short Sidebar</p>
+    <p>Borrowing from <br> the Experts</p>
+  </div>
+</div>
 
-- Content-Relevant
-- Solidarity-Based
-- Self-Enhancing
-- Funny Stories
-- Short Sidebar
-
-note:
--
-- amuse others, relieve tension
-- defending oneself, coping with spontaneous problems, emotional regulation
--
-- keep it brief!
-
-other types: boundary setting and phone a friend - careful on appropriateness
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -565,9 +593,7 @@ Note:
 
 ### Advice for Educators
 
-**General Checklist**
-
-*0. know your audience*
+***0. know your audience***
 
 *1. use humor like a highlighter*
 
@@ -579,7 +605,7 @@ Note:
 
 ## Thanks!
 
-#### *0. know your audience*
+#### 0. know your audience
 
 <div class="col-container">
 <div class="col">
