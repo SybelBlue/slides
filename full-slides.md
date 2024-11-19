@@ -12,6 +12,19 @@
 
 +++ <!-- .slide: data-auto-animate -->
 
+### Takeaways from a 40-year Survey
+
+[Banas, Dunbar, Rodriguez & Liu - 2011]
+<!-- .element: class="citation" style="font-size: 90%" -->
+
+findings reported in these slides <br> only pertain to mature learners
+
+*100 shocking tips!*
+<br>
+<span class="citation">you won't believe what they researched next!</span>
+
+--- <!-- .slide: data-auto-animate -->
+
 ## Overview
 <hr>
 
@@ -26,13 +39,29 @@
 
 why are jokes in class effective?
 
+*<br>I am going to be making mistakes intentionally!*
+<!-- .element: class="fragment" -->
+
+*see if you can catch 'em*
+<!-- .element: class="citation fragment" -->
+
+--- <!-- .slide: data-auto-animate -->
+
+### Theories of Humor
+
+*superiority model*
+
+*arousal model*
+
+*incongruity model*
+
 +++ <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
 
 *superiority model*
 
-(humor as competitive play)
+(humor as competitve play)
 <!-- .element: class="citation" -->
 
 *arousal model*
@@ -76,7 +105,14 @@ generally good for predictions!
 
 +++ <!-- .slide: data-auto-animate -->
 
+<img class="r-stretch" src="img/older_code.gif" alt="it's an older code but it checks out">
+
++++ <!-- .slide: data-auto-animate -->
+
 ***Things You Definitely Shouldn't Do***
+
+*(f^&#ing obvious)*
+<!-- .element: class="citation" -->
 
 - use explicit humor
 <!-- .element: class="fragment" -->
@@ -92,6 +128,27 @@ Note:
 - learning speeds/styles/preferences/differences
 - your students, assistants, co-teachers, colleagues, yourself
 - any marginalized *(or identifiable)* community **exaggerate, stereotype**
+
++++ <!-- .slide: data-auto-animate -->
+
+***Things You Definitely Shouldn't Do***
+
+*(less obvious)*
+<!-- .element: class="citation" -->
+
+- put jokes on exams
+<!-- .element: class="fragment" -->
+- ridicule yourself*
+<!-- .element: class="fragment" -->
+
+*students were divided on appropriateness, <br>
+but it may damage credibility regardless
+<!-- .element: class="citation fragment" -->
+
+*from superiority and arousal models*
+<!-- .element: class="citation" -->
+
+Note: decreases exam anxiety for high anxiety students
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -113,6 +170,13 @@ Note:
 *from arousal model*
 <!-- .element: class="citation" -->
 
+--- <!-- .slide: data-auto-animate -->
+
+*you're rambling, serena...*
+
+**main takeaway**
+<!-- .element: class="fragment" -->
+
 +++ <!-- .slide: data-auto-animate -->
 
 ### Theories of Humor
@@ -124,16 +188,25 @@ Note:
 <!-- .element: class="fragment" -->
 - add flair with delivery/context
 <!-- .element: class="fragment" -->
-- always restate the concept!
-<!-- .element: class="fragment" -->
-
-invite deep thinking (elaboration)
+- invite deep thinking (elaboration)
 <!-- .element: class="fragment" -->
 
 *from incongruity model*
 <!-- .element: class="citation" -->
 
 Note: surprising contradiction invites elaboration
+
++++ <!-- .slide: data-auto-animate -->
+
+### Theories of Humor
+
+so what did inappropriate humor did we catch?
+
+Note:
+- sexual innuendo
+- obvious/less obvious
+- ridiculing learning gap
+- the sw gif
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -217,6 +290,8 @@ as an **instructor**, you may be:
 
 - leaning into humor orientation is usually positive
 <!-- .element: class="fragment" -->
+- makes faculty more approachable outside class
+<!-- .element: class="fragment" -->
 - immediacy's effect on reception is unclear*
 <!-- .element: class="fragment" -->
 
@@ -239,7 +314,6 @@ Note: immediacy - engendering closeness
 
 credibility comes from:
 - expertise
-<!-- .element: class="fragment" -->
 - trustworthiness
 <!-- .element: class="fragment" -->
 - goodwill
@@ -258,14 +332,13 @@ Note: literally studied since Aristotle
 ### Personal Aspects of Humor
 **credibility**
 
+humor alone ups trustworthiness, goodwill, <br>
+& composure, but doesn't increase competency
+
 *on the whole, humor increases credibility*\*
 
 *overuse upsets the balance by decreasing perceived goodwill
 <!-- .element: class="citation fragment" -->
-
-Note:
-humor alone ups trustworthiness, goodwill, <br>
-& composure, but doesn't increase competency
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -276,7 +349,20 @@ attempt frequency is all over the place
 
 varies by uni, culture, country, experience...
 
-Note: some use none, some use lots.
++++ <!-- .slide: data-auto-animate -->
+
+### Personal Aspects of Humor
+**qualitative work**
+
+some profs don't use humor at all (< 2 attempts/hr)
+
+award-winning lecturers warn against frequent use <br>
+(avg 7.5 attempts/hr)
+
+experienced faculty use humor more than GSIs <br>
+(avg 6.5 vs 1.5 attempts/hr)
+
+Note: sometimes upwards of 40% don't use, others less than 20%
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -286,9 +372,15 @@ Note: some use none, some use lots.
 4 attempts/hr seems optimal <br>
 *(but again, your mileage __will__ vary)*
 
-Note:
-experienced faculty use humor more than GSIs <br>
-(avg 6.5 vs 1.5 attempts/hr)
++++ <!-- .slide: data-auto-animate -->
+
+### Personal Aspects of Humor
+**(dated) gender observations**
+
+$\text{men}$: lean into content-relevance
+
+$\overline{\text{men}}$: be wary of tendentious humor
+
 +++ <!-- .slide: data-auto-animate -->
 
 ### Personal Aspects of Humor
@@ -318,6 +410,43 @@ experienced faculty use humor more than GSIs <br>
 +++ <!-- .slide: data-auto-animate -->
 
 ### Humor and Learning
+
+*all of this is hotly contested in literature!*
+
+unsubstantiated claims in this section <br>
+imply strong consensus in literature
+
++++ <!-- .slide: data-auto-animate -->
+
+### Humor and Learning
+**retention**
+
+on the one hand, <br>
+numerous studies* find no change <br>
+(a few even showed negative correlation)
+
+*\*many discredited for study design issues*
+<!-- .element: class="citation fragment" -->
+
+Note: criticized for study design issues (retention time-frame, what kinds of humor, small n)
+
++++ <!-- .slide: data-auto-animate -->
+
+### Humor and Learning
+**retention**
+
+on the other hand, <br>
+some show positive correlation, particularly when:
+- format/appropriateness is controlled
+<!-- .element: class="fragment" -->
+- curriculum-relevant humor is used
+<!-- .element: class="fragment" -->
+- retention checked 2 months post-lecture
+<!-- .element: class="fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Humor and Learning
 **attention**
 
 humor is good at gaining/keeping attention
@@ -327,22 +456,6 @@ humor is good at gaining/keeping attention
 Note: "substantial empirical support"
 
 a humorous cognitive mismatch invites elaboration
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Humor and Learning
-**retention**
-
-numerous studies* find no change <br>
-(a few even showed negative correlation)
-
-some show positive correlation, particularly when:
-- format/appropriateness is controlled
-<!-- .element: class="fragment" -->
-- curriculum-relevant humor is used
-<!-- .element: class="fragment" -->
-- retention checked 2 months post-lecture
-<!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -366,6 +479,32 @@ some show positive correlation, particularly when:
 ### Advice for Educators
 
 *that was a lot... now what?*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Advice for Educators
+
+**what kinds of humor are out there?**
+
+<div class="col-container">
+<div class="col">
+<h4>more culturally sensitive</h4>
+<p>stories & yarns</p>
+<p>puns & jokes</p>
+<p>sidebar</p>
+<p>comics/clips</p>
+<p>dark/witty humor</p>
+</div>
+<div style="flex: 0.1;"></div>
+<div class="col">
+<h4>less culturally sensitive</h4>
+<p>facial expression</p>
+<p>sound effects</p>
+<p>visual gags</p>
+<p>prop/object work</p>
+<p>comedy of attitude</p>
+</div>
+</div>
 
 Note: fav form of sidebar is written
 
