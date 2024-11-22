@@ -496,3 +496,8 @@ Note:
 <!-- .element: class="citation" -->
 [hooks "Teaching Critical Thinking" - 2010]
 <!-- .element: class="citation" -->
+
+<!--
+  todo: students had questions about self-effacement and sarcasm
+  may be worth re-adding into the talk
+ -->
