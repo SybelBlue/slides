@@ -4,6 +4,10 @@
 <!-- .element: class="r-fit-text" -->
 ### Takeaways from a 40-year Survey
 
+<hr>
+
+#### serena caraco | fourth year phd
+
 --- <!-- .slide: data-auto-animate -->
 
 ### Takeaways from a 40-year Survey
@@ -30,11 +34,6 @@ why are jokes in class effective?
 
 ### Theories of Humor
 
-*superiority model*
-
-(humor as competitive play)
-<!-- .element: class="citation" -->
-
 *arousal model*
 
 (humor as emotional processing)
@@ -51,8 +50,6 @@ why are jokes in class effective?
 
 **instructional humor processing theory**
 
-*superiority model*
-
 *arousal model*
 
 *incongruity model*
@@ -68,9 +65,6 @@ from elaboration likelihood model of persuasion
 $$\Delta\text{attitude} \propto \mathbf P(\text{elaboration})$$
 <!-- .element: class="fragment" -->
 
-generally good for predictions!
-<!-- .element: class="fragment" -->
-
 [Wanzer et al. - 2010, Allport - 1935, Ross - 1908]
 <!-- .element: class="citation" -->
 
@@ -83,6 +77,9 @@ generally good for predictions!
 - ridicule learners or learning
 <!-- .element: class="fragment" -->
 - mock any groups or individuals
+<!-- .element: class="fragment" -->
+
+*from here on out, appropriate humor only*
 <!-- .element: class="fragment" -->
 
 *from IHPT & superiority and arousal models*
