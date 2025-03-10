@@ -301,22 +301,55 @@ Space of Possibilities: 6 colors, 4 slots
 
 *just over a 10 bit space!*
 
-you have 10 guesses for **4 words**...
+you have 9 guesses for **4 words**...
 
-*each guess has to average $\frac{11.2}{2.5} \approx 4.5$ bits*
+*each guess has to average $\frac{11.2}{6} \approx 1.9$ bits*
 <!-- .element: class="fragment" -->
 
 *we're sweeping some overcounting under the rug*
 <!-- .element: class="fragment citation" -->
 
 
----
++++
 
-``` py {|4}
+## the code! the code!
+
+``` py [|4-5|6|]
 from math import log2
 
-def guess_strength(space: int, guesses: int):
+def required_guess_strength(space: int, guesses: int):
     # remember, log2 asks "how many powers of 2?"
     space_bits = log2(space)
     return space_bits / guesses
 ```
+
+
+--- <!-- .slide: data-auto-animate -->
+
+# Long & Alevem Rewind!
+<!-- .element: class="r-fit-text" -->
+
+*re-run a small scale experiment using*
+
+## Mastermind
+
+## Quordle
+
+*which one is mathematically harder?*
+
++++ <!-- .slide: data-auto-animate -->
+
+# Long & Alevem Rewind!
+<!-- .element: class="r-fit-text" -->
+
+*which one is mathematically harder?*
+
+## Quordle
+
+**by a lot! 1.9 vs 1.3 bits per guess**
+
+*does this surprise you?*
+<!-- .element: class="fragment" -->
+
+*btw: it turns out Wordle with 9 guesses is 1.24 bits, <br> so regular Wordle is still way harder*
+<!-- .element: class="fragment citation" -->
