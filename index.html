@@ -41,6 +41,18 @@
 
 				// slideNumber: true,
 
+
+				katex: {
+					version: 'latest',
+					delimiters: [
+					{ left: '$$', right: '$$', display: true },
+					{ left: '$', right: '$', display: false },
+					{ left: '\\(', right: '\\)', display: false },
+					{ left: '\\[', right: '\\]', display: true },
+					],
+					ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+				},
+
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealHighlight, RevealMarkdown, RevealMath.KaTeX, RevealNotes, RevealSearch, RevealZoom ]
 			});
