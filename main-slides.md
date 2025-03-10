@@ -4,6 +4,8 @@
 <!-- .element: class="r-fit-text" -->
 ### *a surreptitious reveal.js demo*
 
+Note: notes would appear here!
+
 --- <!-- .slide: data-auto-animate -->
 
 # Long & Alevem Rewind!
@@ -66,7 +68,7 @@
 </div>
 </div>
 
-*this division is called a **bit***
+*this division is called  **"one bit of info"***
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -158,7 +160,7 @@
 
 *we mean:*
 
-> how many times do we halve the possibility space?
+> how many times does the guess <br> halve the possibility space?
 <!-- .element: class="fragment good" -->
 
 +++ <!-- .slide: data-auto-animate  -->
@@ -166,15 +168,16 @@
 ### In a World of Possibilities
 
 <div class="r-stretch col-container">
-<div data-id="left" class="col" style="background-color: white; border: 2px solid black">
+<div data-id="left" class="col" style="background-color: white; ">
 
 <div class="fill-parent row-container">
-<div data-id="leftr" class="row" style="background-color: white; border: 2px solid black">
+<div data-id="leftr" class="row" style="background-color: white;">
 
 <div class="fill-parent col-container">
-<div data-id="lefti" class="col" style="background-color: grey; border: 2px solid black">
+<div data-id="lefti" class="col" style="background-color: grey;">
 </div>
 <div data-id="righti" class="col" style="background-color: green; border: 2px solid black">
+<span class="r-text-fit">😊</span>
 </div>
 </div>
 
@@ -184,11 +187,11 @@
 </div>
 
 </div>
-<div data-id="right" class="col" style="background-color: gray; border: 2px solid black">
+<div data-id="right" class="col" style="background-color: gray;">
 </div>
 </div>
 
-> how many times do we halve the possibility space?
+> how many times does the guess <br> halve the possibility space?
 <!-- .element: class="good" -->
 
 +++ <!-- .slide: data-auto-animate  -->
@@ -196,15 +199,16 @@
 ### In a World of Possibilities
 
 <div class="r-stretch col-container">
-<div data-id="left" class="col" style="background-color: white; border: 2px solid black">
+<div data-id="left" class="col" style="background-color: white; ">
 
 <div class="fill-parent row-container">
-<div data-id="leftr" class="row" style="background-color: white; border: 2px solid black">
+<div data-id="leftr" class="row" style="background-color: white; ">
 
 <div class="fill-parent col-container">
-<div data-id="lefti" class="col" style="background-color: grey; border: 2px solid black">
+<div data-id="lefti" class="col" style="background-color: grey; ">
 </div>
 <div data-id="righti" class="col" style="background-color: red; border: 2px solid black">
+!!
 </div>
 </div>
 
@@ -214,11 +218,11 @@
 </div>
 
 </div>
-<div data-id="right" class="col" style="background-color: gray; border: 2px solid black">
+<div data-id="right" class="col" style="background-color: gray; ">
 </div>
 </div>
 
-> how many times do we halve the possibility space?
+> how many times does the guess <br> halve the possibility space?
 <!-- .element: class="good" -->
 
 +++ <!-- .slide: data-auto-animate  -->
