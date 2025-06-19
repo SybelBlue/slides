@@ -1,5 +1,7 @@
 ## Intro
 
+*what's the problem with parsons problems?*
+
 +++
 
 Parsons Problems work, but are prone to brute-forcing.
@@ -50,6 +52,7 @@ In a surprise result, we find the strats are roughly equal, with a catch
 ---
 
 ## Related work
+*where did we start from?*
 
 +++
 
@@ -128,7 +131,7 @@ this is derived from Fromont, adhered to by others, and used for the rest of our
 
 ## New Fading Strategies
 
-language-agnostic, context-aware
+*language-agnostic, context-aware*
 
 +++
 
@@ -147,6 +150,9 @@ language-agnostic, context-aware
 ---
 
 ## Study Results
+*how did our strategies stack up?*
+
++++
 
 we mirrored the methodology in Fromont:
 - we augmented with TLX and UI log data
@@ -183,10 +189,9 @@ Limitations:
 
 ## Conclusion
 
+*we advise against random strategies and for simply implemented ones!*
 
 to expand a limited body of work, we contribute:
 - a guide for creating fading strategies
 - a new set of "context-aware" strategies
 - a comparitive study of those strategies
-
-*we advise against random strategies and for simply implemented ones!*
