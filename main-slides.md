@@ -1,5 +1,73 @@
 <!-- .slide: data-auto-animate -->
 
+## we've got a problem...
+
+> GenAI
+<!-- .element: class="bad" -->
+
+
+we are going to be generous, <br>
+take the AI optimist at their word
+
+what's left to learn is **design thinking**
+
++++ <!-- .slide: data-auto-animate -->
+
+what's left to learn is **design thinking**
+
+- eliciting design goals
+- collaboratively sketching
+- conceptually testing abilities
+- refining and refactoring
+- rinse and repeat!
+
++++ <!-- .slide: data-auto-animate -->
+
+- eliciting design goals
+- rinse and repeat!
+
+*out of scope, tackled by friends in seville*
+
++++ <!-- .slide: data-auto-animate -->
+
+what's left to learn is **design thinking**
+
+- ~~eliciting design goals~~
+- collaboratively sketching
+- testing abilities
+- refining and refactoring
+- ~~rinse and repeat!~~
+
++++ <!-- .slide: data-auto-animate -->
+
+- collaboratively sketching
+
+*addressed in previous work using...*
+
+> CRC Cards in CARA
+<!-- .element: class="good" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+what's left to learn is **design thinking**
+
+- ~~eliciting design goals~~
+- ~~collaboratively sketching~~
+- testing abilities
+- refining and refactoring
+- ~~rinse and repeat!~~
+
+
++++ <!-- .slide: data-auto-animate -->
+
+what's left to learn is **design thinking**
+- testing abilities
+- refining and refactoring
+
+*we want to make it individualized*
+
+--- <!-- .slide: data-auto-animate -->
+
 # Take-Home CARA
 <!-- .element: class="r-fit-text" -->
 <hr>
@@ -19,28 +87,11 @@
 <!-- .element: class="fragment fade-in" -->
 
 ### ...micro-pilot."
-*a study of conveniency, for bug-finding*
+*a study of convenience, for bug-finding*
 <!-- .element: class="fragment fade-in" -->
 
-+++ <!-- .slide: data-auto-animate -->
-
-# Take-Home CARA
-<!-- .element: class="r-fit-text" -->
-<hr>
-
-### a brief technical report on a <br> wizard-of-oz think-aloud micro-pilot
-
-+++ <!-- .slide: data-auto-animate -->
-
-# Take-Home CARA
-<!-- .element: class="r-fit-text" -->
-<hr>
-
-### a brief technical report on a <br> wizard-of-oz think-aloud micro-pilot
-
-<br>
-
 *so... what's CARA?*
+<!-- .element: class="fragment fade-in" -->
 
 --- <!-- .slide: data-auto-animate -->
 

@@ -94,3 +94,7 @@
     border: 3px solid black;
     align-content: center;
 }
+
+.reveal * {
+    text-decoration-thickness: 3px;
+}
