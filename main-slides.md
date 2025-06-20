@@ -2,6 +2,13 @@
 
 *what's the problem with parsons problems?*
 
+
++++
+
+Parsons Problems are a "problem format"
+- Chunk some code into lines & scramble
+- Reorder & reindent codelines
+
 +++
 
 Parsons Problems work, but...
@@ -62,6 +69,7 @@ We find a fine distinction between the strategies
 
 *added bonus: this gives us easy autogen*
 
+<!-- 6:20 here -->
 ---
 
 ## Related work
