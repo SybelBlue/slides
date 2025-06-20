@@ -4,13 +4,34 @@
 
 +++
 
-An Example Faded Parsons Problem
+Without Faded Parsons Problem
 
 ```py
 def is_even(n: int):
   if n == 0:
     return True
   return not is_even(n - 1)
+```
+
++++
+
+Without Faded Parsons Problem
+
+```py
+def is_even(n: int):
+  if n == 0:
+    return True
+  if n == 1:
+    return not is_even(n - 1)
+  elif n == 2:
+    return is_even(n - 2)
+  if n == 3:
+    return not is_even(n - 1)
+  if n == 4:
+    return not is_even(n - 1)
+  if n == 5:
+    return not is_even(n - 1)
+  ...
 ```
 
 +++
