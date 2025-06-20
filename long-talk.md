@@ -27,7 +27,7 @@ Faded Parsons Problems help, but...
 
 +++
 
-Strategy-imposed difficulty is not yet fully understood
+Fading strategy difficulty is not yet fully understood
 - Studied in introductory courses
 - Tested largely in C-like languages
 
@@ -35,7 +35,7 @@ Strategy-imposed difficulty is not yet fully understood
 
 +++
 
-In short, our problems:
+in short, the problems:
 - how to make strategies that avoid "bad fading"
 - previous strategies are language-bound
 - no clear indication of sem./syn. tactic difficulty
@@ -61,6 +61,9 @@ We generate three strategies using <br> a spectrum of "context-aware" tactics.
 +++
 
 We find a fine distinction between the strategies
+- Difficulty & time are equivalent
+- "Obfuscation" is not equivalent
+- Randomness appears unfavorable
 
 *after following the guide, <br> "bad fading" is about inconsistency*
 
@@ -73,18 +76,20 @@ We find a fine distinction between the strategies
 
 +++
 
-Landmark study: Fromont
+Landmark study of fading strategy difficulty: Fromont
 
-The good news:
+The good:
 - formalizes "strategy", "candidate", "selection"
 - set a methodology for subj./obj. difficulty
-- Introduce an important semantic strategy (cond)
+- 2 syntactic strats (var, op), one kinda semantic (cond)
 
-<br>
++++
 
-The bad news:
+Landmark study of fading strategy difficulty: Fromont
 
-Fromont's strategies <br> yield 0 candidates on our problems
+The bad:
+- language-locked (strats mostly yield 0 candidates)
+- wildly unpredictable (one strats yield way too many)
 
 ---
 
@@ -103,8 +108,44 @@ This yields five guidelines:
 
 ![guidelines](./img/guidelines.png)
 
-please read the paper for a detailed discussion, <br>
-or we can cover them in questions, if desired!
+cognitive overhead of manipulating CFG
+
++++ <!-- .slide: data-auto-animate -->
+
+This yields five guidelines:
+
+![guidelines](./img/guidelines.png)
+
+ws seperated fades are redundant
+
++++ <!-- .slide: data-auto-animate -->
+
+This yields five guidelines:
+
+![guidelines](./img/guidelines.png)
+
+scoping symbols are usually wrangled by IDEs, and missing ones can cause AG context to leak or just really bad error messages
+
++++ <!-- .slide: data-auto-animate -->
+
+This yields five guidelines:
+
+![guidelines](./img/guidelines.png)
+
+don't tamper with var defs, good for AGs, trivial for students
+
+
++++ <!-- .slide: data-auto-animate -->
+
+This yields five guidelines:
+
+![guidelines](./img/guidelines.png)
+
+incomplete fades may be hard to catch and cause strange bugs, if parsing succeeds at all
+
++++
+
+this is derived from Fromont, adhered to by others, and used for the rest of our work
 
 ---
 
@@ -116,17 +157,9 @@ or we can cover them in questions, if desired!
 
 ![mismatched delimiters](img/misdelim.png)
 
-simple: do the token delimiters match?
-
-*don't forget about whitespace!*
-
 +++
 
 ![pace](img/pace.png)
-
-"Prompt-Aware...": looks at problem text
-
-"Control Expressions": all defining, cfg-altering subexpressions
 
 +++
 
