@@ -69,7 +69,6 @@ We find a fine distinction between the strategies
 
 *added bonus: this gives us easy autogen*
 
-<!-- 6:20 here -->
 ---
 
 ## Related work
@@ -166,8 +165,6 @@ this is derived from Fromont, adhered to by others, and used for the rest of our
 
 ![darts](img/darts.png)
 
-<!-- 22 mins to get here, first run -->
-
 ---
 
 ## Study Results
@@ -188,8 +185,8 @@ Rough Equivalence of Difficulty & Efficacy
 
 +++
 
-Small moral: avoid "obfuscation"
-- kind of like "interaction density/freq"
+moral of the story: avoid "obfuscation"
+- calculated by "interactions/time"
 - remember, time is equivalent, but freq is not!
 - Throwing Darts at least as bad as any other on all but one problem
 
@@ -210,7 +207,7 @@ Limitations:
 
 ## Conclusion
 
-*we advise against random strategies and for simply implemented ones!*
+*we advise against random strategies <br> and for simply implemented ones!*
 
 to expand a limited body of work, we contribute:
 - a guide for creating fading strategies
