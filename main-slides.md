@@ -76,7 +76,9 @@ The good news:
 - set a methodology for subj./obj. difficulty
 - introduce an important semantic strategy (cond)
 
-<br>
++++
+
+Landmark study: Fromont
 
 The bad news:
 
@@ -114,6 +116,8 @@ or we can cover them in questions, if desired!
 
 ![mismatched delimiters](img/misdelim.png)
 
+Note: this dodges guideline 5 (and therefore ast construction) by never fading a delimiter wit
+
 +++
 
 *idea: make "important things" likely candidates*
@@ -127,6 +131,16 @@ or we can cover them in questions, if desired!
 +++
 
 ![darts](img/darts.png)
+
++++
+
+candidate selection isn't trivial...
+
+...read the paper (or ask) for more technical details!
+
+Note: maybe we put an image of toroidally distributed sampling as a teaser...
+
+also did we not include a mention of how many fades per problem in the paper??
 
 ---
 
@@ -165,6 +179,7 @@ Limitations:
 - Smaller n and attrition for follow-up
 - Strats equivalent only in aggregagte?
 - Strange trend reversal on problem 1 only
+- Throwing Darts did not have Spatial Distribution
 
 ---
 
