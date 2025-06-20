@@ -1,53 +1,66 @@
-## Intro
+## Fading Strategies <br> for Parsons Problems <br> in Intermediate Classrooms
 
 *what's the problem with parsons problems?*
 
 +++
 
-Parsons Problems work, but are prone to brute-forcing.
-- Known effective
-- Able to autogen
+Parsons Problems work, but...
+- Known effective (difficulty & retention)
+- Able to autogen (nice bonus)
+
+*they are prone to brute-forcing*
 
 +++
 
-FPPs help, but require a “strategy” for fading.
-- No brute-forcing
+Faded Parsons Problems help, but...
+- No more brute-forcing
 - potential "bad fading" (difficult or illegible)
 
+*they require a “strategy” for fading*
+
 +++
 
-Fading strategy difficulty has only been studied in narrow settings.
-- Introductory C & Java vs SWE Rails
-- Lit. hints at semantic vs syntactic fading, remember this for later
+Fading strategy difficulty is not yet fully understood
+- Studied in introductory courses
+- Tested largely in C-like languages
+
+*semantic vs syntactic tactics?*
 
 +++
 
 in short, the problems:
-- bad fading can cause big problems
-- prev fading studies are language-bound
-- no adv. level studies of fading
+- how to make strategies that avoid "bad fading"
+- previous strategies are language-bound
+- no clear indication of sem./syn. tactic difficulty
 
-*would be nice to get autogen back along the way, as a treat*
+*would be nice to get autogen back*
 
 +++
 
-We expand with a conceptual guide for creating language-agnostic fading strategies.
+We create a conceptual guide for creating language-agnostic fading strategies.
 - Based on amalgam of previous work and our own experiences
-- 5 rules based on “Legible, Reliable, Predictable”
+- 5 guidelines based on “Legible, Reliable, Predictable”
+
+*and we put it to use...*
 
 +++
 
-We use the guide to generate a spectrum of strategies that extend previous work.
-- Fromont -> Us
+We generate three strategies using <br> a spectrum of "context-aware" tactics.
+- Fromont $\rightarrow$ Us
 - Semantic/Syntactic Spectrum
 
+*and we study them...*
+
 +++
 
-In a surprise result, we find the strats are roughly equal, with a catch
-- Difficulty & time are even, but interaction freq is not.
-- Plot twist: randomness appears slightly unfavorable
+We find a fine distinction between the strategies
+- Difficulty & time are equivalent
+- "Obfuscation" is not equivalent
+- Randomness appears unfavorable
 
-*this makes bad fading much more a matter of reliability*
+*after following the guide, <br> "bad fading" is about inconsistency*
+
+*added bonus: this gives us easy autogen*
 
 ---
 
