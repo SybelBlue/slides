@@ -2,45 +2,46 @@
 
 *what's the problem with parsons problems?*
 
++++
+
+An Example Faded Parsons Problem
+
+```py
+def is_even(n: int):
+  if n == 0:
+    return True
+  return not is_even(n - 1)
+```
 
 +++
 
-Parsons Problems are a "problem format"
-- Chunk some code into lines & scramble
-- Reorder & reindent codelines
+An Example Faded Parsons Problem
+
+![fpp gif](img/is-even-no-loop.gif)
+
+*"fades" are blanks*
 
 +++
 
-Parsons Problems work, but...
-- Known effective (difficulty & retention)
-- Able to autogen (nice bonus)
+Faded Parsons Problems are good, but there's potential for "bad fading"
 
-*they are prone to brute-forcing*
+Bad fading can make FPPs difficult or illegible
 
-+++
-
-Faded Parsons Problems help, but...
-- No more brute-forcing
-- potential "bad fading" (difficult or illegible)
-
-*they require a “strategy” for fading*
+*so now we need a good “fading strategy”*
 
 +++
 
-Strategy-imposed difficulty is not yet fully understood
+Strategy-imposed difficulty is not fully understood
 - Studied in introductory courses
 - Tested largely in C-like languages
-
-*semantic vs syntactic tactics?*
+- Hints at semantic vs syntactic tactics
 
 +++
 
 In short, our problems:
-- how to make strategies that avoid "bad fading"
+- how do we make strategies for "good fading"
 - previous strategies are language-bound
 - no clear indication of sem./syn. tactic difficulty
-
-*would be nice to get autogen back*
 
 +++
 
@@ -53,16 +54,11 @@ We create a conceptual guide for creating language-agnostic fading strategies.
 +++
 
 We generate three strategies using <br> a spectrum of "context-aware" tactics.
-- Fromont $\rightarrow$ Us
-- Semantic/Syntactic Spectrum
 
-*and we study them...*
+We find a fine distinction between the strategies <br>
+"obfuscation," not difficulty/efficacy.
 
-+++
-
-We find a fine distinction between the strategies
-
-*after following the guide, <br> "bad fading" is about inconsistency*
+*advice: after following the guide, <br> "good fading" is about consistency*
 
 *added bonus: this gives us easy autogen*
 
@@ -78,7 +74,7 @@ Landmark study: Fromont
 The good news:
 - formalizes "strategy", "candidate", "selection"
 - set a methodology for subj./obj. difficulty
-- Introduce an important semantic strategy (cond)
+- introduce an important semantic strategy (cond)
 
 <br>
 
@@ -114,19 +110,19 @@ or we can cover them in questions, if desired!
 
 +++
 
+*idea: bookend the fade with visual cues*
+
 ![mismatched delimiters](img/misdelim.png)
-
-simple: do the token delimiters match?
-
-*don't forget about whitespace!*
 
 +++
 
+*idea: make "important things" likely candidates*
+
 ![pace](img/pace.png)
 
-"Prompt-Aware...": looks at problem text
+"Prompt-Aware...": importance is frequency
 
-"Control Expressions": all defining, cfg-altering subexpressions
+"Control Expressions": importance is control-flow
 
 +++
 
@@ -139,22 +135,22 @@ simple: do the token delimiters match?
 
 +++
 
-we mirrored the methodology in Fromont:
+We mirrored the methodology in Fromont:
 - we augmented with TLX and UI log data
 - they had a x10 n, so stronger results
 
 +++
 
-Rough Equivalence of Difficulty & Efficacy
+Moral 1: Roughly equivalent in difficulty and efficacy
 - Scores, time, attempts strong equiv at first sitting
 - Subjective ratings equiv or non-stat sig
 - Long-term retention weakly equiv after two weeks (62% resp.)
 
 +++
 
-moral of the story: avoid "obfuscation"
-- calculated by "interactions/time"
-- remember, time is equivalent, but freq is not!
+Moral 2: Avoid "obfuscation"
+- Obfuscation is "interactions/time"
+- Time was equivalent, but obfuscation was not!
 - Throwing Darts at least as bad as any other on all but one problem
 
 +++
