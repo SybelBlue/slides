@@ -85,19 +85,19 @@
 
 +++ <!-- .slide: data-auto-animate -->
 
-## Agenda
+### Agenda
 - 10min: Warm-Ups
-- 25min: Lecture
-  - 5min: Software Patterns
-  - 5min: Web Infrastructure
-  - 10min: HTTP
-  - 5min: RESTful APIs
+- 25min: SaaS Architecture Lecture
+  - 15min: Optional Review
+  - 10min: HTTP Requests + Idempotence
 - 20min: *Tip Your Server* Game
 - 05min: Cooldown
 
 --- <!-- .slide: data-auto-animate -->
 
 ## Software Patterns
+
+*a quick recap*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -156,7 +156,6 @@ Pros:
 ### 10,000ft Overview
 
 ![10000ft overview](img/overview.png)
-<!-- .element: class="r-stretch" -->
 
 Note:
 We're focusing on the top today!
@@ -166,11 +165,7 @@ We're focusing on the top today!
 
 ## Web Infrastructure
 
-*in the old days, it was all static-site serving...*
-<!-- .element: class="fragment" -->
-
-*...but no longer.*
-<!-- .element: class="fragment" -->
+*an informal quiz!*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -221,11 +216,63 @@ no knowledge of content
 defines the standard for content transfer
 
 also comes in a "Secure" version, aka "HTTPS"
+p
++++ <!-- .slide: data-auto-animate -->
+
+### Basic Web Stack
+
+> HTTP
+<!-- .element: class="wide good" -->
+
+> TCP
+<!-- .element: class="wide" -->
+
+> IP
+<!-- .element: class="wide bad" -->
+
+
+--- <!-- .slide: data-auto-animate -->
+
+## RESTful APIs
+
+*a quick recap*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Representational State Transfer (REST)
+
+*a philosophy for organizing your API*
+
+- all manipulable entities are **resources**
+- there are only so many **action** on a resource <br> mapped to unique Verb+URI combos
+- URI's must specify all info needed to identify a resource and perform an action
+
++++ <!-- .slide: data-auto-animate -->
+
+### REST Example & Counter
+
+![example table](img/rest-example.png)
+
++++ <!-- .slide: data-auto-animate -->
+
+### REST & Rails
+
+Rails *assumes REST* as a convention!
+
+This means Controller methods become actions (Verb+URI pairs)!
+
++++ <!-- .slide: data-auto-animate -->
+
+### REST & Rails
+
+![restful routes table](img/restful-routes.png)
 
 
 --- <!-- .slide: data-auto-animate -->
 
 ## HTTP
+
+*now we get to the new stuff*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -404,42 +451,6 @@ by convention, almost all verbs are idempotent
 
 --- <!-- .slide: data-auto-animate -->
 
-## RESTful APIs
-
-*specify a full action in one request*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Representational State Transfer (REST)
-
-*a philosophy for organizing your API*
-
-- all manipulable entities are **resources**
-- there are only so many **action** on a resource <br> mapped to unique Verb+URI combos
-- URI's must specify all info needed to identify a resource and perform an action
-
-+++
-
-### REST Example & Counter
-
-![example table](img/rest-example.png)
-
-+++
-
-### REST & Rails
-
-Rails *assumes REST* as a convention!
-
-This means Controller methods become actions (Verb+URI pairs)!
-
-+++
-
-### REST & Rails
-
-![restful routes table](img/restful-routes.png)
-
----
-
 ## Tip Your Server!
 
 - you and a partner will race to complete request
@@ -450,10 +461,19 @@ This means Controller methods become actions (Verb+URI pairs)!
   - give a response code!
 - mistakes will be tallied, and scores compared!
 
-+++
++++ <!-- .slide: data-auto-animate -->
 
 ## Tip Your Server!
 
 [![student-facing game sheet](img/game-qr.png)](https://docs.google.com/spreadsheets/d/1YLO1aPtJADLYCEdNV1cmA96QgGc9cuaUcx6-f1rmsrk/edit?usp=sharing)
 
 *also in the student materials drive*
+
+--- <!-- .slide: data-auto-animate -->
+
+### Cooldown/Practice Questions
+
+- Does design sketching on a whiteboard use of Architecture Patterns or Design Patterns or both?
+- What are some peer-to-peer apps that failed? Why? How about client-server?
+- In real world RESTful APIs, sometimes non-resource operations are required (e.g. triggering a process like sending users an email). Which http method is best for this? Why?
+- We've talked a lot about request but not their payloads. Can you give a few examples of a payload for a request or anresponse?
