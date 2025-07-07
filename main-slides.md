@@ -74,89 +74,77 @@
 
 --- <!-- .slide: data-auto-animate -->
 
-# Module 3 Discussion
+# Module 4 Discussion
 <!-- .element: class="r-fit-text" -->
-## SaaS Architecture
+## MVC & Rails
 
 <br>
 
 *adapted from Adam Lew Dong's slides -- thanks Adam!*
 <!-- .element: class="citation" -->
 
-+++ <!-- .slide: data-auto-animate -->
-
-### Agenda
-- 10min: Warm-Ups
-- 25min: SaaS Architecture Lecture
-  - 15min: Optional Review
-  - 10min: HTTP Requests + Idempotence
-- 20min: *Tip Your Server* Game
-- 05min: Cooldown
-
 --- <!-- .slide: data-auto-animate -->
 
-## Software Patterns
-
-*a quick recap*
-
-+++ <!-- .slide: data-auto-animate -->
+## MVC
 
 <div class="col-container">
 <div class="col">
-<h3>Software <br> Design Pattern</h3>
-a general architectural solution to a family of similar problems
+  <h4>Model</h4>
+
+  all about the data:
+  storage, representation
 </div>
 <div class="col">
-<h3>Software <br> Architecture Pattern</h3>
-the ways subsystems are networked to meet design/func requirements
+  <h4>View</h4>
+
+  the way we display data <br>
+  (user-facing UI)
+</div>
+<div class="col">
+  <h4>Controller</h4>
+
+  how we handle UI events and <br>
+  deliver data to renderer
 </div>
 </div>
 
-+++ <!-- .slide: data-auto-animate -->
-
-### Patterns To Know
-
-**Client-Server**
-
-**Peer-to-Peer**
+*your app will have many MVCs!*
 
 +++ <!-- .slide: data-auto-animate -->
 
-**Client-Server**
+### MVC in Elm
 
-> Client makes requests; <br>
-> Server responds to requests
-
-Pros:
-- specialization
-<!-- .element: class="fragment fade-in" -->
-- cost-efficiency
-<!-- .element: class="fragment fade-in" -->
-- reusability
-<!-- .element: class="fragment fade-in" -->
+**don't memorize syntax, look for patterns!**
 
 +++ <!-- .slide: data-auto-animate -->
 
-**Peer-to-Peer**
+``` elm
+module Main exposing (..)
 
-> All entities are both "clients" and "servers"
+import Browser
+import Html exposing (..)
+import Html.Events exposing (onClick)
 
-Pros:
-- flexibility*
-<!-- .element: class="fragment fade-in" -->
-- reliability*
-<!-- .element: class="fragment fade-in" -->
 
-**the service has to be popular!*
-<!-- .element: class="fragment fade-in" -->
+type alias Model =
+    { count : Int }
 
 --- <!-- .slide: data-auto-animate -->
 
-## Web Infrastructure
 
-*an informal quiz!*
+view : Model -> Html Msg
+view model =
+    div []
+        [ h1 [] [ text "Your Number is:" ]
+        , div []
+            [ button [ onClick Decrement ] [ text "-" ]
+            , span [] [ text "  " ]
+            , em [] [ text (String.fromInt model.count) ]
+            , span [] [ text "  " ]
+            , button [ onClick Increment ] [ text "+" ]
+            ]
+        ]
 
-+++ <!-- .slide: data-auto-animate -->
 
 ### 100,000ft Overview
 
