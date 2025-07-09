@@ -3,80 +3,78 @@
 ### Warm-Up Rounds
 <div class="col-container">
 <div class="col text-left small" style="margin-right: 20px">
-  What is a URI’s query string?
+  Which of these is a block?
   <ol style="list-style-type: upper-alpha">
-    <li>An optional “/” separated string after the hostname & port</li>
-    <li>An optional list of key-value pairs starting with “?”</li>
-    <li>An optional sql query for a resource in a header</li>
+    <li><pre>:+</pre></li>
+    <li><pre>{ puts 'hi' }</pre></li>
+    <li><pre>get '/products', to: 'products#index'</pre></li>
   </ol>
 
   Which of the following are true of internet protocols?
   <ol style="list-style-type: upper-alpha">
-  <li>IP ensures packets are reliably sent</li>
-  <li>HTTP defaults to port 443</li>
-  <li>AJAX made loading small pieces of pages standard</li>
+  <li>TCP requires content to be XML</li>
+  <li>IP address are made of 4 bytes</li>
+  <li>Rails is the standard for displaying webpages</li>
   </ol>
 </div>
 <div class="col text-left small">
-  Which of the following are true of SOA?
+  Why is POST the right verb for triggering a behavior?
   <ol style="list-style-type: upper-alpha">
-    <li>It lets microservices fulfill multiple functions</li>
-    <li>It comes at a performance cost</li>
-    <li>It lets developers focus exclusively on development</li>
+    <li>GET is used to get results</li>
+    <li>POST is the only non-idempotent verb</li>
+    <li>RUN is a non-standard verb, so it's unused</li>
   </ol>
 
   Which of the following are defining features of RESTful APIs?
   <ol style="list-style-type: upper-alpha">
     <li>allowing only functionally-pure operations</li>
-    <li>fully-specifying behaviors in one route</li>
     <li>use of only idempotent actions</li>
+    <li>fully-specifying behaviors in one route</li>
   </ol>
 </div>
 </div>
-
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Warm-Up Rounds
 <div class="col-container">
 <div class="col text-left small" style="margin-right: 20px">
-  What is a URI’s query string?
+  Which of these is a block?
   <ol style="list-style-type: upper-alpha">
-    <li>An optional “/” separated string after the hostname & port</li>
-    <li class="bold">An optional list of key-value pairs starting with “?”</li>
-    <li>An optional sql query for a resource in a header</li>
+    <li class="bold"><pre>:+</pre></li>
+    <li><pre>{ puts 'hi' }</pre></li>
+    <li><pre>get '/products', to: 'products#index'</pre></li>
   </ol>
 
   Which of the following are true of internet protocols?
   <ol style="list-style-type: upper-alpha">
-  <li>IP ensures packets are reliably sent</li>
-  <li>HTTP defaults to port 443</li>
-  <li class="bold">AJAX made loading small pieces of pages standard</li>
+  <li>TCP requires content to be XML</li>
+  <li class="bold">IP address are made of 4 bytes</li>
+  <li>Rails is the standard for displaying webpages</li>
   </ol>
 </div>
 <div class="col text-left small">
-  Which of the following are true of SOA?
+  Why is POST the right verb for triggering a behavior?
   <ol style="list-style-type: upper-alpha">
-    <li>It lets microservices fulfill multiple functions</li>
-    <li class="bold">It comes at a performance cost</li>
-    <li>It lets developers focus exclusively on development</li>
+    <li>GET is used to get results</li>
+    <li class="bold">POST is the only non-idempotent verb</li>
+    <li>RUN is a non-standard verb, so it's unused</li>
   </ol>
 
   Which of the following are defining features of RESTful APIs?
   <ol style="list-style-type: upper-alpha">
     <li>allowing only functionally-pure operations</li>
-    <li class="bold">fully-specifying behaviors in one route</li>
     <li>use of only idempotent actions</li>
+    <li class="bold">fully-specifying behaviors in one route</li>
   </ol>
 </div>
 </div>
 
 
 --- <!-- .slide: data-auto-animate -->
-
 # Module 4 Discussion
 <!-- .element: class="r-fit-text" -->
-## MVC & Rails
+## Routes, MVC & Rails
 
 <br>
 
@@ -85,6 +83,87 @@
 
 --- <!-- .slide: data-auto-animate -->
 
+## Basic MVC & Routes
+
++++ <!-- .slide: data-auto-animate -->
+### Routes
+*what are the verbs?*
+- show me box a
+- set box a to have name = Jane and color = blue
+- update box a to have name = Nell
+- make a box with name = Tina and color = red
+
+--- <!-- .slide: data-auto-animate -->
+### Routes
+
+*what are the __routes__?*
+<!-- .element: class="fragment" -->
+
+- show me box a
+- **GET**
+- set box a to have name = Jane and color = blue
+- **PUT**
+- update box a to have name = Nell
+- **PATCH**
+- make a box with name = Tina and color = red
+- **POST**
+
++++ <!-- .slide: data-auto-animate -->
+### Routes
+
+- show me box a
+- **GET** `/box/a`
+- set box a to have name = Jane and color = blue
+- **PUT** `/box/a`
+- update box a to have name = Nell
+- **PATCH** `/box/a`
+- make a box with name = Tina and color = red
+- **POST** `/box`
+
++++ <!-- .slide: data-auto-animate -->
+
+### Controller Actions
+
+- create
+- update
+- show
+- destroy
+
++++ <!-- .slide: data-auto-animate -->
+
+### Controller Actions
+
+- new
+- create
+- edit
+- update
+- index
+- show
+- destroy
+
++++ <!-- .slide: data-auto-animate -->
+###  Actions
+
+- show me box a
+- **GET** `/box/a` `Box#show`
+- set box a to have name = Jane and color = blue
+- **PUT** `/box/a` `Box#create`
+- update box a to have name = Nell
+- **PATCH** `/box/a` `Box#update`
+- make a box with name = Tina and color = red
+- **POST** `/box` `Box#update`
+
++++ <!-- .slide: data-auto-animate -->
+
+
+## MVC
+
+<img src="img/overview.png" alt="overview" class="r-stretch">
+
+*reminder: we are here (2.5)*
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
 ## MVC
 
 <div class="col-container">
@@ -116,9 +195,13 @@
 
 **don't memorize syntax, look for patterns!**
 
-+++ <!-- .slide: data-auto-animate -->
+![elm logo](img/elm-logo.png)
 
-``` elm
+
++++ <!-- .slide: data-auto-animate -->
+### MVC in Elm
+
+``` [|8-19|22-29|32-43|46-52] elm
 module Main exposing (..)
 
 import Browser
