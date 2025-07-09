@@ -834,7 +834,7 @@ for each, fill in the blank with M/V/C:
 
 *never implement by hand!*
 
-+++ <!-- .slide: data-auto-animate -->
+![elm logo](img/elm-logo.png)
 
 ### SSO & Third Party Auth
 
@@ -1008,6 +1008,7 @@ class University < ActiveRecord::Base do
 
   # ...
 end
+
 
 ```
 
