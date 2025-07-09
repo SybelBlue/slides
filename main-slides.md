@@ -263,7 +263,7 @@ end
 </tbody>
 </table>
 
-+++ <!-- .slide: data-auto-animate -->
+![elm logo](img/elm-logo.png)
 
 ### A Difficult Example
 
@@ -586,6 +586,7 @@ class University < ActiveRecord::Base do
 
   # ...
 end
+
 
 
 ```
