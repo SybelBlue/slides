@@ -3,33 +3,33 @@
 ### Warm-Up Rounds
 <div class="col-container">
 <div class="col text-left small" style="margin-right: 20px">
-  Which of these is a block?
+  Which of the following would interpolate an attribute from an instance variable set in an `ApplicationController`?
   <ol style="list-style-type: upper-alpha">
-    <li><pre>:+</pre></li>
-    <li><pre>{ puts 'hi' }</pre></li>
-    <li><pre>get '/products', to: 'products#index'</pre></li>
+    <li><%= product.name %></li>
+    <li><% @product.name do |n| n.to_s %></li>
+    <li><%= @product.name %></li>
   </ol>
 
-  Which of the following are true of internet protocols?
+  Which of these development methodologies does not include an extensive planning phase?
   <ol style="list-style-type: upper-alpha">
-  <li>TCP requires content to be XML</li>
-  <li>IP address are made of 4 bytes</li>
-  <li>Rails is the standard for displaying webpages</li>
+  <li>Waterfall</li>
+  <li>Spiral</li>
+  <li>Agile</li>
   </ol>
 </div>
 <div class="col text-left small">
-  Why is POST the right verb for triggering a behavior?
+  Which productivity principle does `attr_accessor :name` exemplify best?
   <ol style="list-style-type: upper-alpha">
-    <li>GET is used to get results</li>
-    <li>POST is the only non-idempotent verb</li>
-    <li>RUN is a non-standard verb, so it's unused</li>
+    <li>Synthesis</li>
+    <li>Reuse</li>
+    <li>Automation via Tools</li>
   </ol>
 
-  Which of the following are defining features of RESTful APIs?
+  Which best implements the action corresponding to `GET /posts/:id/`?
   <ol style="list-style-type: upper-alpha">
-    <li>allowing only functionally-pure operations</li>
-    <li>use of only idempotent actions</li>
-    <li>fully-specifying behaviors in one route</li>
+    <li>@post = Posts.find_by id: params[:id]</li>
+    <li>@post = Posts.create! id: params[:id]</li>
+    <li>@post = Posts.find_by id: @id</li>
   </ol>
 </div>
 </div>
@@ -39,47 +39,41 @@
 ### Warm-Up Rounds
 <div class="col-container">
 <div class="col text-left small" style="margin-right: 20px">
-  Which of these is a block?
+  Which of the following would interpolate an attribute from an instance variable set in an `ApplicationController`?
   <ol style="list-style-type: upper-alpha">
-    <li class="bold"><pre>:+</pre></li>
-    <li><pre>{ puts 'hi' }</pre></li>
-    <li><pre>get '/products', to: 'products#index'</pre></li>
+    <li><%= product.name %></li>
+    <li><% @product.name do |n| n.to_s %></li>
+    <li class="bold"><%= @product.name %></li>
   </ol>
 
-  Which of the following are true of internet protocols?
+  Which of these development methodologies does not include an extensive planning phase?
   <ol style="list-style-type: upper-alpha">
-  <li>TCP requires content to be XML</li>
-  <li class="bold">IP address are made of 4 bytes</li>
-  <li>Rails is the standard for displaying webpages</li>
+  <li>Waterfall</li>
+  <li>Spiral</li>
+  <li class="bold">Agile</li>
   </ol>
 </div>
 <div class="col text-left small">
-  Why is POST the right verb for triggering a behavior?
+  Which productivity principle does `attr_accessor :name` exemplify best?
   <ol style="list-style-type: upper-alpha">
-    <li>GET is used to get results</li>
-    <li class="bold">POST is the only non-idempotent verb</li>
-    <li>RUN is a non-standard verb, so it's unused</li>
+    <li class="bold">Synthesis</li>
+    <li>Reuse</li>
+    <li>Automation via Tools</li>
   </ol>
 
-  Which of the following are defining features of RESTful APIs?
+  Which best implements the action corresponding to `GET /posts/:id/`?
   <ol style="list-style-type: upper-alpha">
-    <li>allowing only functionally-pure operations</li>
-    <li>use of only idempotent actions</li>
-    <li class="bold">fully-specifying behaviors in one route</li>
+    <li class="bold">@post = Posts.find_by id: params[:id]</li>
+    <li>@post = Posts.create! id: params[:id]</li>
+    <li>@post = Posts.find_by id: @id</li>
   </ol>
 </div>
 </div>
-
 
 --- <!-- .slide: data-auto-animate -->
-# Module 4 Discussion
+# Module 5 Discussion
 <!-- .element: class="r-fit-text" -->
-## Routes, MVC & Rails
-
-<br>
-
-*adapted from Adam Lew Dong's slides -- thanks Adam!*
-<!-- .element: class="citation" -->
+## Review & Rails Tutorial
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -87,59 +81,12 @@
 
 +++ <!-- .slide: data-auto-animate -->
 ### Routes
-*what are the verbs?*
+
+*what are the verbs, routes, and action?*
 - show me box a
 - set box a to have name = Jane and color = blue
 - update box a to have name = Nell
 - make a box with name = Tina and color = red
-
---- <!-- .slide: data-auto-animate -->
-### Routes
-
-*what are the __routes__?*
-<!-- .element: class="fragment" -->
-
-- show me box a
-- **GET**
-- set box a to have name = Jane and color = blue
-- **PUT**
-- update box a to have name = Nell
-- **PATCH**
-- make a box with name = Tina and color = red
-- **POST**
-
-+++ <!-- .slide: data-auto-animate -->
-### Routes
-
-- show me box a
-- **GET** `/box/a`
-- set box a to have name = Jane and color = blue
-- **PUT** `/box/a`
-- update box a to have name = Nell
-- **PATCH** `/box/a`
-- make a box with name = Tina and color = red
-- **POST** `/box`
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Controller Actions
-
-- create
-- update
-- show
-- destroy
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Controller Actions
-
-- new
-- create
-- edit
-- update
-- index
-- show
-- destroy
 
 +++ <!-- .slide: data-auto-animate -->
 ###  Actions
@@ -153,132 +100,7 @@
 - make a box with name = Tina and color = red
 - **POST** `/box` `Box#update`
 
-+++ <!-- .slide: data-auto-animate -->
-
-
-## MVC
-
-<img src="img/overview.png" alt="overview" class="r-stretch">
-
-*reminder: we are here (2.5)*
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-## MVC
-
-<div class="col-container">
-<div class="col">
-  <h4>Model</h4>
-
-  all about the data:
-  storage, representation
-</div>
-<div class="col">
-  <h4>View</h4>
-
-  the way we display data <br>
-  (user-facing UI)
-</div>
-<div class="col">
-  <h4>Controller</h4>
-
-  how we handle UI events and <br>
-  deliver data to renderer
-</div>
-</div>
-
-*your app will have many MVCs!*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### MVC in Elm
-
-**don't memorize syntax, look for patterns!**
-
-![elm logo](img/elm-logo.png)
-
-
-+++ <!-- .slide: data-auto-animate -->
-### MVC in Elm
-
-``` [|8-19|22-29|32-43|46-52] elm
-module Main exposing (..)
-
-import Browser
-import Html exposing (..)
-import Html.Events exposing (onClick)
-
-
-type alias Model =
-    { count : Int }
-
-
-init : Model
-init =
-    { count = 10 }
-
-
-type Msg
-    = Increment
-    | Decrement
-
-
-controller : Msg -> Model -> Model
-controller msg model =
-    case msg of
-        Increment ->
-            { count = model.count + 1 }
-
-        Decrement ->
-            { count = model.count - 1 }
-
-
-view : Model -> Html Msg
-view model =
-    div []
-        [ h1 [] [ text "Your Number is:" ]
-        , div []
-            [ button [ onClick Decrement ] [ text "-" ]
-            , span [] [ text "  " ]
-            , em [] [ text (String.fromInt model.count) ]
-            , span [] [ text "  " ]
-            , button [ onClick Increment ] [ text "+" ]
-            ]
-        ]
-
-
-main : Program () Model Msg
-main =
-    Browser.sandbox
-        { init = init
-        , update = controller
-        , view = view
-        }
-
-
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### MVC in Elm
-
-*where would the logic for preventing $\texttt{count} < 0$ go?*
-
-*how about for restyling the buttons conditionally?*
-
-*what would change first if we added a "name" field?*
-
 --- <!-- .slide: data-auto-animate -->
-
-## MVC in Rails
-
-*rails takes everything one step futher*
-
-+++<!-- .slide: data-auto-animate -->
-
-**read the [old slides](https://docs.google.com/presentation/d/1fmLlyMBdEDRBC-eN4Sphf4o9VkqjwnuTO0VAuv2P_0k/edit?usp=sharing) for all your quiz content!**
-
-+++<!-- .slide: data-auto-animate -->
 
 ### Recap on Rails
 
@@ -336,7 +158,7 @@ create    app/models/movie.rb
 
 *we start with a migration*
 
-```rb [|3|4-6|8|]
+```rb [|4-6||]
 class CreateMovies < ActiveRecord::Migration[8.0]
   def change
     create_table :movies do |t|
@@ -349,20 +171,6 @@ class CreateMovies < ActiveRecord::Migration[8.0]
   end
 end
 ```
-
-
-+++
-
-### Rails MVC
-
-*then our model `app/models/movie.rb` is sparse:*
-
-```rb
-class Movie < ApplicationRecord::Base
-end
-```
-
-
 
 +++
 
@@ -391,7 +199,7 @@ end
 
 *...and controller instance vars become available to linked views*
 ```rb
-class Movie < ApplicationRecord::Base
+class Movie < ApplicationController
   def index
     @products = Movie.all
   end
@@ -418,20 +226,19 @@ end
 </div>
 ```
 
-+++
-
-### Rails MVC
-
-I **highly** recommend going through the rails getting started tutorial!
-
 ---
 
-## Worksheet
+## Worksheet:
+
+*get into pairs and...*
+<!-- .element: class="small" -->
+
+### [Build Your Own Rails Cheatsheet](https://docs.google.com/document/d/1TgAf2FyoZprK0CIOMgX5jPHstHKDMERpERtIpWxTTuU/edit?usp=sharing)
 
 ---
 
 ## Cooldown Questions
 
-1. Why did the number parsing/validation logic belong in the elm controller and not the view?
-2. BLANK is to `new` as `update` is to `create`?
-3. What is one way to specify the columns of a table?
+1. Why do we use `bin/rails` and not just `rails` on the CLI?
+2. What are the steps to add a "stock" tracker and indicator to the Product class and display it to end users?
+3. What filetype would be output by `erb "meta.rb.erb"`?
