@@ -1,750 +1,332 @@
-<!-- .slide: data-auto-animate -->
-
-### Warm-Up Rounds
-<div class="col-container">
-<div class="col text-left small" style="margin-right: 20px">
-  Which of the following would interpolate an attribute from an instance variable set in an `ApplicationController`?
-  <ol style="list-style-type: upper-alpha">
-    <li><%= product.name %></li>
-    <li><%= @product.name %></li>
-    <li><% @product.name do |n| n.to_s %></li>
-  </ol>
-
-  Which of the following properly de-poetries: `run cmd: 'sudo', args: %w[python my.py]`
-  <ol style="list-style-type: upper-alpha">
-  <li>`run('sudo', %w[python my.py])`</li>
-  <li>`run(cmd: 'sudo', args: %w[python my.py])`</li>
-  <li>`run({ cmd: 'sudo', args: %w[python my.py]})`</li>
-  </ol>
-</div>
-<div class="col text-left small">
-
-  Which of these queries would return one or zero items?
-  <ol style="list-style-type: upper-alpha">
-    <li>`Products.where name: "Boots"`</li>
-    <li>`Products.find_by name: "Boots"`</li>
-    <li>`Products[name: "Boots"]`</li>
-  </ol>
-
-  Which of these does *not* create a migration?
-  <ol style="list-style-type: upper-alpha">
-    <li>`$ rails g model Product`</li>
-    <li>`$ rails generate migration AddShirtSizes`</li>
-    <li>`$ rails new store -T`</li>
-  </ol>
-</div>
-</div>
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Warm-Up Rounds
-<div class="col-container">
-<div class="col text-left small" style="margin-right: 20px">
-  Which of the following would interpolate an attribute from an instance variable set in an `ApplicationController`?
-  <ol style="list-style-type: upper-alpha">
-    <li><%= product.name %></li>
-    <li class="bold"><%= @product.name %></li>
-    <li><% @product.name do |n| n.to_s %></li>
-  </ol>
-
-  Which of the following properly de-poetries: `run cmd: 'sudo', args: %w[python my.py]`
-  <ol style="list-style-type: upper-alpha">
-  <li>`run('sudo', %w[python my.py])`</li>
-  <li>`run(cmd: 'sudo', args: %w[python my.py])`</li>
-  <li class="bold">`run({ cmd: 'sudo', args: %w[python my.py]})`</li>
-  </ol>
-</div>
-<div class="col text-left small">
-
-  Which of these queries would return one or zero items?
-  <ol style="list-style-type: upper-alpha">
-    <li>`Products.where name: "Boots"`</li>
-    <li class="bold">`Products.find_by name: "Boots"`</li>
-    <li>`Products[name: "Boots"]`</li>
-  </ol>
-
-  Which of these does *not* create a migration?
-  <ol style="list-style-type: upper-alpha">
-    <li>`$ rails g model Product`</li>
-    <li>`$ rails generate migration AddShirtSizes`</li>
-    <li class="bold">`$ rails new store -T`</li>
-  </ol>
-</div>
-</div>
-</div>
-
---- <!-- .slide: data-auto-animate -->
-# Module 5 Discussion
+# Module 8 Discussion
 <!-- .element: class="r-fit-text" -->
-### Wide Ranging Review
-
-partials, validations, filters, sso, auth, associations...
+### TDD
 
 *thanks to Paul Woo for slide inspiration*
 <!-- .element: class="small" -->
 
 --- <!-- .slide: data-auto-animate -->
 
-### Partials
+### TDD
 
-*a reusable chunk of view*
+*aka writing tests before you code new functionality*
 
-+++ <!-- .slide: data-auto-animate -->
+<hr>
 
-### Partials
-
-*a reusable chunk of view*
-
-- Renders the same snippet repeatedly
-- Conventional naming (ofc)
-- use `<%= render partial: '<rel-path>' %>`
-
-*example anybody?*
-<!-- .element: class="fragment" -->
+an aspect of Agile: <br>
+unlike P&D, QA is not a separate team
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Partials
+### TDD
 
-*rendering a table of unis*
+#### Good Tests
 
-```html [|1-5|6,12|6-12|]
-<div class=”row”>
-    <div class=”col-6 text-center”>Name</div>
-    <div class=”col-2 text-center”>Rank</div>
-    <div class=”col-4 text-center”>Remarks</div>
-</div>
-<% @universities.each do |university| %>
-<div class=”row”>
-    <div class=”col-6 text-center”><%= university.name %></div>
-    <div class=”col-2 text-center”><%= university.rank %></div>
-    <div class=”col-4 text-center”><%= university.remarks %></div>
-</div>
-<% end %>
-```
-`universities/index.html.erb`
-<!-- .element: class="small" --
-+++ <!-- .slide: data-auto-animate -->
+*a FIRST principles approach 😛*
+- Fast
+- Independent
+- Repeatable
+- Self-Checking
+- Timely
 
-### Partials
+Note:
+Fast - should not take long to run them or run a subset of them. Ideally should be automatic - everytime you change a file the tests should run
 
-**note: a standard listing opereation**
+Independent - Every test should be able to run anytime in any order. Whatever conditions the test expects to be true before running, should be explicitly stated within the test.
 
-```[6] html
-<div class=”row”>
-    <div class=”col-6 text-center”>Name</div>
-    <div class=”col-2 text-center”>Rank</div>
-    <div class=”col-4 text-center”>Remarks</div>
-</div>
-<% @universities.each do |university| %>
-<div class=”row”>
-    <div class=”col-6 text-center”><%= university.name %></div>
-    <div class=”col-2 text-center”><%= university.rank %></div>
-    <div class=”col-4 text-center”><%= university.remarks %></div>
-</div>
-<% end %>
-```
-`universities/index.html.erb`
-<!-- .element: class="small" -->
+Repeatable - Should not depend on external factors like time and date / or magic constants that will break the test if ther values change -- Think Y2K problem
+
+Self-checking - The test should self-report whether it failed
+
+Timely - Write test when code is written - In test driven development write test before the code is written
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Partials
+### TDD
 
-**note: a standard listing opereation**
+*that's nice and all, <br> but how do we actually do it?*
 
-```[6] html
-<div class=”row”>
-    <div class=”col-6 text-center”>Name</div>
-    <div class=”col-2 text-center”>Rank</div>
-    <div class=”col-4 text-center”>Remarks</div>
-</div>
-<% @top_universities.each do |university| %>
-<div class=”row”>
-    <div class=”col-6 text-center”><%= university.name %></div>
-    <div class=”col-2 text-center”><%= university.rank %></div>
-    <div class=”col-4 text-center”><%= university.remarks %></div>
-</div>
-<% end %>
-```
-`universities/top/index.html.erb`
-<!-- .element: class="small" -->
-+++ <!-- .slide: data-auto-animate -->
-
-### Partials
-
-**note: a standard listing opereation**
-
-```[6] html
-<div class=”row”>
-    <div class=”col-6 text-center”>Name</div>
-    <div class=”col-2 text-center”>Rank</div>
-    <div class=”col-4 text-center”>Remarks</div>
-</div>
-<% @similar_universities.each do |university| %>
-<div class=”row”>
-    <div class=”col-6 text-center”><%= university.name %></div>
-    <div class=”col-2 text-center”><%= university.rank %></div>
-    <div class=”col-4 text-center”><%= university.remarks %></div>
-</div>
-<% end %>
-```
-`universities/similar/index.html.erb`
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-*this is repetitive -- time to DRY!*
-
-the solution here is...
-
-### Partials
-<!-- .element: class="fragment" -->
-
-specifically: `_univeristy_entry.html.erb`
-<!-- .element: class="fragment" -->
-
-*^^ note the underscore leader*
-<!-- .element: class="fragment small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Partial
-
-``` html
-<div class="row">
-    <div class="col-6 text-left"><%= university_entry.name %></div>
-    <div class="col-2 text-center"><%= university_entry.rank %></div>
-    <div class="col-4 text-left"><%= university_entry.remarks %></div>
-</div>
-```
-`universities/_university_entry.html.erb`
-<!-- .element: class="small" -->
-
-***the "object" local variable must match the name of the file (w/o `"_"`)***
-<!-- .element: class="fragment small" -->
-
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Partials
-
-*then this...*
-
-```[6-12] html
-<div class=”row”>
-    <div class=”col-6 text-center”>Name</div>
-    <div class=”col-2 text-center”>Rank</div>
-    <div class=”col-4 text-center”>Remarks</div>
-</div>
-<% @top_universities.each do |university| %>
-<div class=”row”>
-    <div class=”col-6 text-center”><%= university.name %></div>
-    <div class=”col-2 text-center”><%= university.rank %></div>
-    <div class=”col-4 text-center”><%= university.remarks %></div>
-</div>
-<% end %>
-```
-`universities/top/index.html.erb`
-<!-- .element: class="small" -->
-
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Partials
-
-*...becomes this!*
-
-```[6-8] html
-<div class=”row”>
-    <div class=”col-6 text-center”>Name</div>
-    <div class=”col-2 text-center”>Rank</div>
-    <div class=”col-4 text-center”>Remarks</div>
-</div>
-<% @top_universities.each do |university| %>
-  <%= render partial: 'university_entry', object: university %>
-<% end %>
-```
-`universities/top/index.html.erb`
-<!-- .element: class="small" -->
-
-*note: no underscore in partial path!*
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Partials
-
-*...or even this!*
-
-```[6] html
-<div class=”row”>
-    <div class=”col-6 text-center”>Name</div>
-    <div class=”col-2 text-center”>Rank</div>
-    <div class=”col-4 text-center”>Remarks</div>
-</div>
-<%= render partial: 'university_entry', collection: @top_universities %>
-```
-`universities/top/index.html.erb`
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Partials
-
-#### A Note on Locals
-
-*you can use undefined local variables...*
-
-```html
-<h3><%= local_ex[:title] %></h3>
-<div class=”row”>
-    <div class=”col-6 text-center”><%= foo %></div>
-    <div class=”col-2 text-center”><%= bar %></div>
-    <div class=”col-4 text-center”><%= baz %></div>
-</div>
-```
-`universities/_local_ex.html.erb`
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Partials
-
-#### A Note on Locals
-
-*...but you'll have to define 'em.*
-
-```html
-<h3><%= local_ex[:title] %></h3>
-<div class=”row”>
-    <div class=”col-6 text-center”><%= foo %></div>
-    <div class=”col-2 text-center”><%= bar %></div>
-    <div class=”col-4 text-center”><%= baz %></div>
-</div>
-```
-`universities/_local_ex.html.erb`
-<!-- .element: class="small" -->
-
-```
-<%= render partial: 'local_ex',
-  object: { title: "An Example" }
-  locals: { foo: "quack", bar: 3, baz: "times" }
-  %>
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Partials
-
-*in conclusion...*
-
-- We *could* generate dynamic views, but partials are cleaner and conventional
-- This is a small example, but partials are powerful!
 
 --- <!-- .slide: data-auto-animate -->
 
-### Validations
+### RSpec
 
-*DRYing model constraints*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-### Recap
-
-- Models have fields with db types
-- Validation is called in db lifecycle methods: <br> `create`, `save`, `update`
-- Validation errors in `model.errors`
-- Tons of built-ins, but custom validations possible!
-
+*how we actually do it*
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Validations
+### RSpec
 
-*a common action*
+#### Quick Review
 
-```rb
-  ...
-  def create
-    university = University.create!(uni_params)
-    redirect_to :action => “show”, :id => university.id
-  end
-  ...
-```
-`controllers/university_controller.rb`
+Define "SUT":
+
+> the "System Under Test": <br> a method, method group, class, module...
+<!-- .element: class="fragment wide" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### RSpec
+
+#### Quick Review
+
+- a **suite** covers one SUT
+- each **test** in a suite covers a specific behavior
+- a **unit test** covers a single-method behavior
+- generally, every test follows **3A** structure
+
+*regretably, no, this is not the three-act structure*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### RSpec
+
+#### 3A
+
+- Arrange
+- Act
+- Assert
+
+Note:
+Every test has 3 main components - you have seen this in cucumber--
+
+Arrange - set up necessary pre conditions /assumptions  for the test case. Given part in cucumber
+Act - do something that stimulates the software - When in cucumber
+Assert - check that something did or did not occur as a result - Then step of cucumber
+
+Every non-trivial test more or less looks like this
+
+
++++ <!-- .slide: data-auto-animate -->
+
+### RSpec
+
+#### 3A
+
+- Arrange
+
+> set up neccessary pre-conditions
+<!-- .element: class="good wide" -->
+
+- Act
+- Assert
+
+Note:
+Every test has 3 main components - you have seen this in cucumber--
+
+Arrange - set up necessary pre conditions /assumptions  for the test case. Given part in cucumber
+Act - do something that stimulates the software - When in cucumber
+Assert - check that something did or did not occur as a result - Then step of cucumber
+
+Every non-trivial test more or less looks like this
+
+
++++ <!-- .slide: data-auto-animate -->
+
+### RSpec
+
+#### 3A
+
+- Arrange
+- Act
+
+> exercise the SUT
+<!-- .element: class="wide" -->
+
+- Assert
+
+Note:
+Every test has 3 main components - you have seen this in cucumber--
+
+Arrange - set up necessary pre conditions /assumptions  for the test case. Given part in cucumber
+Act - do something that stimulates the software - When in cucumber
+Assert - check that something did or did not occur as a result - Then step of cucumber
+
+Every non-trivial test more or less looks like this
+
+
++++ <!-- .slide: data-auto-animate -->
+
+### RSpec
+
+#### 3A
+
+- Arrange
+- Act
+- Assert
+
+> verify behavior
+
+Note:
+Every test has 3 main components - you have seen this in cucumber--
+
+Arrange - set up necessary pre conditions /assumptions  for the test case. Given part in cucumber
+Act - do something that stimulates the software - When in cucumber
+Assert - check that something did or did not occur as a result - Then step of cucumber
+
+Every non-trivial test more or less looks like this
+
+
+<!-- .element: class="bad wide" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### RSpec
+
+#### Syntax
+
+- `describe [:sym|'sym']` defines a suite
+- `context 'desc'` defines shared state
+- `before` defines context-wide pre-conditions
+- `it 'desc'` defines a single test
+
+
++++ <!-- .slide: data-auto-animate -->
+
+### RSpec
+
+#### Recap
+
+*remember:*
+
+- tests are short, specific, and descriptive
+- nothing ever persists between tests...
+- ...including `before` behaviors
+
+*self check: so then how does `before` work?*
 <!-- .element: class="small" -->
 
+--- <!-- .slide: data-auto-animate -->
 
-+++ <!-- .slide: data-auto-animate -->
+### A Difficult Example
 
-### Validations
-
-#### Example (w/o Validation)
-
-![using invalid rank int](img/bad-rank.png)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/o Validation)
-
-![resulting error](img/range-error.png)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-![sad cat](img/sad-cat.png)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-*constraints for our `University` model?*
-
-```rb
-class CreateUniversities < ActiveRecord::Migration[8.0]
-  def change
-    create_table 'universities' do |t|
-      t.name :string
-      t.rank :integer
-
-      t.timestamps
-    end
-  end
-end
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-*constraints for our `University` model?*
-
-- Non-null/empty name
-- A "valid" rank $\[1-\texttt{Integer.MAX}\]$
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-*our default generated file*
-
-```rb
-class University < ApplicationRecord
-end
-```
-`model/university.rb`
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-*tackling the non-empty name*
-
-```rb [2]
-class University < ApplicationRecord
-  validates :name, presence: true, length: { minimum: 1 }
-end
-```
-`model/university.rb`
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-*rank logic is trickier...*
-
-```rb [3-11]
-class University < ApplicationRecord
-  validates :name, presence: true, length: { minimum: 1 }
-  validate :correct_rank_provided
-
-  def correct_rank_provided
-    rank_max = 2 ** (0.size * 8 - 2) - 1
-
-    if rank > rank_max || rank <= 0
-      errors.add(:rank, ‘must be a valid positive integer’)
-    end
-  end
-end
-```
-`model/university.rb`
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-*how do we cap to number of unis?*
-
-```rb [3-11]
-class University < ApplicationRecord
-  validates :name, presence: true, length: { minimum: 1 }
-  validate :correct_rank_provided
-
-  def correct_rank_provided
-    rank_max = ????
-
-    if rank > rank_max || rank <= 0
-      errors.add(:rank, ‘must be a valid positive integer’)
-    end
-  end
-end
-```
-`model/university.rb`
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-*how do we cap to number of unis?*
-
-```rb [3-11]
-class University < ApplicationRecord
-  validates :name, presence: true, length: { minimum: 1 }
-  validate :correct_rank_provided
-
-  def correct_rank_provided
-    rank_max = Universities.all.length + 1
-
-    if rank > rank_max || rank <= 0
-      errors.add(:rank, ‘must be a valid positive integer’)
-    end
-  end
-end
-```
-`model/university.rb`
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-![using invalid rank int](img/bad-rank.png)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-![new resulting error](img/better-range-error.png)
-
-*wait, it's still broken?*
-<!-- .element: class="fragment small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-```rb [3]
-  # ...
-  def create
-    university = University.create!(uni_params)
-    redirect_to :action => “show”, :id => university.id
-  end
-  # ...
-```
-`controllers/university_controller.rb`
-<!-- .element: class="small" -->
-
-*this is the difference with `create!` and `create`*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-```rb [4-5|3,6,9|3-6|6-9|]
-  ...
-  def create
+```rb [|2-3|4-14|15-17]
+class MovieController < ApplicationController
+  def review_movie
+    search_string = params[:search]
     begin
-      university = University.create!(uni_params)
-      redirect_to :action => “show”, :id => university.id
-    rescue ActiveRecord::RecordInvalid
-      flash[:alert] = "Please input a valid university and rank!"
-      redirect_to :action => “new”
-    end
-  end
-  ...
-
-```
-`controllers/university_controller.rb`
-<!-- .element: class="small" -->
-
-*this is the difference with `create!` and `create`*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### A Note on `!` methods
-
-*this is the difference with `create!` and `create`*
-
-- `create!` raises an error when it fails
-- `create` returns `false`
-
-*pitfall: `Controller#create` is something entirely different: a routing action. <br>It should not have a `!` version (unless you write one)*
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### A Note on `!` methods
-
-*I recommend using `!` methods because...*
-- In theory, bad validation is a control flow switch
-- In practice, it's conventional and costs very little
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-![using invalid rank int](img/bad-rank.png)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-#### Example (w/Validation)
-
-![proper resulting error](img/best-range-error.png)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-*note: we don't have to use `create`s...*
-
-```rb
-  # ...
-  def create
-    university = University.new(uni_params)
-    if university.valid?
-      university.save!
-      redirect_to :action => “show”, :id => university.id
-    else
-      if !university.errors[:rank].empty?
-        flash[:alert] = “Rank “ + university.errors[:rank].first
-      else # missing required name
-        flash[:alert] = “Name “ + university.errors[:name].first
+      matches = Movie.find_in_tmdb search_string
+      if matches.empty?
+        redirect_to review_movie_path, alert: "No matches!"
+      elsif matches.length == 1
+        @movie = matches[0]
+        render review_movie_path
+      else
+        @movies = matches
+        render select_movie_path
       end
-      redirect_to :action => “new”
+    rescue Movie::ConnectionError => err
+      redirect_to review_movie_path, alert: err.message
     end
   end
-  # ...
+end
 ```
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Validations
+### A Difficult Example
 
-*we can tag errors like so:*
+<table class="small">
+<thead>
+  <tr>
+    <td>SUT Behavior/Property has...</td>
+    <td>Example</td>
+    <td>Testing Strategy</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Depended-On Components (DOCs)</td>
+    <td><code>Movie.search_in_tmdb</code></td>
+    <td>isolate dependencies (usually in Arrange)</td>
+  </tr>
+  <tr>
+    <td>side-effects</td>
+    <td>setting <code>:alert</code></td>
+    <td>ensure relevent state is set in Arrange, <br> always assert side-effect has occurred</td>
+  </tr>
+  <tr>
+    <td>non-determinism/time-dependence</td>
+    <td>--</td>
+    <td>Arrange for the proper state</td>
+  </tr>
+</tbody>
+</table>
 
++++ <!-- .slide: data-auto-animate -->
+
+### A Difficult Example
+
+#### Seams
+
+a place where you can change app behavior <br> *without* editting source
+
+your friend in testing, helpful to have a plan for seams before writing code, so TDD helps make friends in testing!
+
++++ <!-- .slide: data-auto-animate -->
+
+### A Difficult Example
+
+#### Seams
+
+*seam validation through message passing!*
+
+
+Arranging (Stubs):
 ```rb
-  def correct_rank_provided
-    rank_max = Universities.all.length + 1
-    cal_names = [“UCB”, “Cal”, “UC Berkeley”]
+allow(@object).to recieve(:method_name).and_return(value)
+# @object.method_name => value
+```
 
-    if !cal_names.include?(name) and rank == 1
-        errors.add(:rank, ‘must not be 1 if university is not Cal’)
-      elsif cal_names.include?(name) and rank != 1
-        errors.add(:rank, ‘must be 1 if Cal is provided’)
-      elsif rank > rank_max || rank <= 0
-        errors.add(:rank, ‘must be a valid positive integer’)
+Asserting (Double/Mocks):
+```rb
+expect(@object).to recieve(:method_name).with_params(value)
+# if "@object.method_name value" called, success! otherwise fail!
+```
+
++++ <!-- .slide: data-auto-animate -->
+
+### A Difficult Example
+
+*where are our 3As?*
+
+```rb [|3,5||2||7,9-10,12-13,16]
+class MovieController < ApplicationController
+  def review_movie
+    search_string = params[:search]
+    begin
+      matches = Movie.find_in_tmdb search_string
+      if matches.empty?
+        redirect_to review_movie_path, alert: "No matches!"
+      elsif matches.length == 1
+        @movie = matches[0]
+        render review_movie_path
+      else
+        @movies = matches
+        render select_movie_path
+      end
+    rescue Movie::ConnectionError => err
+      redirect_to review_movie_path, alert: err.message
     end
   end
+end
 ```
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Validation
-
-*there are tons more validations:*
-
-```rb
-# examples
-# e.g. for a tproduct
-validates :size, inclusion: { in: %w(small medium large),
-    message: "%{value} is not a valid size" }
-
-# e.g. for an account
-validates :email, uniqueness: true
-
-# or even multiple fields with one validator
-validates :name, :login, :email, presence: true
-```
-
-[check out the docs](https://guides.rubyonrails.org/active_record_validations.html)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Validations
-
-*in conclusion...*
-
-- Validations are defined on the model
-- Built-ins will take you very far, but...
-- Instance methods can become custom validations
-
---- <!-- .slide: data-auto-animate -->
-
-### Filters
-
-*manages duplicated control flow logic across controller actions*
-
-<br>
-
-*this means we can make "a validator for a controller actions"!*
-<!-- .element: class="small" -->
-
-+++ <!-- .slide: data-auto-animate -->
-### Filters
-
-#### An Example
-
-*we have some controller logic*
+### A Difficult Example
 
 ```rb []
-class UserController < ApplicationController
-  def check_admin?
-    unless logged_in? # depends on how we implement auth
-      flash[:alert] = "Login required."
-      redirect_to universities_path
+describe MoviesController do
+  describe 'looking up a movie' do
+    it 'redirects to search page if no match' do
+      allow(Movie).to recieve(:find_in_tmbd).and_return([])
+      post 'review_movie', { search_string: '<no match>' }
+      expect(response).to redirect_to(review_movie_path)
+      expect(assigns(:alert))
     end
   end
-  # ... actions
 end
 ```
 
@@ -966,37 +548,24 @@ there are also "through" relationships
 *example, anyone?*
 <!-- .element: class="small" -->
 
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-#### Through Example
-
-```rb
-class Professor < ActiveRecord::Base do
-  has_many :courses
-
-  # ...
-end
-```
+Note:
+On line 4, we “override” the find_in_tmdb by setting up a method stub.
+In this case instead of calling the real method we call the “fake” method whose behavior we can control for each test case.
+Use the allow(Movie) call to set up a stub that does not track whether the find_in_tmdb method is called.
+Use the expect(Movie) instead on line 4 if we want to ensure find_in_tmdb method is called. Also known as “Spies”. I.e. expect(Movie).to_receive(:find_in_tmdb)
+All seams setup for a test case are reset after the test case is run.
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Associations
+### A Difficult Example
 
-#### Through Example
+doubles are for when you need to replace just enough a DOC to isolate behavior of interest
 
-```rb
-class Course < ActiveRecord::Base do
-  has_many :professors
-
-  # ...
-end
-```
+we can also set variables and test by reference..
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Associations
+### A Difficult Example
 
 #### Through Example
 
