@@ -107,7 +107,7 @@ Assert - check that something did or did not occur as a result - Then step of cu
 Every non-trivial test more or less looks like this
 
 - warn of problems *within methods* of a class
-- fixes are usually within the cass itself
+- fixes are usually within the class itself
 - fixed with *SOFA*
 
 +++ <!-- .slide: data-auto-animate -->
