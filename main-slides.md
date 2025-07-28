@@ -1,9 +1,19 @@
+<!-- .slide: data-auto-animate -->
+
 # Module 8 Discussion
 <!-- .element: class="r-fit-text" -->
 ### TDD
 
 *thanks to Paul Woo for slide inspiration*
 <!-- .element: class="small" -->
+
+--- <!-- .slide: data-auto-animate -->
+
+# Agenda
+
+- Berkeley Time: 10mins
+- Worksheet: 25mins
+- Lecture: 25mins
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -45,7 +55,6 @@ Timely - Write test when code is written - In test driven development write test
 ### TDD
 
 *that's nice and all, <br> but how do we actually do it?*
-
 
 --- <!-- .slide: data-auto-animate -->
 
