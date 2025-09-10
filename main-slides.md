@@ -216,7 +216,7 @@ no knowledge of content
 defines the standard for content transfer
 
 also comes in a "Secure" version, aka "HTTPS"
-p
+
 +++ <!-- .slide: data-auto-animate -->
 
 ### Basic Web Stack
@@ -244,8 +244,8 @@ p
 *a philosophy for organizing your API*
 
 - all manipulable entities are **resources**
-- there are only so many **action** on a resource <br> mapped to unique Verb+URI combos
-- URI's must specify all info needed to identify a resource and perform an action
+- there are only so many **actions** on a resource, <br> mapped to unique Verb+URI combos
+- URI's must specify **all info needed** to identify a resource and perform an action
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -253,13 +253,16 @@ p
 
 ![example table](img/rest-example.png)
 
+*the RESTful site needs the user id!*
+<!-- .element: class="small" -->
+
 +++ <!-- .slide: data-auto-animate -->
 
 ### REST & Rails
 
 Rails *assumes REST* as a convention!
 
-This means Controller methods become actions (Verb+URI pairs)!
+*Controller Methods* become *Actions* (Verb+URI pairs)!
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -267,6 +270,8 @@ This means Controller methods become actions (Verb+URI pairs)!
 
 ![restful routes table](img/restful-routes.png)
 
+*careful: `#new` is not `#create`, and `#edit` is not `#update`*
+<!-- .element: class="small" -->
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -280,6 +285,7 @@ This means Controller methods become actions (Verb+URI pairs)!
 ![request question](img/request-trimmed.png)
 <!-- .element: class="taper-fade" -->
 
+Note: ask what the parts are
 +++ <!-- .slide: data-auto-animate -->
 
 ### HTTP Request
@@ -328,7 +334,7 @@ This means Controller methods become actions (Verb+URI pairs)!
 - PATCH: edit a resource's data (by id)
 - DELETE: delete a resource (by id)
 
-*note: these all need an id to identify a target res.!*
+note: these all need an id to identify a target resource
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -358,8 +364,8 @@ just know it exists.
 ### Example Use
 
 *get a listing of repos:*
-> GET https://github.com/orgs/cs169/repos
-<!-- .element: class="monospace wide" -->
+> `GET https://github.com/orgs/cs169/repos`
+<!-- .element: class="monospace wide small" -->
 *what non-standard verb might we use here?*
 <!-- .element: class="small" -->
 
@@ -368,19 +374,26 @@ just know it exists.
 ### Example Use
 
 *create a repo:*
-> POST https://github.com/cs169/new-app
-<!-- .element: class="monospace wide" -->
+> `POST https://github.com/cs169/new-app`
+<!-- .element: class="monospace wide small" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Example Use
 
 *push to a repo's branch:*
-> PUT https://github.com/cs169/new-app/tree/new-branch
-<!-- .element: class="monospace wide" -->
-*what might the payload be?*
+> `PUT https://github.com/cs169/new-app/tree/new-branch`
+<!-- .element: class="monospace wide small" -->
+*challenge: what might the payload be?*
 <!-- .element: class="small" -->
 
+Note: answer: the commit data! maybe a json, maybe a blob, doesn't matter, it's up to the API!
+
++++ <!-- .slide: data-auto-animate -->
+
+some of these methods <br> are said to be *Idempotent* or have
+
+### Idempotence
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -394,9 +407,12 @@ $$\text{Idem}(f) \Longleftrightarrow \forall x \in \text{Dom}(f), f(f(x)) = f(x)
 
 ### Idempotence
 
-For a function $f$, <br>
-calling $f$ once *may* have an effect, <br>
-calling it **twice in a row** never will!
+$$\text{Idem}(f) \Longleftrightarrow \forall x \in \text{Dom}(f), f(f(x)) = f(x)$$
+<!-- .element: class="small" -->
+
+A function $f$ is idempotent when <br>
+calling $f$ **the first time *may* have an effect**, <br>
+but calling it **the second time never will!**
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -408,12 +424,12 @@ by convention, almost all verbs are idempotent
 > GET, PUT, PATCH, DELETE, INDEX*
 <!-- .element: class="wide" -->
 
+**not a standard verb*
+<!-- .element: class="small" -->
+
 **Not Idempotent:**
 > POST
 <!-- .element: class="wide bad" -->
-
-**not a standard verb*
-<!-- .element: class="small" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -423,8 +439,7 @@ by convention, almost all verbs are idempotent
 > GET, ..., INDEX
 <!-- .element: class="wide" -->
 
-*why does it make sense that the selected verbs are idempotent?*
-<!-- .element: class="fragment fade-in" -->
+*why does it make sense that these verbs are idempotent?*
 
 **viewing should not change any state/cause effects!**
 <!-- .element: class="fragment fade-in small" -->
@@ -438,14 +453,29 @@ by convention, almost all verbs are idempotent
 <!-- .element: class="wide bad" -->
 
 *why does it make sense that POST is not?*
-<!-- .element: class="fragment fade-in" -->
 
 **POST makes new stuff!**
 <!-- .element: class="fragment fade-in small" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
+### HTTP Methods (Verbs)
+
+**Idempotent:**
+> UPDATE, PATCH
+<!-- .element: class="wide" -->
+
+*what about these?*
+
+**consider the effect of setting a name to "Chani" twice...**
+<!-- .element: class="fragment fade-in small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
 ### HTTP Request/Response Example
+
+*in CHIPS you will see:*
+<!-- .element: class="small" -->
 
 ![sample response](img/response-example.png)
 
@@ -453,13 +483,14 @@ by convention, almost all verbs are idempotent
 
 ## Tip Your Server!
 
-- you and a partner will race to complete request
-- one of you is the router:
+you and a partner will race to complete request:
+- one of you is the gateway:
   - determine the verb in use!
-- one of you is the database:
-  - manage the stored data in the spreadsheet
+- one of you is the server:
+  - manage the database in the spreadsheet
   - give a response code!
-- mistakes will be tallied, and scores compared!
+
+mistakes will be tallied, and scores compared!
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -467,8 +498,10 @@ by convention, almost all verbs are idempotent
 
 [![student-facing game sheet](img/game-qr.png)](https://docs.google.com/spreadsheets/d/1YLO1aPtJADLYCEdNV1cmA96QgGc9cuaUcx6-f1rmsrk/edit?usp=sharing)
 
-*also in the student materials drive*
+or access via https://tinyurl.com/cs169a-dis-3
 
+*also in the student materials drive*
+<!-- .element: class="small" -->
 --- <!-- .slide: data-auto-animate -->
 
 ### Cooldown/Practice Questions
