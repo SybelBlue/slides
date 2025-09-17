@@ -83,9 +83,13 @@
 
 --- <!-- .slide: data-auto-animate -->
 
-## Basic MVC & Routes
+## Routes & Actions
+<hr>
+
+*ready, players?*
 
 +++ <!-- .slide: data-auto-animate -->
+
 ### Routes
 *what are the verbs?*
 - show me box a
@@ -93,12 +97,11 @@
 - update box a to have name = Nell
 - make a box with name = Tina and color = red
 
---- <!-- .slide: data-auto-animate -->
++++ <!-- .slide: data-auto-animate -->
+
 ### Routes
 
 *what are the __routes__?*
-<!-- .element: class="fragment" -->
-
 - show me box a
 - **GET**
 - set box a to have name = Jane and color = blue
@@ -111,6 +114,7 @@
 +++ <!-- .slide: data-auto-animate -->
 ### Routes
 
+*what are the __routes__?*
 - show me box a
 - **GET** `/box/a`
 - set box a to have name = Jane and color = blue
@@ -121,43 +125,69 @@
 - **POST** `/box`
 
 +++ <!-- .slide: data-auto-animate -->
+### Actions
 
-### Controller Actions
-
-- create
-- update
-- show
-- destroy
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Controller Actions
-
-- new
-- create
-- edit
-- update
-- index
-- show
-- destroy
-
-+++ <!-- .slide: data-auto-animate -->
-###  Actions
-
+*what are the __actions__?*
 - show me box a
-- **GET** `/box/a` `Box#show`
+- **GET** `/box/a`
 - set box a to have name = Jane and color = blue
-- **PUT** `/box/a` `Box#create`
+- **PUT** `/box/a`
 - update box a to have name = Nell
-- **PATCH** `/box/a` `Box#update`
+- **PATCH** `/box/a`
 - make a box with name = Tina and color = red
-- **POST** `/box` `Box#update`
+- **POST** `/box`
+
++++ <!-- .slide: data-auto-animate -->
+### Actions
+
+*what are the __actions__?*
+- show me box a
+- **GET** `/box/a` $\Rightarrow$ `Box#show`
+- set box a to have name = Jane and color = blue
+- **PUT** `/box/a` $\Rightarrow$ `Box#update`
+- update box a to have name = Nell
+- **PATCH** `/box/a` $\Rightarrow$ `Box#update`
+- make a box with name = Tina and color = red
+- **POST** `/box` $\Rightarrow$ `Box#create`
++++ <!-- .slide: data-auto-animate -->
+
+### Actions
+
+*these correspond to these actions*
+- create
+- show
+- update
+
+*but oftentimes, users need forms/views to <br> make a valid request...*
+<!-- .element: class="fragment" -->
+
+*...this means we need actions to prvoide those forms!*
+<!-- .element: class="fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Actions
+
+*so these are our "CRUDI" actions:*
+
+- *new*
+- create
+- *index*
+- show
+- *edit*
+- update
+- destroy
+
 
 --- <!-- .slide: data-auto-animate -->
 
-
 ## MVC
+<hr>
 
+*maybe the single most important concept all course.*
+
++++ <!-- .slide: data-auto-animate -->
+## MVC
 <img src="img/overview.png" alt="overview" class="r-stretch">
 
 *reminder: we are here (2.5)*
@@ -322,3 +352,250 @@ controller : Msg -> (Model -> Model)
 - `model` is like our db schemas
 - `view` displays info nicely w/o complex logic
 - `controller` has business logic, <br> responds to requests
+
+--- <!-- .slide: data-auto-animate -->
+
+### Recap on Rails
+
+Rails is a *server-side* framework
+
+- it routes http requests to app code
+- it generates basic scripts and views
+- it operates as an "RDBMS" *(more to come)*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Recap on Rails
+
+Rails has **strong** opinions
+
+- convention, always. enforced... mostly.
+- structured around MVC and REST
+- grown to include auth, migrations, versioning...<br>
+
++++ <!-- .slide: data-auto-animate -->
+
+### Recap on Rails
+
+- grown to include auth, migrations, versioning...<br>
+
+<img src="img/everything-the-body-needs.gif" class="r-stretch" alt="matrix meme">
+
+Note: everything a healthy production app needs
+
+--- <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*not arcane magic, mostly...*
+> every model class is secretly a table
+<!-- .element: class="wide" -->
+
+> every table is made/editted by migrations
+<!-- .element: class="wide" -->
+
+*and, you guessed it, a migration is a class*
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+before we can see data or control data, <br> we need a place to put it.
+
+*we start with a migration*
+<!-- .element: class="fragment" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*we start with a migration*
+
+``` sh
+$ rails generate model Movie name:string rating:string ...
+```
+
+``` txt
+invoke active_record
+create db/migrate/20240426151900_create_movies.rb
+create app/models/movie.rb
+create app/controllers/movie.rb
+...
+```
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*we start with a migration*
+
+```rb [|3|4-6|8|]
+class CreateMovies < ActiveRecord::Migration[8.0]
+  def change
+    create_table :movies do |t|
+      t.string 'name'
+      t.string 'rating'
+      t.datetime 'release_date'
+
+      t.timestamps
+    end
+  end
+end
+```
+*db/migrate/20240426151900_create_movies.rb*
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*the genreated model is pretty sparse*
+
+``` rb
+class Movie < ApplicationRecord::Base
+end
+```
+*app/models/movie.rb*
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*actions are controller instance methods*
+
+``` rb
+class MovieController < ApplicationController
+  def index
+    # ...
+  end
+
+  def show
+    # ...
+  end
+
+  # ...
+end
+```
+*app/controllers/movie.rb*
+<!-- .element: class="small" -->
+
+*challenge: what is the http request for show?*
+<!-- .element: class="fragment" -->
+Note: `GET /movie/id`
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*controller instance variables passed to the view*
+
+``` rb [|3]
+class MovieController < ApplicationController
+  def index
+    @movies = Movie.all
+  end
+
+  # ...
+end
+```
+*app/controllers/movie.rb*
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*meanwhile, in movie's `index.html.erb`...*
+``` erb [4|4-10|5-9||6-8]
+<h1> Movies </h1>
+
+<div id="movie-list">
+  <% @movies.each do |movie| %>
+    <div>
+      <a href="/movies/<%= movie.id %>">
+        <emph><%= movie.name %></emph> (<%= movie.year %>)
+      </a>
+    </div>
+  <% end %>
+</div>
+```
+*app/views/movie/index.html.erb*
+<!-- .element: class="small" -->
+
+*what http request is issued by link clicks?*
+<!-- .element: class="fragment" -->
+
+Note: the same http request as before!
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*what http request is issued by link clicks?*
+
+> `GET /movies/{id}`
+
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*what happens when the link is pressed?*
+
+> `GET /movies/{id}`
+
+*...which in turn calls what controller action?*
+
+> `MovieController#show`
+<!-- .element: class="fragment good" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+*`GET /movies/{id}` $\Rightarrow$ `MovieController#show`*
+``` rb [1,6-9|3,7-8|6-9]
+class MovieController < ApplicationController
+  def index
+    @movies = Movie.all
+  end
+
+  def show
+    requested_id = params[:id]
+    @movie = Movie.find(requested_id)
+  end
+
+  # ...
+end
+```
+*app/controllers/movie.rb*
+<!-- .element: class="small" -->
+
+*`params` is based off the request!*
+
+Note: `params` is set by the router, and there are standard
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+*`MovieController#show` $\Rightarrow$ `show.html.erb`*
+``` erb
+<h1> <%= @movie.name %> </h1>
+
+Year: <%= @movie.year %>
+Rating: <%= @movie.rating %>
+
+<a href="/movies">Back to Movies List</a>
+```
+*app/views/movie/show.html.erb*
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
+
+**I highly recommend looking at [the old slides](https://docs.google.com/presentation/d/1WYa5wl3pCU6DgsMRtKmnugs2oOKY9YsibQ8SQMh-_N0/edit?usp=sharing)**
+
+*plenty of juicy ActiveRecord details, good quiz review*
