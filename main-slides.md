@@ -297,7 +297,6 @@ main =
 
 ### MVC in Elm
 
-
 *what would change:*
 
 >  Model? &nbsp; View? &nbsp; Controller? &nbsp; Msg?
@@ -315,7 +314,7 @@ main =
 ### MVC in Elm
 
 
-*but serena, \*technically,\* Elm is MVU not MVC.*
+*but serena, \*technically,\* elm is MVU not MVC.*
 
 ``` elm [5]
 main : Program () Model Msg
@@ -327,14 +326,14 @@ main =
         }
 ```
 
-b/c in elm, nothing is mutable, apps are small, and everything is frontend, <br> we don't care too much about "view over-reach"
+true! in elm, nothing is mutable, apps are small, and everything is frontend, <br> so elm doesn't care too much about "view over-reach".
 <!-- .element: class="small" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### MVC in Elm
 
-*why show this? look at our types:*
+*why demo elm then? look at our types:*
 
 ``` elm
 type Msg
@@ -356,12 +355,21 @@ controller : Msg -> (Model -> Model)
 --- <!-- .slide: data-auto-animate -->
 
 ### Recap on Rails
+<hr>
+
+*remember our golden rule: <br> everything in ruby is ~~objects~~ message passing*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Recap on Rails
 
 Rails is a *server-side* framework
 
 - it routes http requests to app code
 - it generates basic scripts and views
-- it operates as an "RDBMS" *(more to come)*
+- it operates as an "RDBMS"
+
+*more to come on all of this*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -369,15 +377,29 @@ Rails is a *server-side* framework
 
 Rails has **strong** opinions
 
-- convention, always. enforced... mostly.
-- structured around MVC and REST
-- grown to include auth, migrations, versioning...<br>
+- convention, always.
+- enforced, mostly.
+- checked... never.
+
+*so resist the urge to defy the system*
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Recap on Rails
 
-- grown to include auth, migrations, versioning...<br>
+Rails has **strong** opinions
+
+- file structure is all based in MVC
+- routing and resources follow REST
+- the `rails g` command is /powerful/
+
+*over time, rails has grown to include: <br> auth, migrations, versioning...*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Recap on Rails
+
+*over time, rails has grown to include: <br> auth, migrations, versioning...*
 
 <img src="img/everything-the-body-needs.gif" class="r-stretch" alt="matrix meme">
 
@@ -388,20 +410,26 @@ Note: everything a healthy production app needs
 ### Rails MVC
 
 *not arcane magic, mostly...*
-> every model class is secretly a table
+> every model class is secretly a db table
 <!-- .element: class="wide" -->
 
-> every table is made/editted by migrations
+> every table is made & editted by migrations
 <!-- .element: class="wide" -->
 
-*and, you guessed it, a migration is a class*
+*and, you guessed it,*
 <!-- .element: class="small" -->
+
+> every migration is a generated class
+<!-- .element: class="wide" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Rails MVC
 
+*let's see an example then*
+
 before we can see data or control data, <br> we need a place to put it.
+<!-- .element: class="fragment" -->
 
 *we start with a migration*
 <!-- .element: class="fragment" -->
@@ -414,11 +442,8 @@ before we can see data or control data, <br> we need a place to put it.
 
 ``` sh
 $ rails generate model Movie name:string rating:string ...
-```
-
-``` txt
 invoke active_record
-create db/migrate/20240426151900_create_movies.rb
+create db/migrate/YYYYMMDDHHMMSS_create_movies.rb
 create app/models/movie.rb
 create app/controllers/movie.rb
 ...
@@ -443,7 +468,7 @@ class CreateMovies < ActiveRecord::Migration[8.0]
   end
 end
 ```
-*db/migrate/20240426151900_create_movies.rb*
+*db/migrate/[timestamp]_create_movies.rb*
 <!-- .element: class="small" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -592,10 +617,32 @@ Rating: <%= @movie.rating %>
 *app/views/movie/show.html.erb*
 <!-- .element: class="small" -->
 
-+++ <!-- .slide: data-auto-animate -->
+--- <!-- .slide: data-auto-animate -->
 
-### Rails MVC
+### Rails Quiz Review
 
-**I highly recommend looking at [the old slides](https://docs.google.com/presentation/d/1WYa5wl3pCU6DgsMRtKmnugs2oOKY9YsibQ8SQMh-_N0/edit?usp=sharing)**
+*for our quiz this week...*
+
+**I recommend looking at [the old slides](https://docs.google.com/presentation/d/1WYa5wl3pCU6DgsMRtKmnugs2oOKY9YsibQ8SQMh-_N0/edit?usp=sharing)**
 
 *plenty of juicy ActiveRecord details, good quiz review*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails Quiz Review
+
+*for all course content, slowly but surely...*
+
+**I *highly* recommend [the rails tutorial](https://guides.rubyonrails.org/getting_started.html)**
+
+*this is one of the most useful documents for rails, ever.*
+
+*btw don't mind the up-to-date version, <br> it's a better tutorial with nearly identical skills*
+<!-- .element: class="citation" -->
+
+
+### Cooldown Questions
+
+1. Why did the number parsing/validation belong in the controller and not the view?
+2. BLANK is to `#new`, as `#update` is to `#create`?
+3. What is one way to specify the columns of a table?
