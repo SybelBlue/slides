@@ -201,7 +201,7 @@
 +++ <!-- .slide: data-auto-animate -->
 ### MVC in Elm
 
-``` [|8-19|22-29|32-43|46-52] elm
+```elm [|8-19|22-29|32-43|46-52]
 module Main exposing (..)
 
 import Browser
@@ -254,4 +254,71 @@ main =
         , update = controller
         , view = view
         }
+
 ```
+
++++ <!-- .slide: data-auto-animate -->
+
+### MVC in Elm
+
+*what does this look like?*
+
++++ <!-- .slide: data-auto-animate -->
+
+### MVC in Elm
+
+
+*what would change:*
+
+>  Model? &nbsp; View? &nbsp; Controller? &nbsp; Msg?
+<!-- .element: class="wide" -->
+
+*where would logic for preventing $count < 0$ go?*
+
+*how about restyling buttons conditionally?*
+<!-- .element: class="fragment" -->
+
+*what about setting the text field directly?*
+<!-- .element: class="fragment" -->
++++ <!-- .slide: data-auto-animate -->
+
+### MVC in Elm
+
+
+*but serena, \*technically,\* Elm is MVU not MVC.*
+
+``` elm [5]
+main : Program () Model Msg
+main =
+    Browser.sandbox
+        { init = init
+        , update = controller
+        , view = view
+        }
+```
+
+b/c in elm, nothing is mutable, apps are small, and everything is frontend, <br> we don't care too much about "view over-reach"
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### MVC in Elm
+
+*why show this? look at our types:*
+
+``` elm
+type Msg
+    = Increment
+    | Decrement
+
+type alias Model =
+  { count : Int }
+
+view : Model -> Html Msg
+
+controller : Msg -> (Model -> Model)
+```
+
+- `model` is like our db schemas
+- `view` displays info nicely w/o complex logic
+- `controller` has business logic, <br> responds to requests
