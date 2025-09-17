@@ -150,22 +150,20 @@ Pros:
 **the service has to be popular!*
 <!-- .element: class="fragment fade-in" -->
 
-
-+++ <!-- .slide: data-auto-animate -->
-
-### 10,000ft Overview
-
-![10000ft overview](img/overview.png)
-
-Note:
-We're focusing on the top today!
-
-
 --- <!-- .slide: data-auto-animate -->
 
 ## Web Infrastructure
 
 *an informal quiz!*
+
++++ <!-- .slide: data-auto-animate -->
+
+### 100,000ft Overview
+
+![10000ft overview](img/overview.png)
+
+Note:
+We're focusing on the top today!
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -187,8 +185,8 @@ We're focusing on the top today!
 > IP
 <!-- .element: class="wide bad" -->
 
-just defines "ip addresses + ports": <br>
-or "where does this packet go?"
+just defines *ip addresses + ports* <br>
+or *"where does this packet go?"*
 
 IPs resolved through calls to a DNS!
 
@@ -359,6 +357,7 @@ just know it exists.
 - INDEX*
 - ~~*UPDATE**~~
 
+Note: (*) is for non-standard verbs, UPDATE we will never really talk about again
 +++ <!-- .slide: data-auto-animate -->
 
 ### Example Use
@@ -402,6 +401,8 @@ some of these methods <br> are said to be *Idempotent* or have
 $$\text{Idem}(f) \Longleftrightarrow \forall x \in \text{Dom}(f), f(f(x)) = f(x)$$
 
 *someone translate to english please...*
+
+<!-- $$\frac{\forall \Gamma, a. (\Gamma \vdash f(\vec{a}) \Downarrow v, \Gamma' \implies \Gamma' \vdash f(\vec{a}) \Downarrow v, \Gamma')}{f \text{ idempotent}} \mathrm{[Idem_{Def}]}$$ -->
 
 +++ <!-- .slide: data-auto-animate -->
 
