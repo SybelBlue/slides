@@ -1,9 +1,17 @@
 these slides run on hakimel's wonderful reveal.js.
 
 to get started, clone this repo and run `npm install`.
+these slides run on hakimel's wonderful reveal.js.
+
+to get started, clone this repo and run `npm install`.
 
 if successful, from then on, this command will start up the presentation:
+if successful, from then on, this command will start up the presentation:
 ```sh
+$ npm start
+...
+[XX:XX:XX] Server started on http://localhost:8000
+[XX:XX:XX] LiveReload started on port 35729
 $ npm start
 ...
 [XX:XX:XX] Server started on http://localhost:8000
