@@ -74,7 +74,7 @@
 --- <!-- .slide: data-auto-animate -->
 # Module 4 Discussion
 <!-- .element: class="r-fit-text" -->
-## Routes, MVC & Rails
+## Routes, Actions, MVC & Rails
 
 <br>
 
@@ -93,9 +93,13 @@
 ### Routes
 *what are the verbs?*
 - show me box a
+<!-- .element: class="fragment" -->
 - set box a to have name = Jane and color = blue
+<!-- .element: class="fragment" -->
 - update box a to have name = Nell
+<!-- .element: class="fragment" -->
 - make a box with name = Tina and color = red
+<!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -127,7 +131,7 @@
 +++ <!-- .slide: data-auto-animate -->
 ### Actions
 
-*what are the __actions__?*
+*what are the `Box` controller __actions__?*
 - show me box a
 - **GET** `/box/a`
 - set box a to have name = Jane and color = blue
@@ -140,7 +144,7 @@
 +++ <!-- .slide: data-auto-animate -->
 ### Actions
 
-*what are the __actions__?*
+*what are the `Box` controller __actions__?*
 - show me box a
 - **GET** `/box/a` $\Rightarrow$ `Box#show`
 - set box a to have name = Jane and color = blue
@@ -161,7 +165,7 @@
 *but oftentimes, users need forms/views to <br> make a valid request...*
 <!-- .element: class="fragment" -->
 
-*...this means we need actions to prvoide those forms!*
+*...this means we need actions to provide those forms!*
 <!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -420,7 +424,7 @@ Note: everything a healthy production app needs
 > every model class is secretly a db table
 <!-- .element: class="wide" -->
 
-> every table is made & editted by migrations
+> every table is made & edited by migrations
 <!-- .element: class="wide" -->
 
 *and, you guessed it,*
@@ -482,7 +486,7 @@ end
 
 ### Rails MVC
 
-*the genreated model is pretty sparse*
+*the generated model is pretty sparse*
 
 ``` rb
 class Movie < ApplicationRecord::Base
@@ -547,7 +551,7 @@ end
   <% @movies.each do |movie| %>
     <div>
       <a href="/movies/<%= movie.id %>">
-        <emph><%= movie.name %></emph> (<%= movie.year %>)
+        <strong><%= movie.name %></strong> (<%= movie.year %>)
       </a>
     </div>
   <% end %>
@@ -666,7 +670,7 @@ I wrote [the Quiz Review DevBowl](https://docs.google.com/document/d/1GXMtZDx9en
 <!-- .element: class="citation" -->
 
 
-### Cooldown Questions
+### Cool-down Questions
 
 1. Why did the number parsing/validation belong in the controller and not the view?
 2. BLANK is to `#new`, as `#update` is to `#create`?
