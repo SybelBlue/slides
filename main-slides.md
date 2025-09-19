@@ -182,6 +182,8 @@
 - update
 - destroy
 
+*note the (GET form x REQUEST) pairs!*
+<!-- .element: class="small" -->
 
 --- <!-- .slide: data-auto-animate -->
 
