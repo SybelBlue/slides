@@ -408,6 +408,13 @@ Note: everything a healthy production app needs
 --- <!-- .slide: data-auto-animate -->
 
 ### Rails MVC
+<hr>
+
+*so how do we actually use rails?*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails MVC
 
 *not arcane magic, mostly...*
 > every model class is secretly a db table
@@ -620,8 +627,26 @@ Rating: <%= @movie.rating %>
 --- <!-- .slide: data-auto-animate -->
 
 ### Rails Quiz Review
+<hr>
 
-*for our quiz this week...*
+*a small collection of resources*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails Quiz Review
+
+*for our quizzes every week...*
+
+I wrote [the Quiz Review DevBowl](https://docs.google.com/document/d/1GXMtZDx9enOno-2Bh1RekjcRb_TunAArXr58mVsk158/edit?usp=drive_link)
+
+
+<img src="img/devbowl-qr.png" alt="overview" class="r-stretch">
+
++++ <!-- .slide: data-auto-animate -->
+
+### Rails Quiz Review
+
+*for our quiz next week...*
 
 **I recommend looking at [the old slides](https://docs.google.com/presentation/d/1WYa5wl3pCU6DgsMRtKmnugs2oOKY9YsibQ8SQMh-_N0/edit?usp=sharing)**
 
