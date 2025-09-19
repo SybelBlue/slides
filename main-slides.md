@@ -1,6 +1,6 @@
 <!-- .slide: data-auto-animate -->
 
-### Warm-Up Rounds
+### Warm-Up Questions
 <div class="col-container">
 <div class="col text-left small" style="margin-right: 20px">
   Which of these is a block?
@@ -36,7 +36,7 @@
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Warm-Up Rounds
+### Warm-Up Questions
 <div class="col-container">
 <div class="col text-left small" style="margin-right: 20px">
   Which of these is a block?
@@ -546,7 +546,7 @@ end
 ### Rails MVC
 
 *meanwhile, in movie's `index.html.erb`...*
-``` erb [4|4-10|5-9||6-8]
+``` erb [||4-10|5-9||6-8]
 <h1> Movies </h1>
 
 <div id="movie-list">
@@ -573,7 +573,7 @@ Note: the same http request as before!
 
 *what http request is issued by link clicks?*
 
-> `GET /movies/{id}`
+> `GET /movies/:id`
 
 
 +++ <!-- .slide: data-auto-animate -->
@@ -582,7 +582,7 @@ Note: the same http request as before!
 
 *what happens when the link is pressed?*
 
-> `GET /movies/{id}`
+> `GET /movies/:id`
 
 *...which in turn calls what controller action?*
 
@@ -593,11 +593,11 @@ Note: the same http request as before!
 
 ### Rails MVC
 
-*`GET /movies/{id}` $\Rightarrow$ `MovieController#show`*
+*`GET /movies/:id` $\Rightarrow$ `MovieController#show`*
 ``` rb [1,6-9|3,7-8|6-9]
 class MovieController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.all # params exists, but is empty
   end
 
   def show
@@ -666,11 +666,14 @@ I wrote [the Quiz Review DevBowl](https://docs.google.com/document/d/1GXMtZDx9en
 
 **I *highly* recommend [the rails tutorial](https://guides.rubyonrails.org/getting_started.html)**
 
-*this is one of the most useful documents for rails, ever.*
+*one of the most useful documents for rails ever made*
+
+in fact, we'll be doing it in section next week!
 
 *btw don't mind the up-to-date version, <br> it's a better tutorial with nearly identical skills*
 <!-- .element: class="citation" -->
 
+--- <!-- .slide: data-auto-animate -->
 
 ### Cool-down Questions
 
