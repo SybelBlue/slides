@@ -41,8 +41,8 @@
 <div class="col text-left small" style="margin-right: 20px">
   Which of these is a block?
   <ol style="list-style-type: upper-alpha">
-    <li class="bold"><pre>:+</pre></li>
-    <li><pre>{ puts 'hi' }</pre></li>
+    <li><pre>:+</pre></li>
+    <li class="bold"><pre>{ puts 'hi' }</pre></li>
     <li><pre>get '/products', to: 'products#index'</pre></li>
   </ol>
 
