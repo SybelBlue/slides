@@ -223,6 +223,30 @@
 </div>
 </div>
 
++++ <!-- .slide: data-auto-animate -->
+## MVC
+
+<div class="col-container">
+<div class="col">
+  <h4>Model</h4>
+
+  all about the data:
+  storage, representation
+</div>
+<div class="col">
+  <h4>Controller</h4>
+
+  how we handle UI events and <br>
+  deliver data to renderer
+</div>
+<div class="col">
+  <h4>View</h4>
+
+  the way we display data <br>
+  (user-facing UI)
+</div>
+</div>
+
 *your app will have many MVCs!*
 
 +++ <!-- .slide: data-auto-animate -->
@@ -237,7 +261,7 @@
 +++ <!-- .slide: data-auto-animate -->
 ### MVC in Elm
 
-```elm [|8-19|22-29|32-43|46-52]
+```elm [|8-19|17-29|32-43|46-52]
 module Main exposing (..)
 
 import Browser
@@ -254,14 +278,14 @@ init =
     { count = 10 }
 
 
-type Msg
+type Action
     = Increment
     | Decrement
 
 
-controller : Msg -> Model -> Model
-controller msg model =
-    case msg of
+controller : Action -> Model -> Model
+controller act model =
+    case act of
         Increment ->
             { count = model.count + 1 }
 
@@ -269,7 +293,7 @@ controller msg model =
             { count = model.count - 1 }
 
 
-view : Model -> Html Msg
+view : Model -> Html Action
 view model =
     div []
         [ h1 [] [ text "Your Number is:" ]
@@ -283,7 +307,7 @@ view model =
         ]
 
 
-main : Program () Model Msg
+main : Program () Model Action
 main =
     Browser.sandbox
         { init = init
@@ -305,7 +329,7 @@ main =
 
 *what would change:*
 
->  Model? &nbsp; View? &nbsp; Controller? &nbsp; Msg?
+>  Model? &nbsp; View? &nbsp; Controller?
 <!-- .element: class="wide" -->
 
 *where would logic for preventing $count < 0$ go?*
@@ -315,6 +339,10 @@ main =
 
 *what about setting the text field directly?*
 <!-- .element: class="fragment" -->
+
+*worksheet in the student materials folder!*
+<!-- .element: class="small" -->
+
 +++ <!-- .slide: data-auto-animate -->
 
 ### MVC in Elm
@@ -323,7 +351,7 @@ main =
 *but serena, \*technically,\* elm is MVU not MVC.*
 
 ``` elm [5]
-main : Program () Model Msg
+main : Program () Model Action
 main =
     Browser.sandbox
         { init = init
@@ -342,16 +370,16 @@ true! in elm, nothing is mutable, apps are small, and everything is frontend, <b
 *why demo elm then? look at our types:*
 
 ``` elm
-type Msg
+type Action
     = Increment
     | Decrement
 
 type alias Model =
   { count : Int }
 
-view : Model -> Html Msg
+view : Model -> Html Action
 
-controller : Msg -> (Model -> Model)
+controller : Action -> (Model -> Model)
 ```
 
 - `model` is like our db schemas
@@ -454,11 +482,11 @@ before we can see data or control data, <br> we need a place to put it.
 *we start with a migration*
 
 ``` sh
-$ rails generate model Movie name:string rating:string ...
+$ rails generate model Movie name:string rating:string release_date:datetime
 invoke active_record
 create db/migrate/YYYYMMDDHHMMSS_create_movies.rb
 create app/models/movie.rb
-create app/controllers/movie.rb
+create app/controllers/movie_controller.rb
 ...
 ```
 
@@ -516,7 +544,7 @@ class MovieController < ApplicationController
   # ...
 end
 ```
-*app/controllers/movie.rb*
+*app/controllers/movie_controller.rb*
 <!-- .element: class="small" -->
 
 *challenge: what is the http request for show?*
@@ -538,7 +566,7 @@ class MovieController < ApplicationController
   # ...
 end
 ```
-*app/controllers/movie.rb*
+*app/controllers/movie_controller.rb*
 <!-- .element: class="small" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -546,7 +574,7 @@ end
 ### Rails MVC
 
 *meanwhile, in movie's `index.html.erb`...*
-``` erb [||4-10|5-9||6-8]
+``` erb [4|4-10|5-9||6-8]
 <h1> Movies </h1>
 
 <div id="movie-list">
@@ -608,7 +636,7 @@ class MovieController < ApplicationController
   # ...
 end
 ```
-*app/controllers/movie.rb*
+*app/controllers/movie_controller.rb*
 <!-- .element: class="small" -->
 
 *`params` is based off the request!*
@@ -645,8 +673,10 @@ Rating: <%= @movie.rating %>
 
 I wrote [the Quiz Review DevBowl](https://docs.google.com/document/d/1GXMtZDx9enOno-2Bh1RekjcRb_TunAArXr58mVsk158/edit?usp=drive_link)
 
-
 <img src="img/devbowl-qr.png" alt="overview" class="r-stretch">
+
+*note: it may have errors -- this was just my study guide!*
+<!-- .element: class="citation" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
