@@ -120,39 +120,39 @@
 
 *what are the __routes__?*
 - show me box a
-- **GET** `/box/a`
+- **GET** `/boxes/a`
 - set box a to have name = Jane and color = blue
-- **PUT** `/box/a`
+- **PUT** `/boxes/a`
 - update box a to have name = Nell
-- **PATCH** `/box/a`
+- **PATCH** `/boxes/a`
 - make a box with name = Tina and color = red
-- **POST** `/box`
+- **POST** `/boxes`
 
 +++ <!-- .slide: data-auto-animate -->
 ### Actions
 
 *what are the `Box` controller __actions__?*
 - show me box a
-- **GET** `/box/a`
+- **GET** `/boxes/a`
 - set box a to have name = Jane and color = blue
-- **PUT** `/box/a`
+- **PUT** `/boxes/a`
 - update box a to have name = Nell
-- **PATCH** `/box/a`
+- **PATCH** `/boxes/a`
 - make a box with name = Tina and color = red
-- **POST** `/box`
+- **POST** `/boxes`
 
 +++ <!-- .slide: data-auto-animate -->
 ### Actions
 
 *what are the `Box` controller __actions__?*
 - show me box a
-- **GET** `/box/a` $\Rightarrow$ `Box#show`
+- **GET** `/boxes/a` $\Rightarrow$ `Box#show`
 - set box a to have name = Jane and color = blue
-- **PUT** `/box/a` $\Rightarrow$ `Box#update`
+- **PUT** `/boxes/a` $\Rightarrow$ `Box#update`
 - update box a to have name = Nell
-- **PATCH** `/box/a` $\Rightarrow$ `Box#update`
+- **PATCH** `/boxes/a` $\Rightarrow$ `Box#update`
 - make a box with name = Tina and color = red
-- **POST** `/box` $\Rightarrow$ `Box#create`
+- **POST** `/boxes` $\Rightarrow$ `Box#create`
 +++ <!-- .slide: data-auto-animate -->
 
 ### Actions
@@ -340,8 +340,8 @@ main =
 *what about setting the text field directly?*
 <!-- .element: class="fragment" -->
 
-*worksheet in the student materials folder!*
-<!-- .element: class="small" -->
+*worksheet in the folder!*
+<!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
