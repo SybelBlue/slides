@@ -151,7 +151,7 @@ partials, validations, filters, sso, auth, associations...
 
 ### Partials
 
-**note: a standard listing opereation**
+**note: a standard listing operation**
 
 ```[6] html
 <div class=”row”>
@@ -855,6 +855,7 @@ for security, third-parties handle the "auth" part, <br> we are usually just lef
 Rails has built-ins for auth that are very helpful
 
 The Rails "Getting Started" has a section on it
+
 --- <!-- .slide: data-auto-animate -->
 
 ### Associations
@@ -1044,3 +1045,199 @@ end
 ```
 
 ![example routes](img/rest-routes-table.png)
+
+--- <!-- .slide: data-auto-animate -->
+
+### Associations (Interlude)
+
+*iced tea and hot tea*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations (Interlude)
+
+*the teas `belongs_to` me*
+
+Note: **note to presenter:** This is a yarn, spin it well. Here are your sparknotes:
+
+- tea is very important to me
+- always have various iced tea at home
+- have a roommate "Cheryl"
+- she loved to drink my iced tea
+- to avoid this problem, we labelled the tea with my name
+
+remember the parable of cheryl: the teas belongs_to me
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations (Interlude)
+
+*Ghazal's phonebook connects many-to-many*
+
+Note: **note to presenter:** This is a yarn, spin it well. Here are your sparknotes:
+
+- elementary school had many crushes
+- some people had many, others received many, a few had none (and were happy)
+- Ghazal was a brownie troop star, had all the connects, knew all the tea
+- I had a crush in elementary school, and Ghazal was my bestie
+- I wanted to find out if my crush liked me, so I asked Ghazal
+- Ghazal called her up, asked, called me back up to deliver the news
+
+remember the parable of Ghazal: Ghazal's phonebook connects many-to-many
+
+--- <!-- .slide: data-auto-animate -->
+
+### Associations
+
+*with feeling, this time
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+```rb
+class Roomie < ApplicationRecord
+  has_many :teas, dependent: :destroy
+end
+```
+
+```rb
+class Tea < ApplicationRecord
+  belongs_to :roomie
+end
+```
+
+*note: if I move out, my old tea is trashed!*
+
+*(good.)*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+<img src="img/tea-tables.png" alt="linked tables">
+<!-- .element: class="r-stretch" -->
+
+*we're treating "name" as the "id" column here*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+```rb
+class Roomie < ApplicationRecord
+  has_many :teas, dependent: :destroy
+end
+```
+
+```rb
+class Tea < ApplicationRecord
+  belongs_to :roomie
+end
+```
+
+```rb
+> MINE_NO_TOUCHING! = Roomie.find(name: "serena").teas
+> MINE_NO_TOUCHING!.roomie.contains? "cheryl"
+false
+```
+
+*take notes, \*cheryl.\**
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+*bonus note: checkout STI, very useful!*
+
+```rb
+class FoodItem < ApplicationRecord; end
+class Tea < FoodItem; end
+class Sandwich < FoodItem; end
+```
+
+```rb
+$ rails console
+> Tea.create(name: "earl grey", temp: :hot).to_sql
+INSERT INTO "fooditems" ("type", "name", "temp")
+  VALUES ('Tea', 'earl grey', 'hot')
+> Sandwich.all.to_sql
+SELECT "fooditems".* FROM "fooditems"
+  WHERE "fooditems"."type" IN ('Sandwich')
+```
+
+*challenge: can someone define STI?*
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+**Ghazal's Diary**
+
+<img src="img/ghazals-diary.png" alt="many entries showing who likes who">
+<!-- .element: class="r-stretch" -->
+
+*which of these columns are foreign keys?*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+**Ghazal's Diary**
+
+<img src="img/ghazals-diary.png" alt="many entries showing who likes who">
+<!-- .element: class="r-stretch" -->
+
+*remember: through-associations always have a "bridge" table that connects the two, eg the diary*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+**Ghazal's Diary**
+
+```rb
+class DiaryEntry < ApplicationRecord
+  belongs_to :liker, :liked, class_name: 'Kindergartner'
+end
+```
+
+*entries are straightforward, but note that there are two columns that point to the same type of object!*
+
+*this complicates things.*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+**Ghazal's Diary**
+
+```rb [|2-6|8-13|]
+class Kindergartner < ApplicationRecord
+  # this kid's outward feelings
+  has_many :feelings, class_name: 'DiaryEntry'
+           foreign_key: :liker_id, dependent: :destroy
+  # kids this kid likes
+  has_many :crushes, through: :feelings, source: :liked
+
+  # feelings for this kid
+  has_many :feelings_for_me, class_name: 'DiaryEntry',
+           foreign_key: :liked_id, dependent: :destroy
+  # kids who like this kid
+  has_many :devotees, through: :feelings_for_me,
+           source: :liker
+end
+```
+
+*we can even route through custom `has_many` queries,<br> in fact here we must!*
+<!-- .element: class="small" -->
+
+---
+
+### Cool-down Questions
+1. For each of the following, label it as M/V/C: partial, through-association, validation
+2.
