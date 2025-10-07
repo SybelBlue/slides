@@ -201,7 +201,7 @@ the solution here is...
 ### Partials
 <!-- .element: class="fragment" -->
 
-specifically: `_univeristy_entry.html.erb`
+specifically: `_university_entry.html.erb`
 <!-- .element: class="fragment" -->
 
 *^^ note the underscore leader*
@@ -1240,4 +1240,5 @@ end
 
 ### Cool-down Questions
 1. For each of the following, label it as M/V/C: partial, through-association, validation
-2.
+2. Describe a use case for filters when adding SSO to your app
+3.
