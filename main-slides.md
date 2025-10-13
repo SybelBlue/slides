@@ -3,6 +3,7 @@
 ### Warm-Up Rounds
 <div class="col-container">
 <div class="col text-left small" style="margin-right: 20px">
+
   Which of the following would interpolate an attribute from an instance variable set in an `ApplicationController`?
   <ol style="list-style-type: upper-alpha">
     <li><%= product.name %></li>
@@ -10,7 +11,7 @@
     <li><% @product.name do |n| n.to_s %></li>
   </ol>
 
-  Which of the following properly de-poetries: `run cmd: 'sudo', args: %w[python my.py]`
+  Which of the following properly desugars: `run cmd: 'sudo', args: %w[python my.py]`
   <ol style="list-style-type: upper-alpha">
   <li>`run('sudo', %w[python my.py])`</li>
   <li>`run(cmd: 'sudo', args: %w[python my.py])`</li>
@@ -40,6 +41,7 @@
 ### Warm-Up Rounds
 <div class="col-container">
 <div class="col text-left small" style="margin-right: 20px">
+
   Which of the following would interpolate an attribute from an instance variable set in an `ApplicationController`?
   <ol style="list-style-type: upper-alpha">
     <li><%= product.name %></li>
@@ -47,7 +49,7 @@
     <li><% @product.name do |n| n.to_s %></li>
   </ol>
 
-  Which of the following properly de-poetries: `run cmd: 'sudo', args: %w[python my.py]`
+  Which of the following properly desugars: `run cmd: 'sudo', args: %w[python my.py]`
   <ol style="list-style-type: upper-alpha">
   <li>`run('sudo', %w[python my.py])`</li>
   <li>`run(cmd: 'sudo', args: %w[python my.py])`</li>
@@ -368,8 +370,13 @@ specifically: `_university_entry.html.erb`
 
 ```rb
   ...
+  # default impl, provides creation POST form
+  # def new
+  #   render 'new.html.erb'
+  # end
+
   def create
-    university = University.create!(uni_params)
+    university = University.create!(params)
     redirect_to :action => “show”, :id => university.id
   end
   ...
@@ -412,8 +419,8 @@ specifically: `_university_entry.html.erb`
 class CreateUniversities < ActiveRecord::Migration[8.0]
   def change
     create_table 'universities' do |t|
-      t.name :string
-      t.rank :integer
+      t.string :name
+      t.integer :rank
 
       t.timestamps
     end
@@ -429,7 +436,7 @@ end
 
 *constraints for our `University` model?*
 
-- Non-null/empty name
+- Non-nil/empty name
 - A "valid" rank $\[1-\texttt{Integer.MAX}\]$
 
 +++ <!-- .slide: data-auto-animate -->
@@ -480,7 +487,7 @@ class University < ApplicationRecord
     rank_max = 2 ** (0.size * 8 - 2) - 1
 
     if rank > rank_max || rank <= 0
-      errors.add(:rank, ‘must be a valid positive integer’)
+      errors.add(:rank, "must be between 1 and #{rank_max}")
     end
   end
 end
@@ -505,7 +512,7 @@ class University < ApplicationRecord
     rank_max = ????
 
     if rank > rank_max || rank <= 0
-      errors.add(:rank, ‘must be a valid positive integer’)
+      errors.add(:rank, "must be between 1 and #{rank_max}")
     end
   end
 end
@@ -530,7 +537,7 @@ class University < ApplicationRecord
     rank_max = Universities.all.length + 1
 
     if rank > rank_max || rank <= 0
-      errors.add(:rank, ‘must be a valid positive integer’)
+      errors.add(:rank, "must be between 1 and #{rank_max}")
     end
   end
 end
@@ -681,11 +688,11 @@ end
     cal_names = [“UCB”, “Cal”, “UC Berkeley”]
 
     if !cal_names.include?(name) and rank == 1
-        errors.add(:rank, ‘must not be 1 if university is not Cal’)
-      elsif cal_names.include?(name) and rank != 1
-        errors.add(:rank, ‘must be 1 if Cal is provided’)
-      elsif rank > rank_max || rank <= 0
-        errors.add(:rank, ‘must be a valid positive integer’)
+      errors.add(:rank, "must not be 1 if university is not Cal")
+    elsif cal_names.include?(name) and rank != 1
+      errors.add(:rank, "must be 1 if Cal is provided")
+    elsif rank > rank_max || rank <= 0
+      errors.add(:rank, "must be a valid positive integer")
     end
   end
 ```
@@ -698,7 +705,7 @@ end
 
 ```rb
 # examples
-# e.g. for a tproduct
+# e.g. for a tshirt
 validates :size, inclusion: { in: %w(small medium large),
     message: "%{value} is not a valid size" }
 
@@ -846,7 +853,7 @@ and reuse it everywhere
 
 *this is DRY SOA, yay!*
 
-for security, third-parties handle the "auth" part, <br> we are usually just left with a cooki
+for security, third-parties handle the "auth" part, <br> we are usually just left with a cookie
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -967,7 +974,7 @@ imagine if we had `n` fixed sprites in a table, <br> and users pick one as a pro
 
 ```rb
 class User < ApplicationRecord
-  # ...
+  has_many :reviews, dependent: :destroy
   has_one :sprite
 end
 ```
@@ -1109,7 +1116,7 @@ class University < ActiveRecord::Base do
 end
 ```
 
-*we set `uniq` so that profs teaching multiple courses don't appear multiple times*
+*we set `uniq` so that profs teaching multiple courses don't make courses appear multiple times*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -1168,18 +1175,18 @@ remember the parable of cheryl: the teas belongs_to me
 
 ### Associations (Interlude)
 
-*Ghazaal's phonebook connects many-to-many*
+*Ghazaal's diary connects many-to-many*
 
 Note: **note to presenter:** This is a yarn, spin it well. Here are your sparknotes:
 
 - elementary school had many crushes
 - some people had many, others received many, a few had none (and were happy)
-- Ghazaal was a brownie troop star, had all the connects, knew all the tea
+- Ghazaal was a brownie troop star, had all the connects, knew all the tea, wrote in her diary
 - I had a crush in elementary school, and Ghazaal was my bestie
 - I wanted to find out if my crush liked me, so I asked Ghazaal
-- Ghazaal called her up, asked, called me back up to deliver the news
+- Ghazaal looked in her diary and delivered the good news
 
-remember the parable of Ghazaal: Ghazaal's phonebook connects many-to-many
+remember the parable of Ghazaal: Ghazaal's diary connects many-to-many
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -1295,7 +1302,8 @@ SELECT "fooditems".* FROM "fooditems"
 
 ```rb
 class DiaryEntry < ApplicationRecord
-  belongs_to :liker, :liked, class_name: 'Kindergartner'
+  belongs_to :liker, :liked, dependent: :destroy,
+    class_name: 'Kindergartner'
 end
 ```
 
@@ -1326,7 +1334,7 @@ class Kindergartner < ApplicationRecord
 end
 ```
 
-*we can even route through custom `has_many` queries,<br> in fact here we must!*
+*we can even route through custom `has_many` queries <br> as long as the query returns a `T` with two foreign keys!*
 <!-- .element: class="small" -->
 
 ---
