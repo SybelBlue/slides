@@ -955,26 +955,125 @@ by contrast, `Movie` and `User` both `has_many` `Review`s
 
 this makes these methods accessible:
 ```rb
-Movies.first.reviews
-Users.first.reviews
+Movie.first.reviews
+User.first.reviews
 ```
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Associations
 
-there are also "through" relationships
+imagine if we had `n` fixed sprites in a table, <br> and users pick one as a profile photo (e.g. Netflix)
 
-![through](img/cal-profs-class.png)
+```rb
+class User < ApplicationRecord
+  # ...
+  has_one :sprite
+end
+```
 
-*example, anyone?*
+*challenge: why is adding `dependent: :destroy` wrong?*
 <!-- .element: class="small" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
 ### Associations
 
-#### Through Example
+*these are all "one-to-X"; what about many-to-many? how about a new column?*
+
+problem: there are no "arbitrarily long list" column datatypes
+
+this means we can't have a column on a table `A` of arbitrarily many `B` ids (or vice-versa)!
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+when `A` is n:m with `B`, we *always* need <br> a third table `T` that *acts as an arbitrarily long list:*
+
+| id | a_id | b_id |
+|----|------|------|
+| 0  | a0   | b1   |
+| 1  | a0   | b2   |
+| 2  | a1   | b2   |
+
+*now `A` `has_many` `B`s through `T` (and vice-versa!)*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+when `A` is n:m with `B`, we *always* need <br> a third table `T` that *acts as an arbitrarily long list:*
+
+| id | a_id | b_id |
+|----|------|------|
+| 0  | a0   | b1   |
+| 1  | a0   | b2   |
+| 2  | a1   | b2   |
+
+*note the out-going arrows **from `T`, not `A` or `B`!** <br> this is a must for a through-association*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+*examples, anyone?*
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+*note that the arrows point out from reviews!*
+
+![three linked tables](img/movie-db.png)
+
+*this means we can use a through association!*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+![three linked tables](img/movie-db.png)
+
+```rb
+class Movie < ApplicationRecord
+  has_many :reviews, dependent: :destroy
+  has_many :reviewers, through: :reviews
+end
+
+Movie.find_by(name: 'Star Wars').reviewers
+# => [#<User id=1, name="Alice">]
+```
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+![three linked tables](img/movie-db.png)
+
+```rb
+class User < ApplicationRecord
+  has_many :reviews, dependent: :destroy
+  has_many :movies, through: :reviews,
+    foreign_key: 'moviegoer_id'
+end
+```
+
+*note that 'moviegoer_id' is not idiomatic ('user_id'), <br> so we have to manually specify the `foreign_key`*
+<!-- .element: class="small" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
+
+*another example!*
+
+![through](img/cal-profs-class.png)
+
++++ <!-- .slide: data-auto-animate -->
+
+### Associations
 
 ```rb
 class Professor < ActiveRecord::Base do
@@ -988,8 +1087,6 @@ end
 
 ### Associations
 
-#### Through Example
-
 ```rb
 class Course < ActiveRecord::Base do
   has_many :professors
@@ -1002,8 +1099,6 @@ end
 
 ### Associations
 
-#### Through Example
-
 ```rb
 class University < ActiveRecord::Base do
   has_many :professors
@@ -1012,8 +1107,9 @@ class University < ActiveRecord::Base do
 
   # ...
 end
-
 ```
+
+*we set `uniq` so that profs teaching multiple courses don't appear multiple times*
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -1072,18 +1168,18 @@ remember the parable of cheryl: the teas belongs_to me
 
 ### Associations (Interlude)
 
-*Ghazal's phonebook connects many-to-many*
+*Ghazaal's phonebook connects many-to-many*
 
 Note: **note to presenter:** This is a yarn, spin it well. Here are your sparknotes:
 
 - elementary school had many crushes
 - some people had many, others received many, a few had none (and were happy)
-- Ghazal was a brownie troop star, had all the connects, knew all the tea
-- I had a crush in elementary school, and Ghazal was my bestie
-- I wanted to find out if my crush liked me, so I asked Ghazal
-- Ghazal called her up, asked, called me back up to deliver the news
+- Ghazaal was a brownie troop star, had all the connects, knew all the tea
+- I had a crush in elementary school, and Ghazaal was my bestie
+- I wanted to find out if my crush liked me, so I asked Ghazaal
+- Ghazaal called her up, asked, called me back up to deliver the news
 
-remember the parable of Ghazal: Ghazal's phonebook connects many-to-many
+remember the parable of Ghazaal: Ghazaal's phonebook connects many-to-many
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -1169,14 +1265,11 @@ SELECT "fooditems".* FROM "fooditems"
   WHERE "fooditems"."type" IN ('Sandwich')
 ```
 
-*challenge: can someone define STI?*
-<!-- .element: class="small" -->
-
 +++ <!-- .slide: data-auto-animate -->
 
 ### Associations
 
-**Ghazal's Diary**
+**Ghazaal's Diary**
 
 <img src="img/ghazals-diary.png" alt="many entries showing who likes who">
 <!-- .element: class="r-stretch" -->
@@ -1187,7 +1280,7 @@ SELECT "fooditems".* FROM "fooditems"
 
 ### Associations
 
-**Ghazal's Diary**
+**Ghazaal's Diary**
 
 <img src="img/ghazals-diary.png" alt="many entries showing who likes who">
 <!-- .element: class="r-stretch" -->
@@ -1198,7 +1291,7 @@ SELECT "fooditems".* FROM "fooditems"
 
 ### Associations
 
-**Ghazal's Diary**
+**Ghazaal's Diary**
 
 ```rb
 class DiaryEntry < ApplicationRecord
@@ -1214,7 +1307,7 @@ end
 
 ### Associations
 
-**Ghazal's Diary**
+**Ghazaal's Diary**
 
 ```rb [|2-6|8-13|]
 class Kindergartner < ApplicationRecord
@@ -1240,5 +1333,5 @@ end
 
 ### Cool-down Questions
 1. For each of the following, label it as M/V/C: partial, through-association, validation
-2. Describe a use case for filters when adding SSO to your app
-3.
+2. Doctors can work at many Hospitals. Hospitals have many patients. What line of code would let `doc_brown.patients` list all of a doctors patients exactly once?
+3. Describe a use case for filters when adding SSO to your app
