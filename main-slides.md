@@ -80,7 +80,7 @@
 <!-- .element: class="r-fit-text" -->
 ### Wide Ranging Review
 
-partials, validations, filters, sso, auth, associations...
+partials, validations, filters & associations
 
 *thanks to Paul Woo for slide inspiration*
 <!-- .element: class="small" -->
@@ -837,31 +837,6 @@ for each, fill in the blank with M/V/C:
 - Partials are used in Views
 - Validations are used in Models
 - Filters are used in Controllers
-
---- <!-- .slide: data-auto-animate -->
-
-### SSO & Third Party Auth
-
-*never implement by hand!*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### SSO & Third Party Auth
-
-SSO allows us to have one password (eg for calnet) <br>
-and reuse it everywhere
-
-*this is DRY SOA, yay!*
-
-for security, third-parties handle the "auth" part, <br> we are usually just left with a cookie
-
-+++ <!-- .slide: data-auto-animate -->
-
-### SSO & Third Party Auth
-
-Rails has built-ins for auth that are very helpful
-
-The Rails "Getting Started" has a section on it
 
 --- <!-- .slide: data-auto-animate -->
 
