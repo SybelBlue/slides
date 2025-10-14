@@ -15,7 +15,7 @@
   <ol style="list-style-type: upper-alpha">
   <li>`run('sudo', %w[python my.py])`</li>
   <li>`run(cmd: 'sudo', args: %w[python my.py])`</li>
-  <li>`run({ cmd: 'sudo', args: %w[python my.py]})`</li>
+  <li>`run({ cmd: 'sudo', args: %w[python my.py] })`</li>
   </ol>
 </div>
 <div class="col text-left small">
@@ -53,7 +53,7 @@
   <ol style="list-style-type: upper-alpha">
   <li>`run('sudo', %w[python my.py])`</li>
   <li>`run(cmd: 'sudo', args: %w[python my.py])`</li>
-  <li class="bold">`run({ cmd: 'sudo', args: %w[python my.py]})`</li>
+  <li class="bold">`run({ cmd: 'sudo', args: %w[python my.py] })`</li>
   </ol>
 </div>
 <div class="col text-left small">
