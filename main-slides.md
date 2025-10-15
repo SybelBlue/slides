@@ -11,9 +11,9 @@
 
 # Agenda
 
-- Berkeley Time: 10mins
-- Worksheet: 25mins
-- Lecture: 25mins
+- berkeley time: 10mins
+- lecture: 25mins
+- worksheet: 25mins
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -339,284 +339,145 @@ describe MoviesController do
 end
 ```
 
-+++ <!-- .slide: data-auto-animate -->
-### Filters
-
-#### An Example
-
-*this very un-DRY pattern...*
-
-```rb [|4-5|6-18]
-class UserController < ApplicationController
-  def is_admin?; ...; end
-
-  def index; ...; end
-  def show; ...; end
-  def create;
-    check_admin?
-    ...;
-  end
-  def new;
-    check_admin?
-    ...;
-  end
-  def edit;
-    check_admin?
-    ...;
-  end
-  # ... more admin actions
-end
-```
-
-+++ <!-- .slide: data-auto-animate -->
-### Filters
-
-#### An Example
-
-*... becomes this*
-
-```rb [|2-3|4-16]
-class UserController < ApplicationController
-  before_action :check_admin?, except: %i[ show index ]
-
-  def index; ...; end
-  def show; ...; end
-  def create; ...; end
-  def new; ...; end
-  def edit; ...; end
-  # ... more admin actions
-end
-```
-
-+++ <!-- .slide: data-auto-animate -->
-### Filters
-
-*much like validators, plenty of builtins:*
-
-- before_action
-- after_action
-- skip_before_action
-- around_action
-- ...
-
-*but for this to be \*really\* useful, we need auth!*
-
 --- <!-- .slide: data-auto-animate -->
 
-### Check-in Problem
+## The Testing Zoo
 
-for each, fill in the blank with M/V/C:
-- Partials are used in ___
-- Validations are used in ___
-- Filters are used in ___
+<hr>
 
-+++ <!-- .slide: data-auto-animate -->
-
-### Check-in Problem
-
-for each, fill in the blank with M/V/C:
-- Partials are used in Views
-- Validations are used in Models
-- Filters are used in Controllers
-
---- <!-- .slide: data-auto-animate -->
-
-### SSO & Third Party Auth
-
-*never implement by hand!*
-
-![elm logo](img/elm-logo.png)
-
-### SSO & Third Party Auth
-
-SSO allows us to have one password (eg for calnet) <br>
-and reuse it everywhere
-
-*this is DRY SOA, yay!*
-
-for security, third-parties handle the "auth" part, <br> we are usually just left with a cooki
+*a whirlwind tour of the vocabulary you will encounter while testing, vaguely zoo-themed*
 
 +++ <!-- .slide: data-auto-animate -->
 
-### SSO & Third Party Auth
+## The Testing Zoo
 
-Rails has built-ins for auth that are very helpful
+*standard specimens*
 
-The Rails "Getting Started" has a section on it
---- <!-- .slide: data-auto-animate -->
-
-### Associations
-
-*how do we link models intelligently?*
+- unit test: ~lowest level of testing, typically a single method
+- integration test: ~middle level of testing, typically multiple methods
+- system test: ~highest level, typically end-to-end, in this class we write in cucumber
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Associations
+## The Testing Zoo
 
-#### SQL: The Old Days
+*standard specimens*
 
-what do we call a column of id's that point to another table?
-
-> foreign keys
-<!-- .element: class="fragment" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-#### SQL: The Old Days
-
-![three linked tables](img/movie-db.png)
-
-`reviews` has two foreign key columns:
-- ???
-- ???
+- smoke test: minimal coverage of critical functions
+- stress test: checks perf under high synthetic load
+- accessibility test: tests... accessibility
+- open/closed-box (aka glass/opaque-box) test: tests that do/don't rely on insider knowledge of implementation details
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Associations
+## The Testing Zoo
 
-#### SQL: The Old Days
+*entomologists*
 
-![three linked tables](img/movie-db.png)
-
-`reviews` has two foreign key columns:
-- `movie_id` (points to `movies.id`)
-- `moviegoer_id` (points to `users.id`)
+*(read: this section is my zoo-themed way of grouping kinds of "tests" that check if **the test suite itself** is incomplete, usually by aggressive bug-finding)*
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Associations
+## The Testing Zoo
 
-#### SQL: The Old Days
+*entomologists*
 
-![three linked tables](img/movie-db.png)
+- coverage: the % of lines of source a test executes
+- coverage test: an assertion that your test suite covers at least x%
 
-*finding Star Wars reviews*
-
-```SQL
-SELECT reviews.*
-  FROM movies JOIN reviews ON movies.id=reviews.movie_id
-  WHERE movies.title = “Star Wars”;
-```
+*poor coverage/failing coverage tests indicate unfinished test suites!*
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Associations
+## The Testing Zoo
 
-#### Rails
+*entomologists*
 
-![three linked tables](img/movie-db.png)
-
-*finding Star Wars reviews*
-
-```rb
-Movie.where(title: "Star Wars").reviews
-```
-
-*there's subtle magic here!*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-![three linked tables](img/movie-db.png)
-
-we say a `Review` `belongs_to` both `Movie` and `User` because it has
-exactly one reference to each in it's own columns
-
-this makes these methods accessible:
-```rb
-review = Reviews.first
-review.movie
-review.user
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-![three linked tables](img/movie-db.png)
-
-by contrast, `Movie` and `User` both `has_many` `Review`s
-
-this makes these methods accessible:
-```rb
-Movies.first.reviews
-Users.first.reviews
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-there are also "through" relationships
-
-![through](img/cal-profs-class.png)
-
-*example, anyone?*
-<!-- .element: class="small" -->
-
-Note:
-On line 4, we “override” the find_in_tmdb by setting up a method stub.
-In this case instead of calling the real method we call the “fake” method whose behavior we can control for each test case.
-Use the allow(Movie) call to set up a stub that does not track whether the find_in_tmdb method is called.
-Use the expect(Movie) instead on line 4 if we want to ensure find_in_tmdb method is called. Also known as “Spies”. I.e. expect(Movie).to_receive(:find_in_tmdb)
-All seams setup for a test case are reset after the test case is run.
-
-+++ <!-- .slide: data-auto-animate -->
-
-### A Difficult Example
-
-doubles are for when you need to replace just enough a DOC to isolate behavior of interest
-
-we can also set variables and test by reference..
-
-+++ <!-- .slide: data-auto-animate -->
-
-### A Difficult Example
-
-#### Through Example
-
-```rb
-class University < ActiveRecord::Base do
-  has_many :professors
-  # a through relationship!
-  has_many :courses, through: :professors, uniq: true
-
-  # ...
-end
-
-
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-*associations are writable too!*
-
-```rb
->>> CS169A = Course.create! name: “CS169A”
->>> prof_ball.courses << CS169A
->>> prof_fox.courses << CS169A
->>> uni_cal.profs << prof_ball << prof_fox
->>> assert(uni_cal.courses.includes? CS169A)
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-*associations also interact with REST routes using:*
-```rb
-Rails.application.routes.draw do
-  ## used to be
-  # resuources :universities
-  resources :universities do
-    resources :professors
+- fuzzing: seeks out bugs by generating pathologically bad inputs using source reflection
+``` rb
+# a terrible checksum function
+def checksum? f
+  hash = (1010 << f) - (32 / f)
+  if f == 42 or hash == 42
+    return true
   end
+  false
+end
+```
+*fuzzing picks out the literals; finds 42 as a missing testcase*
+
+Note: fuzzing will
+- inspect source
+- finds tokens 1010, 32, 42
+- adds to basic token set, eg 0, -1, inf, nan
+- runs `valid_num? t` for all tokens `t`
+- detects that 0 raises an uncaught error
+
++++ <!-- .slide: data-auto-animate -->
+
+## The Testing Zoo
+
+*entomologists (bug hunters)*
+
+- mutation testing: *validates your test suite* by making a mutation to the source code and checking that a test fails
+``` rb
+# a terrible checksum function, *by design*
+def checksum? f
+  hash = (1010 << f) - (32 / f)
+  if f == 42 or hash == 42
+    return true
+  end
+  false
 end
 ```
 
-![example routes](img/rest-routes-table.png)
++++ <!-- .slide: data-auto-animate -->
+
+## The Testing Zoo
+
+- mutation testing: *validates your test suite* by making a mutation to the source code and checking that a test fails
+``` rb
+# a terrible checksum function, *by design*
+def checksum? f
+  hash = (1010 << f) - (32 / f)
+  if f != 42 or hash == 42 # mutation!!
+    return true
+  end
+  false
+end
+```
+*mutation makes a change to source that passes all tests; finds 42 is a missing test case*
+
++++ <!-- .slide: data-auto-animate -->
+
+## The Testing Zoo
+
+*zookeepers (common utils)*
+
+- doubles: basic term for a stand-in object in a test
+- fakes: a double with a working (shortcutted) impl
+- mocks: assert that certain func calls were made
+- spies: stubs that keep a log of func calls
+- stubs: give canned responses to func calls <br> (ie `allow`)
+
++++ <!-- .slide: data-auto-animate -->
+
+## The Testing Zoo
+
+*zookeepers (common utils)*
+
+- factories: classes/modules that allow for quick creation of full objects*
+- `FactoryBot`: a gem for making factories*
+- `spec/fixtures`: rails location for reusing common/shared test data
+- `SimpleCov`: a framework for automatic coverage instrumentation
+
+*\*useful outside of testing too!*
+<!-- .element: class="citation" -->
+
+---
+
+## Worksheet!
+
+![mod 8 worksheet](img/mod-8-worksheet-qr.png)
+
+*or in the drive as Module 8 Worksheet*
