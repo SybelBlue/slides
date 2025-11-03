@@ -1,5 +1,80 @@
 <!-- .slide: data-auto-animate -->
 
+### Warm-Up Rounds
+<div class="col-container">
+<div class="col text-left small" style="margin-right: 20px">
+
+  Which of the following would be selected by `$('input')`?
+  <ol style="list-style-type: upper-alpha">
+    <li>`<div class="input">`</li>
+    <li>`<checkbox id="input">`</li>
+    <li>`<input disabled="true"/>`</li>
+  </ol>
+
+  Which of the following is the right method for requesting an db-heavy computation to begin?
+  <ol style="list-style-type: upper-alpha">
+  <li>`POST`</li>
+  <li>`GET`</li>
+  <li>`INDEX`</li>
+  </ol>
+</div>
+<div class="col text-left small">
+
+  Which of these RSpec methods would raise an assertion error?
+  <ol style="list-style-type: upper-alpha">
+    <li>`allow`</li>
+    <li>`expect`</li>
+    <li>`double`</li>
+  </ol>
+
+  The part of a cucumber test that translates natural language into executable code is called a
+  <ol style="list-style-type: upper-alpha">
+    <li>feature definition</li>
+    <li>step definition</li>
+    <li>spec definition</li>
+  </ol>
+</div>
+</div>
+
++++ <!-- .slide: data-auto-animate -->
+
+### Warm-Up Rounds
+<div class="col-container">
+<div class="col text-left small" style="margin-right: 20px">
+
+  Which of the following would be selected by `$('input')`?
+  <ol style="list-style-type: upper-alpha">
+    <li>`<div class="input">`</li>
+    <li>`<checkbox id="input">`</li>
+    <li>**`<input disabled="true"/>`**</li>
+  </ol>
+
+  Which of the following is the right method for requesting an db-heavy computation to begin?
+  <ol style="list-style-type: upper-alpha">
+  <li>**`POST`**</li>
+  <li>`GET`</li>
+  <li>`INDEX`</li>
+  </ol>
+</div>
+<div class="col text-left small">
+
+  Which of these RSpec methods would raise an assertion error?
+  <ol style="list-style-type: upper-alpha">
+    <li>`allow`</li>
+    <li>**`expect`**</li>
+    <li>`double`</li>
+  </ol>
+
+  The part of a cucumber test that translates natural language into executable code is called a
+  <ol style="list-style-type: upper-alpha">
+    <li>feature definition</li>
+    <li>**step definition**</li>
+    <li>spec definition</li>
+  </ol>
+</div>
+</div>
+--- <!-- .slide: data-auto-animate -->
+
 # Module 8 Discussion
 <!-- .element: class="r-fit-text" -->
 ### TDD
