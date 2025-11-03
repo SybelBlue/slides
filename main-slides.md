@@ -40,11 +40,11 @@ unlike P&D, QA is not a separate team
 - Timely
 
 Note:
-Fast - should not take long to run them or run a subset of them. Ideally should be automatic - everytime you change a file the tests should run
+Fast - should not take long to run them or run a subset of them. Ideally should be automatic - every time you change a file the tests should run
 
 Independent - Every test should be able to run anytime in any order. Whatever conditions the test expects to be true before running, should be explicitly stated within the test.
 
-Repeatable - Should not depend on external factors like time and date / or magic constants that will break the test if ther values change -- Think Y2K problem
+Repeatable - Should not depend on external factors like time and date / or magic constants that will break the test if the values change -- Think Y2K problem
 
 Self-checking - The test should self-report whether it failed
 
@@ -84,7 +84,7 @@ Define "SUT":
 - a **unit test** covers a single-method behavior
 - generally, every test follows **3A** structure
 
-*regretably, no, this is not the three-act structure*
+*regrettably, no, this is not the three-act structure*
 <!-- .element: class="citation" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -115,7 +115,7 @@ Every non-trivial test more or less looks like this
 
 - Arrange
 
-> set up neccessary pre-conditions
+> set up necessary pre-conditions
 <!-- .element: class="good wide" -->
 
 - Act
@@ -253,7 +253,7 @@ end
   <tr>
     <td>side-effects</td>
     <td>setting <code>:alert</code></td>
-    <td>ensure relevent state is set in Arrange, <br> always assert side-effect has occurred</td>
+    <td>ensure relevant state is set in Arrange, <br> always assert side-effect has occurred</td>
   </tr>
   <tr>
     <td>non-determinism/time-dependence</td>
@@ -269,7 +269,7 @@ end
 
 #### Seams
 
-a place where you can change app behavior <br> *without* editting source
+a place where you can change app behavior <br> *without* editing source
 
 your friend in testing, helpful to have a plan for seams before writing code, so TDD helps make friends in testing!
 
@@ -284,13 +284,13 @@ your friend in testing, helpful to have a plan for seams before writing code, so
 
 Arranging (Stubs):
 ```rb
-allow(@object).to recieve(:method_name).and_return(value)
+allow(@object).to receive(:method_name).and_return(value)
 # @object.method_name => value
 ```
 
 Asserting (Double/Mocks):
 ```rb
-expect(@object).to recieve(:method_name).with_params(value)
+expect(@object).to receive(:method_name).with_params(value)
 # if "@object.method_name value" called, success! otherwise fail!
 ```
 
@@ -330,7 +330,7 @@ end
 describe MoviesController do
   describe 'looking up a movie' do
     it 'redirects to search page if no match' do
-      allow(Movie).to recieve(:find_in_tmbd).and_return([])
+      allow(Movie).to receive(:find_in_tmdb).and_return([])
       post 'review_movie', { search_string: '<no match>' }
       expect(response).to redirect_to(review_movie_path)
       expect(assigns(:alert))
