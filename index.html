@@ -28,14 +28,17 @@
 			</div>
 		</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/math/math.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/search/search.js"></script>
-		<script src="plugin/zoom/zoom.js"></script>
-		<script>
+		<script type="module">
+			import Reveal from "./dist/reveal.esm.js";
+
+			// official plugins
+			import Highlight from "./plugin/highlight/highlight.esm.js";
+			import Markdown from "./plugin/markdown/markdown.esm.js";
+			import Math from "./plugin/math/math.esm.js";
+			import Notes from "./plugin/notes/notes.esm.js";
+			import Search from "./plugin/search/search.esm.js";
+			import Zoom from "./plugin/zoom/zoom.esm.js";
+
 			Reveal.initialize({
 				hash: true,
 
@@ -46,7 +49,14 @@
 				// scrollProgress: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealHighlight, RevealMarkdown, RevealMath.KaTeX, RevealNotes, RevealSearch, RevealZoom ]
+				plugins: [
+					Highlight,
+					Markdown,
+					Math.KaTeX,
+					Notes,
+					Search,
+					Zoom
+				],
 			});
 		</script>
 	</body>
