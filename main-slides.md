@@ -563,7 +563,7 @@ validated in the "Master Test Plan"
 
 *graphical representation of your app*
 - boxes are classes, labelled with critical methods
-- lines are collored `belongs/has` relations*, ends labelled with multiplicity (`*, 0*, 1, 1*`)
+- lines are colored `belongs/has` relations*, ends labelled with multiplicity (`*, 0*, 1, 1*`)
 
 *\*aka Composition/Aggregation*
 <!-- .element: class="citation" -->
