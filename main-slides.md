@@ -76,7 +76,7 @@
 
 --- <!-- .slide: data-auto-animate -->
 
-### Module 9 Discussion
+### Module 11 Discussion
 ### Design Patterns & Refactoring
 <!-- .element: class="r-fit-text" -->
 
