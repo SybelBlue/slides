@@ -1,5 +1,81 @@
 <!-- .slide: data-auto-animate -->
 
+### Warm-Up Rounds
+<div class="col-container">
+<div class="col text-left small" style="margin-right: 20px">
+
+  Which of the following begins a unit test in rspec?
+  <ol style="list-style-type: upper-alpha">
+    <li>`it`</li>
+    <li>`before`</li>
+    <li>`test`</li>
+  </ol>
+
+ Say a `Customer` can have `WishList`s of `Product`s, and there is a through-association from `Customer` to `Product`s. Which statement is true?
+  <ol style="list-style-type: upper-alpha">
+  <li>`Customer` must have a foreign key to both `WishList` and `Product`</li>
+  <li>`WishList` must have a foreign key to both `Customer` and `Product`</li>
+  <li>`Product` must `belong_to` a `WishList`</li>
+  </ol>
+</div>
+<div class="col text-left small">
+
+  Which properly distinguishes architecture patterns from design patterns?
+  <ol style="list-style-type: upper-alpha">
+    <li>architecture patterns do not solve general problems</li>
+    <li>architecture patterns meet a spec of requirements</li>
+    <li>architecture patterns do not deal with structuring components</li>
+  </ol>
+
+  Which of the following places can use a validation?
+  <ol style="list-style-type: upper-alpha">
+    <li>the `Student` class</li>
+    <li>the `_course_listing.html.erb`</li>
+    <li>the `UniversityController`</li>
+  </ol>
+</div>
+</div>
+
++++ <!-- .slide: data-auto-animate -->
+
+### Warm-Up Rounds
+<div class="col-container">
+<div class="col text-left small" style="margin-right: 20px">
+
+  Which of the following begins a unit test in rspec?
+  <ol style="list-style-type: upper-alpha">
+    <li class="bold">`it`</li>
+    <li>`before`</li>
+    <li>`test`</li>
+  </ol>
+
+ Say a `Customer` can have `WishList`s of `Product`s, and there is a through-association from `Customer` to `Product`s. Which statement is true?
+  <ol style="list-style-type: upper-alpha">
+  <li>`Customer` must have a foreign key to both `WishList` and `Product`</li>
+  <li class="bold">`WishList` must have a foreign key to both `Customer` and `Product`</li>
+  <li>`Product` must `belong_to` a `WishList`</li>
+  </ol>
+</div>
+<div class="col text-left small">
+
+  Which properly distinguishes architecture patterns from design patterns?
+  <ol style="list-style-type: upper-alpha">
+    <li>architecture patterns do not solve general problems</li>
+    <li class="bold">architecture patterns meet a spec of requirements</li>
+    <li>architecture patterns do not deal with structuring components</li>
+  </ol>
+
+  Which of the following places can use a validation?
+  <ol style="list-style-type: upper-alpha">
+    <li>the `Student` class</li>
+    <li>the `_course_listing.html.erb`</li>
+    <li class="bold">the `UniversityController`</li>
+  </ol>
+</div>
+</div>
+
+--- <!-- .slide: data-auto-animate -->
+
 ### Module 9 Discussion
 ### Design Patterns & Refactoring
 <!-- .element: class="r-fit-text" -->
@@ -480,7 +556,7 @@ end
 - Injected with dependencies at runtime
 - Demeter principle compliant
 
-*"I deal only with my direct friends, <br> never friends of friends."*
+*"I deal only with my direct friends, <br> never strangers."*
 
 +++ <!-- .slide: data-auto-animate -->
 
