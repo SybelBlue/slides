@@ -492,8 +492,13 @@ For examples, [read paul's slides!](https://docs.google.com/presentation/d/124Av
 
 --- <!-- .slide: data-auto-animate -->
 
-### What about P&D?
+### What About P&D?
 
+*won't someone think of poor old plan-and-document?*
+
++++ <!-- .slide: data-auto-animate -->
+
+### What About P&D?
 *remember: emphasis on thorough planning!*
 
 the design phase makes extensive use of patterns
@@ -502,7 +507,7 @@ will start with design patterns <br> and cross over to architectural
 
 +++ <!-- .slide: data-auto-animate -->
 
-### What about P&D?
+### What About P&D?
 
 *maintenance phase (and refactoring) comes last!*
 
@@ -512,7 +517,7 @@ dependability is hollistic, measured in <br> *mean time to failure*
 
 +++ <!-- .slide: data-auto-animate -->
 
-### What about P&D?
+### What About P&D?
 
 *security is often post-hoc*
 
@@ -525,7 +530,7 @@ referred to as "penetration tests," <br> i.e. how deep in the system can we go
 
 +++ <!-- .slide: data-auto-animate -->
 
-### What about P&D?
+### What About P&D?
 #### Common Pitfalls
 
 - over/under-reliance on patterns in phase one
@@ -536,7 +541,7 @@ referred to as "penetration tests," <br> i.e. how deep in the system can we go
 
 +++ <!-- .slide: data-auto-animate -->
 
-### What about P&D?
+### What About P&D?
 #### Recap
 
 - little talk of perf except in the system reqs, later
@@ -558,7 +563,7 @@ validated in the "Master Test Plan"
 
 *graphical representation of your app*
 - boxes are classes, labelled with critical methods
-- lines are `belongs/has` relations*, labelled with multiplicity (`*, 0*, 1, 1*`)
+- lines are collored `belongs/has` relations*, ends labelled with multiplicity (`*, 0*, 1, 1*`)
 
 *\*aka Composition/Aggregation*
 <!-- .element: class="citation" -->
