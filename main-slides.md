@@ -1,626 +1,584 @@
 <!-- .slide: data-auto-animate -->
 
-# Module 8 Discussion
+### Module 9 Discussion
+### Design Patterns & Refactoring
 <!-- .element: class="r-fit-text" -->
-### TDD
 
 *thanks to Paul Woo for slide inspiration*
 <!-- .element: class="small" -->
 
 --- <!-- .slide: data-auto-animate -->
 
-# Agenda
+### Design Patterns
 
-- Berkeley Time: 10mins
-- Worksheet: 25mins
-- Lecture: 25mins
-
---- <!-- .slide: data-auto-animate -->
-
-### TDD
-
-*aka writing tests before you code new functionality*
-
-<hr>
-
-an aspect of Agile: <br>
-unlike P&D, QA is not a separate team
+*common structures to solve classes of problems*
 
 +++ <!-- .slide: data-auto-animate -->
 
-### TDD
+### Design Patterns
 
-#### Good Tests
+*common structures to solve classes of problems*
 
-*a FIRST principles approach 😛*
-- Fast
-- Independent
-- Repeatable
-- Self-Checking
-- Timely
-
-Note:
-Fast - should not take long to run them or run a subset of them. Ideally should be automatic - everytime you change a file the tests should run
-
-Independent - Every test should be able to run anytime in any order. Whatever conditions the test expects to be true before running, should be explicitly stated within the test.
-
-Repeatable - Should not depend on external factors like time and date / or magic constants that will break the test if ther values change -- Think Y2K problem
-
-Self-checking - The test should self-report whether it failed
-
-Timely - Write test when code is written - In test driven development write test before the code is written
+- reusable structure/behavior/strat/technique
+- addresses families of similar problems
+- separates unchanging features
+- fulfills concise/DRY principles
 
 +++ <!-- .slide: data-auto-animate -->
 
-### TDD
+### Design Patterns
 
-*that's nice and all, <br> but how do we actually do it?*
+*common structures to solve classes of problems*
 
---- <!-- .slide: data-auto-animate -->
+"Gang of Four" wrote an influential textbook in '94 on design patterns, suggesting:
 
-### RSpec
-
-*how we actually do it*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### RSpec
-
-#### Quick Review
-
-Define "SUT":
-
-> the "System Under Test": <br> a method, method group, class, module...
-<!-- .element: class="fragment wide" -->
+- composition/delegation over inheritance
+- program to an interface, not an impl
 
 +++ <!-- .slide: data-auto-animate -->
 
-### RSpec
+### Design Patterns
 
-#### Quick Review
+*common structures to solve classes of problems*
 
-- a **suite** covers one SUT
-- each **test** in a suite covers a specific behavior
-- a **unit test** covers a single-method behavior
-- generally, every test follows **3A** structure
+GoF identifies 23 patterns across 3 categories
 
-*regretably, no, this is not the three-act structure*
+- creational: all about object creation
+- structural: class composition/inheritance
+- behavioral: communication between objects
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Patterns
+
+![gang of four design patterns](img/gof-design-patterns.png)
+
+*creational, structural, behavioral*
 <!-- .element: class="citation" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
-### RSpec
+### Design Patterns
+#### Particularly Important Patterns
 
-#### 3A
-
-- Arrange
-- Act
-- Assert
-
-Note:
-Every test has 3 main components - you have seen this in cucumber--
-
-Arrange - set up necessary pre conditions /assumptions  for the test case. Given part in cucumber
-Act - do something that stimulates the software - When in cucumber
-Assert - check that something did or did not occur as a result - Then step of cucumber
-
-Every non-trivial test more or less looks like this
-
-- warn of problems *within methods* of a class
-- fixes are usually within the class itself
-- fixed with *SOFA*
+- factory: a method for constructing valid objects
+- abstract factory: a class of related factories
+- composite: related classes form a tree, client interacts with the root only
+- decorator: dynamically adds behavior by wrapping a method/class
 
 +++ <!-- .slide: data-auto-animate -->
 
-### RSpec
-
-#### 3A
-
-- Arrange
-
-> set up neccessary pre-conditions
-<!-- .element: class="good wide" -->
-
-- Act
-- Assert
-
-Note:
-Every test has 3 main components - you have seen this in cucumber--
-
-Arrange - set up necessary pre conditions /assumptions  for the test case. Given part in cucumber
-Act - do something that stimulates the software - When in cucumber
-Assert - check that something did or did not occur as a result - Then step of cucumber
-
-Every non-trivial test more or less looks like this
-
-
-+++ <!-- .slide: data-auto-animate -->
-
-### RSpec
-
-#### 3A
-
-- Arrange
-- Act
-
-> exercise the SUT
-<!-- .element: class="wide" -->
-
-- Assert
-
-Note:
-Every test has 3 main components - you have seen this in cucumber--
-
-Arrange - set up necessary pre conditions /assumptions  for the test case. Given part in cucumber
-Act - do something that stimulates the software - When in cucumber
-Assert - check that something did or did not occur as a result - Then step of cucumber
-
-Every non-trivial test more or less looks like this
-
-
-+++ <!-- .slide: data-auto-animate -->
-
-### RSpec
-
-#### 3A
-
-- Arrange
-- Act
-- Assert
-
-> verify behavior
-
-Note:
-Every test has 3 main components - you have seen this in cucumber--
-
-Arrange - set up necessary pre conditions /assumptions  for the test case. Given part in cucumber
-Act - do something that stimulates the software - When in cucumber
-Assert - check that something did or did not occur as a result - Then step of cucumber
-
-Every non-trivial test more or less looks like this
-
-
-<!-- .element: class="bad wide" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### RSpec
-
-#### Syntax
-
-- `describe [:sym|'sym']` defines a suite
-- `context 'desc'` defines shared state
-- `before` defines context-wide pre-conditions
-- `it 'desc'` defines a single test
-
-
-+++ <!-- .slide: data-auto-animate -->
-
-### RSpec
-
-#### Recap
-
-*remember:*
-
-- tests are short, specific, and descriptive
-- nothing ever persists between tests...
-- ...including `before` behaviors
-
-*self check: so then how does `before` work?*
-<!-- .element: class="small" -->
-
---- <!-- .slide: data-auto-animate -->
-
-### A Difficult Example
-
-```rb [|2-3|4-14|15-17]
-class MovieController < ApplicationController
-  def review_movie
-    search_string = params[:search]
-    begin
-      matches = Movie.find_in_tmdb search_string
-      if matches.empty?
-        redirect_to review_movie_path, alert: "No matches!"
-      elsif matches.length == 1
-        @movie = matches[0]
-        render review_movie_path
-      else
-        @movies = matches
-        render select_movie_path
-      end
-    rescue Movie::ConnectionError => err
-      redirect_to review_movie_path, alert: err.message
-    end
-  end
-end
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### A Difficult Example
-
-<table class="small">
-<thead>
-  <tr>
-    <td>SUT Behavior/Property has...</td>
-    <td>Example</td>
-    <td>Testing Strategy</td>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Depended-On Components (DOCs)</td>
-    <td><code>Movie.search_in_tmdb</code></td>
-    <td>isolate dependencies (usually in Arrange)</td>
-  </tr>
-  <tr>
-    <td>side-effects</td>
-    <td>setting <code>:alert</code></td>
-    <td>ensure relevent state is set in Arrange, <br> always assert side-effect has occurred</td>
-  </tr>
-  <tr>
-    <td>non-determinism/time-dependence</td>
-    <td>--</td>
-    <td>Arrange for the proper state</td>
-  </tr>
-</tbody>
-</table>
-
-![elm logo](img/elm-logo.png)
-
-### A Difficult Example
-
-#### Seams
-
-a place where you can change app behavior <br> *without* editting source
-
-your friend in testing, helpful to have a plan for seams before writing code, so TDD helps make friends in testing!
-
-+++ <!-- .slide: data-auto-animate -->
-
-### A Difficult Example
-
-#### Seams
-
-*seam validation through message passing!*
-
-
-Arranging (Stubs):
-```rb
-allow(@object).to recieve(:method_name).and_return(value)
-# @object.method_name => value
-```
-
-Asserting (Double/Mocks):
-```rb
-expect(@object).to recieve(:method_name).with_params(value)
-# if "@object.method_name value" called, success! otherwise fail!
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### A Difficult Example
-
-*where are our 3As?*
-
-```rb [|3,5||2||7,9-10,12-13,16]
-class MovieController < ApplicationController
-  def review_movie
-    search_string = params[:search]
-    begin
-      matches = Movie.find_in_tmdb search_string
-      if matches.empty?
-        redirect_to review_movie_path, alert: "No matches!"
-      elsif matches.length == 1
-        @movie = matches[0]
-        render review_movie_path
-      else
-        @movies = matches
-        render select_movie_path
-      end
-    rescue Movie::ConnectionError => err
-      redirect_to review_movie_path, alert: err.message
-    end
-  end
-end
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### A Difficult Example
-
-```rb []
-describe MoviesController do
-  describe 'looking up a movie' do
-    it 'redirects to search page if no match' do
-      allow(Movie).to recieve(:find_in_tmbd).and_return([])
-      post 'review_movie', { search_string: '<no match>' }
-      expect(response).to redirect_to(review_movie_path)
-      expect(assigns(:alert))
-    end
-  end
-end
-```
-
-+++ <!-- .slide: data-auto-animate -->
-### Filters
-
-#### An Example
-
-*this very un-DRY pattern...*
-
-```rb [|4-5|6-18]
-class UserController < ApplicationController
-  def is_admin?; ...; end
-
-  def index; ...; end
-  def show; ...; end
-  def create;
-    check_admin?
-    ...;
-  end
-  def new;
-    check_admin?
-    ...;
-  end
-  def edit;
-    check_admin?
-    ...;
-  end
-  # ... more admin actions
-end
-```
-
-+++ <!-- .slide: data-auto-animate -->
-### Filters
-
-#### An Example
-
-*... becomes this*
-
-```rb [|2-3|4-16]
-class UserController < ApplicationController
-  before_action :check_admin?, except: %i[ show index ]
-
-  def index; ...; end
-  def show; ...; end
-  def create; ...; end
-  def new; ...; end
-  def edit; ...; end
-  # ... more admin actions
-end
-```
-
-+++ <!-- .slide: data-auto-animate -->
-### Filters
-
-*much like validators, plenty of builtins:*
-
-- before_action
-- after_action
-- skip_before_action
-- around_action
-- ...
-
-*but for this to be \*really\* useful, we need auth!*
-
---- <!-- .slide: data-auto-animate -->
-
-### Check-in Problem
-
-for each, fill in the blank with M/V/C:
-- Partials are used in ___
-- Validations are used in ___
-- Filters are used in ___
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Check-in Problem
-
-for each, fill in the blank with M/V/C:
-- Partials are used in Views
-- Validations are used in Models
-- Filters are used in Controllers
-
---- <!-- .slide: data-auto-animate -->
-
-### SSO & Third Party Auth
-
-*never implement by hand!*
-
-![elm logo](img/elm-logo.png)
-
-### SSO & Third Party Auth
-
-SSO allows us to have one password (eg for calnet) <br>
-and reuse it everywhere
-
-*this is DRY SOA, yay!*
-
-for security, third-parties handle the "auth" part, <br> we are usually just left with a cooki
-
-+++ <!-- .slide: data-auto-animate -->
-
-### SSO & Third Party Auth
-
-Rails has built-ins for auth that are very helpful
-
-The Rails "Getting Started" has a section on it
---- <!-- .slide: data-auto-animate -->
-
-### Associations
-
-*how do we link models intelligently?*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-#### SQL: The Old Days
-
-what do we call a column of id's that point to another table?
-
-> foreign keys
+### Design Patterns
+#### Particularly Important Patterns
+
+*creational, structural, or behavioral?*
+
+- factory: *creational*
+<!-- .element: class="fragment" -->
+- abstract factory: *creational*
+<!-- .element: class="fragment" -->
+- composite: *structural*
+<!-- .element: class="fragment" -->
+- decorator: *structural*
 <!-- .element: class="fragment" -->
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Associations
+### Design Patterns
+#### Patterns You May Have Seen Before
 
-#### SQL: The Old Days
-
-![three linked tables](img/movie-db.png)
-
-`reviews` has two foreign key columns:
-- ???
-- ???
+- interpreter: defines formal grammar and rules to interpret a language
+- iterator: provides sequential access to a collection's items
+- singleton: ensures only one instance of a class exists at any time
+- proxy: provides a surrogate for another object to control access to it
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Associations
+### Design Patterns
+#### Patterns You May Have Seen Before
 
-#### SQL: The Old Days
+*which of these is **not** a behavioral pattern?*
 
-![three linked tables](img/movie-db.png)
-
-`reviews` has two foreign key columns:
-- `movie_id` (points to `movies.id`)
-- `moviegoer_id` (points to `users.id`)
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-#### SQL: The Old Days
-
-![three linked tables](img/movie-db.png)
-
-*finding Star Wars reviews*
-
-```SQL
-SELECT reviews.*
-  FROM movies JOIN reviews ON movies.id=reviews.movie_id
-  WHERE movies.title = “Star Wars”;
-```
+- interpreter
+- iterator
+- singleton
+- proxy
 
 +++ <!-- .slide: data-auto-animate -->
 
-### Associations
+### Design Patterns
+#### Patterns You May Have Seen Before
 
-#### Rails
+*which of these is **not** a behavioral pattern?*
 
-![three linked tables](img/movie-db.png)
+- interpreter
+- iterator
+- **singleton**
+- proxy
 
-*finding Star Wars reviews*
+--- <!-- .slide: data-auto-animate -->
+
+#### Bonus:
+### A Short Critique of the GoF 23
+
+*a lot of the 23 are workarounds for C++'s failings*
+
+*note: this section is out-of-scope for quizzes*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### A Short Critique of the GoF 23
+
+*note how OO centric it is, everything's an object...*
+
+- principles directly diss inheritance *(good.)*
+- "[the 23] turns you into a human compiler."
+- modern declarative styles eliminate a bunch of these problems by actually compiling them
+
+*quote by Paul Graham*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### A Short Critique of the GoF 23
+
+*there's already a lot, but wait, there's more*
+
+in '05, the GoF themselves wanted to add more:
+- dependency injection
+- extension interfaces
+- type objects
+- the null (default) object
+
+*not to mention a whole new "Concurrency" category (though not from GoF)*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### A Short Critique of the GoF 23
+
+*so maybe we change paradigms?*
+
+- AOP tackles some problems more elegantly <br> (see LISP, Elixir, Rails)
+- FP eliminates many such problems entirely <br> (eg Factory, Decorator, Flyweight, State)
+
++++ <!-- .slide: data-auto-animate -->
+
+### A Short Critique of the GoF 23
+
+*or maybe we elevate patterns into OO lang features!*
+
+- Scala's singleton `object`
+- Rust's, Java's, ... `iter`ator interfaces
+- Zig's, Swift's `defer` or Python's `with`
+- Python's `@` decorator system
+- Go, Rust dropping inheritance entirely*
+
+*\*wait, no inheritance? is that still OO? why (not)?*
+<!-- .element: class="fragment citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### A Short Critique of the GoF 23
+
+*all this to say, the 23 aren't perfect, but...*
+
+- for OO langs (most of prod), you need 'em
+- GoF terms standardized the vernacular
+- as language designers wise-up, modern langs are promoting patterns into first-class features!
+
+--- <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+*signs of common failures to solve problems*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+#### Code Smells
+
+- warn of problems *within methods* of a class
+- fixes are usually contained to the class itself
+- detection and fix guidelines bundled in SOFA!
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+*"SOFA" says methods should be*
+
+- Short
+- One-purpose
+- Few-arguments
+- (consistently) Abstract
+
+*okay so the grammar isn't grammaring, sue me.*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+*Short*
 
 ```rb
-Movie.where(title: "Star Wars").reviews
-```
-
-*there's subtle magic here!*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-![three linked tables](img/movie-db.png)
-
-we say a `Review` `belongs_to` both `Movie` and `User` because it has
-exactly one reference to each in it's own columns
-
-this makes these methods accessible:
-```rb
-review = Reviews.first
-review.movie
-review.user
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-![three linked tables](img/movie-db.png)
-
-by contrast, `Movie` and `User` both `has_many` `Review`s
-
-this makes these methods accessible:
-```rb
-Movies.first.reviews
-Users.first.reviews
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-there are also "through" relationships
-
-![through](img/cal-profs-class.png)
-
-*example, anyone?*
-<!-- .element: class="small" -->
-
-Note:
-On line 4, we “override” the find_in_tmdb by setting up a method stub.
-In this case instead of calling the real method we call the “fake” method whose behavior we can control for each test case.
-Use the allow(Movie) call to set up a stub that does not track whether the find_in_tmdb method is called.
-Use the expect(Movie) instead on line 4 if we want to ensure find_in_tmdb method is called. Also known as “Spies”. I.e. expect(Movie).to_receive(:find_in_tmdb)
-All seams setup for a test case are reset after the test case is run.
-
-+++ <!-- .slide: data-auto-animate -->
-
-### A Difficult Example
-
-doubles are for when you need to replace just enough a DOC to isolate behavior of interest
-
-we can also set variables and test by reference..
-
-+++ <!-- .slide: data-auto-animate -->
-
-### A Difficult Example
-
-#### Through Example
-
-```rb
-class University < ActiveRecord::Base do
-  has_many :professors
-  # a through relationship!
-  has_many :courses, through: :professors, uniq: true
-
-  # ...
-end
-
-
-
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-*associations are writable too!*
-
-```rb
->>> CS169A = Course.create! name: “CS169A”
->>> prof_ball.courses << CS169A
->>> prof_fox.courses << CS169A
->>> uni_cal.profs << prof_ball << prof_fox
->>> assert(uni_cal.courses.includes? CS169A)
-```
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Associations
-
-*associations also interact with REST routes using:*
-```rb
-Rails.application.routes.draw do
-  ## used to be
-  # resuources :universities
-  resources :universities do
-    resources :professors
+class Rectangle
+  def update_bounds
+    @width = calculate_width_from_coords(@x1, @x2)
+    @height = calculate_height_from_coords(@y1, @y2)
+    validate_positive_dimensions
+    check_canvas_boundaries
+    log_dimension_changes
+    update_area_cache
+    notify_observers
+    recalculate_diagonal
+    update_bounding_box
+    refresh_display
+    save_to_history
+    trigger_rerender
   end
 end
 ```
 
-![example routes](img/rest-routes-table.png)
++++ <!-- .slide: data-auto-animate -->
+
+*Short*
+
+```rb [2-8|10-19]
+class Rectangle
+  def update_bounds
+    @width = calculate_width_from_coords(@x1, @x2)
+    @height = calculate_height_from_coords(@y1, @y2)
+    log_dimension_changes
+    validate_and_save
+    notify_observers
+  end
+  private
+  def validate_and_save
+    validate_positive_dimensions
+    check_canvas_boundaries
+    update_area_cache
+    recalculate_diagonal
+    update_bounding_box
+    refresh_display
+    save_to_history
+    trigger_rerender
+  end
+end
+```
+
+*shorter and more reusable methods!*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+*One Purpose*
+
+```rb
+class Movie
+  def add_review(review)
+    @reviews << review
+    @average_rating = calculate_average
+    send_email_notification!(review.user)
+    update_recommendation_engine
+    post_to_social_media!(review.text) if review.rating >= 4
+  end
+end
+```
+
++++ <!-- .slide: data-auto-animate -->
+
+*One Purpose*
+
+```rb
+class Movie
+  def add_review(review)
+    @reviews << review
+    @average_rating = calculate_average
+    update_recommendation_engine
+  end
+  def publicize_review!(review)
+    raise ArgumentError if review.rating < 4
+    send_email_notification!(review.user)
+    post_to_social_media!(review.text)
+  end
+end
+```
+
++++ <!-- .slide: data-auto-animate -->
+
+*Few Arguments*
+
+```rb
+class Rectangle
+  def draw(bound_x, bound_y, bound_width, bound_height, z_index,
+         color, border_width, border_color, fill_pattern,
+         opacity, rotation, shadow_x, shadow_y)
+    # ...
+  end
+end
+```
+
+*few-arguments little brother: <br> many arguments with a shared prefix*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+*Few Arguments*
+
+```rb
+class Rectangle
+  def draw(bound_rect, style)
+    # ...
+  end
+end
+# oftentimes, few args spawns new structs!
+class Bounds
+  attr_reader :x, :y, :width, :height, :z_index
+end
+class Style
+  attr_reader :color, :rotation
+  attr_reader :border_width, :border_color
+  attr_reader :fill_pattern, :opacity, :shadow_rect
+end
+```
+
++++ <!-- .slide: data-auto-animate -->
+
+*(Consistently) Abstract*
+
+```rb
+class Movie
+  def generate_report
+    calculate_statistics
+    format_review_summary
+    File.open("report.txt", "w") do |f|
+      f.write! @summary
+    end
+    system("chmod 644 report.txt")
+  end
+end
+```
+
++++ <!-- .slide: data-auto-animate -->
+
+*(Consistently) Abstract*
+
+```rb
+class Movie
+  def generate_report
+    calculate_statistics
+    format_review_summary
+    write_summary_file!
+  end
+  private
+  def write_summary_file!
+    File.open("report.txt", "w") do |f|
+      f.write! @summary
+    end
+    system("chmod 644 report.txt")
+  end
+end
+```
+
+*see how ruby enforces this at-a-glance: <br> a near-pseudocode method, a near-bash method
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+*"SOFA" says methods should be*
+
+- Short
+- One-purpose
+- Few-arguments
+- (consistently) Abstract
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+#### Design Smells
+
+- warn of problems across methods/classes
+- fixes are usually in class relationships
+- detection and fix guidelines bundled in SOLID
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+*"SOLID" says classes should be*
+
+- Single responsibility
+
+*a class should have one clear purpose*
+
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+*"SOLID" says classes should be*
+
+- Single responsibility
+- Open to extension, closed to modification
+
+*as in ruby: adding is ok, overwriting is not\**
+
+*\*though ruby does have ways around this limitation*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+*"SOLID" says classes should be*
+
+- Single responsibility
+- Open to extension, closed to modification
+- Liskov substitution principle compliant
+
+*"objects of a superclass should be replaceable by objects of its subclasses without affecting the program's correctness"*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+*"SOLID" says classes should be*
+
+- Single responsibility
+- Open to extension, closed to modification
+- Liskov substitution principle compliant
+- Injected with dependencies at runtime
+
+*this is just ruby's mixin system! <br> important for generating seams in testing*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+*"SOLID" says classes should be*
+
+- Single responsibility
+- Open to extension, closed to modification
+- Liskov substitution principle compliant
+- Injected with dependencies at runtime
+- Demeter principle compliant
+
+*"I deal only with my direct friends, <br> never friends of friends."*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+*"SOLID" says classes should be*
+
+- Single responsibility
+- Open to extension, closed to modification
+- Liskov substitution principle compliant
+- Injected with dependencies at runtime
+- Demeter principle compliant
+
+*"I deal only with my direct friends, <br> never friends of friends."*
+
++++ <!-- .slide: data-auto-animate -->
+
+### Design Anti-Patterns
+
+For examples, [read paul's slides!](https://docs.google.com/presentation/d/124Avl75OLSdJImLErEBL1QIz-vY_67FV/edit?usp=sharing&ouid=107163727272916485034&rtpof=true&sd=true)
+
+*lots of testable content covered here! <br> please do read it!*
+
+--- <!-- .slide: data-auto-animate -->
+
+### What about P&D?
+
+*remember: emphasis on thorough planning!*
+
+the design phase makes extensive use of patterns
+
+will start with design patterns <br> and cross over to architectural
+
++++ <!-- .slide: data-auto-animate -->
+
+### What about P&D?
+
+*maintenance phase (and refactoring) comes last!*
+
+reliability is usually achieved through <br> hardware redundancy
+
+dependability is hollistic, measured in <br> *mean time to failure*
+
++++ <!-- .slide: data-auto-animate -->
+
+### What about P&D?
+
+*security is often post-hoc*
+
+a "tiger team" does basic in-house white-hat, eg:
+- buffer overflows
+- arithmetic overflows
+- data race attacks
+
+referred to as "penetration tests," <br> i.e. how deep in the system can we go
+
++++ <!-- .slide: data-auto-animate -->
+
+### What about P&D?
+#### Common Pitfalls
+
+- over/under-reliance on patterns in phase one
+- over-reliance on UML or other diagrams
+- dismissing SOLID principles during refactors
+- lots of private methods in a class
+- using awkward factory patterns
+
++++ <!-- .slide: data-auto-animate -->
+
+### What about P&D?
+#### Recap
+
+- little talk of perf except in the system reqs, later
+validated in the "Master Test Plan"
+- releases are part of "configuration management," wrap up everything about the project at that time, including docs
+- redundancy is key for dependability, measured with MTTF
+- unlike probabilistic models used elsewhere, security is run by intelligent "adversaries"
+
+
+--- <!-- .slide: data-auto-animate -->
+
+### UML Diagrams
+
+*a brief recap*
+
++++ <!-- .slide: data-auto-animate -->
+
+### UML Diagrams
+
+*graphical representation of your app*
+- boxes are classes, labelled with critical methods
+- lines are `belongs/has` relations*, labelled with multiplicity (`*, 0*, 1, 1*`)
+
+*\*aka Composition/Aggregation*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### UML Diagrams
+
+![courses/students uml](img/multiplicity-example.png)
+
+--- <!-- .slide: data-auto-animate -->
+
+### Recap
+
++++ <!-- .slide: data-auto-animate -->
+
+### Recap
+
+- common design patterns & anti-patterns
+- code smells $\implies$ SOFA
+- design smells $\implies$ SOLID
+- P&D comes with its own challenges
+- UML exists to help plan architectures
