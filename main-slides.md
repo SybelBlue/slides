@@ -76,12 +76,21 @@
 
 --- <!-- .slide: data-auto-animate -->
 
-### Module 11 Discussion
+#### Module 11 Discussion
 ### Design Patterns & Refactoring
 <!-- .element: class="r-fit-text" -->
 
 *thanks to Paul Woo for slide inspiration*
 <!-- .element: class="small" -->
+
+--- <!-- .slide: data-auto-animate -->
+
+### Agenda
+
+- 10min: Warm-Up
+- 25min: Lecture
+  - 5min: Optional Bonus
+- 25min: CHIPS 10.5 Group Work
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -568,6 +577,29 @@ For examples, [read paul's slides!](https://docs.google.com/presentation/d/124Av
 
 --- <!-- .slide: data-auto-animate -->
 
+### UML Diagrams
+
+*a brief recap*
+
++++ <!-- .slide: data-auto-animate -->
+
+### UML Diagrams
+
+*graphical representation of your app*
+- boxes are classes, labelled with critical methods
+- lines are colored `belongs/has` relations*, ends labelled with multiplicity (`*, 0*, 1, 1*`)
+
+*\*aka Composition/Aggregation*
+<!-- .element: class="citation" -->
+
++++ <!-- .slide: data-auto-animate -->
+
+### UML Diagrams
+
+![courses/students uml](img/multiplicity-example.png)
+
+--- <!-- .slide: data-auto-animate -->
+
 ### What About P&D?
 
 *won't someone think of poor old plan-and-document?*
@@ -626,30 +658,6 @@ validated in the "Master Test Plan"
 - redundancy is key for dependability, measured with MTTF
 - unlike probabilistic models used elsewhere, security is run by intelligent "adversaries"
 
-
---- <!-- .slide: data-auto-animate -->
-
-### UML Diagrams
-
-*a brief recap*
-
-+++ <!-- .slide: data-auto-animate -->
-
-### UML Diagrams
-
-*graphical representation of your app*
-- boxes are classes, labelled with critical methods
-- lines are colored `belongs/has` relations*, ends labelled with multiplicity (`*, 0*, 1, 1*`)
-
-*\*aka Composition/Aggregation*
-<!-- .element: class="citation" -->
-
-+++ <!-- .slide: data-auto-animate -->
-
-### UML Diagrams
-
-![courses/students uml](img/multiplicity-example.png)
-
 --- <!-- .slide: data-auto-animate -->
 
 ### Recap
@@ -663,3 +671,10 @@ validated in the "Master Test Plan"
 - design smells $\implies$ SOLID
 - P&D comes with its own challenges
 - UML exists to help plan architectures
+
+--- <!-- .slide: data-auto-animate -->
+
+### Break for Group Work!
+<!-- .element: class="r-fit-text" -->
+
+You may use this time to plan/perform the group meeting portions of CHIPS 10.5!
