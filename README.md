@@ -2,6 +2,9 @@
 
 A small, Markdown-first Reveal.js deck served locally with Vite.
 
+This template replaces the repository's former Reveal.js fork. The previous
+default-branch content is preserved on the `legacy-main` branch for reference.
+
 ## Start the temporary development server
 
 ```sh
