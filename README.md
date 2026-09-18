@@ -46,8 +46,9 @@ Edit a deck's `slides.md` file under [`public/decks`](public/decks):
 - Press <kbd>?</kbd> in the presentation for all Reveal.js shortcuts.
 
 Keep images and other deck-specific files beside `slides.md`. Reference them from
-Markdown with their public absolute path; for example, a diagram stored at
-`public/decks/workshop/diagram.png` is `![Diagram](/decks/workshop/diagram.png)`.
+Markdown with their path under `public`; for example, a diagram stored at
+`public/decks/workshop/diagram.png` is `![Diagram](decks/workshop/diagram.png)`.
+This relative URL works both locally and under the repository's GitHub Pages URL.
 
 Presentation behavior is configured in [`src/main.js`](src/main.js), and visual overrides live in [`src/styles.css`](src/styles.css). The template uses the Sky theme; change the `reveal.js/theme/sky.css` import to select another bundled theme.
 
@@ -69,3 +70,6 @@ make preview
 ```
 
 The generated static site is written to `dist/`.
+
+Pushes to `main` build and deploy the site to
+<https://sybelblue.github.io/slides/> with GitHub Actions.

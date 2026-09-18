@@ -30,7 +30,10 @@ function initializePresentation(deckConfig) {
   const markdownDeck = presentation.querySelector("[data-markdown]");
 
   document.title = `${deckConfig.title} · Reveal.js`;
-  markdownDeck.dataset.markdown = deckConfig.markdown;
+  markdownDeck.dataset.markdown = `${import.meta.env.BASE_URL}${deckConfig.markdown.replace(
+    /^\/+/,
+    "",
+  )}`;
   presentation.hidden = false;
 
   const deck = new Reveal({
