@@ -1,4 +1,11 @@
-import { access, mkdir, readFile, rename, unlink, writeFile } from "node:fs/promises";
+import {
+  access,
+  mkdir,
+  readFile,
+  rename,
+  unlink,
+  writeFile,
+} from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { createInterface } from "node:readline/promises";
@@ -31,7 +38,7 @@ try {
   const finalDescription = description || "A Reveal.js presentation.";
   const deckPath = path.join(deckDirectory, id);
   const markdownPath = path.join(deckPath, "slides.md");
-  const markdownUrl = `${urlPrefix === "/" ? "" : urlPrefix}/${id}/slides.md`;
+  const sourceUrl = `${urlPrefix === "/" ? "" : urlPrefix}/${id}/slides.md`;
   const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 
   if (!catalog || Array.isArray(catalog) || typeof catalog !== "object") {
@@ -43,7 +50,9 @@ try {
   }
 
   if (await fileExists(markdownPath)) {
-    throw new Error(`${path.relative(process.cwd(), markdownPath)} already exists.`);
+    throw new Error(
+      `${path.relative(process.cwd(), markdownPath)} already exists.`,
+    );
   }
 
   const nextCatalog = {
@@ -51,7 +60,7 @@ try {
     [id]: {
       title: finalTitle,
       description: finalDescription,
-      markdown: markdownUrl,
+      source: sourceUrl,
     },
   };
   const temporaryCatalogPath = `${catalogPath}.${process.pid}.tmp`;

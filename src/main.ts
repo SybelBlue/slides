@@ -16,34 +16,65 @@ import deckCatalog from "./decks.json";
 interface DeckConfig {
   title: string;
   description: string;
-  markdown: string;
+  source: string;
 }
 
 const decks: Record<string, DeckConfig> = deckCatalog;
 const deckId = new URLSearchParams(window.location.search).get("deck");
 const selectedDeck =
-  deckId && Object.hasOwn(decks, deckId)
-    ? decks[deckId]
-    : undefined;
+  deckId && Object.hasOwn(decks, deckId) ? decks[deckId] : undefined;
 
 if (selectedDeck) {
-  initializePresentation(selectedDeck);
+  void initializePresentation(selectedDeck);
 } else {
   showDeckSelector(deckId);
 }
 
-function initializePresentation(deckConfig: DeckConfig): void {
+async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
   const presentation = requireElement<HTMLElement>("#presentation");
-  const markdownDeck = requireElement<HTMLElement>(
-    "[data-markdown]",
-    presentation,
-  );
-
-  document.title = `${deckConfig.title} · Reveal.js`;
-  markdownDeck.dataset.markdown = `${import.meta.env.BASE_URL}${deckConfig.markdown.replace(
+  const slides = requireElement<HTMLElement>(".slides", presentation);
+  const sourceUrl = `${import.meta.env.BASE_URL}${deckConfig.source.replace(
     /^\/+/,
     "",
   )}`;
+
+  document.title = `${deckConfig.title} · Reveal.js`;
+
+  if (getSourceType(deckConfig.source) === "markdown") {
+    const markdownDeck = document.createElement("section");
+
+    markdownDeck.dataset.markdown = sourceUrl;
+    markdownDeck.dataset.separator = "^---";
+    markdownDeck.dataset.separatorVertical = "^\\+\\+\\+";
+    markdownDeck.dataset.separatorNotes = "^Note:";
+    markdownDeck.dataset.charset = "utf-8";
+    slides.append(markdownDeck);
+  } else {
+    const response = await fetch(sourceUrl);
+
+    if (!response.ok) {
+      throw new Error(
+        `Unable to load deck source ${sourceUrl}: ${response.status} ${response.statusText}`,
+      );
+    }
+
+    const sourceDocument = new DOMParser().parseFromString(
+      await response.text(),
+      "text/html",
+    );
+    const sourceSlides = sourceDocument.querySelector<HTMLElement>(
+      ".reveal .slides, .slides",
+    );
+
+    slides.innerHTML = sourceSlides?.innerHTML ?? sourceDocument.body.innerHTML;
+
+    if (!slides.querySelector(":scope > section")) {
+      throw new Error(
+        `HTML deck source ${sourceUrl} must contain at least one section element.`,
+      );
+    }
+  }
+
   presentation.hidden = false;
 
   const deck = new Reveal({
@@ -55,6 +86,25 @@ function initializePresentation(deckConfig: DeckConfig): void {
   });
 
   void deck.initialize();
+}
+
+function getSourceType(source: string): "html" | "markdown" {
+  const pathname = new URL(
+    source,
+    window.location.origin,
+  ).pathname.toLowerCase();
+
+  if (pathname.endsWith(".md") || pathname.endsWith(".markdown")) {
+    return "markdown";
+  }
+
+  if (pathname.endsWith(".html") || pathname.endsWith(".htm")) {
+    return "html";
+  }
+
+  throw new Error(
+    `Unsupported deck source “${source}”. Use a Markdown or HTML file.`,
+  );
 }
 
 function showDeckSelector(unknownDeckId: string | null): void {
