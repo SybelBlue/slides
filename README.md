@@ -5,14 +5,16 @@ A small, Markdown-first Reveal.js deck served locally with Vite.
 This template replaces the repository's former Reveal.js fork. The previous
 default-branch content is preserved on the `legacy-main` branch for reference.
 
-## Start the temporary development server
+## Watch and develop
 
 ```sh
 make install
-make dev
+make watch
 ```
 
-Open the local URL printed by Vite (normally <http://127.0.0.1:5173>). The base URL displays the deck selection page; `?deck=template` opens the starter deck directly. Changes reload automatically. Stop the server with <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+Open the local URL printed by Vite (normally <http://127.0.0.1:5173>). The base URL displays the deck selection page; `?deck=template` opens the starter deck directly. Changes to TypeScript, Sass, catalog data, and deck files reload the browser automatically. Stop the watcher with <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+
+`make dev` remains available as an alias for `make watch`.
 
 The Make targets use pnpm internally. Run `make` to see all available commands.
 
@@ -50,7 +52,7 @@ Markdown with their path under `public`; for example, a diagram stored at
 `public/decks/workshop/diagram.png` is `![Diagram](decks/workshop/diagram.png)`.
 This relative URL works both locally and under the repository's GitHub Pages URL.
 
-Presentation behavior is configured in [`src/main.js`](src/main.js), and visual overrides live in [`src/styles.css`](src/styles.css). The template uses the Sky theme; change the `reveal.js/theme/sky.css` import to select another bundled theme.
+Presentation behavior is configured in [`src/main.ts`](src/main.ts), and visual overrides live in [`src/styles.scss`](src/styles.scss). Vite transpiles the TypeScript entry point and compiles Sass automatically. The template uses the Sky theme; change the `reveal.js/theme/sky.css` import to select another bundled theme.
 
 The enabled Reveal.js plugins provide Markdown, syntax highlighting, KaTeX math, speaker notes, slide search, and zoom. Useful presenter shortcuts include:
 

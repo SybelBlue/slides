@@ -5,14 +5,20 @@
   "type": "module",
   "packageManager": "pnpm@11.25.0",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
+    "watch": "vite --host 127.0.0.1",
+    "dev": "pnpm watch",
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm typecheck && vite build",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
     "reveal.js": "^6.0.2"
   },
   "devDependencies": {
+    "prettier": "3.9.8",
+    "prettier-plugin-markdown-html": "1.6.1",
+    "sass": "^1.104.1",
+    "typescript": "^7.0.2",
     "vite": "^8.3.0"
   }
 }
