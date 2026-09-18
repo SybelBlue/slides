@@ -33,13 +33,14 @@ Or provide the values in one command:
 make new-deck ID=workshop TITLE="Workshop" DESCRIPTION="Hands-on exercises"
 ```
 
-The command creates `public/decks/<id>/slides.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing Markdown files. The generated catalog entry uses `source`, which can point to either a Markdown or HTML file.
+The command creates `public/decks/<id>/slides.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing deck directories. Catalog entries use `directory` and point only to the deck's public directory; the loader requires that directory to contain exactly one `slides.md` or `slides.html` file.
 
 For example, a `workshop` entry would be available at `?deck=workshop`. If the URL has no `deck` parameter—or the key is not recognized—the selection list is shown.
 
 ## Write slides
 
-Edit a deck's `slides.md` file under [`public/decks`](public/decks):
+Each deck directory under [`public/decks`](public/decks) must contain exactly one
+`slides.md` or `slides.html`. For a Markdown deck, edit its `slides.md` file:
 
 - Put `---` on its own line between horizontal slides.
 - Put `+++` on its own line between vertical slides. Use vertical stacks to group sections so left/right navigation moves between topics.
@@ -48,15 +49,16 @@ Edit a deck's `slides.md` file under [`public/decks`](public/decks):
 - Start speaker notes with `Note:`. Press <kbd>S</kbd> during the presentation to open speaker view.
 - Press <kbd>?</kbd> in the presentation for all Reveal.js shortcuts.
 
-Keep images and other deck-specific files beside `slides.md`. Reference them from
-Markdown with their path under `public`; for example, a diagram stored at
+Keep all images and other public deck dependencies in the same deck directory.
+Reference them from Markdown with their path under `public`; for example, a diagram stored at
 `public/decks/workshop/diagram.png` is `![Diagram](decks/workshop/diagram.png)`.
 This relative URL works both locally and under the repository's GitHub Pages URL.
 
-To write a deck in HTML instead, set its catalog `source` to an `.html` file.
-The file may be an HTML fragment containing top-level `<section>` elements, or a
-complete document containing a `.slides` element. Top-level sections are
-horizontal slides, and nested sections form a vertical stack:
+To write a deck in HTML instead, replace `slides.md` with `slides.html`; the
+catalog directory does not change. The file may be an HTML fragment containing
+top-level `<section>` elements, or a complete document containing a `.slides`
+element. Top-level sections are horizontal slides, and nested sections form a
+vertical stack:
 
 ```html
 <section>
@@ -68,7 +70,7 @@ horizontal slides, and nested sections form a vertical stack:
 </section>
 ```
 
-Presentation behavior is configured in [`src/main.ts`](src/main.ts), and visual overrides live in [`src/styles.scss`](src/styles.scss). Vite transpiles the TypeScript entry point and compiles Sass automatically. The template uses the Sky theme; change the `reveal.js/theme/sky.css` import to select another bundled theme.
+Presentation behavior is configured in [`src/main.ts`](src/main.ts), and shared visual overrides live in [`src/styles.scss`](src/styles.scss). A deck can add scoped Sass beside its slides and public dependencies in `_styles.scss`; Vite discovers and compiles these files automatically. The template uses the Sky theme; change the `reveal.js/theme/sky.css` import to select another bundled theme.
 
 The enabled Reveal.js plugins provide Markdown, syntax highlighting, KaTeX math, speaker notes, slide search, and zoom. Useful presenter shortcuts include:
 

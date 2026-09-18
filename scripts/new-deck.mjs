@@ -3,6 +3,7 @@ import {
   mkdir,
   readFile,
   rename,
+  rmdir,
   unlink,
   writeFile,
 } from "node:fs/promises";
@@ -38,7 +39,7 @@ try {
   const finalDescription = description || "A Reveal.js presentation.";
   const deckPath = path.join(deckDirectory, id);
   const markdownPath = path.join(deckPath, "slides.md");
-  const sourceUrl = `${urlPrefix === "/" ? "" : urlPrefix}/${id}/slides.md`;
+  const directoryUrl = `${urlPrefix === "/" ? "" : urlPrefix}/${id}`;
   const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 
   if (!catalog || Array.isArray(catalog) || typeof catalog !== "object") {
@@ -49,9 +50,9 @@ try {
     throw new Error(`The catalog already contains a deck named “${id}”.`);
   }
 
-  if (await fileExists(markdownPath)) {
+  if (await fileExists(deckPath)) {
     throw new Error(
-      `${path.relative(process.cwd(), markdownPath)} already exists.`,
+      `${path.relative(process.cwd(), deckPath)} already exists.`,
     );
   }
 
@@ -60,7 +61,7 @@ try {
     [id]: {
       title: finalTitle,
       description: finalDescription,
-      source: sourceUrl,
+      directory: directoryUrl,
     },
   };
   const temporaryCatalogPath = `${catalogPath}.${process.pid}.tmp`;
@@ -78,6 +79,7 @@ try {
     await rename(temporaryCatalogPath, catalogPath);
   } catch (error) {
     await unlink(markdownPath).catch(() => {});
+    await rmdir(deckPath).catch(() => {});
     await unlink(temporaryCatalogPath).catch(() => {});
     throw error;
   }
@@ -145,7 +147,7 @@ function normalizeUrlPrefix(prefix) {
 }
 
 function createStarterDeck(title) {
-  return `<!-- .slide: class="center" -->
+  return `<!-- .slide: class="rs-center" -->
 
 # ${title}
 

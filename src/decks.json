@@ -2,11 +2,11 @@
   "template": {
     "title": "Template presentation",
     "description": "Markdown syntax, layouts, fragments, code, and KaTeX examples.",
-    "source": "/decks/template/slides.md"
+    "directory": "/decks/template"
   },
   "pl-marketplace": {
     "title": "Pl Marketplace",
     "description": "Thoughts on user's needs around a shared marketplace for course content",
-    "source": "/decks/pl-marketplace/slides.html"
+    "directory": "/decks/pl-marketplace"
   }
 }

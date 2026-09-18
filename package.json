@@ -15,6 +15,7 @@
     "reveal.js": "^6.0.2"
   },
   "devDependencies": {
+    "@types/node": "^26.6.1",
     "prettier": "3.9.8",
     "prettier-plugin-markdown-html": "1.6.1",
     "sass": "^1.104.1",

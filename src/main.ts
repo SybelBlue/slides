@@ -16,7 +16,13 @@ import deckCatalog from "./decks.json";
 interface DeckConfig {
   title: string;
   description: string;
-  source: string;
+  directory: string;
+}
+
+interface DeckSource {
+  type: "html" | "markdown";
+  url: string;
+  content: string;
 }
 
 const decks: Record<string, DeckConfig> = deckCatalog;
@@ -33,33 +39,22 @@ if (selectedDeck) {
 async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
   const presentation = requireElement<HTMLElement>("#presentation");
   const slides = requireElement<HTMLElement>(".slides", presentation);
-  const sourceUrl = `${import.meta.env.BASE_URL}${deckConfig.source.replace(
-    /^\/+/,
-    "",
-  )}`;
+  const source = await resolveDeckSource(deckConfig.directory);
 
   document.title = `${deckConfig.title} · Reveal.js`;
 
-  if (getSourceType(deckConfig.source) === "markdown") {
+  if (source.type === "markdown") {
     const markdownDeck = document.createElement("section");
 
-    markdownDeck.dataset.markdown = sourceUrl;
+    markdownDeck.dataset.markdown = source.url;
     markdownDeck.dataset.separator = "^---";
     markdownDeck.dataset.separatorVertical = "^\\+\\+\\+";
     markdownDeck.dataset.separatorNotes = "^Note:";
     markdownDeck.dataset.charset = "utf-8";
     slides.append(markdownDeck);
   } else {
-    const response = await fetch(sourceUrl);
-
-    if (!response.ok) {
-      throw new Error(
-        `Unable to load deck source ${sourceUrl}: ${response.status} ${response.statusText}`,
-      );
-    }
-
     const sourceDocument = new DOMParser().parseFromString(
-      await response.text(),
+      source.content,
       "text/html",
     );
     const sourceSlides = sourceDocument.querySelector<HTMLElement>(
@@ -70,7 +65,7 @@ async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
 
     if (!slides.querySelector(":scope > section")) {
       throw new Error(
-        `HTML deck source ${sourceUrl} must contain at least one section element.`,
+        `HTML deck source ${source.url} must contain at least one section element.`,
       );
     }
   }
@@ -88,23 +83,83 @@ async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
   void deck.initialize();
 }
 
-function getSourceType(source: string): "html" | "markdown" {
-  const pathname = new URL(
-    source,
-    window.location.origin,
-  ).pathname.toLowerCase();
+async function resolveDeckSource(directory: string): Promise<DeckSource> {
+  const directoryUrl = getDeckDirectoryUrl(directory);
+  const candidates = await Promise.all([
+    loadDeckSource(directoryUrl, "slides.md", "markdown"),
+    loadDeckSource(directoryUrl, "slides.html", "html"),
+  ]);
+  const sources = candidates.filter(
+    (candidate): candidate is DeckSource => candidate !== undefined,
+  );
 
-  if (pathname.endsWith(".md") || pathname.endsWith(".markdown")) {
-    return "markdown";
+  if (sources.length === 1) {
+    return sources[0];
   }
 
-  if (pathname.endsWith(".html") || pathname.endsWith(".htm")) {
-    return "html";
+  if (sources.length > 1) {
+    throw new Error(
+      `Deck directory ${directoryUrl} contains both slides.md and slides.html; keep exactly one.`,
+    );
   }
 
   throw new Error(
-    `Unsupported deck source “${source}”. Use a Markdown or HTML file.`,
+    `Deck directory ${directoryUrl} must contain either slides.md or slides.html.`,
   );
+}
+
+async function loadDeckSource(
+  directoryUrl: string,
+  filename: string,
+  type: DeckSource["type"],
+): Promise<DeckSource | undefined> {
+  const url = new URL(filename, directoryUrl).href;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    return undefined;
+  }
+
+  const content = await response.text();
+
+  if (type === "html" && !containsHtmlSlides(content)) {
+    return undefined;
+  }
+
+  if (
+    type === "markdown" &&
+    (/^\s*<!doctype html/i.test(content) || content.trim().length === 0)
+  ) {
+    return undefined;
+  }
+
+  return { type, url, content };
+}
+
+function containsHtmlSlides(content: string): boolean {
+  const sourceDocument = new DOMParser().parseFromString(content, "text/html");
+  const sourceSlides = sourceDocument.querySelector<HTMLElement>(
+    ".reveal .slides, .slides",
+  );
+  const sourceRoot = sourceSlides ?? sourceDocument.body;
+
+  return sourceRoot.querySelector(":scope > section") !== null;
+}
+
+function getDeckDirectoryUrl(directory: string): string {
+  const normalizedDirectory = directory.trim().replace(/^\/+|\/+$/g, "");
+
+  if (
+    !normalizedDirectory ||
+    normalizedDirectory.split("/").includes("..") ||
+    /[?#]/.test(normalizedDirectory)
+  ) {
+    throw new Error(`Invalid deck directory “${directory}”.`);
+  }
+
+  const baseUrl = new URL(import.meta.env.BASE_URL, window.location.origin);
+
+  return new URL(`${normalizedDirectory}/`, baseUrl).href;
 }
 
 function showDeckSelector(unknownDeckId: string | null): void {
