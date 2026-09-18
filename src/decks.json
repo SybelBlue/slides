@@ -3,5 +3,10 @@
     "title": "Template presentation",
     "description": "Markdown syntax, layouts, fragments, code, and KaTeX examples.",
     "markdown": "/decks/template.md"
+  },
+  "pl-marketplace": {
+    "title": "Pl Marketplace",
+    "description": "Thoughts on user's needs around a shared marketplace for course content",
+    "markdown": "/decks/pl-marketplace.md"
   }
 }
