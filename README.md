@@ -30,13 +30,13 @@ Or provide the values in one command:
 make new-deck ID=workshop TITLE="Workshop" DESCRIPTION="Hands-on exercises"
 ```
 
-The command creates `public/decks/<id>.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing Markdown files.
+The command creates `public/decks/<id>/slides.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing Markdown files.
 
 For example, a `workshop` entry would be available at `?deck=workshop`. If the URL has no `deck` parameter—or the key is not recognized—the selection list is shown.
 
 ## Write slides
 
-Edit a Markdown file under [`public/decks`](public/decks):
+Edit a deck's `slides.md` file under [`public/decks`](public/decks):
 
 - Put `---` on its own line between horizontal slides.
 - Put `+++` on its own line between vertical slides. Use vertical stacks to group sections so left/right navigation moves between topics.
@@ -45,7 +45,9 @@ Edit a Markdown file under [`public/decks`](public/decks):
 - Start speaker notes with `Note:`. Press <kbd>S</kbd> during the presentation to open speaker view.
 - Press <kbd>?</kbd> in the presentation for all Reveal.js shortcuts.
 
-Add images or other static files to `public/` and reference them from Markdown with an absolute path such as `![Diagram](/diagram.png)`.
+Keep images and other deck-specific files beside `slides.md`. Reference them from
+Markdown with their public absolute path; for example, a diagram stored at
+`public/decks/workshop/diagram.png` is `![Diagram](/decks/workshop/diagram.png)`.
 
 Presentation behavior is configured in [`src/main.js`](src/main.js), and visual overrides live in [`src/styles.css`](src/styles.css). The template uses the Sky theme; change the `reveal.js/theme/sky.css` import to select another bundled theme.
 

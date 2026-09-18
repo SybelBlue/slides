@@ -72,4 +72,4 @@ $$
 
 ## Ready to present
 
-Edit `public/decks/template.md` and save—the browser updates automatically.
+Edit `public/decks/template/slides.md` and save—the browser updates automatically.

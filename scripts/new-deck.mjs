@@ -29,8 +29,9 @@ try {
   );
   const finalTitle = title || defaultTitle;
   const finalDescription = description || "A Reveal.js presentation.";
-  const markdownPath = path.join(deckDirectory, `${id}.md`);
-  const markdownUrl = `${urlPrefix === "/" ? "" : urlPrefix}/${id}.md`;
+  const deckPath = path.join(deckDirectory, id);
+  const markdownPath = path.join(deckPath, "slides.md");
+  const markdownUrl = `${urlPrefix === "/" ? "" : urlPrefix}/${id}/slides.md`;
   const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 
   if (!catalog || Array.isArray(catalog) || typeof catalog !== "object") {
@@ -56,7 +57,7 @@ try {
   const temporaryCatalogPath = `${catalogPath}.${process.pid}.tmp`;
   const starter = createStarterDeck(finalTitle);
 
-  await mkdir(deckDirectory, { recursive: true });
+  await mkdir(deckPath, { recursive: true });
   await writeFile(markdownPath, starter, { flag: "wx" });
 
   try {
