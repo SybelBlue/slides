@@ -1,4 +1,4 @@
-<!-- .slide: class="center" data-auto-animate -->
+<!-- .slide: class="rs-center" data-auto-animate -->
 
 # Presentation title
 
@@ -14,10 +14,15 @@ Speaker notes go here. Press <kbd>S</kbd> to open the speaker view.
 ## Subtitle
 
 - Write the deck in one Markdown file
+
 <!-- .element: class="fragment fade-in" -->
+
 - Add fragments with element attributes
+
 <!-- .element: class="fragment fade-in" -->
+
 - Add slide options beside a separator
+
 <!-- .element: class="fragment fade-in" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -27,10 +32,12 @@ Speaker notes go here. Press <kbd>S</kbd> to open the speaker view.
 > Normal
 
 > Good
-<!-- .element: class="fragment fade-in good" -->
+
+<!-- .element: class="fragment fade-in rs-good" -->
 
 > Bad
-<!-- .element: class="fragment fade-in bad" -->
+
+<!-- .element: class="fragment fade-in rs-bad" -->
 
 ---
 
@@ -52,23 +59,23 @@ $$
 
 ## Layout helpers
 
-<div class="col-container">
-  <div class="col centered">Left column</div>
-  <div class="col centered">Right column</div>
+<div class="rs-col-container">
+  <div class="rs-col rs-centered">Left column</div>
+  <div class="rs-col rs-centered">Right column</div>
 </div>
 
-<p class="citation">Sources and asides can use the citation class.</p>
+<p class="rs-citation">Sources and asides can use the citation class.</p>
 
 +++
 
 ## Useful annotations
 
 - `.fragment` reveals an element later
-- `.good`, `.bad`, and `.alt` style blockquotes
-- `.demph` and `.citation` reduce emphasis
-- `.wide`, `.centered`, and the row/column helpers control layout
+- `.rs-good`, `.rs-bad`, and `.rs-alt` style blockquotes
+- `.rs-demph` and `.rs-citation` reduce emphasis
+- `.rs-wide`, `.rs-centered`, and the row/column helpers control layout
 
---- <!-- .slide: class="center" data-background-color="#153243" -->
+--- <!-- .slide: class="rs-center" data-background-color="#153243" -->
 
 ## Ready to present
 

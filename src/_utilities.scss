@@ -1,0 +1,226 @@
+@mixin flex-container($direction) {
+  display: flex !important;
+  flex-direction: $direction;
+  gap: 1rem;
+}
+
+.reveal {
+  .rs-center {
+    &,
+    h1,
+    h2,
+    h3 {
+      text-align: center;
+    }
+  }
+
+  .rs-caps {
+    text-transform: capitalize;
+  }
+
+  .rs-no-caps {
+    text-transform: lowercase;
+  }
+
+  .rs-invis {
+    color: transparent;
+  }
+
+  blockquote {
+    &.rs-good {
+      background-color: rgb(94 203 94);
+    }
+
+    &.rs-bad {
+      background-color: rgb(232 131 131);
+    }
+
+    &.rs-alt {
+      color: #6b0383;
+    }
+  }
+
+  .rs-taper-fade {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 100%),
+      rgb(0 0 0 / 100%) 40%,
+      rgb(0 0 0 / 0%)
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 100%),
+      rgb(0 0 0 / 100%) 40%,
+      rgb(0 0 0 / 0%)
+    );
+  }
+
+  .rs-col-container {
+    @include flex-container(row);
+  }
+
+  .rs-row-container {
+    @include flex-container(column);
+  }
+
+  .rs-col,
+  .rs-row {
+    flex: 1;
+  }
+
+  .rs-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rs-demph {
+    color: rgb(34 34 34 / 60%);
+  }
+
+  .rs-citation {
+    color: rgb(34 34 34 / 60%);
+    font-size: 60%;
+    font-style: italic;
+  }
+
+  .rs-wide {
+    width: 80%;
+  }
+
+  .rs-grid {
+    display: grid;
+    gap: var(--rs-grid-gap, 0.5em);
+
+    &.cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .rs-card {
+    padding: var(--rs-card-padding, 0.75em);
+    background: var(--rs-card-background, white);
+    border: 1px solid var(--rs-card-border-color, rgb(23 36 43 / 15%));
+    border-radius: var(--rs-card-radius, 12px);
+
+    &.primary {
+      --rs-card-background: var(--rs-primary-background, #04545c);
+      --rs-card-border-color: var(--rs-primary-border-color, #04545c);
+      --rs-card-muted-color: var(--rs-primary-muted-color, #b9e6d2);
+      color: white;
+    }
+
+    &.outline {
+      --rs-card-background: transparent;
+      --rs-card-border-color: var(--rs-outline-color, currentColor);
+    }
+  }
+
+  .rs-workflow {
+    --rs-card-padding: 0.65em;
+    --rs-card-radius: 10px;
+    display: flex;
+    align-items: center;
+    min-height: 360px;
+    gap: 0.3em;
+
+    .step {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    .arrow {
+      color: var(--rs-workflow-accent, currentColor);
+      font-size: 0.9em;
+      font-style: normal;
+      text-align: center;
+      flex: 0 0 60px;
+
+      &::before {
+        content: "→";
+      }
+    }
+
+    small {
+      color: var(
+        --rs-card-muted-color,
+        var(--rs-workflow-accent, currentColor)
+      );
+      font-size: 0.32em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    strong {
+      margin: 0.3em 0 0.6em;
+      font-size: 0.52em;
+    }
+
+    code {
+      align-self: flex-start;
+      padding: 0.25em 0.4em;
+      color: var(--rs-workflow-muted-color, currentColor);
+      font-size: 0.34em;
+      background: var(--rs-workflow-code-background, rgb(23 36 43 / 8%));
+      border-radius: 4px;
+    }
+
+    .group {
+      --rs-card-padding: 0.5em;
+      display: flex;
+      gap: 0.35em;
+      flex: 1.15;
+      flex-direction: column;
+
+      .step strong {
+        margin: 0.15em 0 0.3em;
+      }
+    }
+
+    &.process {
+      --rs-card-radius: 12px;
+      min-height: 0;
+      margin-top: 1.5em;
+      justify-content: space-between;
+      gap: 0;
+
+      .step {
+        min-width: 185px;
+        flex: initial;
+      }
+
+      .number {
+        display: grid;
+        width: 2em;
+        height: 2em;
+        margin-bottom: 0.65em;
+        color: var(--rs-process-number-color, currentColor);
+        font-size: 0.34em;
+        font-weight: 800;
+        background: var(--rs-process-number-background, currentColor);
+        border-radius: 50%;
+        place-items: center;
+      }
+
+      .arrow {
+        color: var(
+          --rs-process-accent,
+          var(--rs-workflow-accent, currentColor)
+        );
+        font-size: 0.75em;
+        flex: initial;
+      }
+
+      strong {
+        margin: 0;
+        font-size: 0.63em;
+      }
+    }
+  }
+}
