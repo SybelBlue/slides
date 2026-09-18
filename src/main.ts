@@ -9,14 +9,21 @@ import Zoom from "reveal.js/plugin/zoom";
 import "reveal.js/reveal.css";
 import "reveal.js/theme/sky.css";
 import "reveal.js/plugin/highlight/monokai.css";
-import "./styles.css";
+import "./styles.scss";
 
 import deckCatalog from "./decks.json";
 
+interface DeckConfig {
+  title: string;
+  description: string;
+  markdown: string;
+}
+
+const decks: Record<string, DeckConfig> = deckCatalog;
 const deckId = new URLSearchParams(window.location.search).get("deck");
 const selectedDeck =
-  deckId && Object.hasOwn(deckCatalog, deckId)
-    ? deckCatalog[deckId]
+  deckId && Object.hasOwn(decks, deckId)
+    ? decks[deckId]
     : undefined;
 
 if (selectedDeck) {
@@ -25,9 +32,12 @@ if (selectedDeck) {
   showDeckSelector(deckId);
 }
 
-function initializePresentation(deckConfig) {
-  const presentation = document.querySelector("#presentation");
-  const markdownDeck = presentation.querySelector("[data-markdown]");
+function initializePresentation(deckConfig: DeckConfig): void {
+  const presentation = requireElement<HTMLElement>("#presentation");
+  const markdownDeck = requireElement<HTMLElement>(
+    "[data-markdown]",
+    presentation,
+  );
 
   document.title = `${deckConfig.title} · Reveal.js`;
   markdownDeck.dataset.markdown = deckConfig.markdown;
@@ -41,19 +51,19 @@ function initializePresentation(deckConfig) {
     plugins: [Highlight, Markdown, RevealMath.KaTeX, Notes, Search, Zoom],
   });
 
-  deck.initialize();
+  void deck.initialize();
 }
 
-function showDeckSelector(unknownDeckId) {
-  const selector = document.querySelector("#deck-selector");
-  const message = document.querySelector("#deck-selector-message");
-  const deckList = document.querySelector("#deck-list");
+function showDeckSelector(unknownDeckId: string | null): void {
+  const selector = requireElement<HTMLElement>("#deck-selector");
+  const message = requireElement<HTMLElement>("#deck-selector-message");
+  const deckList = requireElement<HTMLUListElement>("#deck-list");
 
   if (unknownDeckId) {
     message.textContent = `No deck named “${unknownDeckId}” was found. Choose an available presentation.`;
   }
 
-  for (const [id, deckConfig] of Object.entries(deckCatalog)) {
+  for (const [id, deckConfig] of Object.entries(decks)) {
     const item = document.createElement("li");
     const link = document.createElement("a");
     const title = document.createElement("strong");
@@ -61,7 +71,7 @@ function showDeckSelector(unknownDeckId) {
     const url = new URL(window.location.pathname, window.location.origin);
 
     url.searchParams.set("deck", id);
-    link.href = url;
+    link.href = url.href;
     link.className = "deck-card";
     title.textContent = deckConfig.title;
     description.textContent = deckConfig.description;
@@ -71,4 +81,17 @@ function showDeckSelector(unknownDeckId) {
   }
 
   selector.hidden = false;
+}
+
+function requireElement<T extends Element>(
+  selector: string,
+  parent: ParentNode = document,
+): T {
+  const element = parent.querySelector<T>(selector);
+
+  if (!element) {
+    throw new Error(`Required element not found: ${selector}`);
+  }
+
+  return element;
 }

@@ -4,9 +4,14 @@
 
 # Marketplace
 
-<p class="mp-lede">Stable, versioned reuse of educational content and software.</p>
+<p class="mp-lede">
+  Stable, versioned reuse of educational content and software.
+</p>
 
-<div class="mp-path"><span>Discover</span><i></i><span>Install</span><i></i><span>Pin</span><i></i><strong>Upgrade</strong></div>
+<div class="mp-path">
+  <span>Discover</span><i></i><span>Install</span><i></i><span>Pin</span><i></i
+  ><strong>Upgrade</strong>
+</div>
 
 --- <!-- .slide: class="marketplace" -->
 
@@ -23,7 +28,9 @@
   <div><b>▤</b><span>Modules</span></div>
 </div>
 
-<p class="mp-takeaway">The unit of reuse needs versions, dependencies, and provenance.</p>
+<p class="mp-takeaway">
+  The unit of reuse needs versions, dependencies, and provenance.
+</p>
 
 --- <!-- .slide: class="marketplace" -->
 
@@ -32,11 +39,27 @@
 ## Copy vs. link is the wrong tradeoff
 
 <div class="mp-compare">
-  <article><h3>⧉ &nbsp; Copy</h3><strong>Stable</strong><ul><li>Disconnected from fixes</li><li>Provenance drifts</li></ul></article>
-  <article><h3>↗ &nbsp; Link</h3><strong>Connected</strong><ul><li>Changes arrive live</li><li>Silent content shift</li></ul></article>
+  <article>
+    <h3>⧉ &nbsp; Copy</h3>
+    <strong>Stable</strong>
+    <ul>
+      <li>Disconnected from fixes</li>
+      <li>Provenance drifts</li>
+    </ul>
+  </article>
+  <article>
+    <h3>↗ &nbsp; Link</h3>
+    <strong>Connected</strong>
+    <ul>
+      <li>Changes arrive live</li>
+      <li>Silent content shift</li>
+    </ul>
+  </article>
 </div>
 
-<p class="mp-equation"><strong>Package</strong> = connection + version boundary</p>
+<p class="mp-equation">
+  <strong>Package</strong> = connection + version boundary
+</p>
 
 --- <!-- .slide: class="marketplace marketplace-dark" data-background-color="#172b2d" -->
 
@@ -44,9 +67,19 @@
 
 ## Every change is intentional
 
-<div class="mp-process"><div><span>1</span><strong>Discover</strong></div><i>→</i><div><span>2</span><strong>Install</strong></div><i>→</i><div><span>3</span><strong>Pin</strong></div><i>→</i><div><span>4</span><strong>Upgrade</strong></div></div>
+<div class="mp-process">
+  <div><span>1</span><strong>Discover</strong></div>
+  <i>→</i>
+  <div><span>2</span><strong>Install</strong></div>
+  <i>→</i>
+  <div><span>3</span><strong>Pin</strong></div>
+  <i>→</i>
+  <div><span>4</span><strong>Upgrade</strong></div>
+</div>
 
-<blockquote class="mp-quote">Nothing changes in a live course until an instructor chooses it.</blockquote>
+<blockquote class="mp-quote">
+  Nothing changes in a live course until an instructor chooses it.
+</blockquote>
 
 --- <!-- .slide: class="marketplace" -->
 
@@ -55,18 +88,32 @@
 ## Dependencies are explicit—and tested
 
 <div class="mp-workflow">
-  <div class="mp-workflow__step mp-workflow__step--primary"><small>Problem bank</small><strong>Physics 101</strong><code>v2.4.1</code></div>
-  <i class="mp-workflow__arrow">→</i>
-  <div class="mp-workflow__group">
-    <div class="mp-workflow__step"><small>Element</small><strong>Vector input</strong><code>^3.2</code></div>
-    <div class="mp-workflow__step"><small>Library</small><strong>Unit helpers</strong><code>1.8.x</code></div>
-    <div class="mp-workflow__step"><small>Dataset</small><strong>Constants</strong><code>2026.1</code></div>
+  <div class="mp-workflow__step mp-workflow__step--primary">
+    <small>Problem bank</small><strong>Physics 101</strong><code>v2.4.1</code>
   </div>
   <i class="mp-workflow__arrow">→</i>
-  <div class="mp-workflow__step"><small>CI gate</small><strong>Generate · Render · Grade</strong><code>✓ passed</code></div>
+  <div class="mp-workflow__group">
+    <div class="mp-workflow__step">
+      <small>Element</small><strong>Vector input</strong><code>^3.2</code>
+    </div>
+    <div class="mp-workflow__step">
+      <small>Library</small><strong>Unit helpers</strong><code>1.8.x</code>
+    </div>
+    <div class="mp-workflow__step">
+      <small>Dataset</small><strong>Constants</strong><code>2026.1</code>
+    </div>
+  </div>
+  <i class="mp-workflow__arrow">→</i>
+  <div class="mp-workflow__step">
+    <small>CI gate</small><strong>Generate · Render · Grade</strong
+    ><code>✓ passed</code>
+  </div>
 </div>
 
-<div class="mp-chips"><span>Locked dependencies</span><span>Supported PL versions</span><span>Release validation</span></div>
+<div class="mp-chips">
+  <span>Locked dependencies</span><span>Supported PL versions</span
+  ><span>Release validation</span>
+</div>
 
 Note:
 Publishing requires CI evidence that questions generate, render, and grade against locked dependencies and supported PrairieLearn versions.
@@ -85,7 +132,11 @@ Publishing requires CI evidence that questions generate, render, and grade again
     <div class="inverse-role"><b>Consumer</b><span>use</span></div>
   </div>
   <aside>
-    <span>≠</span><p>Publishing does not create maintenance responsibility, <br> but lack of maintenance is marked!</p>
+    <span>≠</span>
+    <p>
+      Publishing does not create maintenance responsibility, <br />
+      but lack of maintenance is marked!
+    </p>
   </aside>
 </div>
 
@@ -95,9 +146,21 @@ Publishing requires CI evidence that questions generate, render, and grade again
 
 ## Open metadata; controlled source
 
-<div class="mp-access"><div><span>01</span><strong>Metadata</strong><small>Public</small></div><div><span>02</span><strong>OER source</strong><small>Public</small></div><div><span>03</span><strong>Assessment source</strong><small>Instructor</small></div><div><span>04</span><strong>Private packages</strong><small>Restricted</small></div></div>
+<div class="mp-access">
+  <div><span>01</span><strong>Metadata</strong><small>Public</small></div>
+  <div><span>02</span><strong>OER source</strong><small>Public</small></div>
+  <div>
+    <span>03</span><strong>Assessment source</strong><small>Instructor</small>
+  </div>
+  <div>
+    <span>04</span><strong>Private packages</strong><small>Restricted</small>
+  </div>
+</div>
 
-<p class="mp-takeaway">Discovery, inspection, installation, and execution may need different permissions.</p>
+<p class="mp-takeaway">
+  Discovery, inspection, installation, and execution may need different
+  permissions.
+</p>
 
 --- <!-- .slide: class="marketplace" -->
 
@@ -106,11 +169,23 @@ Publishing requires CI evidence that questions generate, render, and grade again
 ## What do we need to settle first?
 
 <div class="mp-questions">
-  <div>01 <span><strong>Package boundary</strong></span></div>
-  <div>02 <span><strong>Local modifications</strong></span></div>
-  <div>03 <span><strong>Source visibility</strong></span></div>
-  <div>04 <span><strong>Publishing authority</strong></span></div>
-  <div>05 <span><strong>Usage attribution</strong></span></div>
+  <div>
+    01 <span><strong>Package boundary</strong></span>
+  </div>
+  <div>
+    02 <span><strong>Local modifications</strong></span>
+  </div>
+  <div>
+    03 <span><strong>Source visibility</strong></span>
+  </div>
+  <div>
+    04 <span><strong>Publishing authority</strong></span>
+  </div>
+  <div>
+    05 <span><strong>Usage attribution</strong></span>
+  </div>
 </div>
 
-<blockquote class="mp-quote mp-quote--light">Stable for instructors. Sustainable for maintainers. Visible for authors.</blockquote>
+<blockquote class="mp-quote mp-quote--light">
+  Stable for instructors. Sustainable for maintainers. Visible for authors.
+</blockquote>

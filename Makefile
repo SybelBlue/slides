@@ -12,13 +12,14 @@ export DECK_URL_PREFIX := $(URL_PREFIX)
 
 .DEFAULT_GOAL := help
 
-.PHONY: help install dev build preview new-deck clean
+.PHONY: help install watch dev build preview new-deck clean
 
 help:
 	@printf '%s\n' \
 		'Usage:' \
 		'  make install  Install dependencies with pnpm' \
-		'  make dev      Start the temporary development server' \
+		'  make watch    Start the development server and reload on changes' \
+		'  make dev      Alias for make watch' \
 		'  make build    Build the static presentation site' \
 		'  make preview  Preview the production build locally' \
 		'  make new-deck Create a deck and add it to the JSON catalog' \
@@ -28,8 +29,10 @@ help:
 install:
 	$(PNPM) install
 
-dev:
-	$(PNPM) dev
+watch:
+	$(PNPM) watch
+
+dev: watch
 
 build:
 	$(PNPM) build

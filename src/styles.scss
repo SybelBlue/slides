@@ -22,6 +22,13 @@
     radial-gradient(circle at top right, rgb(100 216 255 / 40%), transparent 40%),
     #f7fbfc;
   place-items: center;
+
+  & h1 {
+    margin: 0;
+    font-size: clamp(2.25rem, 8vw, 5rem);
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+  }
 }
 
 .deck-selector__panel {
@@ -35,13 +42,6 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.deck-selector h1 {
-  margin: 0;
-  font-size: clamp(2.25rem, 8vw, 5rem);
-  letter-spacing: -0.045em;
-  line-height: 0.95;
 }
 
 .deck-selector__message {
