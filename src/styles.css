@@ -302,16 +302,17 @@
 .reveal .mp-process > i { color: #74d8ce; font-size: 0.75em; font-style: normal; }
 .reveal blockquote.mp-quote { width: 85%; padding: 0.7em 1em; margin: 1.4em auto 0; color: #f4f7f2; font-size: 0.55em; font-style: normal; text-align: center; background: rgb(255 255 255 / 7%); border-radius: 10px; box-shadow: none; }
 
-.reveal .mp-deps { display: grid; align-items: center; min-height: 360px; grid-template-columns: 1fr 60px 1.15fr 60px 1fr; gap: 0.3em; }
-.reveal .mp-deps > div { display: flex; padding: 0.65em; background: white; border: 1px solid var(--mp-line); border-radius: 10px; flex-direction: column; }
-.reveal .mp-deps > div.root { color: white; background: var(--mp-dark); border-color: var(--mp-dark); }
-.reveal .mp-deps > i { color: var(--mp-teal); font-size: 0.9em; font-style: normal; text-align: center; }
-.reveal .mp-deps small { color: var(--mp-teal); font-size: 0.32em; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-.reveal .mp-deps strong { margin: 0.3em 0 0.6em; font-size: 0.52em; }
-.reveal .mp-deps code { align-self: flex-start; padding: 0.25em 0.4em; color: var(--mp-muted); font-size: 0.34em; background: #edf2ef; border-radius: 4px; }
-.reveal .mp-dep-stack { padding: 0 !important; background: transparent !important; border: 0 !important; gap: 0.35em; }
-.reveal .mp-dep-stack > div { display: flex; padding: 0.5em; background: white; border: 1px solid var(--mp-line); border-radius: 9px; flex-direction: column; }
-.reveal .mp-dep-stack strong { margin: 0.15em 0 0.3em; }
+.reveal .mp-workflow { display: flex; align-items: center; min-height: 360px; gap: 0.3em; }
+.reveal .mp-workflow__step { display: flex; padding: 0.65em; background: white; border: 1px solid var(--mp-line); border-radius: 10px; flex: 1; flex-direction: column; }
+.reveal .mp-workflow__step--primary { color: white; background: var(--mp-dark); border-color: var(--mp-dark); }
+.reveal .mp-workflow__step--primary small { color: var(--mp-mint); }
+.reveal .mp-workflow__arrow { color: var(--mp-teal); font-size: 0.9em; font-style: normal; text-align: center; flex: 0 0 60px; }
+.reveal .mp-workflow small { color: var(--mp-teal); font-size: 0.32em; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.reveal .mp-workflow strong { margin: 0.3em 0 0.6em; font-size: 0.52em; }
+.reveal .mp-workflow code { align-self: flex-start; padding: 0.25em 0.4em; color: var(--mp-muted); font-size: 0.34em; background: #edf2ef; border-radius: 4px; }
+.reveal .mp-workflow__group { display: flex; gap: 0.35em; flex: 1.15; flex-direction: column; }
+.reveal .mp-workflow__group .mp-workflow__step { padding: 0.5em; }
+.reveal .mp-workflow__group .mp-workflow__step strong { margin: 0.15em 0 0.3em; }
 .reveal .mp-chips { display: flex; justify-content: center; gap: 0.4em; }
 .reveal .mp-chips span { padding: 0.4em 0.65em; color: var(--mp-dark); font-size: 0.37em; font-weight: 700; background: #dfefea; border-radius: 99px; }
 
@@ -320,6 +321,8 @@
 .reveal .mp-role-grid > div { display: flex; min-height: 145px; align-items: center; justify-content: center; padding: 0.55em; background: white; border: 1px solid var(--mp-line); border-radius: 12px; flex-direction: column; }
 .reveal .mp-role-grid b { font-size: 0.57em; }
 .reveal .mp-role-grid span { color: var(--mp-muted); font-size: 0.38em; }
+.reveal .mp-role-grid .inverse-role { color: white; background: var(--mp-dark); border-color: var(--mp-dark); }
+.reveal .mp-role-grid .inverse-role span { color: var(--mp-mint); }
 .reveal .mp-roles aside { padding-left: 1em; border-left: 1px solid var(--mp-line); }
 .reveal .mp-roles aside > span { color: var(--mp-coral); font-size: 2.3em; font-weight: 850; line-height: 0.9; }
 .reveal .mp-roles aside p { margin: 0.35em 0 0; font-size: 0.64em; font-weight: 700; line-height: 1.35; }
