@@ -14,15 +14,10 @@ Speaker notes go here. Press <kbd>S</kbd> to open the speaker view.
 ## Subtitle
 
 - Write the deck in one Markdown file
-
 <!-- .element: class="fragment fade-in" -->
-
 - Add fragments with element attributes
-
 <!-- .element: class="fragment fade-in" -->
-
 - Add slide options beside a separator
-
 <!-- .element: class="fragment fade-in" -->
 
 +++ <!-- .slide: data-auto-animate -->
@@ -32,11 +27,9 @@ Speaker notes go here. Press <kbd>S</kbd> to open the speaker view.
 > Normal
 
 > Good
-
 <!-- .element: class="fragment fade-in rs-good" -->
 
 > Bad
-
 <!-- .element: class="fragment fade-in rs-bad" -->
 
 ---
@@ -71,9 +64,9 @@ $$
 ## Useful annotations
 
 - `.fragment` reveals an element later
-- `.rs-good`, `.rs-bad`, and `.rs-alt` style blockquotes
-- `.rs-demph` and `.rs-citation` reduce emphasis
-- `.rs-wide`, `.rs-centered`, and the row/column helpers control layout
+- `.rs-good` and `.rs-bad` style blockquotes
+- `.rs-citation` reduces emphasis for sources and asides
+- `.rs-centered` and the column helpers control layout
 
 --- <!-- .slide: class="rs-center" data-background-color="#153243" -->
 

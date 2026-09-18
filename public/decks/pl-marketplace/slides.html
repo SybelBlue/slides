@@ -1,0 +1,187 @@
+<div class="slides">
+  <section
+    class="marketplace marketplace-title"
+    data-background-color="#f4f7f2"
+  >
+    <p class="mp-kicker">PrairieLearn · internal discussion</p>
+    <h1>Marketplace</h1>
+    <p class="mp-lede">
+      Stable, versioned reuse of educational content and software.
+    </p>
+    <div class="mp-path">
+      <span>Discover</span><i></i><span>Install</span><i></i><span>Pin</span
+      ><i></i><strong>Upgrade</strong>
+    </div>
+  </section>
+
+  <section class="marketplace">
+    <p class="mp-kicker">The shift</p>
+    <h2>Packages, not shared files</h2>
+    <div class="rs-grid cols-3 mp-artifacts">
+      <div class="rs-card"><b>Q</b><span>Questions</span></div>
+      <div class="rs-card"><b>◇</b><span>Elements</span></div>
+      <div class="rs-card"><b>{ }</b><span>Code</span></div>
+      <div class="rs-card"><b>▦</b><span>Data</span></div>
+      <div class="rs-card"><b>⌘</b><span>Databases</span></div>
+      <div class="rs-card"><b>▤</b><span>Modules</span></div>
+    </div>
+    <p class="mp-takeaway">
+      The unit of reuse needs versions, dependencies, and provenance.
+    </p>
+  </section>
+
+  <section class="marketplace">
+    <p class="mp-kicker">The gap</p>
+    <h2>Copy vs. link is the wrong tradeoff</h2>
+    <div class="rs-grid cols-2 mp-compare">
+      <article class="rs-card">
+        <h3>⧉ &nbsp; Copy</h3>
+        <strong>Stable</strong>
+        <ul>
+          <li>Disconnected from fixes</li>
+          <li>Provenance drifts</li>
+        </ul>
+      </article>
+      <article class="rs-card">
+        <h3>↗ &nbsp; Link</h3>
+        <strong>Connected</strong>
+        <ul>
+          <li>Changes arrive live</li>
+          <li>Silent content shift</li>
+        </ul>
+      </article>
+    </div>
+    <p class="mp-equation">
+      <strong>Package</strong> = connection + version boundary
+    </p>
+  </section>
+
+  <section class="marketplace marketplace-dark" data-background-color="#172b2d">
+    <p class="mp-kicker">The model</p>
+    <h2>Every change is intentional</h2>
+    <div class="rs-workflow process">
+      <div class="rs-card outline step">
+        <span class="number">1</span><strong>Discover</strong>
+      </div>
+      <i class="arrow" aria-hidden="true"></i>
+      <div class="rs-card outline step">
+        <span class="number">2</span><strong>Install</strong>
+      </div>
+      <i class="arrow" aria-hidden="true"></i>
+      <div class="rs-card outline step">
+        <span class="number">3</span><strong>Pin</strong>
+      </div>
+      <i class="arrow" aria-hidden="true"></i>
+      <div class="rs-card outline step">
+        <span class="number">4</span><strong>Upgrade</strong>
+      </div>
+    </div>
+    <blockquote class="mp-quote">
+      Nothing changes in a live course until an instructor chooses it.
+    </blockquote>
+  </section>
+
+  <section class="marketplace">
+    <p class="mp-kicker">The contract</p>
+    <h2>Dependencies are explicit—and tested</h2>
+    <div class="rs-workflow">
+      <div class="rs-card primary step">
+        <small>Problem bank</small><strong>Physics 101</strong
+        ><code>v2.4.1</code>
+      </div>
+      <i class="arrow" aria-hidden="true"></i>
+      <div class="group">
+        <div class="rs-card step">
+          <small>Element</small><strong>Vector input</strong><code>^3.2</code>
+        </div>
+        <div class="rs-card step">
+          <small>Library</small><strong>Unit helpers</strong><code>1.8.x</code>
+        </div>
+        <div class="rs-card step">
+          <small>Dataset</small><strong>Constants</strong><code>2026.1</code>
+        </div>
+      </div>
+      <i class="arrow" aria-hidden="true"></i>
+      <div class="rs-card step">
+        <small>CI gate</small><strong>Generate · Render · Grade</strong
+        ><code>✓ passed</code>
+      </div>
+    </div>
+    <div class="mp-chips">
+      <span>Locked dependencies</span><span>Supported PL versions</span
+      ><span>Release validation</span>
+    </div>
+    <aside class="notes">
+      Publishing requires CI evidence that questions generate, render, and grade
+      against locked dependencies and supported PrairieLearn versions.
+    </aside>
+  </section>
+
+  <section class="marketplace">
+    <p class="mp-kicker">The roles</p>
+    <h2>Author, Maintainer, Publisher, Consumer</h2>
+    <div class="mp-roles">
+      <div class="rs-grid cols-2 mp-role-grid">
+        <div class="rs-card"><b>Author</b><span>credit</span></div>
+        <div class="rs-card"><b>Maintainer</b><span>responsibility</span></div>
+        <div class="rs-card">
+          <b>Publisher</b><span>release authority</span>
+        </div>
+        <div class="rs-card primary"><b>Consumer</b><span>use</span></div>
+      </div>
+      <aside>
+        <span>≠</span>
+        <p>
+          Publishing does not create maintenance responsibility, <br />
+          but lack of maintenance is marked!
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="marketplace">
+    <p class="mp-kicker">The boundary</p>
+    <h2>Open metadata; controlled source</h2>
+    <div class="mp-access">
+      <div><span>01</span><strong>Metadata</strong><small>Public</small></div>
+      <div><span>02</span><strong>OER source</strong><small>Public</small></div>
+      <div>
+        <span>03</span><strong>Assessment source</strong
+        ><small>Instructor</small>
+      </div>
+      <div>
+        <span>04</span><strong>Private packages</strong
+        ><small>Restricted</small>
+      </div>
+    </div>
+    <p class="mp-takeaway">
+      Discovery, inspection, installation, and execution may need different
+      permissions.
+    </p>
+  </section>
+
+  <section class="marketplace">
+    <p class="mp-kicker">Decisions</p>
+    <h2>What do we need to settle first?</h2>
+    <div class="rs-grid cols-2 mp-questions">
+      <div class="rs-card">
+        01 <span><strong>Package boundary</strong></span>
+      </div>
+      <div class="rs-card">
+        02 <span><strong>Local modifications</strong></span>
+      </div>
+      <div class="rs-card">
+        03 <span><strong>Source visibility</strong></span>
+      </div>
+      <div class="rs-card">
+        04 <span><strong>Publishing authority</strong></span>
+      </div>
+      <div class="rs-card">
+        05 <span><strong>Usage attribution</strong></span>
+      </div>
+    </div>
+    <blockquote class="mp-quote mp-quote--light">
+      Stable for instructors. Sustainable for maintainers. Visible for authors.
+    </blockquote>
+  </section>
+</div>
