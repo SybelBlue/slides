@@ -19,13 +19,13 @@
 
 ## Packages, not shared files
 
-<div class="mp-artifacts">
-  <div><b>Q</b><span>Questions</span></div>
-  <div><b>◇</b><span>Elements</span></div>
-  <div><b>{ }</b><span>Code</span></div>
-  <div><b>▦</b><span>Data</span></div>
-  <div><b>⌘</b><span>Databases</span></div>
-  <div><b>▤</b><span>Modules</span></div>
+<div class="mp-grid cols-3 mp-artifacts">
+  <div class="mp-card"><b>Q</b><span>Questions</span></div>
+  <div class="mp-card"><b>◇</b><span>Elements</span></div>
+  <div class="mp-card"><b>{ }</b><span>Code</span></div>
+  <div class="mp-card"><b>▦</b><span>Data</span></div>
+  <div class="mp-card"><b>⌘</b><span>Databases</span></div>
+  <div class="mp-card"><b>▤</b><span>Modules</span></div>
 </div>
 
 <p class="mp-takeaway">
@@ -38,8 +38,8 @@
 
 ## Copy vs. link is the wrong tradeoff
 
-<div class="mp-compare">
-  <article>
+<div class="mp-grid cols-2 mp-compare">
+  <article class="mp-card">
     <h3>⧉ &nbsp; Copy</h3>
     <strong>Stable</strong>
     <ul>
@@ -47,7 +47,7 @@
       <li>Provenance drifts</li>
     </ul>
   </article>
-  <article>
+  <article class="mp-card">
     <h3>↗ &nbsp; Link</h3>
     <strong>Connected</strong>
     <ul>
@@ -67,14 +67,22 @@
 
 ## Every change is intentional
 
-<div class="mp-process">
-  <div><span>1</span><strong>Discover</strong></div>
-  <i>→</i>
-  <div><span>2</span><strong>Install</strong></div>
-  <i>→</i>
-  <div><span>3</span><strong>Pin</strong></div>
-  <i>→</i>
-  <div><span>4</span><strong>Upgrade</strong></div>
+<div class="mp-workflow process">
+  <div class="mp-card outline step">
+    <span class="number">1</span><strong>Discover</strong>
+  </div>
+  <i class="arrow" aria-hidden="true"></i>
+  <div class="mp-card outline step">
+    <span class="number">2</span><strong>Install</strong>
+  </div>
+  <i class="arrow" aria-hidden="true"></i>
+  <div class="mp-card outline step">
+    <span class="number">3</span><strong>Pin</strong>
+  </div>
+  <i class="arrow" aria-hidden="true"></i>
+  <div class="mp-card outline step">
+    <span class="number">4</span><strong>Upgrade</strong>
+  </div>
 </div>
 
 <blockquote class="mp-quote">
@@ -88,23 +96,23 @@
 ## Dependencies are explicit—and tested
 
 <div class="mp-workflow">
-  <div class="mp-workflow__step mp-workflow__step--primary">
+  <div class="mp-card primary step">
     <small>Problem bank</small><strong>Physics 101</strong><code>v2.4.1</code>
   </div>
-  <i class="mp-workflow__arrow">→</i>
-  <div class="mp-workflow__group">
-    <div class="mp-workflow__step">
+  <i class="arrow" aria-hidden="true"></i>
+  <div class="group">
+    <div class="mp-card step">
       <small>Element</small><strong>Vector input</strong><code>^3.2</code>
     </div>
-    <div class="mp-workflow__step">
+    <div class="mp-card step">
       <small>Library</small><strong>Unit helpers</strong><code>1.8.x</code>
     </div>
-    <div class="mp-workflow__step">
+    <div class="mp-card step">
       <small>Dataset</small><strong>Constants</strong><code>2026.1</code>
     </div>
   </div>
-  <i class="mp-workflow__arrow">→</i>
-  <div class="mp-workflow__step">
+  <i class="arrow" aria-hidden="true"></i>
+  <div class="mp-card step">
     <small>CI gate</small><strong>Generate · Render · Grade</strong
     ><code>✓ passed</code>
   </div>
@@ -125,11 +133,11 @@ Publishing requires CI evidence that questions generate, render, and grade again
 ## Author, Maintainer, Publisher, Consumer
 
 <div class="mp-roles">
-  <div class="mp-role-grid">
-    <div><b>Author</b><span>credit</span></div>
-    <div><b>Maintainer</b><span>responsibility</span></div>
-    <div><b>Publisher</b><span>release authority</span></div>
-    <div class="inverse-role"><b>Consumer</b><span>use</span></div>
+  <div class="mp-grid cols-2 mp-role-grid">
+    <div class="mp-card"><b>Author</b><span>credit</span></div>
+    <div class="mp-card"><b>Maintainer</b><span>responsibility</span></div>
+    <div class="mp-card"><b>Publisher</b><span>release authority</span></div>
+    <div class="mp-card primary"><b>Consumer</b><span>use</span></div>
   </div>
   <aside>
     <span>≠</span>
@@ -168,20 +176,20 @@ Publishing requires CI evidence that questions generate, render, and grade again
 
 ## What do we need to settle first?
 
-<div class="mp-questions">
-  <div>
+<div class="mp-grid cols-2 mp-questions">
+  <div class="mp-card">
     01 <span><strong>Package boundary</strong></span>
   </div>
-  <div>
+  <div class="mp-card">
     02 <span><strong>Local modifications</strong></span>
   </div>
-  <div>
+  <div class="mp-card">
     03 <span><strong>Source visibility</strong></span>
   </div>
-  <div>
+  <div class="mp-card">
     04 <span><strong>Publishing authority</strong></span>
   </div>
-  <div>
+  <div class="mp-card">
     05 <span><strong>Usage attribution</strong></span>
   </div>
 </div>
