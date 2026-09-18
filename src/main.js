@@ -27,7 +27,7 @@ if (selectedDeck) {
 
 function initializePresentation(deckConfig) {
   const presentation = document.querySelector("#presentation");
-  const markdownDeck = document.querySelector("#markdown-deck");
+  const markdownDeck = presentation.querySelector("[data-markdown]");
 
   document.title = `${deckConfig.title} · Reveal.js`;
   markdownDeck.dataset.markdown = deckConfig.markdown;
