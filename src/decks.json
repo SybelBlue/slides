@@ -1,0 +1,7 @@
+{
+  "template": {
+    "title": "Template presentation",
+    "description": "Markdown syntax, layouts, fragments, code, and KaTeX examples.",
+    "markdown": "/decks/template.md"
+  }
+}

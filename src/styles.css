@@ -6,6 +6,88 @@
   --r-selection-background-color: #1683a7;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+.deck-selector {
+  box-sizing: border-box;
+  display: grid;
+  min-height: 100vh;
+  padding: clamp(1.5rem, 5vw, 5rem);
+  color: #17242b;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgb(100 216 255 / 40%), transparent 40%),
+    #f7fbfc;
+  place-items: center;
+}
+
+.deck-selector__panel {
+  width: min(100%, 52rem);
+}
+
+.deck-selector__eyebrow {
+  margin: 0 0 0.5rem;
+  color: #1683a7;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.deck-selector h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 8vw, 5rem);
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.deck-selector__message {
+  margin: 1.25rem 0 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.deck-list {
+  display: grid;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+  list-style: none;
+}
+
+.deck-card {
+  display: grid;
+  padding: 1.25rem 1.5rem;
+  color: inherit;
+  text-decoration: none;
+  background: rgb(255 255 255 / 85%);
+  border: 1px solid rgb(23 36 43 / 15%);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 2rem rgb(23 36 43 / 8%);
+  gap: 0.35rem;
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+.deck-card:hover,
+.deck-card:focus-visible {
+  border-color: #1683a7;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.deck-card strong {
+  font-size: 1.25rem;
+}
+
+.deck-card span {
+  color: rgb(23 36 43 / 72%);
+  line-height: 1.45;
+}
+
 .reveal .slides {
   text-align: left;
 }

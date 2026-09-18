@@ -7,10 +7,21 @@
     <title>Reveal.js Markdown Slides</title>
   </head>
   <body>
-    <div class="reveal">
+    <main id="deck-selector" class="deck-selector" hidden>
+      <div class="deck-selector__panel">
+        <p class="deck-selector__eyebrow">Reveal.js presentations</p>
+        <h1>Choose a slide deck</h1>
+        <p id="deck-selector-message" class="deck-selector__message">
+          Select a presentation to begin.
+        </p>
+        <ul id="deck-list" class="deck-list"></ul>
+      </div>
+    </main>
+
+    <div id="presentation" class="reveal" hidden>
       <div class="slides">
         <section
-          data-markdown="/slides.md"
+          id="markdown-deck"
           data-separator="^---"
           data-separator-vertical="^\+\+\+"
           data-separator-notes="^Note:"
@@ -18,6 +29,8 @@
         ></section>
       </div>
     </div>
+
+    <noscript>This presentation requires JavaScript.</noscript>
 
     <script type="module" src="/src/main.js"></script>
   </body>

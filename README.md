@@ -5,15 +5,35 @@ A small, Markdown-first Reveal.js deck served locally with Vite.
 ## Start the temporary development server
 
 ```sh
-pnpm install
-pnpm dev
+make install
+make dev
 ```
 
-Open the local URL printed by Vite (normally <http://127.0.0.1:5173>). Changes reload automatically. Stop the server with <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+Open the local URL printed by Vite (normally <http://127.0.0.1:5173>). The base URL displays the deck selection page; `?deck=template` opens the starter deck directly. Changes reload automatically. Stop the server with <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+
+The Make targets use pnpm internally. Run `make` to see all available commands.
+
+## Add another deck
+
+Run the interactive generator:
+
+```sh
+make new-deck
+```
+
+Or provide the values in one command:
+
+```sh
+make new-deck ID=workshop TITLE="Workshop" DESCRIPTION="Hands-on exercises"
+```
+
+The command creates `public/decks/<id>.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing Markdown files.
+
+For example, a `workshop` entry would be available at `?deck=workshop`. If the URL has no `deck` parameter—or the key is not recognized—the selection list is shown.
 
 ## Write slides
 
-Edit [`public/slides.md`](public/slides.md):
+Edit a Markdown file under [`public/decks`](public/decks):
 
 - Put `---` on its own line between horizontal slides.
 - Put `+++` on its own line between vertical slides. Use vertical stacks to group sections so left/right navigation moves between topics.
@@ -34,13 +54,13 @@ The enabled Reveal.js plugins provide Markdown, syntax highlighting, KaTeX math,
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> to search
 - <kbd>Alt</kbd>/<kbd>Option</kbd>+click to zoom
 
-For a PDF-friendly view, add `?print-pdf` to the presentation URL and print from a Chromium-based browser.
+For a PDF-friendly view, add `&print-pdf` to a deck URL, such as `?deck=template&print-pdf`, and print from a Chromium-based browser.
 
 ## Production build
 
 ```sh
-pnpm build
-pnpm preview
+make build
+make preview
 ```
 
 The generated static site is written to `dist/`.
