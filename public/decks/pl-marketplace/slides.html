@@ -57,7 +57,7 @@
   <section class="marketplace marketplace-dark" data-background-color="#172b2d">
     <p class="mp-kicker">The model</p>
     <h2>Every change is intentional and fast</h2>
-    <div class="rs-workflow process">
+    <div class="rs-workflow process rs-numbered">
       <div class="rs-card outline step">
         <span class="number"></span><strong>Discover</strong>
       </div>
@@ -122,18 +122,22 @@
     <h2>Author, Maintainer, Publisher, Consumer</h2>
     <div class="mp-roles">
       <div class="rs-grid cols-2 mp-role-grid">
-        <div class="rs-card"><b>Author</b><span>credit</span></div>
-        <div class="rs-card"><b>Maintainer</b><span>responsibility</span></div>
         <div class="rs-card">
-          <b>Publisher</b><span>release authority</span>
+          <b>Content Author</b><span>per-question credit</span>
         </div>
-        <div class="rs-card primary"><b>Consumer</b><span>use</span></div>
+        <div class="rs-card secondary">
+          <b>Maintainer</b><span>ongoing demands</span>
+        </div>
+        <div class="rs-card">
+          <b>Publisher</b><span>inspects and reviews attributions</span>
+        </div>
+        <div class="rs-card primary"><b>Consumer</b><span>end user</span></div>
       </div>
       <aside>
         <span>≠</span>
         <p>
-          Publishing does not create maintenance responsibility, <br />
-          but lack of maintenance is marked!
+          Publishing does not demand a maintainer, but lack of maintenance is
+          marked!
         </p>
       </aside>
     </div>
@@ -143,45 +147,52 @@
     <p class="mp-kicker">The boundary</p>
     <h2>Open metadata; controlled source</h2>
     <div class="mp-access">
-      <div><span>01</span><strong>Metadata</strong><small>Public</small></div>
-      <div><span>02</span><strong>OER source</strong><small>Public</small></div>
-      <div>
-        <span>03</span><strong>Assessment source</strong
-        ><small>Instructor</small>
-      </div>
-      <div>
-        <span>04</span><strong>Private packages</strong
-        ><small>Restricted</small>
-      </div>
+      <div><strong>View metadata</strong><small>SEO Optimized</small></div>
+      <div><strong>Use content</strong><small>Public</small></div>
+      <div><strong>Read source</strong><small>Verified Instructors</small></div>
+      <div><strong>Edit material</strong><small>Publisher Only</small></div>
     </div>
     <p class="mp-takeaway">
-      Discovery, inspection, installation, and execution may need different
-      permissions.
+      Discovery, inspection, installation, and execution need different
+      permisssions, even within a role.
     </p>
   </section>
 
   <section class="marketplace">
-    <p class="mp-kicker">Decisions</p>
-    <h2>What do we need to settle first?</h2>
-    <div class="rs-grid cols-2 mp-questions">
-      <div class="rs-card">
-        01 <span><strong>Package boundary</strong></span>
-      </div>
-      <div class="rs-card">
-        02 <span><strong>Local modifications</strong></span>
-      </div>
-      <div class="rs-card">
-        03 <span><strong>Source visibility</strong></span>
-      </div>
-      <div class="rs-card">
-        04 <span><strong>Publishing authority</strong></span>
-      </div>
-      <div class="rs-card">
-        05 <span><strong>Usage attribution</strong></span>
-      </div>
+    <p class="mp-kicker">The primary decision</p>
+    <h2>What engine should back the marketplace?</h2>
+    <p class="mp-lede">
+      Adopt an existing package ecosystem—or build around PrairieLearn’s needs?
+    </p>
+    <div class="rs-grid cols-3 mp-engine-options">
+      <article class="rs-card">
+        <small>JavaScript ecosystem</small>
+        <h3>npm</h3>
+        <p>Mature registry, dependency resolution, semver, and lockfiles.</p>
+      </article>
+      <article class="rs-card">
+        <small>Python ecosystem</small>
+        <h3>pip / PyPI</h3>
+        <p>A natural fit for Python execution and existing server code.</p>
+      </article>
+      <article class="rs-card">
+        <small>OCI · Git · PL-native</small>
+        <h3>Something else?</h3>
+        <p>More control over mixed content, permissions, and distribution.</p>
+      </article>
     </div>
-    <blockquote class="mp-quote mp-quote--light">
-      Stable for instructors. Sustainable for maintainers. Visible for authors.
-    </blockquote>
+    <div class="mp-chips mp-engine-criteria">
+      <span>Mixed assets</span><span>Version resolution</span
+      ><span>Lockfiles</span><span>Private access</span><span>Provenance</span>
+    </div>
+    <p class="mp-takeaway">
+      This choice defines the package format, dependency semantics, and
+      distribution model.
+    </p>
+    <aside class="notes">
+      This is the first architectural decision to resolve. Compare the options
+      against mixed-content support, reproducible installs, access control, and
+      provenance before choosing the package boundary or publishing workflow.
+    </aside>
   </section>
 </div>

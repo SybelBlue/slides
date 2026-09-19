@@ -53,6 +53,19 @@
     }
   }
 
+  .rs-numbered {
+    --rs-numbered-counter-style: decimal;
+    counter-reset: rs-numbered-item;
+
+    .number {
+      counter-increment: rs-numbered-item;
+
+      &::before {
+        content: counter(rs-numbered-item, var(--rs-numbered-counter-style));
+      }
+    }
+  }
+
   .rs-card {
     padding: var(--rs-card-padding, 0.75em);
     background: var(--rs-card-background, white);
@@ -64,6 +77,13 @@
       --rs-card-border-color: var(--rs-primary-border-color, #04545c);
       --rs-card-muted-color: var(--rs-primary-muted-color, #b9e6d2);
       color: white;
+    }
+
+    &.secondary {
+      --rs-card-background: var(--rs-secondary-background, #b9e6d2);
+      --rs-card-border-color: var(--rs-secondary-border-color, #b9e6d2);
+      --rs-card-muted-color: var(--rs-secondary-muted-color, #04545c);
+      color: var(--rs-secondary-color, #172b2d);
     }
 
     &.outline {
@@ -139,7 +159,6 @@
       --rs-card-radius: 12px;
       min-height: 0;
       margin-top: 1.5em;
-      counter-reset: rs-workflow-step;
       justify-content: space-between;
       gap: 0;
 
@@ -153,17 +172,12 @@
         width: 2em;
         height: 2em;
         margin-bottom: 0.65em;
-        counter-increment: rs-workflow-step;
         color: var(--rs-process-number-color, currentColor);
         font-size: 0.34em;
         font-weight: 800;
         background: var(--rs-process-number-background, currentColor);
         border-radius: 50%;
         place-items: center;
-
-        &::before {
-          content: counter(rs-workflow-step);
-        }
       }
 
       .arrow {
