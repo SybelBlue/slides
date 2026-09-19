@@ -18,12 +18,12 @@
     <p class="mp-kicker">The shift</p>
     <h2>Packages, not shared files</h2>
     <div class="rs-grid cols-3 mp-artifacts">
+      <div class="rs-card"><b>!</b><span>Assessments</span></div>
       <div class="rs-card"><b>Q</b><span>Questions</span></div>
       <div class="rs-card"><b>◇</b><span>Elements</span></div>
       <div class="rs-card"><b>{ }</b><span>Code</span></div>
       <div class="rs-card"><b>▦</b><span>Data</span></div>
-      <div class="rs-card"><b>⌘</b><span>Databases</span></div>
-      <div class="rs-card"><b>▤</b><span>Modules</span></div>
+      <div class="rs-card"><b>▤</b><span>Libraries</span></div>
     </div>
     <p class="mp-takeaway">
       The unit of reuse needs versions, dependencies, and provenance.
@@ -36,7 +36,6 @@
     <div class="rs-grid cols-2 mp-compare">
       <article class="rs-card">
         <h3>⧉ &nbsp; Copy</h3>
-        <strong>Stable</strong>
         <ul>
           <li>Disconnected from fixes</li>
           <li>Provenance drifts</li>
@@ -44,10 +43,9 @@
       </article>
       <article class="rs-card">
         <h3>↗ &nbsp; Link</h3>
-        <strong>Connected</strong>
         <ul>
           <li>Changes arrive live</li>
-          <li>Silent content shift</li>
+          <li>Silent content shift!</li>
         </ul>
       </article>
     </div>
@@ -58,22 +56,22 @@
 
   <section class="marketplace marketplace-dark" data-background-color="#172b2d">
     <p class="mp-kicker">The model</p>
-    <h2>Every change is intentional</h2>
+    <h2>Every change is intentional and fast</h2>
     <div class="rs-workflow process">
       <div class="rs-card outline step">
-        <span class="number">1</span><strong>Discover</strong>
+        <span class="number"></span><strong>Discover</strong>
       </div>
       <i class="arrow" aria-hidden="true"></i>
       <div class="rs-card outline step">
-        <span class="number">2</span><strong>Install</strong>
+        <span class="number"></span><strong>Install</strong>
       </div>
       <i class="arrow" aria-hidden="true"></i>
       <div class="rs-card outline step">
-        <span class="number">3</span><strong>Pin</strong>
+        <span class="number"></span><strong>Pin</strong>
       </div>
       <i class="arrow" aria-hidden="true"></i>
       <div class="rs-card outline step">
-        <span class="number">4</span><strong>Upgrade</strong>
+        <span class="number"></span><strong>Upgrade</strong>
       </div>
     </div>
     <blockquote class="mp-quote">
@@ -102,9 +100,11 @@
         </div>
       </div>
       <i class="arrow" aria-hidden="true"></i>
-      <div class="rs-card step">
-        <small>CI gate</small><strong>Generate · Render · Grade</strong
-        ><code>✓ passed</code>
+      <div class="group">
+        <div class="rs-card step">
+          <small>CI gate</small><strong>Generate · Render · Grade</strong
+          ><code>✓ passed</code>
+        </div>
       </div>
     </div>
     <div class="mp-chips">
