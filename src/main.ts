@@ -81,7 +81,93 @@ async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
     plugins: [Highlight, Markdown, RevealMath.KaTeX, Notes, Search, Zoom],
   });
 
-  void deck.initialize();
+  await deck.initialize();
+  initializeDeckToolbar(deck);
+}
+
+function initializeDeckToolbar(deck: InstanceType<typeof Reveal>): void {
+  const toolbar = requireElement<HTMLElement>("#deck-toolbar");
+  const backButton = requireElement<HTMLButtonElement>(
+    "#back-to-decks",
+    toolbar,
+  );
+  const printButton = requireElement<HTMLButtonElement>("#print-mode", toolbar);
+  const updateOpacity = fadeDeckToolbar(toolbar);
+
+  backButton.addEventListener("click", () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("deck");
+    url.searchParams.delete("print-pdf");
+    url.hash = "";
+    window.location.assign(url.href);
+  });
+
+  printButton.addEventListener("click", () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("print-pdf", "");
+    window.location.assign(url.href);
+  });
+
+  const updateToolbar = (): void => {
+    const { h, v, f } = deck.getIndices();
+    toolbar.hidden =
+      deck.getConfig().view === "print" ||
+      h !== 0 ||
+      (v ?? 0) !== 0 ||
+      (f ?? 0) > 0;
+    updateOpacity();
+  };
+
+  deck.on("slidechanged", updateToolbar);
+  deck.on("fragmentshown", updateToolbar);
+  deck.on("fragmenthidden", updateToolbar);
+  updateToolbar();
+}
+
+function fadeDeckToolbar(toolbar: HTMLElement): () => void {
+  let pointerPosition: { x: number; y: number } | null = null;
+
+  const updateOpacity = (): void => {
+    if (!pointerPosition || toolbar.hidden) return;
+
+    const bounds = toolbar.getBoundingClientRect();
+    const xDistance = Math.max(
+      bounds.left - pointerPosition.x,
+      0,
+      pointerPosition.x - bounds.right,
+    );
+    const yDistance = Math.max(
+      bounds.top - pointerPosition.y,
+      0,
+      pointerPosition.y - bounds.bottom,
+    );
+    const distance = Math.hypot(
+      xDistance / window.innerWidth,
+      yDistance / window.innerHeight,
+    );
+
+    toolbar.style.setProperty(
+      "--toolbar-opacity",
+      String(Math.max(0, 1 - distance / 0.4)),
+    );
+  };
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      if (event.pointerType === "touch") return;
+      pointerPosition = { x: event.clientX, y: event.clientY };
+      updateOpacity();
+    },
+    { passive: true },
+  );
+
+  document.documentElement.addEventListener("pointerleave", () => {
+    pointerPosition = null;
+    toolbar.style.setProperty("--toolbar-opacity", "0");
+  });
+
+  return updateOpacity;
 }
 
 async function resolveDeckSource(directory: string): Promise<DeckSource> {

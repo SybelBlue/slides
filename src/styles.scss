@@ -12,8 +12,64 @@ $accent: #1683a7;
 }
 
 #deck-selector[hidden],
-#presentation[hidden] {
+#presentation[hidden],
+#deck-toolbar[hidden] {
   display: none !important;
+}
+
+.deck-toolbar {
+  position: fixed;
+  z-index: 40;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  opacity: var(--toolbar-opacity, 0);
+  transition: opacity 120ms linear;
+
+  &:focus-within {
+    opacity: 1;
+  }
+
+  button {
+    padding: 0.55rem 0.85rem;
+    color: $ink;
+    font:
+      600 0.9rem "Source Sans Pro",
+      Helvetica,
+      sans-serif;
+    background: rgb(255 255 255 / 92%);
+    border: 1px solid rgb(23 36 43 / 25%);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 0.8rem rgb(23 36 43 / 15%);
+    cursor: pointer;
+
+    &:hover {
+      background: #fff;
+      border-color: $accent;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent;
+      outline-offset: 2px;
+    }
+  }
+}
+
+@media (hover: none) {
+  .deck-toolbar {
+    opacity: 1;
+  }
+}
+
+html.reveal-print .deck-toolbar {
+  display: none !important;
+}
+
+@media print {
+  .deck-toolbar {
+    display: none !important;
+  }
 }
 
 // Deck selector
