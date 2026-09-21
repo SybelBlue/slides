@@ -12,26 +12,24 @@ Add speaker notes here.
 
 ### the problem
 
-<ul class="rs-filetree">
-  <li>
-    course/
-    <ul>
-      <li>questions/</li>
-      <li class="fragment fade-in">
-        elements/
-        <ul>
-          <li>external-element/</li>
-        </ul>
-      </li>
-      <li class="fragment fade-in">
-        serverFilesCourse/
-        <ul>
-          <li>external-library/</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+*many files need vending*
+<!-- .element: class="rs-small" -->
+
+- course/
+  - .ide-config/
+    <!-- .element: class="fragment highlight-current-blue" -->
+    - cloned-pl-config/...
+      <!-- .element: class="directory" -->
+  - elements/
+    <!-- .element: class="fragment highlight-current-blue" -->
+    - external-element/...
+      <!-- .element: class="directory" -->
+  - serverFilesCourse/
+    <!-- .element: class="fragment highlight-current-blue" -->
+    - external-library/...
+      <!-- .element: class="directory" -->
+
+<!-- .element: class="rs-filetree" -->
 
 +++
 <!-- .slide: data-auto-animate -->
@@ -39,7 +37,6 @@ Add speaker notes here.
 ### the problem
 
 - courses depend on external *libraries*
-<!-- .element: class="fragment fade-in" -->
 - all tools exposed to pl cannot be git submodules
 <!-- .element: class="fragment fade-in" -->
 - some libraries must be current to unversioned branches
@@ -75,11 +72,11 @@ Add speaker notes here.
 - all tools exposed to pl cannot be git submodules
 <!-- .element: class="rs-small" -->
 > remove tracking
-<!-- .element: class="fragment rs-bad rs-small rs-center" -->
+<!-- .element: class="rs-bad rs-small rs-center" -->
 - some libraries must be current to unversioned branches
 <!-- .element: class="rs-small" -->
 > write helper scripts to enforce syncing
-<!-- .element: class="fragment rs-bad rs-small rs-center" -->
+<!-- .element: class="rs-bad rs-small rs-center" -->
 
 +++
 <!-- .slide: data-auto-animate -->
@@ -101,4 +98,4 @@ for now, we need a better solution.
 
 - cleanly installs any git tracked directory
 - comes with built-in version syncing/checking
-- configured through in-use metadata files
+- configured through uv's pyproject.toml
