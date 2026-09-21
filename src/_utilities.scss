@@ -143,6 +143,10 @@
     }
   }
 
+  .rs-inverted {
+    filter: invert(100%);
+  }
+
   .rs-card {
     padding: var(--rs-card-padding, 0.75em);
     background: var(--rs-card-background, white);
