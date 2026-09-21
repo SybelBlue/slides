@@ -99,3 +99,83 @@ for now, we need a better solution.
 - cleanly installs any git tracked directory
 - comes with built-in version syncing/checking
 - configured through uv's pyproject.toml
+
+```sh
+$ uv add --dev pl-vendor
+Added 1 package
+```
+
++++
+<!-- .slide: data-auto-animate -->
+
+### using `pl-vendor`
+
+- course/
+  - .ide-config/
+    - cloned-pl-config/...
+      <!-- .element: class="directory" -->
+  - elements/
+    - external-element/...
+      <!-- .element: class="directory" -->
+  - serverFilesCourse/
+    - external-library/...
+      <!-- .element: class="directory" -->
+
+<!-- .element: class="rs-filetree" -->
+
++++
+<!-- .slide: data-auto-animate -->
+
+### using `pl-vendor`
+
+*this needs standard dependency tracking*
+
+- course/
+  - serverFilesCourse/
+    - external-library/...
+      <!-- .element: class="directory" -->
+
+<!-- .element: class="rs-filetree" -->
+
+```toml
+[tool.pl-vendor.external-library]
+# TODO: fill me out
+```
+
++++
+<!-- .slide: data-auto-animate -->
+
+### using `pl-vendor`
+
+*this needs pinning*
+
+- course/
+  - elements/
+    - external-element/...
+      <!-- .element: class="directory" -->
+
+<!-- .element: class="rs-filetree" -->
+
+```toml
+[tool.pl-vendor.external-element]
+# TODO: fill me out
+```
+
++++
+<!-- .slide: data-auto-animate -->
+
+### using `pl-vendor`
+
+*this needs to always be current with pl/master*
+
+- course/
+  - .ide-config/
+    - cloned-pl-config/...
+      <!-- .element: class="directory" -->
+
+<!-- .element: class="rs-filetree" -->
+
+```sh
+$ uv run pl-vendor require-latest cloned-pl-config
+Package cloned-pl-config has no vendored changes
+```
