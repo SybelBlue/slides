@@ -200,7 +200,7 @@ Package cloned-pl-config has no vendored changes
 
 ### `pl-vendor` in prod
 
-![private gh listing](public/decks/pl-vendor/gh.png)
+![private gh listing](decks/pl-vendor/gh.png)
 <!-- .element: class="r-stretch" -->
 
 *no formal ties to pl, private source*
@@ -211,7 +211,7 @@ Package cloned-pl-config has no vendored changes
 
 ### `pl-vendor` in prod
 
-![pypi listing](public/decks/pl-vendor/pypi.png)
+![pypi listing](decks/pl-vendor/pypi.png)
 <!-- .element: class="r-stretch" -->
 
 *still accessible through PyPI*
