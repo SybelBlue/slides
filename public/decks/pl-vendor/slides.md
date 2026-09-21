@@ -1,19 +1,17 @@
 <!-- .slide: class="rs-center" -->
 
-## pl-vendor in calculus
+## `pl-vendor` in calculus
+
+<hr/>
 
 a temporary solution to vending course files
-
-Note:
-Add speaker notes here.
 
 ---
 <!-- .slide: data-auto-animate -->
 
 ### the problem
 
-*many files need vending*
-<!-- .element: class="rs-small" -->
+*many files need vending:*
 
 - course/
   - serverFilesCourse/
