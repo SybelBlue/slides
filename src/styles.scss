@@ -66,8 +66,32 @@ html.reveal-print .deck-toolbar {
   display: none !important;
 }
 
+body.laser-pointer-active .deck-toolbar {
+  opacity: 0;
+  pointer-events: none;
+  transition: none;
+}
+
+.presentation-laser-pointer {
+  position: fixed;
+  z-index: 50;
+  width: 14px;
+  height: 14px;
+  background: #ff3434;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgb(255 52 52 / 25%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
 @media print {
-  .deck-toolbar {
+  .deck-toolbar,
+  .presentation-laser-pointer {
     display: none !important;
   }
 }

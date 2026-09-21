@@ -5,10 +5,11 @@ import RevealMath from "reveal.js/plugin/math";
 import Notes from "reveal.js/plugin/notes";
 import Search from "reveal.js/plugin/search";
 import Zoom from "reveal.js/plugin/zoom";
+import LaserPointer from "./laser-pointer";
 
 import "reveal.js/reveal.css";
 import "reveal.js/theme/sky.css";
-import "reveal.js/plugin/highlight/monokai.css";
+import "./highlight-atom-one-dark.css";
 import "./styles.scss";
 
 import deckCatalog from "./decks.json";
@@ -78,7 +79,15 @@ async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
     history: true,
     slideNumber: "c/t",
     transition: "slide",
-    plugins: [Highlight, Markdown, RevealMath.KaTeX, Notes, Search, Zoom],
+    plugins: [
+      Markdown,
+      Highlight,
+      RevealMath.KaTeX,
+      Notes,
+      Search,
+      Zoom,
+      LaserPointer,
+    ],
   });
 
   await deck.initialize();

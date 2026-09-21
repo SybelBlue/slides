@@ -101,7 +101,7 @@ for now, we need a better solution.
 - configured through uv's pyproject.toml
 <!-- .element: class="fragment fade-in" -->
 
-```sh
+```shell
 $ uv add --dev pl-vendor
 Added 1 package
 $ uv run pl-vendor init
@@ -189,7 +189,7 @@ subdirectory = "apps/prairielearn/src/schemas/schemas"
 branch = "us-prod-live"
 ```
 
-```sh
+```shell
 $ uv run pl-vendor sync
 $ uv run pl-vendor require-latest cloned-pl-config
 Package cloned-pl-config has no vendored changes

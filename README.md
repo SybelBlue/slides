@@ -100,10 +100,11 @@ The enabled Reveal.js plugins provide Markdown, syntax highlighting, KaTeX math,
 - <kbd>Space</kbd> or the arrow keys to navigate
 - <kbd>O</kbd> for the overview
 - <kbd>S</kbd> for speaker view
+- <kbd>L</kbd> to toggle the laser pointer
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> to search
 - <kbd>Alt</kbd>/<kbd>Option</kbd>+click to zoom
 
-For a PDF-friendly view, add `&print-pdf` to a deck URL, such as `?deck=template&print-pdf`, and print from a Chromium-based browser.
+On the first slide, move the mouse to the lower-left corner to reveal **Back to decks** and **Print mode**. The controls fade as the mouse moves away and stay hidden while the laser pointer is active. **Print mode** opens Reveal.js's PDF layout; use the browser print dialog to export. You can also add `&print-pdf` to a deck URL, such as `?deck=template&print-pdf`, and print from a Chromium-based browser.
 
 ## Production build
 
