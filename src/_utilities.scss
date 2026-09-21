@@ -8,7 +8,21 @@
     }
   }
 
+  &.rs-small {
+    font-size: calc(var(--r-main-font-size) * 0.8);
+  }
+
+  .rs-small {
+    font-size: 0.8em;
+  }
+
   blockquote {
+    padding: 10px;
+
+    &.rs-small {
+      height: 80%;
+    }
+
     &.rs-good {
       background-color: rgb(94 203 94);
     }
@@ -38,6 +52,33 @@
     color: rgb(34 34 34 / 60%);
     font-size: 60%;
     font-style: italic;
+  }
+
+  .rs-kicker {
+    margin: 0;
+    color: var(--rs-kicker-color, currentColor);
+    font-size: 0.43em;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .rs-lede {
+    max-width: 850px;
+    margin: 0;
+    color: var(--rs-lede-color, currentColor);
+    font-size: 0.68em;
+    line-height: 1.45;
+  }
+
+  .rs-takeaway {
+    padding: 0.75em 0.9em;
+    margin: 0.75em 0 0;
+    font-size: 0.55em;
+    font-weight: 700;
+    background: var(--rs-takeaway-background, rgb(23 36 43 / 8%));
+    border-left: 6px solid var(--rs-takeaway-border-color, currentColor);
+    border-radius: 0 10px 10px 0;
   }
 
   .rs-grid {

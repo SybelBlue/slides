@@ -8,5 +8,10 @@
     "title": "Pl Marketplace",
     "description": "Thoughts on user's needs around a shared marketplace for course content",
     "directory": "/decks/pl-marketplace"
+  },
+  "pl-vendor": {
+    "title": "pl-vendor in calculus",
+    "description": "A Reveal.js presentation.",
+    "directory": "/decks/pl-vendor"
   }
 }
