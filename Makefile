@@ -6,6 +6,7 @@ URL_PREFIX ?= /decks
 export DECK_ID := $(ID)
 export DECK_TITLE := $(TITLE)
 export DECK_DESCRIPTION := $(DESCRIPTION)
+export DECK_TAGS := $(TAGS)
 export DECK_CATALOG_PATH := $(CATALOG)
 export DECK_PUBLIC_DIR := $(DECK_DIR)
 export DECK_URL_PREFIX := $(URL_PREFIX)
@@ -23,7 +24,7 @@ help:
 		'  make build    Build the static presentation site' \
 		'  make preview  Preview the production build locally' \
 		'  make new-deck Create a deck and add it to the JSON catalog' \
-		'                  Optional: ID=name TITLE="Title" DESCRIPTION="Summary"' \
+		'                  Optional: ID=name TITLE="Title" DESCRIPTION="Summary" TAGS="Topic, Type"' \
 		'  make clean    Remove the generated dist directory'
 
 install:

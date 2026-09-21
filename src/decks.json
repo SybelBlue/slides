@@ -2,16 +2,19 @@
   "template": {
     "title": "Template presentation",
     "description": "Markdown syntax, layouts, fragments, code, and KaTeX examples.",
-    "directory": "/decks/template"
+    "directory": "/decks/template",
+    "tags": ["Template"]
   },
   "pl-marketplace": {
     "title": "Pl Marketplace",
     "description": "Thoughts on user's needs around a shared marketplace for course content",
-    "directory": "/decks/pl-marketplace"
+    "directory": "/decks/pl-marketplace",
+    "tags": ["PrairieLearn", "Design"]
   },
   "pl-vendor": {
     "title": "pl-vendor in calculus",
-    "description": "A Reveal.js presentation.",
-    "directory": "/decks/pl-vendor"
+    "description": "A new tool for vending course files",
+    "directory": "/decks/pl-vendor",
+    "tags": ["PrairieLearn", "Tooling"]
   }
 }

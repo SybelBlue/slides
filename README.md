@@ -30,10 +30,10 @@ make new-deck
 Or provide the values in one command:
 
 ```sh
-make new-deck ID=workshop TITLE="Workshop" DESCRIPTION="Hands-on exercises"
+make new-deck ID=workshop TITLE="Workshop" DESCRIPTION="Hands-on exercises" TAGS="Teaching, PrairieLearn"
 ```
 
-The command creates `public/decks/<id>/slides.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing deck directories. Catalog entries use `directory` and point only to the deck's public directory; the loader requires that directory to contain exactly one `slides.md` or `slides.html` file.
+The command creates `public/decks/<id>/slides.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing deck directories. Catalog entries use `directory` and point only to the deck's public directory; the loader requires that directory to contain exactly one `slides.md` or `slides.html` file. Add tags with the optional comma-separated `TAGS` value or edit the catalog's `tags` array directly. Tags appear as badges on the selection page, and the buttons under the page title filter decks by one tag at a time. Use **All** to reset the filter.
 
 For example, a `workshop` entry would be available at `?deck=workshop`. If the URL has no `deck` parameter—or the key is not recognized—the selection list is shown.
 
@@ -69,6 +69,29 @@ vertical stack:
   <section><h2>Vertical slide two</h2></section>
 </section>
 ```
+
+### File trees
+
+Use the shared `rs-filetree` class on an outer `<ul>`. Nest another `<ul>` inside
+each directory's `<li>`; directories with children are emphasized automatically.
+
+```html
+<ul class="rs-filetree">
+  <li>README.md</li>
+  <li>
+    src/
+    <ul>
+      <li>main.ts</li>
+      <li>styles.scss</li>
+    </ul>
+  </li>
+  <li class="directory">empty-directory/</li>
+</ul>
+```
+
+Use `class="directory"` for an empty directory. Set `--rs-filetree-font-size`,
+`--rs-filetree-font-family`, `--rs-filetree-indent`, or
+`--rs-filetree-guide-color` on the list or a containing slide to customize it.
 
 Presentation behavior is configured in [`src/main.ts`](src/main.ts), and shared visual overrides live in [`src/styles.scss`](src/styles.scss). A deck can add scoped Sass beside its slides and public dependencies in `_styles.scss`; Vite discovers and compiles these files automatically. The template uses the Sky theme; change the `reveal.js/theme/sky.css` import to select another bundled theme.
 

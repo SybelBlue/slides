@@ -94,6 +94,46 @@
     }
   }
 
+  ul.rs-filetree {
+    --rs-filetree-indent: 1.25em;
+    --rs-filetree-guide-color: rgb(127 127 127 / 40%);
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-family: var(
+      --rs-filetree-font-family,
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Consolas,
+      monospace
+    );
+    font-size: var(--rs-filetree-font-size, 0.6em);
+    line-height: 1.5;
+    list-style: none;
+    text-align: left;
+
+    ul {
+      display: block;
+      padding: 0 0 0 var(--rs-filetree-indent);
+      margin: 0 0 0 0.35em;
+      border-left: 1px solid var(--rs-filetree-guide-color);
+      font-size: 1em;
+      list-style: none;
+    }
+
+    li {
+      padding: 0.05em 0;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    li:has(> ul),
+    li.directory {
+      font-weight: 700;
+    }
+  }
+
   .rs-numbered {
     --rs-numbered-counter-style: decimal;
     counter-reset: rs-numbered-item;

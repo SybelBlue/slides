@@ -12,6 +12,32 @@ Add speaker notes here.
 
 ### the problem
 
+<ul class="rs-filetree">
+  <li>
+    course/
+    <ul>
+      <li>questions/</li>
+      <li class="fragment fade-in">
+        elements/
+        <ul>
+          <li>external-element/</li>
+        </ul>
+      </li>
+      <li class="fragment fade-in">
+        serverFilesCourse/
+        <ul>
+          <li>external-library/</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
++++
+<!-- .slide: data-auto-animate -->
+
+### the problem
+
 - courses depend on external *libraries*
 <!-- .element: class="fragment fade-in" -->
 - all tools exposed to pl cannot be git submodules
@@ -72,3 +98,7 @@ for now, we need a better solution.
 *the new solution*
 <!-- .element: class="rs-lede" -->
 ### `pl-vendor`
+
+- cleanly installs any git tracked directory
+- comes with built-in version syncing/checking
+- configured through in-use metadata files

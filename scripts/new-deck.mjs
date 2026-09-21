@@ -35,6 +35,9 @@ try {
     "DECK_DESCRIPTION",
     "Description [A Reveal.js presentation.]: ",
   );
+  const tags = parseTags(
+    await getValue("DECK_TAGS", "Tags (comma-separated) [none]: "),
+  );
   const finalTitle = title || defaultTitle;
   const finalDescription = description || "A Reveal.js presentation.";
   const deckPath = path.join(deckDirectory, id);
@@ -62,6 +65,7 @@ try {
       title: finalTitle,
       description: finalDescription,
       directory: directoryUrl,
+      tags,
     },
   };
   const temporaryCatalogPath = `${catalogPath}.${process.pid}.tmp`;
@@ -116,6 +120,24 @@ async function getValue(environmentName, question) {
   }
 
   return interactive ? await ask(question) : "";
+}
+
+function parseTags(value) {
+  const seen = new Set();
+
+  return value
+    .split(",")
+    .map((tag) => tag.trim().replace(/\s+/g, " "))
+    .filter((tag) => {
+      const key = tag.toLowerCase();
+
+      if (!key || seen.has(key)) {
+        return false;
+      }
+
+      seen.add(key);
+      return true;
+    });
 }
 
 async function ask(question) {

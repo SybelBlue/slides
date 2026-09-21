@@ -17,6 +17,7 @@ interface DeckConfig {
   title: string;
   description: string;
   directory: string;
+  tags?: string[];
 }
 
 interface DeckSource {
@@ -165,7 +166,10 @@ function getDeckDirectoryUrl(directory: string): string {
 function showDeckSelector(unknownDeckId: string | null): void {
   const selector = requireElement<HTMLElement>("#deck-selector");
   const message = requireElement<HTMLElement>("#deck-selector-message");
+  const filters = requireElement<HTMLElement>("#deck-filters");
   const deckList = requireElement<HTMLUListElement>("#deck-list");
+  const deckItems: { item: HTMLLIElement; tags: string[] }[] = [];
+  const filterButtons = new Map<string | null, HTMLButtonElement>();
 
   if (unknownDeckId) {
     message.textContent = `No deck named “${unknownDeckId}” was found. Choose an available presentation.`;
@@ -176,18 +180,60 @@ function showDeckSelector(unknownDeckId: string | null): void {
     const link = document.createElement("a");
     const title = document.createElement("strong");
     const description = document.createElement("span");
+    const tags = document.createElement("ul");
     const url = new URL(window.location.pathname, window.location.origin);
 
     url.searchParams.set("deck", id);
     link.href = url.href;
     link.className = "deck-card";
     title.textContent = deckConfig.title;
+    description.className = "deck-card__description";
     description.textContent = deckConfig.description;
+    tags.className = "deck-card__tags";
+    tags.setAttribute("aria-label", "Tags");
+
+    for (const tag of deckConfig.tags ?? []) {
+      const badge = document.createElement("li");
+      badge.className = "deck-card__tag";
+      badge.textContent = tag;
+      tags.append(badge);
+    }
+
     link.append(title, description);
+
+    if (tags.childElementCount > 0) {
+      link.append(tags);
+    }
+
     item.append(link);
     deckList.append(item);
+    deckItems.push({ item, tags: deckConfig.tags ?? [] });
   }
 
+  const availableTags = [
+    ...new Set(Object.values(decks).flatMap((deck) => deck.tags ?? [])),
+  ].sort((first, second) => first.localeCompare(second));
+
+  for (const tag of [null, ...availableTags]) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "deck-filter";
+    button.textContent = tag ?? "All";
+    button.setAttribute("aria-pressed", String(tag === null));
+    button.addEventListener("click", () => {
+      for (const { item, tags } of deckItems) {
+        item.hidden = tag !== null && !tags.includes(tag);
+      }
+
+      for (const [filterTag, filterButton] of filterButtons) {
+        filterButton.setAttribute("aria-pressed", String(filterTag === tag));
+      }
+    });
+    filterButtons.set(tag, button);
+    filters.append(button);
+  }
+
+  filters.hidden = availableTags.length === 0;
   selector.hidden = false;
 }
 
