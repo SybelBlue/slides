@@ -117,3 +117,4 @@ The generated static site is written to `dist/`.
 
 Pushes to `main` build and deploy the site to
 <https://sybelblue.github.io/slides/> with GitHub Actions.
+Open the deployed site in your system's default browser with `make open`.
