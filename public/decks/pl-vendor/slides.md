@@ -84,6 +84,21 @@ The motivation is repeatability, not that any one copy command is difficult. Wit
 
 ---
 
+### Three distinct dependency jobs
+
+<div class="rs-grid cols-3 plv-boundary">
+  <div class="rs-card"><small>Local development</small><strong><code>uv</code></strong><p>Installs python dev dependencies like <code>pyright, pl-vendor</code>.</p></div>
+  <div class="rs-card secondary"><small>Source vendoring</small><strong><code>pl-vendor</code></strong><p>Copies upstream source into course paths and records the exact revision.</p></div>
+  <div class="rs-card"><small>Question execution</small><strong>PrairieLearn runtime</strong><p>Executes course elements and helper files in its configured environment.</p></div>
+</div>
+
+<p class="rs-takeaway"><code>pl-vendor</code> is never deployed to runtime; it's a dependency manager only.</p>
+
+Note:
+The same pyproject.toml happens to hold two different kinds of configuration: uv's development dependency on the CLI, and [tool.pl-vendor] entries describing source directories to copy. Neither makes the CLI a runtime dependency. Vendored Python helper code may itself be imported by question code at runtime, but any third-party Python packages it imports must be available in the appropriate PrairieLearn question runtime, external grader, or workspace environment. Those environments have separate dependency rules.
+
++++
+
 ### The file lifecycle
 
 <div class="rs-workflow plv-flow">
@@ -98,21 +113,6 @@ The motivation is repeatability, not that any one copy command is difficult. Wit
 
 Note:
 This diagram follows the runtime-content path. The vendored element and helper files are committed to the calculus course repository and available when PrairieLearn syncs that course; the vendored PrairieLearn schemas instead support local and CI validation. pl-vendor runs on a developer's machine and in CI, not as part of a student request or PrairieLearn course execution. A person receiving the course gets the checked-in files. They do not have to run pl-vendor to use the course as delivered; they need it only if they intend to maintain or update those upstream copies.
-
----
-
-### Three distinct dependency jobs
-
-<div class="rs-grid cols-3 plv-boundary">
-  <div class="rs-card"><small>Local development</small><strong><code>uv</code></strong><p>Installs python dev dependencies like <code>pyright, pl-vendor</code>.</p></div>
-  <div class="rs-card secondary"><small>Source vendoring</small><strong><code>pl-vendor</code></strong><p>Copies upstream source into course paths and records the exact revision.</p></div>
-  <div class="rs-card"><small>Question execution</small><strong>PrairieLearn runtime</strong><p>Executes course elements and helper files in its configured environment.</p></div>
-</div>
-
-<p class="rs-takeaway"><code>pl-vendor</code> is never deployed to runtime; it's a dependency manager only.</p>
-
-Note:
-The same pyproject.toml happens to hold two different kinds of configuration: uv's development dependency on the CLI, and [tool.pl-vendor] entries describing source directories to copy. Neither makes the CLI a runtime dependency. Vendored Python helper code may itself be imported by question code at runtime, but any third-party Python packages it imports must be available in the appropriate PrairieLearn question runtime, external grader, or workspace environment. Those environments have separate dependency rules.
 
 ---
 
@@ -133,6 +133,21 @@ branch = "release"</code></pre>
 
 Note:
 This example is from the current Calc 2 repository. The manifest says where to fetch the element, where to put it, and which branch to follow. The lockfile records the resolved Git commit. Tracking a branch does not mean a live course automatically changes when that branch moves. The copied files change only when a developer updates them and commits the result. The exact hash shown should be refreshed from Calc 2 if the deck is reused after that repository updates.
+
++++
+
+### Custom elements also need version pins
+
+<div class="rs-grid cols-2 plv-compare">
+  <div class="rs-card"><strong><code>pl-equation-input</code></strong><p>Vendors <code>pl-symbolic-input</code> internally.</p></div>
+  <div class="rs-card secondary"><strong><code>pl-big-operator-input</code></strong><p>Vendors <code>pl-symbolic-input</code> internally.</p></div>
+</div>
+
+<p class="rs-takeaway">Both also need <code>pl-vendor</code> to pin core elements to the API they expect.</p>
+
+Note:
+Moving an element into core or distributing it through a future marketplace does not eliminate its internal dependency-management need. Both elements carry selected <code>pl-symbolic-input</code> source internally, and <code>pl-vendor</code> keeps each copy fixed to the intended upstream revision.
+
 
 ---
 <!-- .slide: class="plv-commands" -->
@@ -165,7 +180,6 @@ The actual Calc 2 Makefile runs these commands with uv run --active. Its deps ta
 
 Note:
 The requested approval is for this internal calculus workflow. It is not a request to make pl-vendor a PrairieLearn platform dependency or to recommend it to every course author. Moving Big Operator into core would remove one reason to vendor that element, but it would not automatically remove the need to maintain other shared components. A future marketplace may offer a different solution; this tool addresses the existing course-file workflow now.
-
 ---
 
 <!-- .slide: class="rs-center" -->
