@@ -65,6 +65,7 @@ try {
       title: finalTitle,
       description: finalDescription,
       directory: directoryUrl,
+      theme: "sky",
       tags,
     },
   };

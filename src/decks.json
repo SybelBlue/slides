@@ -3,30 +3,35 @@
     "title": "Template presentation",
     "description": "Markdown syntax, layouts, fragments, code, and KaTeX examples.",
     "directory": "/decks/template",
+    "theme": "sky",
     "tags": ["Template"]
   },
   "pl-marketplace": {
     "title": "Pl Marketplace",
     "description": "Thoughts on user's needs around a shared marketplace for course content",
     "directory": "/decks/pl-marketplace",
+    "theme": "sky",
     "tags": ["PrairieLearn", "Design"]
   },
   "pl-vendor": {
     "title": "pl-vendor in calculus",
     "description": "A new tool for vending course files",
     "directory": "/decks/pl-vendor",
+    "theme": "sky",
     "tags": ["PrairieLearn", "Tooling"]
   },
   "pl-question-pipeline": {
     "title": "Three-pass PrairieLearn question pipeline",
     "description": "Generate fixed questions, randomize them safely, then tag the stabilized question bank.",
     "directory": "/decks/pl-question-pipeline",
+    "theme": "sky",
     "tags": ["PrairieLearn", "Tooling"]
   },
   "calculus-roadmap": {
     "title": "Calculus content roadmap",
     "description": "Course status, development targets, and pilot planning.",
     "directory": "/decks/calculus-roadmap",
+    "theme": "moon",
     "tags": ["Learnvia", "Planning"]
   }
 }

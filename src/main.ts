@@ -6,11 +6,14 @@ import Notes from "reveal.js/plugin/notes";
 import Search from "reveal.js/plugin/search";
 import Zoom from "reveal.js/plugin/zoom";
 import LaserPointer from "./laser-pointer";
+import {
+  DEFAULT_REVEAL_THEME,
+  isRevealTheme,
+  RevealTheme,
+} from "./reveal-themes";
 
 import "reveal.js/reveal.css";
-import "reveal.js/theme/sky.css";
 import "./highlight-atom-one-dark.css";
-import "./styles.scss";
 
 import deckCatalog from "./decks.json";
 
@@ -19,6 +22,7 @@ interface DeckConfig {
   description: string;
   directory: string;
   tags?: string[];
+  theme?: RevealTheme;
 }
 
 interface DeckSource {
@@ -27,7 +31,26 @@ interface DeckSource {
   content: string;
 }
 
-const decks: Record<string, DeckConfig> = deckCatalog;
+const themeLoaders = {
+  [RevealTheme.Beige]: () => import("reveal.js/theme/beige.css"),
+  [RevealTheme.Black]: () => import("reveal.js/theme/black.css"),
+  [RevealTheme.BlackContrast]: () =>
+    import("reveal.js/theme/black-contrast.css"),
+  [RevealTheme.Blood]: () => import("reveal.js/theme/blood.css"),
+  [RevealTheme.Dracula]: () => import("reveal.js/theme/dracula.css"),
+  [RevealTheme.League]: () => import("reveal.js/theme/league.css"),
+  [RevealTheme.Moon]: () => import("reveal.js/theme/moon.css"),
+  [RevealTheme.Night]: () => import("reveal.js/theme/night.css"),
+  [RevealTheme.Serif]: () => import("reveal.js/theme/serif.css"),
+  [RevealTheme.Simple]: () => import("reveal.js/theme/simple.css"),
+  [RevealTheme.Sky]: () => import("reveal.js/theme/sky.css"),
+  [RevealTheme.Solarized]: () => import("reveal.js/theme/solarized.css"),
+  [RevealTheme.White]: () => import("reveal.js/theme/white.css"),
+  [RevealTheme.WhiteContrast]: () =>
+    import("reveal.js/theme/white-contrast.css"),
+} satisfies Record<RevealTheme, () => Promise<unknown>>;
+
+const decks = deckCatalog as Record<string, DeckConfig>;
 const deckId = new URLSearchParams(window.location.search).get("deck");
 const selectedDeck =
   deckId && Object.hasOwn(decks, deckId) ? decks[deckId] : undefined;
@@ -35,13 +58,18 @@ const selectedDeck =
 if (selectedDeck) {
   void initializePresentation(selectedDeck);
 } else {
-  showDeckSelector(deckId);
+  void initializeDeckSelector(deckId);
 }
 
 async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
   const presentation = requireElement<HTMLElement>("#presentation");
   const slides = requireElement<HTMLElement>(".slides", presentation);
-  const source = await resolveDeckSource(deckConfig.directory);
+  const theme = resolveRevealTheme(deckConfig.theme);
+  const [source] = await Promise.all([
+    resolveDeckSource(deckConfig.directory),
+    themeLoaders[theme](),
+  ]);
+  await import("./styles.scss");
 
   document.title = `${deckConfig.title} · Reveal.js`;
 
@@ -92,6 +120,25 @@ async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
 
   await deck.initialize();
   initializeDeckToolbar(deck);
+}
+
+async function initializeDeckSelector(
+  unknownDeckId: string | null,
+): Promise<void> {
+  await import("./styles.scss");
+  showDeckSelector(unknownDeckId);
+}
+
+function resolveRevealTheme(theme: unknown): RevealTheme {
+  if (theme === undefined) {
+    return DEFAULT_REVEAL_THEME;
+  }
+
+  if (!isRevealTheme(theme)) {
+    throw new Error(`Unknown Reveal theme “${String(theme)}”.`);
+  }
+
+  return theme;
 }
 
 function initializeDeckToolbar(deck: InstanceType<typeof Reveal>): void {

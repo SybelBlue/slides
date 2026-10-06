@@ -2,6 +2,7 @@ import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, normalizePath, type Plugin } from "vite";
+import { isRevealTheme, REVEAL_THEMES } from "./src/reveal-themes.ts";
 
 const projectRoot = dirname(fileURLToPath(import.meta.url));
 const catalogPath = resolve(projectRoot, "src/decks.json");
@@ -103,6 +104,12 @@ function getDeckDirectories(): string[] {
       typeof entry.directory !== "string"
     ) {
       throw new Error(`Deck “${id}” must define a directory.`);
+    }
+
+    if ("theme" in entry && !isRevealTheme(entry.theme)) {
+      throw new Error(
+        `Deck “${id}” has invalid theme “${String(entry.theme)}”. Choose one of: ${REVEAL_THEMES.join(", ")}.`,
+      );
     }
 
     return resolvePublicDirectory(entry.directory, id);
