@@ -1,0 +1,522 @@
+.reveal {
+  .pqp-slide > h2 {
+    margin-bottom: 0.35em;
+    font-size: 1.15em;
+    line-height: 1.05;
+  }
+
+  .pqp-title {
+    .pqp-title-heading {
+      width: 100%;
+      margin-bottom: 0.45em;
+      line-height: 1.02;
+    }
+
+    .rs-lede {
+      margin: 0.7em auto 0;
+    }
+  }
+
+  .pqp-passline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em 0 0;
+    gap: 0.45em;
+    font-size: 0.62em;
+    font-weight: 700;
+
+    span {
+      padding: 0.35em 0.65em;
+      background: rgb(22 131 167 / 12%);
+      border: 1px solid rgb(22 131 167 / 28%);
+      border-radius: 999px;
+    }
+
+    i {
+      color: #1683a7;
+      font-style: normal;
+    }
+  }
+
+  .pqp-risk-grid,
+  .pqp-pass-detail,
+  .pqp-tag-pass,
+  .pqp-patterns {
+    align-items: stretch;
+    margin-top: 0.7em;
+
+    .rs-card {
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    small {
+      display: block;
+      margin-bottom: 0.45em;
+      color: var(--rs-card-muted-color, #04545c);
+      font-size: 0.48em;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 0.4em;
+      font-size: 0.75em;
+    }
+
+    p,
+    li {
+      font-size: 0.52em;
+      line-height: 1.35;
+    }
+  }
+
+  .pqp-risk-grid .rs-card {
+    font-size: 0.88em;
+  }
+
+  .pqp-flow {
+    min-height: 320px;
+    gap: 0.18em;
+
+    .step {
+      min-height: 215px;
+      text-align: left;
+    }
+
+    .arrow {
+      flex-basis: 35px;
+      color: #1683a7;
+    }
+
+    small {
+      min-height: 2.5em;
+      font-size: 0.42em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    strong {
+      margin: 0.55em 0;
+      font-size: 0.72em;
+    }
+
+    span {
+      font-size: 0.48em;
+      line-height: 1.35;
+    }
+  }
+
+  .pqp-gates {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: -0.75em;
+    gap: 3em;
+
+    span {
+      color: rgb(23 36 43 / 62%);
+      font-size: 0.38em;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .pqp-contract-slide {
+    pre {
+      width: 100%;
+      margin: 0.35em 0;
+      font-size: 0.4em;
+    }
+  }
+
+  .pqp-contract-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.28em;
+
+    .rs-card {
+      padding: 0.5em 0.65em;
+      text-align: left;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 0.2em;
+      font-size: 0.58em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.45em;
+      line-height: 1.3;
+    }
+  }
+
+  .pqp-pass-detail {
+    gap: 0.8em;
+
+    .rs-card {
+      padding: 0.8em;
+    }
+  }
+
+  .pqp-files .rs-filetree {
+    margin-top: 0.45em;
+    font-size: 0.58em;
+  }
+
+  .pqp-checklist ul,
+  .pqp-invariant-grid ul,
+  .pqp-tag-pass ul {
+    padding-left: 1.1em;
+    margin: 0.35em 0 0;
+  }
+
+  .pqp-checklist li,
+  .pqp-invariant-grid li,
+  .pqp-tag-pass li {
+    margin: 0.28em 0;
+  }
+
+  .pqp-invariant-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 0.55em minmax(0, 1fr);
+    align-items: center;
+    margin-top: 0.65em;
+    gap: 0.35em;
+
+    .rs-card {
+      box-sizing: border-box;
+      min-height: 220px;
+      text-align: left;
+    }
+
+    small {
+      display: block;
+      color: #04545c;
+      font-size: 0.48em;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    li {
+      font-size: 0.52em;
+      line-height: 1.35;
+    }
+  }
+
+  .pqp-invariant-mark {
+    color: #1683a7;
+    font-size: 1.2em;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .pqp-audit-strip,
+  .pqp-transition {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 0.55em;
+    gap: 0.35em;
+
+    span {
+      padding: 0.55em;
+      font-size: 0.4em;
+      line-height: 1.25;
+      background: rgb(23 36 43 / 7%);
+      border-radius: 8px;
+    }
+
+    strong {
+      display: block;
+      color: #04545c;
+      font-size: 1.05em;
+    }
+  }
+
+  .pqp-example,
+  .pqp-scale-flow,
+  .pqp-graph-route {
+    display: flex;
+    align-items: center;
+    margin-top: 0.65em;
+    gap: 0.3em;
+
+    .rs-card {
+      display: flex;
+      flex: 1;
+      box-sizing: border-box;
+      min-height: 185px;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .arrow {
+      flex: 0 0 50px;
+      color: #1683a7;
+      font-size: 0.85em;
+      font-style: normal;
+      text-align: center;
+
+      &::before {
+        content: "→";
+      }
+    }
+
+    small {
+      color: var(--rs-card-muted-color, #04545c);
+      font-size: 0.45em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    strong {
+      margin: 0.5em 0;
+      font-size: 0.68em;
+    }
+
+    p,
+    span {
+      margin: 0;
+      font-size: 0.48em;
+      line-height: 1.35;
+    }
+  }
+
+  .pqp-proof-points {
+    margin-top: 0.5em;
+
+    div {
+      padding: 0.25em;
+      text-align: center;
+    }
+
+    strong {
+      display: block;
+      color: #04545c;
+      font-size: 0.78em;
+    }
+
+    span {
+      display: block;
+      font-size: 0.4em;
+    }
+  }
+
+  .pqp-placeholder-triptych {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 0.6em;
+    gap: 0.45em;
+  }
+
+  .pqp-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-direction: column;
+    padding: 0.8em;
+    color: rgb(23 36 43 / 62%);
+    background: repeating-linear-gradient(
+      -45deg,
+      rgb(22 131 167 / 4%),
+      rgb(22 131 167 / 4%) 12px,
+      rgb(22 131 167 / 9%) 12px,
+      rgb(22 131 167 / 9%) 24px
+    );
+    border: 2px dashed rgb(22 131 167 / 45%);
+    border-radius: 12px;
+    text-align: center;
+
+    strong {
+      margin-bottom: 0.35em;
+      color: #04545c;
+      font-size: 0.58em;
+    }
+
+    span {
+      font-size: 0.42em;
+    }
+  }
+
+  .pqp-scale-flow {
+    gap: 0.18em;
+
+    .rs-card {
+      align-items: center;
+      min-height: 205px;
+      padding: 0.55em;
+      text-align: center;
+    }
+
+    .arrow {
+      flex-basis: 26px;
+    }
+
+    strong {
+      margin: 0.16em 0;
+      font-size: 1.1em;
+    }
+  }
+
+  .pqp-transition {
+    grid-template-columns: repeat(2, 1fr);
+
+    span {
+      font-size: 0.48em;
+      text-align: center;
+    }
+  }
+
+  .pqp-upcoming {
+    display: inline-block;
+    padding: 0.2em 0.55em;
+    margin-left: 0.25em;
+    color: #04545c;
+    font-size: 0.38em;
+    vertical-align: middle;
+    background: #b9e6d2;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .pqp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.45em;
+    gap: 0.3em;
+
+    span {
+      padding: 0.35em 0.55em;
+      color: #172b2d;
+      font-size: 0.43em;
+      font-weight: 700;
+      background: rgb(255 255 255 / 72%);
+      border: 1px solid rgb(4 84 92 / 22%);
+      border-radius: 999px;
+    }
+  }
+
+  .pqp-boundaries {
+    table {
+      width: 100%;
+      margin-top: 0.55em;
+      font-size: 0.48em;
+    }
+
+    th,
+    td {
+      line-height: 1.28;
+      vertical-align: top;
+    }
+
+    th:first-child,
+    td:first-child {
+      white-space: nowrap;
+    }
+  }
+
+  .pqp-next-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 0.55em;
+    gap: 0.35em;
+
+    .rs-card {
+      position: relative;
+      box-sizing: border-box;
+      min-height: 115px;
+      padding-left: 2.1em;
+      text-align: left;
+
+      &::before {
+        position: absolute;
+        top: 0.55em;
+        left: 0.65em;
+        display: grid;
+        width: 1.05em;
+        height: 1.05em;
+        color: white;
+        font-size: 0.62em;
+        font-weight: 800;
+        background: #04545c;
+        border-radius: 50%;
+        place-items: center;
+      }
+    }
+
+    .rs-card:last-child {
+      grid-column: 1 / -1;
+    }
+
+    strong {
+      display: block;
+      font-size: 0.56em;
+    }
+
+    p {
+      margin: 0.3em 0 0;
+      font-size: 0.43em;
+      line-height: 1.3;
+    }
+  }
+
+  .pqp-close {
+    .rs-lede {
+      margin: 1em auto 0;
+    }
+  }
+
+  .pqp-close-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.1em;
+    gap: 0.4em;
+
+    span {
+      display: flex;
+      min-width: 180px;
+      flex-direction: column;
+      padding: 0.6em;
+      background: rgb(22 131 167 / 10%);
+      border-radius: 12px;
+    }
+
+    strong {
+      font-size: 0.67em;
+    }
+
+    small {
+      margin-top: 0.3em;
+      font-size: 0.36em;
+    }
+
+    i {
+      color: #1683a7;
+      font-style: normal;
+    }
+  }
+
+  .pqp-graph-route {
+    .rs-card {
+      min-height: 130px;
+    }
+  }
+
+  .pqp-graph-placeholder {
+    min-height: 210px;
+    margin-top: 0.5em;
+  }
+}

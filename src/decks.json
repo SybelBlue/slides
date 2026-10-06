@@ -16,5 +16,17 @@
     "description": "A new tool for vending course files",
     "directory": "/decks/pl-vendor",
     "tags": ["PrairieLearn", "Tooling"]
+  },
+  "pl-question-pipeline": {
+    "title": "Three-pass PrairieLearn question pipeline",
+    "description": "Generate fixed questions, randomize them safely, then tag the stabilized question bank.",
+    "directory": "/decks/pl-question-pipeline",
+    "tags": ["PrairieLearn", "Tooling"]
+  },
+  "calculus-roadmap": {
+    "title": "Calculus content roadmap",
+    "description": "Course status, development targets, and pilot planning.",
+    "directory": "/decks/calculus-roadmap",
+    "tags": ["Learnvia", "Planning"]
   }
 }
