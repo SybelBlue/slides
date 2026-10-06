@@ -97,6 +97,8 @@ Presentation behavior is configured in [`src/main.ts`](src/main.ts), and shared 
 
 Choose a bundled Reveal theme with the catalog entry's `theme` property. Supported values are `beige`, `black`, `black-contrast`, `blood`, `dracula`, `league`, `moon`, `night`, `serif`, `simple`, `sky`, `solarized`, `white`, and `white-contrast`. Decks without a `theme` property use `sky`.
 
+Theme-specific overrides live in `src/theme-extensions/<theme>.scss`. The file name must match the catalog theme exactly. Reveal loads the matching extension after the base theme and shared styles, so its declarations take precedence. For example, `src/theme-extensions/moon.scss` can tune the heading font without affecting other themes.
+
 The enabled Reveal.js plugins provide Markdown, syntax highlighting, KaTeX math, speaker notes, slide search, and zoom. Useful presenter shortcuts include:
 
 - <kbd>Space</kbd> or the arrow keys to navigate

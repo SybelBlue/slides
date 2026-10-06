@@ -50,6 +50,8 @@ const themeLoaders = {
     import("reveal.js/theme/white-contrast.css"),
 } satisfies Record<RevealTheme, () => Promise<unknown>>;
 
+const themeExtensionLoaders = import.meta.glob("./theme-extensions/*.scss");
+
 const decks = deckCatalog as Record<string, DeckConfig>;
 const deckId = new URLSearchParams(window.location.search).get("deck");
 const selectedDeck =
@@ -70,6 +72,7 @@ async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
     themeLoaders[theme](),
   ]);
   await import("./styles.scss");
+  await loadThemeExtension(theme);
 
   document.title = `${deckConfig.title} · Reveal.js`;
 
@@ -139,6 +142,13 @@ function resolveRevealTheme(theme: unknown): RevealTheme {
   }
 
   return theme;
+}
+
+async function loadThemeExtension(theme: RevealTheme): Promise<void> {
+  const extensionPath = `./theme-extensions/${theme}.scss`;
+  const loadExtension = themeExtensionLoaders[extensionPath];
+
+  await loadExtension?.();
 }
 
 function initializeDeckToolbar(deck: InstanceType<typeof Reveal>): void {

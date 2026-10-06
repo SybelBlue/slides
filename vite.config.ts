@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, normalizePath, type Plugin } from "vite";
@@ -8,6 +8,7 @@ const projectRoot = dirname(fileURLToPath(import.meta.url));
 const catalogPath = resolve(projectRoot, "src/decks.json");
 const publicDirectory = resolve(projectRoot, "public");
 const sharedStylesPath = normalizePath(resolve(projectRoot, "src/styles.scss"));
+const themeExtensionsDirectory = resolve(projectRoot, "src/theme-extensions");
 
 export default defineConfig(({ command, isPreview }) => {
   validateDeckDirectories();
@@ -72,6 +73,8 @@ function reloadDeckFiles(): Plugin {
 }
 
 function validateDeckDirectories(): void {
+  validateThemeExtensions();
+
   for (const directory of getDeckDirectories()) {
     if (!existsSync(directory) || !statSync(directory).isDirectory()) {
       throw new Error(`Deck directory ${directory} does not exist.`);
@@ -84,6 +87,26 @@ function validateDeckDirectories(): void {
     if (slideFiles.length !== 1) {
       throw new Error(
         `Deck directory ${directory} must contain exactly one slides.md or slides.html file.`,
+      );
+    }
+  }
+}
+
+function validateThemeExtensions(): void {
+  if (!existsSync(themeExtensionsDirectory)) {
+    return;
+  }
+
+  for (const filename of readdirSync(themeExtensionsDirectory)) {
+    if (!filename.endsWith(".scss")) {
+      continue;
+    }
+
+    const theme = filename.slice(0, -".scss".length);
+
+    if (!isRevealTheme(theme)) {
+      throw new Error(
+        `Theme extension “${filename}” does not match a supported theme. Choose one of: ${REVEAL_THEMES.join(", ")}.`,
       );
     }
   }
