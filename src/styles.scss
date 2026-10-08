@@ -135,16 +135,69 @@ body.laser-pointer-active * {
   }
 
   &__message {
-    margin: 1.25rem 0 2rem;
+    margin: 1.25rem 0 1.5rem;
     font-size: 1.1rem;
     line-height: 1.5;
+  }
+
+  &__empty {
+    padding: 1.5rem;
+    margin: 1rem 0 0;
+    color: rgb(23 36 43 / 72%);
+    text-align: center;
+    background: rgb(255 255 255 / 65%);
+    border: 1px dashed rgb(23 36 43 / 25%);
+    border-radius: 0.75rem;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+}
+
+.deck-controls {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(12rem, auto);
+  gap: 0.75rem;
+}
+
+.deck-control {
+  display: grid;
+  color: rgb(23 36 43 / 78%);
+  font-size: 0.8rem;
+  font-weight: 700;
+  gap: 0.35rem;
+
+  input,
+  select {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 2.65rem;
+    padding: 0.55rem 0.75rem;
+    color: $ink;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    background: rgb(255 255 255 / 92%);
+    border: 1px solid rgb(23 36 43 / 20%);
+    border-radius: 0.55rem;
+
+    &:hover {
+      border-color: rgb(22 131 167 / 65%);
+    }
+
+    &:focus-visible {
+      border-color: $accent;
+      outline: 2px solid $accent;
+      outline-offset: 2px;
+    }
   }
 }
 
 .deck-filters {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin: 1rem 0 1.5rem;
   gap: 0.5rem;
 
   &[hidden] {
@@ -217,9 +270,33 @@ body.laser-pointer-active * {
     font-size: 1.25rem;
   }
 
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__pin {
+    flex: 0 0 auto;
+    padding: 0.2rem 0.55rem;
+    color: #804800;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.3;
+    background: #fff1cf;
+    border-radius: 999px;
+  }
+
   &__description {
     color: rgb(23 36 43 / 72%);
     line-height: 1.45;
+  }
+
+  &__created {
+    color: rgb(23 36 43 / 62%);
+    font-size: 0.82rem;
+    font-weight: 600;
   }
 
   &__tags {
@@ -239,6 +316,16 @@ body.laser-pointer-active * {
     line-height: 1.3;
     background: #e3f4f8;
     border-radius: 999px;
+  }
+}
+
+@media (width <= 36rem) {
+  .deck-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .deck-card__heading {
+    align-items: flex-start;
   }
 }
 

@@ -65,6 +65,8 @@ try {
       title: finalTitle,
       description: finalDescription,
       directory: directoryUrl,
+      created: new Date().toISOString(),
+      pinned: false,
       theme: "sky",
       tags,
     },

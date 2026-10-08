@@ -11,14 +11,42 @@
       <div class="deck-selector__panel">
         <p class="deck-selector__eyebrow">Serena's Reveal.js presentations</p>
         <h1>Choose a slide deck</h1>
+        <p id="deck-selector-message" class="deck-selector__message">
+          Select a presentation to begin.
+        </p>
+        <div class="deck-controls">
+          <label class="deck-control">
+            <span>Filter by name</span>
+            <input
+              id="deck-name-filter"
+              type="search"
+              placeholder="Search decks"
+              autocomplete="off"
+            />
+          </label>
+          <label class="deck-control">
+            <span>Sort by</span>
+            <select id="deck-sort">
+              <option value="default">Default (pinned first)</option>
+              <option value="name">Name (A–Z)</option>
+              <option value="created-newest">Creation date (newest)</option>
+              <option value="created-oldest">Creation date (oldest)</option>
+            </select>
+          </label>
+        </div>
         <div
           id="deck-filters"
           class="deck-filters"
           role="group"
           aria-label="Filter decks by tag"
         ></div>
-        <p id="deck-selector-message" class="deck-selector__message">
-          Select a presentation to begin.
+        <p
+          id="deck-empty-message"
+          class="deck-selector__empty"
+          role="status"
+          hidden
+        >
+          No decks match these filters.
         </p>
         <ul id="deck-list" class="deck-list"></ul>
       </div>

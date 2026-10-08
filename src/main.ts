@@ -21,8 +21,22 @@ interface DeckConfig {
   title: string;
   description: string;
   directory: string;
+  created: string;
+  pinned?: boolean | string;
   tags?: string[];
   theme?: RevealTheme;
+}
+
+type DeckSort = "default" | "name" | "created-newest" | "created-oldest";
+
+interface DeckListItem {
+  id: string;
+  config: DeckConfig;
+  item: HTMLLIElement;
+  tags: string[];
+  createdAt: number;
+  pinned: boolean;
+  catalogIndex: number;
 }
 
 interface DeckSource {
@@ -319,30 +333,51 @@ function showDeckSelector(unknownDeckId: string | null): void {
   const selector = requireElement<HTMLElement>("#deck-selector");
   const message = requireElement<HTMLElement>("#deck-selector-message");
   const filters = requireElement<HTMLElement>("#deck-filters");
+  const nameFilter = requireElement<HTMLInputElement>("#deck-name-filter");
+  const sortSelect = requireElement<HTMLSelectElement>("#deck-sort");
+  const emptyMessage = requireElement<HTMLElement>("#deck-empty-message");
   const deckList = requireElement<HTMLUListElement>("#deck-list");
-  const deckItems: { item: HTMLLIElement; tags: string[] }[] = [];
+  const deckItems: DeckListItem[] = [];
   const filterButtons = new Map<string | null, HTMLButtonElement>();
+  const now = Date.now();
+  let activeTag: string | null = null;
 
   if (unknownDeckId) {
     message.textContent = `No deck named “${unknownDeckId}” was found. Choose an available presentation.`;
   }
 
-  for (const [id, deckConfig] of Object.entries(decks)) {
+  for (const [catalogIndex, [id, deckConfig]] of Object.entries(
+    decks,
+  ).entries()) {
     const item = document.createElement("li");
     const link = document.createElement("a");
+    const heading = document.createElement("span");
     const title = document.createElement("strong");
     const description = document.createElement("span");
+    const created = document.createElement("time");
     const tags = document.createElement("ul");
     const url = new URL(window.location.pathname, window.location.origin);
+    const createdAt = parseTimestamp(deckConfig.created, `${id}.created`);
+    const pinned = isPinned(deckConfig.pinned, now, id);
 
     url.searchParams.set("deck", id);
     link.href = url.href;
     link.className = "deck-card";
+    heading.className = "deck-card__heading";
     title.textContent = deckConfig.title;
     description.className = "deck-card__description";
     description.textContent = deckConfig.description;
+    created.className = "deck-card__created";
+    created.dateTime = new Date(createdAt).toISOString();
+    created.textContent = `Created ${formatTimestamp(createdAt)}`;
     tags.className = "deck-card__tags";
     tags.setAttribute("aria-label", "Tags");
+
+    heading.append(title);
+
+    if (pinned) {
+      heading.append(createPinMarker(deckConfig.pinned, id));
+    }
 
     for (const tag of deckConfig.tags ?? []) {
       const badge = document.createElement("li");
@@ -351,7 +386,7 @@ function showDeckSelector(unknownDeckId: string | null): void {
       tags.append(badge);
     }
 
-    link.append(title, description);
+    link.append(heading, description, created);
 
     if (tags.childElementCount > 0) {
       link.append(tags);
@@ -359,8 +394,42 @@ function showDeckSelector(unknownDeckId: string | null): void {
 
     item.append(link);
     deckList.append(item);
-    deckItems.push({ item, tags: deckConfig.tags ?? [] });
+    deckItems.push({
+      id,
+      config: deckConfig,
+      item,
+      tags: deckConfig.tags ?? [],
+      createdAt,
+      pinned,
+      catalogIndex,
+    });
   }
+
+  const updateDeckList = (): void => {
+    const query = nameFilter.value.trim().toLocaleLowerCase();
+    const sort = sortSelect.value as DeckSort;
+    const sortedItems = [...deckItems].sort(getDeckComparator(sort));
+    let visibleCount = 0;
+
+    for (const deckItem of sortedItems) {
+      const matchesName =
+        query.length === 0 ||
+        deckItem.config.title.toLocaleLowerCase().includes(query) ||
+        deckItem.id.toLocaleLowerCase().includes(query);
+      const matchesTag =
+        activeTag === null || deckItem.tags.includes(activeTag);
+      const visible = matchesName && matchesTag;
+
+      deckItem.item.hidden = !visible;
+      visibleCount += Number(visible);
+      deckList.append(deckItem.item);
+    }
+
+    emptyMessage.hidden = visibleCount > 0;
+  };
+
+  nameFilter.addEventListener("input", updateDeckList);
+  sortSelect.addEventListener("change", updateDeckList);
 
   const availableTags = [
     ...new Set(Object.values(decks).flatMap((deck) => deck.tags ?? [])),
@@ -373,20 +442,105 @@ function showDeckSelector(unknownDeckId: string | null): void {
     button.textContent = tag ?? "All";
     button.setAttribute("aria-pressed", String(tag === null));
     button.addEventListener("click", () => {
-      for (const { item, tags } of deckItems) {
-        item.hidden = tag !== null && !tags.includes(tag);
-      }
+      activeTag = tag;
 
       for (const [filterTag, filterButton] of filterButtons) {
         filterButton.setAttribute("aria-pressed", String(filterTag === tag));
       }
+
+      updateDeckList();
     });
     filterButtons.set(tag, button);
     filters.append(button);
   }
 
   filters.hidden = availableTags.length === 0;
+  updateDeckList();
   selector.hidden = false;
+}
+
+function getDeckComparator(
+  sort: DeckSort,
+): (first: DeckListItem, second: DeckListItem) => number {
+  const compareNames = (first: DeckListItem, second: DeckListItem): number =>
+    first.config.title.localeCompare(second.config.title, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    }) || first.id.localeCompare(second.id);
+
+  switch (sort) {
+    case "name":
+      return compareNames;
+    case "created-newest":
+      return (first, second) =>
+        second.createdAt - first.createdAt || compareNames(first, second);
+    case "created-oldest":
+      return (first, second) =>
+        first.createdAt - second.createdAt || compareNames(first, second);
+    default:
+      return (first, second) =>
+        Number(second.pinned) - Number(first.pinned) ||
+        first.catalogIndex - second.catalogIndex;
+  }
+}
+
+function isPinned(
+  pinned: DeckConfig["pinned"],
+  now: number,
+  deckId: string,
+): boolean {
+  if (pinned === undefined || pinned === false) {
+    return false;
+  }
+
+  if (pinned === true) {
+    return true;
+  }
+
+  if (typeof pinned !== "string") {
+    throw new Error(
+      `Invalid pinned value for ${deckId}; expected a boolean or timestamp.`,
+    );
+  }
+
+  return parseTimestamp(pinned, `${deckId}.pinned`) > now;
+}
+
+function createPinMarker(
+  pinned: DeckConfig["pinned"],
+  deckId: string,
+): HTMLElement {
+  const marker = document.createElement("span");
+  const icon = document.createElement("span");
+  const label =
+    typeof pinned === "string"
+      ? `Pinned until ${formatTimestamp(parseTimestamp(pinned, `${deckId}.pinned`))}`
+      : "Pinned";
+
+  marker.className = "deck-card__pin";
+  marker.title = label;
+  marker.setAttribute("aria-label", label);
+  icon.setAttribute("aria-hidden", "true");
+  icon.textContent = "📌";
+  marker.append(icon, " Pinned");
+
+  return marker;
+}
+
+function parseTimestamp(timestamp: string, field: string): number {
+  const value = Date.parse(timestamp);
+
+  if (Number.isNaN(value)) {
+    throw new Error(`Invalid timestamp for ${field}: “${timestamp}”.`);
+  }
+
+  return value;
+}
+
+function formatTimestamp(timestamp: number): string {
+  return new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(
+    timestamp,
+  );
 }
 
 function requireElement<T extends Element>(

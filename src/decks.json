@@ -3,6 +3,8 @@
     "title": "Template presentation",
     "description": "Markdown syntax, layouts, fragments, code, and KaTeX examples.",
     "directory": "/decks/template",
+    "created": "2026-09-18T13:54:55-07:00",
+    "pinned": false,
     "theme": "sky",
     "tags": ["Template"]
   },
@@ -10,6 +12,8 @@
     "title": "Reveal slide utilities",
     "description": "Live examples and copyable markup for the shared rs-* utility classes.",
     "directory": "/decks/features",
+    "created": "2026-10-08T10:40:04-07:00",
+    "pinned": false,
     "theme": "sky",
     "tags": ["Reference"]
   },
@@ -17,6 +21,8 @@
     "title": "Pl Marketplace",
     "description": "Thoughts on user's needs around a shared marketplace for course content",
     "directory": "/decks/pl-marketplace",
+    "created": "2026-09-18T13:54:55-07:00",
+    "pinned": false,
     "theme": "sky",
     "tags": ["PrairieLearn", "Design"]
   },
@@ -24,6 +30,8 @@
     "title": "pl-vendor in calculus",
     "description": "A new tool for vending course files",
     "directory": "/decks/pl-vendor",
+    "created": "2026-09-21T11:13:22-07:00",
+    "pinned": false,
     "theme": "sky",
     "tags": ["PrairieLearn", "Tooling"]
   },
@@ -31,6 +39,8 @@
     "title": "Three-pass PrairieLearn question pipeline",
     "description": "Generate fixed questions, randomize them safely, then tag the stabilized question bank.",
     "directory": "/decks/pl-question-pipeline",
+    "created": "2026-10-06T12:07:53-07:00",
+    "pinned": false,
     "theme": "sky",
     "tags": ["PrairieLearn", "Tooling"]
   },
@@ -38,6 +48,8 @@
     "title": "Calculus content roadmap",
     "description": "Course status, development targets, and pilot planning.",
     "directory": "/decks/calculus-roadmap",
+    "created": "2026-10-06T12:07:53-07:00",
+    "pinned": false,
     "theme": "moon",
     "tags": ["Learnvia", "Planning"]
   }

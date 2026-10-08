@@ -8,13 +8,14 @@ export DECK_ID := $(ID)
 export DECK_TITLE := $(TITLE)
 export DECK_DESCRIPTION := $(DESCRIPTION)
 export DECK_TAGS := $(TAGS)
+export DECK_PIN_DURATION := $(DURATION)
 export DECK_CATALOG_PATH := $(CATALOG)
 export DECK_PUBLIC_DIR := $(DECK_DIR)
 export DECK_URL_PREFIX := $(URL_PREFIX)
 
 .DEFAULT_GOAL := help
 
-.PHONY: help install watch dev build preview open new-deck clean
+.PHONY: help install watch dev build preview open new-deck pin-deck clean
 
 help:
 	@printf '%s\n' \
@@ -27,6 +28,8 @@ help:
 		'  make open     Open the GitHub Pages site in the default browser' \
 		'  make new-deck Create a deck and add it to the JSON catalog' \
 		'                  Optional: ID=name TITLE="Title" DESCRIPTION="Summary" TAGS="Topic, Type"' \
+		'  make pin-deck Update a deck pin' \
+		'                  Optional: ID=name DURATION=7d (also: 2w, forever, off)' \
 		'  make clean    Remove the generated dist directory'
 
 install:
@@ -53,6 +56,9 @@ open:
 
 new-deck:
 	@node scripts/new-deck.mjs
+
+pin-deck:
+	@node scripts/pin-deck.mjs
 
 clean:
 	rm -rf dist

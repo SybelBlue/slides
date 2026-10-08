@@ -33,9 +33,20 @@ Or provide the values in one command:
 make new-deck ID=workshop TITLE="Workshop" DESCRIPTION="Hands-on exercises" TAGS="Teaching, PrairieLearn"
 ```
 
-The command creates `public/decks/<id>/slides.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing deck directories. Catalog entries use `directory` and point only to the deck's public directory; the loader requires that directory to contain exactly one `slides.md` or `slides.html` file. New entries use the `sky` theme by default. Add tags with the optional comma-separated `TAGS` value or edit the catalog's `tags` array directly. Tags appear as badges on the selection page, and the buttons under the page title filter decks by one tag at a time. Use **All** to reset the filter.
+The command creates `public/decks/<id>/slides.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing deck directories. Catalog entries use `directory` and point only to the deck's public directory; the loader requires that directory to contain exactly one `slides.md` or `slides.html` file. New entries record the current time in `created`, set `pinned` to `false`, and use the `sky` theme by default. Set `pinned` to `true` for a permanent pin or to an ISO 8601 timestamp to pin the deck until that time. Active pins appear first in the selector's default order and display a pin marker. Add tags with the optional comma-separated `TAGS` value or edit the catalog's `tags` array directly. The selector can filter by deck name, sort by name or creation time, and filter by one tag at a time. Use **All** to reset the tag filter.
 
 For example, a `workshop` entry would be available at `?deck=workshop`. If the URL has no `deck` parameter—or the key is not recognized—the selection list is shown.
+
+## Pin a deck
+
+Run the interactive pin command, or provide a deck and duration directly:
+
+```sh
+make pin-deck
+make pin-deck ID=workshop DURATION=7d
+```
+
+Durations are relative to the time the command runs. The supported units are minutes (`30min`), hours (`12h`), days (`7d`), weeks (`2w`), months (`3mo`), and years (`1y`); singular and plural unit names also work. Use `DURATION=forever` for a permanent pin or `DURATION=off` to unpin the deck. The script updates only the selected catalog entry and writes the resulting expiration as an ISO 8601 timestamp.
 
 ## Write slides
 
