@@ -1,4 +1,9 @@
 .reveal {
+  --r-heading1-size: 3.45em;
+  --r-heading2-size: 1.95em;
+  --r-heading3-size: 1.42em;
+  --r-heading4-size: 0.95em;
+
   h1,
   h2,
   h3,
@@ -7,5 +12,9 @@
   h6 {
     font-kerning: normal;
     letter-spacing: -0.01em;
+  }
+
+  .rs-timeline {
+    font-size: 1.08em;
   }
 }

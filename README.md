@@ -93,6 +93,43 @@ Use `class="directory"` for an empty directory. Set `--rs-filetree-font-size`,
 `--rs-filetree-font-family`, `--rs-filetree-indent`, or
 `--rs-filetree-guide-color` on the list or a containing slide to customize it.
 
+### Timelines
+
+Use `rs-timeline` on an ordered list for a compact horizontal sequence. Add
+`complete` to finished milestones and `current` to the active milestone; items
+without a state class render as upcoming. A milestone can contain a `small`
+label, a `strong` title, and an optional `span` description.
+
+```html
+<ol class="rs-timeline">
+  <li class="complete">
+    <small>September</small>
+    <strong>Plan</strong>
+  </li>
+  <li class="current">
+    <small>October</small>
+    <strong>Build</strong>
+    <span>Active work</span>
+  </li>
+  <li>
+    <small>November</small>
+    <strong>Launch</strong>
+  </li>
+</ol>
+```
+
+Set `--rs-timeline-marker-size`, `--rs-timeline-line-size`,
+`--rs-timeline-fade-size`, `--rs-timeline-accent`, or
+`--rs-timeline-label-color` on the list or a containing slide to customize it.
+Add `fade-left`, `fade-right`, or both to the `ol` when the timeline continues
+beyond the displayed milestones:
+
+```html
+<ol class="rs-timeline fade-left fade-right">
+  <!-- milestones -->
+</ol>
+```
+
 Presentation behavior is configured in [`src/main.ts`](src/main.ts), and shared visual overrides live in [`src/styles.scss`](src/styles.scss). A deck can add scoped Sass beside its slides and public dependencies in `_styles.scss`; Vite discovers and compiles these files automatically.
 
 Choose a bundled Reveal theme with the catalog entry's `theme` property. Supported values are `beige`, `black`, `black-contrast`, `blood`, `dracula`, `league`, `moon`, `night`, `serif`, `simple`, `sky`, `solarized`, `white`, and `white-contrast`. Decks without a `theme` property use `sky`.
