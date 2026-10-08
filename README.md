@@ -187,6 +187,10 @@ at least three items so both side previews can appear:
 </div>
 ```
 
+Add `no-frame` to an individual `rs-carousel-item` to remove its background,
+rounded corners, shadow, and caption treatment. The item then displays only its
+image.
+
 Without `auto-advance`, the first item stays centered even if child items are
 fragments. The modifier follows Reveal navigation; it does not start a timer.
 

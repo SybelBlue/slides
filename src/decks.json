@@ -6,7 +6,9 @@
     "created": "2026-09-18T13:54:55-07:00",
     "pinned": false,
     "theme": "sky",
-    "tags": ["Template"]
+    "tags": [
+      "Template"
+    ]
   },
   "features": {
     "title": "Reveal slide utilities",
@@ -15,7 +17,9 @@
     "created": "2026-10-08T10:40:04-07:00",
     "pinned": false,
     "theme": "sky",
-    "tags": ["Reference"]
+    "tags": [
+      "Reference"
+    ]
   },
   "pl-marketplace": {
     "title": "Pl Marketplace",
@@ -24,7 +28,10 @@
     "created": "2026-09-18T13:54:55-07:00",
     "pinned": false,
     "theme": "sky",
-    "tags": ["PrairieLearn", "Design"]
+    "tags": [
+      "PrairieLearn",
+      "Design"
+    ]
   },
   "pl-vendor": {
     "title": "pl-vendor in calculus",
@@ -33,7 +40,10 @@
     "created": "2026-09-21T11:13:22-07:00",
     "pinned": false,
     "theme": "sky",
-    "tags": ["PrairieLearn", "Tooling"]
+    "tags": [
+      "PrairieLearn",
+      "Tooling"
+    ]
   },
   "pl-question-pipeline": {
     "title": "Three-pass PrairieLearn question pipeline",
@@ -42,15 +52,21 @@
     "created": "2026-10-06T12:07:53-07:00",
     "pinned": false,
     "theme": "sky",
-    "tags": ["PrairieLearn", "Tooling"]
+    "tags": [
+      "PrairieLearn",
+      "Tooling"
+    ]
   },
   "calculus-roadmap": {
     "title": "Calculus content roadmap",
     "description": "Course status, development targets, and pilot planning.",
     "directory": "/decks/calculus-roadmap",
     "created": "2026-10-06T12:07:53-07:00",
-    "pinned": false,
+    "pinned": "2026-10-15T17:54:14.873Z",
     "theme": "moon",
-    "tags": ["Learnvia", "Planning"]
+    "tags": [
+      "Learnvia",
+      "Planning"
+    ]
   }
 }

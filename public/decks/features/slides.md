@@ -321,6 +321,7 @@ Apollo 11 bootprint, NASA: https://science.nasa.gov/photojournal/apollo-footprin
 
 <p class="rs-citation">
   Add <code>auto-advance</code> to follow Reveal fragments. Use at least three
-  items. Customize the six <code>--rs-carousel-*</code> properties on the
-  carousel or slide.
+  items. Add <code>no-frame</code> to an item to display only its image.
+  Customize the six <code>--rs-carousel-*</code> properties on the carousel or
+  slide.
 </p>

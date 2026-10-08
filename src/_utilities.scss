@@ -310,6 +310,24 @@
         background: linear-gradient(to top, rgb(0 0 0 / 78%), transparent);
       }
 
+      &.no-frame {
+        overflow: visible;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+
+        > img {
+          background: transparent;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+        }
+
+        > figcaption {
+          display: none;
+        }
+      }
+
       &.fragment {
         visibility: hidden;
         opacity: 0;

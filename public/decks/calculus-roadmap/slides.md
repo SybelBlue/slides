@@ -96,9 +96,32 @@ We plan to develop the first Learnvia exam set with a professor who adopts the c
 
 ### Question content
 
-<p class="rs-lede">
-  Placeholder for question examples, coverage, and remaining gaps.
-</p>
+<div class="rs-carousel auto-advance" aria-label="Calculus I question examples">
+  <figure class="rs-carousel-item no-frame">
+    <img
+      src="decks/calculus-roadmap/imgs/Calc%20I%20Derivative.png"
+      alt="PrairieLearn question asking students to differentiate a reciprocal function"
+      style="object-fit: contain"
+    />
+    <figcaption>Derivative rules</figcaption>
+  </figure>
+  <figure class="rs-carousel-item no-frame fragment">
+    <img
+      src="decks/calculus-roadmap/imgs/Calc%20I%20L%27Hopital.png"
+      alt="PrairieLearn question applying L'Hopital's rule to a difference limit"
+      style="object-fit: contain"
+    />
+    <figcaption>L'Hopital's rule</figcaption>
+  </figure>
+  <figure class="rs-carousel-item no-frame fragment">
+    <img
+      src="decks/calculus-roadmap/imgs/Calc%20I%20usub.png"
+      alt="PrairieLearn question guiding students through u-substitution"
+      style="object-fit: contain"
+    />
+    <figcaption>Substitution</figcaption>
+  </figure>
+</div>
 
 --- <!-- .slide: data-auto-animate -->
 
@@ -127,9 +150,35 @@ We plan to develop the first Learnvia exam set with a professor who adopts the c
 
 ### Question content
 
-<p class="rs-lede">
-  Placeholder for question examples, coverage, and remaining gaps.
-</p>
+<div
+  class="rs-carousel auto-advance"
+  aria-label="Calculus II question examples"
+>
+  <figure class="rs-carousel-item no-frame">
+    <img
+      src="decks/calculus-roadmap/imgs/Calc%20II%20Divergent.png"
+      alt="PrairieLearn question evaluating an improper integral or identifying divergence"
+      style="object-fit: contain"
+    />
+    <figcaption>Improper integrals</figcaption>
+  </figure>
+  <figure class="rs-carousel-item no-frame fragment">
+    <img
+      src="decks/calculus-roadmap/imgs/Calc%20II%20Integral.png"
+      alt="PrairieLearn question setting up a curve-length integral"
+      style="object-fit: contain"
+    />
+    <figcaption>Applications of integration</figcaption>
+  </figure>
+  <figure class="rs-carousel-item no-frame fragment">
+    <img
+      src="decks/calculus-roadmap/imgs/Calc%20II%20Maclaurin.png"
+      alt="PrairieLearn question asking students to write a Maclaurin series"
+      style="object-fit: contain"
+    />
+    <figcaption>Sequences and series</figcaption>
+  </figure>
+</div>
 
 --- <!-- .slide: data-auto-animate -->
 
