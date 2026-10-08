@@ -6,6 +6,13 @@
     "theme": "sky",
     "tags": ["Template"]
   },
+  "features": {
+    "title": "Reveal slide utilities",
+    "description": "Live examples and copyable markup for the shared rs-* utility classes.",
+    "directory": "/decks/features",
+    "theme": "sky",
+    "tags": ["Reference"]
+  },
   "pl-marketplace": {
     "title": "Pl Marketplace",
     "description": "Thoughts on user's needs around a shared marketplace for course content",

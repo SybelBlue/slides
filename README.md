@@ -54,6 +54,10 @@ Reference them from Markdown with their path under `public`; for example, a diag
 `public/decks/workshop/diagram.png` is `![Diagram](decks/workshop/diagram.png)`.
 This relative URL works both locally and under the repository's GitHub Pages URL.
 
+Open the
+[`features` deck](https://sybelblue.github.io/slides/?deck=features) for live
+examples and copyable markup covering the shared utility families.
+
 Use `rs-overflow-center` on a wrapper when wide content should remain centered
 instead of shrinking to its container. The direct child may overflow equally on
 both sides:
@@ -147,6 +151,42 @@ beyond the displayed milestones:
   <!-- milestones -->
 </ol>
 ```
+
+### Carousels
+
+Use `rs-carousel` on the viewport and `rs-carousel-item` on each direct child.
+The first item starts centered. Add the `auto-advance` modifier when Reveal.js
+fragment navigation should move the `current-fragment` item to the center. Use
+at least three items so both side previews can appear:
+
+```html
+<div class="rs-carousel auto-advance" aria-label="Space photographs">
+  <figure class="rs-carousel-item">
+    <img src="decks/example/earth.jpg" alt="Earth above the Moon" />
+    <figcaption>Earthrise</figcaption>
+  </figure>
+  <figure class="rs-carousel-item fragment">
+    <img src="decks/example/saturn.jpg" alt="Saturn and its rings" />
+    <figcaption>Saturn</figcaption>
+  </figure>
+  <figure class="rs-carousel-item fragment">
+    <img src="decks/example/mars.jpg" alt="Rocky terrain on Mars" />
+    <figcaption>Mars</figcaption>
+  </figure>
+</div>
+```
+
+Without `auto-advance`, the first item stays centered even if child items are
+fragments. The modifier follows Reveal navigation; it does not start a timer.
+
+The side previews wrap visually: the last item appears beside the first and the
+first appears beside the last. Reveal.js still controls navigation, so advancing
+past the final fragment moves to the next slide.
+
+Customize the layout with `--rs-carousel-height`,
+`--rs-carousel-item-width`, `--rs-carousel-item-offset`,
+`--rs-carousel-side-opacity`, `--rs-carousel-radius`, and
+`--rs-carousel-edge-fade` on the carousel or a containing slide.
 
 Presentation behavior is configured in [`src/main.ts`](src/main.ts), and shared visual overrides live in [`src/styles.scss`](src/styles.scss). A deck can add scoped Sass beside its slides and public dependencies in `_styles.scss`; Vite discovers and compiles these files automatically.
 
