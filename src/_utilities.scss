@@ -44,6 +44,18 @@
     justify-content: center;
   }
 
+  .rs-overflow-center {
+    display: flex;
+    width: 100%;
+    overflow: visible;
+    justify-content: center;
+
+    > * {
+      max-width: none;
+      flex: 0 0 auto;
+    }
+  }
+
   .rs-citation {
     color: rgb(34 34 34 / 60%);
     font-size: 60%;
@@ -409,5 +421,38 @@
         font-size: 0.63em;
       }
     }
+  }
+
+  .rs-max-w-50,
+  .rs-max-w-60,
+  .rs-max-w-70,
+  .rs-max-w-80,
+  .rs-max-w-90 {
+    width: 100%;
+  }
+
+  .rs-max-w-50 {
+    max-width: 50%;
+  }
+
+  .rs-max-w-60 {
+    max-width: 60%;
+  }
+
+  .rs-max-w-70 {
+    max-width: 70%;
+  }
+
+  .rs-max-w-80 {
+    max-width: 80%;
+  }
+
+  .rs-max-w-90 {
+    max-width: 90%;
+  }
+
+  .rs-mx-auto {
+    margin-right: auto;
+    margin-left: auto;
   }
 }

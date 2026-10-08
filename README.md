@@ -54,6 +54,24 @@ Reference them from Markdown with their path under `public`; for example, a diag
 `public/decks/workshop/diagram.png` is `![Diagram](decks/workshop/diagram.png)`.
 This relative URL works both locally and under the repository's GitHub Pages URL.
 
+Use `rs-overflow-center` on a wrapper when wide content should remain centered
+instead of shrinking to its container. The direct child may overflow equally on
+both sides:
+
+```html
+<div class="rs-overflow-center">
+  <div class="rs-workflow process"><!-- steps --></div>
+</div>
+```
+
+Use `rs-max-w-50`, `rs-max-w-60`, `rs-max-w-70`, `rs-max-w-80`, or
+`rs-max-w-90` to limit an element's width. Add `rs-mx-auto` when the element
+should also be centered in its container:
+
+```html
+<div class="rs-max-w-80 rs-mx-auto"><!-- content --></div>
+```
+
 To write a deck in HTML instead, replace `slides.md` with `slides.html`; the
 catalog directory does not change. The file may be an HTML fragment containing
 top-level `<section>` elements, or a complete document containing a `.slides`

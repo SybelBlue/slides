@@ -1,4 +1,48 @@
-<!-- .slide: class="rs-center" data-auto-animate -->
+<!-- .slide: data-auto-animate -->
+
+# Calculus Content Roadmap
+
+## Conversion process
+
+## Course status and pilot planning
+
++++ <!-- .slide: data-auto-animate -->
+
+## Conversion Process
+
+<div class="rs-overflow-center">
+  <div class="rs-workflow process rs-numbered">
+    <div class="rs-card outline step">
+      <span class="number"></span>
+      <strong>Import static <br> content</strong>
+    </div>
+    <i class="arrow" aria-hidden="true"></i>
+    <div class="rs-card outline step">
+      <span class="number"></span>
+      <strong>Create question <br> generators</strong>
+    </div>
+    <i class="arrow" aria-hidden="true"></i>
+    <div class="rs-card outline step">
+      <span class="number"></span>
+      <strong>Standardize <br> partial credit</strong>
+    </div>
+    <i class="arrow" aria-hidden="true"></i>
+    <div class="rs-card outline step">
+      <span class="number"></span>
+      <strong>Copyedit <br> final output</strong>
+    </div>
+  </div>
+</div>
+
+--- <!-- .slide: data-auto-animate -->
+
+# Calculus Content Roadmap
+
+## Conversion Process
+
+## Course status and pilot planning
+
++++ <!-- .slide: data-auto-animate -->
 
 # Calculus Content Roadmap
 
@@ -46,6 +90,16 @@
 Note:
 We plan to develop the first Learnvia exam set with a professor who adopts the content.
 
++++ <!-- .slide: data-auto-animate -->
+
+## Calculus I
+
+### Question content
+
+<p class="rs-lede">
+  Placeholder for question examples, coverage, and remaining gaps.
+</p>
+
 --- <!-- .slide: data-auto-animate -->
 
 ## Calculus II
@@ -66,6 +120,16 @@ We plan to develop the first Learnvia exam set with a professor who adopts the c
     <strong>Pilot</strong>
   </li>
 </ol>
+
++++ <!-- .slide: data-auto-animate -->
+
+## Calculus II
+
+### Question content
+
+<p class="rs-lede">
+  Placeholder for question examples, coverage, and remaining gaps.
+</p>
 
 --- <!-- .slide: data-auto-animate -->
 
