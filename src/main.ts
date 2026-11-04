@@ -1,3 +1,4 @@
+import { marked } from "marked";
 import Reveal from "reveal.js";
 import Highlight from "reveal.js/plugin/highlight";
 import Markdown from "reveal.js/plugin/markdown";
@@ -32,6 +33,7 @@ type DeckSort = "default" | "name" | "created-newest" | "created-oldest";
 interface DeckListItem {
   id: string;
   config: DeckConfig;
+  plainTitle: string;
   item: HTMLLIElement;
   tags: string[];
   createdAt: number;
@@ -88,7 +90,7 @@ async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
   await import("./styles.scss");
   await loadThemeExtension(theme);
 
-  document.title = `${deckConfig.title} · Reveal.js`;
+  document.title = `${renderTitle(deckConfig.title).text} · Reveal.js`;
 
   if (source.type === "markdown") {
     const markdownDeck = document.createElement("section");
@@ -353,6 +355,7 @@ function showDeckSelector(unknownDeckId: string | null): void {
     const link = document.createElement("a");
     const heading = document.createElement("span");
     const title = document.createElement("strong");
+    const renderedTitle = renderTitle(deckConfig.title);
     const description = document.createElement("span");
     const created = document.createElement("time");
     const tags = document.createElement("ul");
@@ -364,7 +367,8 @@ function showDeckSelector(unknownDeckId: string | null): void {
     link.href = url.href;
     link.className = "deck-card";
     heading.className = "deck-card__heading";
-    title.textContent = deckConfig.title;
+    title.className = "deck-card__title";
+    title.append(renderedTitle.fragment);
     description.className = "deck-card__description";
     description.textContent = deckConfig.description;
     created.className = "deck-card__created";
@@ -397,6 +401,7 @@ function showDeckSelector(unknownDeckId: string | null): void {
     deckItems.push({
       id,
       config: deckConfig,
+      plainTitle: renderedTitle.text,
       item,
       tags: deckConfig.tags ?? [],
       createdAt,
@@ -414,7 +419,7 @@ function showDeckSelector(unknownDeckId: string | null): void {
     for (const deckItem of sortedItems) {
       const matchesName =
         query.length === 0 ||
-        deckItem.config.title.toLocaleLowerCase().includes(query) ||
+        deckItem.plainTitle.toLocaleLowerCase().includes(query) ||
         deckItem.id.toLocaleLowerCase().includes(query);
       const matchesTag =
         activeTag === null || deckItem.tags.includes(activeTag);
@@ -463,7 +468,7 @@ function getDeckComparator(
   sort: DeckSort,
 ): (first: DeckListItem, second: DeckListItem) => number {
   const compareNames = (first: DeckListItem, second: DeckListItem): number =>
-    first.config.title.localeCompare(second.config.title, undefined, {
+    first.plainTitle.localeCompare(second.plainTitle, undefined, {
       numeric: true,
       sensitivity: "base",
     }) || first.id.localeCompare(second.id);
@@ -482,6 +487,32 @@ function getDeckComparator(
         Number(second.pinned) - Number(first.pinned) ||
         first.catalogIndex - second.catalogIndex;
   }
+}
+
+interface RenderedTitle {
+  fragment: DocumentFragment;
+  text: string;
+}
+
+/**
+ * Renders a deck title as inline Markdown. Returns the rendered nodes for
+ * display and the plain text for places that cannot show markup (the browser
+ * tab title, search, and sorting).
+ */
+function renderTitle(markdown: string): RenderedTitle {
+  const template = document.createElement("template");
+
+  template.innerHTML = marked.parseInline(markdown, { async: false });
+
+  // Titles already sit inside the card link, so nested links would be invalid.
+  for (const link of template.content.querySelectorAll("a")) {
+    link.replaceWith(...link.childNodes);
+  }
+
+  return {
+    fragment: template.content,
+    text: (template.content.textContent ?? markdown).trim(),
+  };
 }
 
 function isPinned(

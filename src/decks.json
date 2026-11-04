@@ -81,5 +81,18 @@
       "tutorial",
       "mariana@prairielearn.com"
     ]
+  },
+  "pl-symbolic-input": {
+    "title": "pl-symbolic-input: architecture review",
+    "description": "Performance, error locations, and architectural options for PrairieLearn symbolic input parsing.",
+    "directory": "/decks/pl-symbolic-input",
+    "created": "2026-11-04T16:43:04.457Z",
+    "pinned": false,
+    "theme": "sky",
+    "tags": [
+      "PrairieLearn",
+      "Architecture",
+      "Parsing"
+    ]
   }
 }
