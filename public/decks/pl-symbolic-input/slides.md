@@ -1,8 +1,10 @@
-<!-- .slide: class="rs-center" -->
+<!-- .slide: class="rs-center plsi-deck-marker" -->
 
 ### `pl-symbolic-input` parsing architecture
 
-### Performance, error locations, and options
+<p class="rs-lede rs-mx-auto">
+  Performance, error locations, and architectural options
+</p>
 
 <p class="rs-citation">
   PrairieLearn development design review · source state on November 4, 2026
@@ -13,18 +15,17 @@ This review compares three architectural responses to the current symbolic-input
 
 Primary source: https://github.com/PrairieLearn/PrairieLearn/issues/15970
 
----
++++
 
-### Why milliseconds matter here
+### Why millis matter here
 
-- `parse()` runs repeatedly in benchmark and grading workloads.
-- Some setup work repeats even when its inputs do not change.
-- One candidate path clears a process-wide SymPy cache, so later unrelated work can slow down.
-- These measurements support predictable latency work. They do not establish production throughput or concurrency savings.
+- `parse()` is called repeatedly
+- Setup repeats even when inputs don't change.
+- One candidate clears a process-wide SymPy cache and slows later unrelated work.
 
 <p class="rs-takeaway">
   The useful target is avoidable repeated work, not a production-scale
-  extrapolation from a microbenchmark.
+  extrapolation.
 </p>
 
 Note:
@@ -56,7 +57,7 @@ Source: https://github.com/PrairieLearn/PrairieLearn/issues/15970
 Note:
 Use these criteria throughout the talk. Performance includes both direct parser time and effects on other work. Error localization includes messages and raw-source carets, not merely accept or reject behavior. Maintainability asks where future compatibility rules live and how many parsing paths the team supports.
 
----
++++
 
 ### Most parse time sits outside regex
 
@@ -83,7 +84,7 @@ The image shows the stage breakdown for one 50-character typed expression, inclu
 
 Do not describe JSON validation as a free optimization. The issue estimates about 0.4 ms for the round trip and proposes either retaining it or replacing it with a property test.
 
----
++++
 
 ### Rewrites disconnect errors from raw input
 
@@ -120,14 +121,14 @@ For the final example, the Markdown source writes two vertical bars on the left 
 
 Full location analysis: https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6047774571
 
----
++++
 
 ### Distributed normalization and error handling
 
-- Eight procedural rewrite passes transform the submission before SymPy evaluation.
-- Position mapping does not survive the entire transformation sequence.
-- Location handling spans 5 functions, 4 locator helpers, and 9 rendering branches.
-- New compatibility rules can affect normalization, evaluation, and student-facing errors in different places.
+- Eight procedural rewrite passes transform the submission.
+- No position map survives the full transformation sequence.
+- Location handling spans 5 functions, 4 helpers, and 9 rendering branches.
+- Compatibility rules affect several distant paths.
 
 <p class="rs-takeaway">
   The maintenance cost comes from scattered responsibility, not only the parser
@@ -146,34 +147,28 @@ The audience already knows much of the legacy code, so focus on the consequence.
 
 ---
 
-### Option 1: incremental refactor
+<!-- .slide: class="rs-center" -->
 
-<div class="rs-grid cols-2">
-  <div>
-    <h4>Changes</h4>
-    <ul>
-      <li>
-        Carry raw offsets in <code>SourceText</code> and
-        <code>SourceToken</code>
-      </li>
-      <li>Consolidate ordered normalization</li>
-      <li>Use one locator and one renderer</li>
-      <li>Keep inexpensive setup improvements</li>
-    </ul>
-  </div>
-  <div>
-    <h4>Retains</h4>
-    <ul>
-      <li>The legacy parser and SymPy machinery</li>
-      <li>Procedural recognition and compatibility rules</li>
-      <li>An explicit safety decision for JSON validation</li>
-    </ul>
-  </div>
-</div>
+### Three architectural responses
+
+<p class="rs-lede rs-mx-auto">
+  Incremental refactor<br />Hybrid MathJSON<br />Lark LALR interpreter
+</p>
+
+Note:
+The next vertical stack covers the three responses. Navigate down for the options and their evidence. The alternatives do not form a perfectly exclusive set. MathJSON still needs the legacy path, and source-mapping ideas from the incremental work may remain useful under a grammar replacement.
+
++++
+
+### Option 1: incremental changes
+
+- Map every rewrite back to raw input with `SourceText` and `SourceToken`.
+- Use one error locator and one renderer.
+- Retain the merged parser-setup improvement.
 
 <p class="rs-takeaway">
-  This option repairs source tracking and ownership boundaries without replacing
-  the parsing engine.
+  Source mapping improves carets and ownership boundaries without replacing the
+  parser.
 </p>
 
 <p class="rs-citation">
@@ -191,34 +186,38 @@ The audience already knows much of the legacy code, so focus on the consequence.
 </p>
 
 Note:
-PR #15972 contains the merged parser-setup improvement. Draft PR #15973 consolidates normalization with source mapping. Draft PR #15974 localizes errors to raw submissions. These drafts cover only part of the broader issue stack. They do not remove the legacy parsing engine or settle the JSON-validation tradeoff.
+PR #15972 contains the merged parser-setup improvement. Draft PR #15973 consolidates normalization with source mapping. Draft PR #15974 localizes errors to raw submissions. Together, the drafts preserve raw offsets through transformation and centralize error-location behavior.
 
 Current status on November 4, 2026: #15973 and #15974 remain open drafts.
 
----
++++
 
-### Option 2: hybrid MathJSON
+### Option 1: retained decisions
+
+- The legacy parser and SymPy machinery remain.
+- Procedural recognition and compatibility rules remain.
+- JSON validation stays an explicit safety-versus-speed decision.
+
+<p class="rs-takeaway">
+  The option reduces scattered logic but continues to own the legacy engine.
+</p>
+
+<p class="rs-citation">
+  <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
+    >Issue #15970, proposals and tradeoffs</a
+  >
+</p>
+
+Note:
+The incremental path does not remove the parser engine or generated-Python machinery. It also does not settle the JSON round-trip decision. The round trip guards against a serializer output that the parser cannot read, and the issue treats its removal as a safety-versus-speed choice.
+
++++
+
+### Option 2: hybrid MathJSON path
 
 1. The formula editor asks Compute Engine for structured MathJSON.
 2. The server converts supported MathJSON nodes into SymPy values.
 3. Plain text, older submissions, and fallback cases keep the legacy parser.
-
-<div class="rs-grid cols-2">
-  <div>
-    <h4>Potential benefit</h4>
-    <p>
-      The server can consume expression structure instead of reconstructing
-      every editor expression from serialized text.
-    </p>
-  </div>
-  <div>
-    <h4>Additional burden</h4>
-    <p>
-      The team maintains two paths, conversion semantics, browser integration,
-      and restore compatibility.
-    </p>
-  </div>
-</div>
 
 <p class="rs-takeaway">
   MathJSON can extend the incremental path. It does not replace the existing
@@ -232,26 +231,29 @@ Current status on November 4, 2026: #15973 and #15974 remain open drafts.
 </p>
 
 Note:
-Present the hybrid as an architectural extension of option 1. The formula editor supplies structure, but the server still needs the legacy path for typed input, submissions saved before an upgrade, and fallback conditions. The conversion layer must preserve PrairieLearn's accepted language, simplification rules, stored answer shapes, messages, and restoration behavior.
+Present the hybrid as an architectural extension of option 1. The formula editor supplies structure, but the server still needs the legacy path for typed input, submissions saved before an upgrade, and fallback conditions.
 
----
++++
 
-### The current MathJSON candidate slows mixed workloads
+### MathJSON opportunity and ownership
+
+- **Potential:** the server receives editor expression structure directly.
+- **Path cost:** the team supports both MathJSON and legacy parsing.
+- **Semantic cost:** conversion must preserve stored answers and error guidance.
+
+<p class="rs-citation">
+  <a href="https://github.com/PrairieLearn/PrairieLearn/pull/14839"
+    >PR #14839, open</a
+  >
+</p>
+
+Note:
+The motivating benefit is less server-side inference of complex editor structure from serialized text. The conversion layer still must preserve PrairieLearn's accepted language, simplification rules, stored answer shapes, messages, named domains, and restoration behavior. The November 4 evidence shows why acceptance alone cannot establish equivalence.
+
++++
 
 ![MathJSON candidate timing ratios for serializer and Compute Engine payloads](decks/pl-symbolic-input/mathjson-behavior-browser.png)
 <!-- .element: class="r-stretch" -->
-
-<p class="rs-takeaway">
-  Changing SymPy's process-wide <code>evaluate</code> setting clears its shared
-  cache. A proposed local-node approach remains unmeasured.
-</p>
-
-<p class="rs-citation">
-  <a
-    href="https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6635264864"
-    >Issue #15970, November 4 server benchmark</a
-  >
-</p>
 
 Note:
 The serializer-payload mixed corpus measured 33.3% slower overall. The more realistic Compute Engine workload measured 45.1% slower overall. Unchanged plain submissions measured 31 to 38% slower when MathJSON cases ran in the same process, while the plain-only control stayed at baseline speed.
@@ -260,40 +262,13 @@ The candidate changes SymPy's global evaluate setting. SymPy clears the process-
 
 Do not treat this as proof that MathJSON itself must cost 45.1%. Do not compare this number directly with the LALR result. The experiments use different candidates and baselines.
 
----
++++
 
-### MathJSON behavior and browser regressions
+### MathJSON behavior regressions
 
-<div class="rs-grid cols-2">
-  <div>
-    <h4>Behavior</h4>
-    <ul>
-      <li>No accept or reject outcome changed in the tested comparisons.</li>
-      <li>
-        1,544 of 1,664 rejected Compute Engine inputs received different
-        messages.
-      </li>
-      <li>
-        Accepted stored forms differed in 182 of 1,483 serializer cases and 246
-        of 1,416 Compute Engine cases.
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h4>Browser</h4>
-    <ul>
-      <li>
-        The new blur handler reached p95 115 ms at normal CPU and 471 ms at 4×
-        throttling.
-      </li>
-      <li>Large expressions reached p95 215 ms and 890 ms.</li>
-      <li>
-        Skipping highlight clearing when no highlight exists remains a proposed,
-        unmeasured fix.
-      </li>
-    </ul>
-  </div>
-</div>
+- No accept or reject outcome changed in the tested comparisons
+- There were differences in serialization in ~200/1600 inputs
+- Compute Engine inputs received different messages in ~100/1600 inputs
 
 <p class="rs-citation">
   <a
@@ -305,18 +280,35 @@ Do not treat this as proof that MathJSON itself must cost 45.1%. Do not compare 
 Note:
 Acceptance alone does not establish compatibility. Many changed rejections lose specific guidance about floats, invalid symbols, invalid functions, sets, or trig restrictions. Named domains such as Reals have no editor key and arrive as individual letters. The harness also exposed restore problems for initial-value and pre-upgrade answers, although the author had not reproduced that behavior on a development server.
 
++++
+
+### MathJSON browser regressions
+
+- The new blur handler reached p95 115 ms at normal CPU.
+- At 4× CPU throttling, blur p95 reached 471 ms.
+- Large expressions reached p95 215 ms and 890 ms.
+- Skipping a needless highlight clear remains proposed and unmeasured.
+
+<p class="rs-citation">
+  <a
+    href="https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6635265560"
+    >Issue #15970, November 4 browser results</a
+  >
+</p>
+
+Note:
 The slow blur tail comes mainly from removeSourceErrorHighlights applying style across the entire expression on every blur, even when nothing received a highlight. The host used headless Chromium and CPU throttling, not production telemetry. The slowest nested expressions exceed typical typed depth, but the handler blocks the main thread whenever the case occurs.
 
 Additional page-load measurements from the same comment: first-field initialization changed from 3.7 to 33 ms at normal CPU and from 15 to 130 ms at 4× throttling. The added compute-engine script measured 2.2 MB, or 616 KB with gzip -9.
 
----
++++
 
 ### Option 3: Lark LALR interpreter
 
 - **Declarative grammar and direct SymPy evaluator**
-- **Native source spans through the intermediate representation and lowering**
-- **No generated Python evaluation in ordinary parsing**
-- **Explicit control over permitted syntax and operations**
+- Native source spans through the intermediate representation and lowering
+- No generated Python/`eval`
+- Explicit control over permitted syntax and operations
 
 <p class="rs-takeaway">
   The controlled boundary comes with full responsibility for the grammar and
@@ -346,9 +338,7 @@ Interpreter ownership does not guarantee safety. The team must maintain grammar 
 
 Current status on November 4, 2026: #16068 and #16069 remain open drafts.
 
----
-
-### The LALR candidate improved its direct baseline by 17.41%
++++
 
 ![LALR candidate timing ratios against the direct non-parser baseline and master context](decks/pl-symbolic-input/lalr-timing-ratios.png)
 <!-- .element: class="r-stretch" -->
@@ -356,17 +346,6 @@ Current status on November 4, 2026: #16068 and #16069 remain open drafts.
 <p class="rs-takeaway">
   Direct baseline: all 6,272 acceptance outcomes match. The raw and matched
   master views cover different workloads.
-</p>
-
-<p class="rs-citation">
-  <a
-    href="https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6295825579"
-    >Issue #15970, October 20 matched comparison</a
-  >
-  ·
-  <a href="https://github.com/PrairieLearn/PrairieLearn/issues/16067"
-    >release criteria</a
-  >
 </p>
 
 Note:
@@ -380,40 +359,82 @@ Issue #16067 still defines final acceptance and performance gates. Do not presen
 
 ---
 
-### Three options across three problems
+<!-- .slide: class="rs-center" -->
 
-| Problem                | Incremental refactor                        | Hybrid MathJSON                                          | Lark LALR replacement                                    |
-| ---------------------- | ------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| **Performance**        | Merged setup win; JSON decision remains     | Current candidate: +33.3% to +45.1%, with cache confound | 17.41% faster than its direct non-parser baseline        |
-| **Error localization** | Raw-source mapping and one renderer         | Structured input, but current messages regress           | Native IR spans; 48 rejection-detail differences remain  |
-| **Maintainability**    | Less scattered logic; legacy engine remains | Legacy path plus conversion and browser path             | Central grammar and controlled evaluator; team owns both |
+### Decision and Evidence
+
+<p class="rs-lede rs-mx-auto">
+  Compare all three options against all three problems
+</p>
+
+Note:
+The next vertical stack returns to the decision criteria, then states the evidence gates and discussion questions. Navigate down for the comparison.
+
++++
+
+### Performance
+
+| Incremental                      | MathJSON                                   | Lark LALR                                  |
+| -------------------------------- | ------------------------------------------ | ------------------------------------------ |
+| **1.06 to 0.77 ms** setup win    | **+33.3% to +45.1%** in current candidates | **17.41% faster** than its direct baseline |
+| JSON-validation decision remains | Shared-cache effect confounds path cost    | All 6,272 acceptance outcomes match        |
 
 <p class="rs-takeaway">
-  The alternatives can overlap, but their long-term ownership costs differ.
+  These results come from distinct candidates, baselines, and workloads.
 </p>
 
 Note:
 Keep the performance baselines separate. The incremental setup improvement compares 1.06 to 0.77 ms in its microprofile. The MathJSON figures compare #14839 against its stack or master baselines and include a shared-cache effect. The LALR figure compares the grammar candidate with the direct non-parser JSON-validation baseline on the fixed corpus.
 
++++
+
+### Error Localization
+
+| Incremental              | MathJSON                                       | Lark LALR                              |
+| ------------------------ | ---------------------------------------------- | -------------------------------------- |
+| Raw-source mapping       | Structured editor input                        | Native spans in the IR                 |
+| One locator and renderer | 1,544 of 1,664 rejection messages differ today | 48 rejection-detail differences remain |
+
+<p class="rs-takeaway">
+  Acceptance equivalence does not prove equivalent student guidance.
+</p>
+
+Note:
+The incremental path aims to map every error back to the raw student submission. MathJSON receives structured formula-editor input but currently changes many rejection messages and still needs the legacy path. LALR carries native spans through its intermediate representation, while the direct comparison still reports 48 caret or snippet differences for disabled custom functions.
+
++++
+
+### Maintainability and Security
+
+| Incremental                                    | MathJSON                                 | Lark LALR                                |
+| ---------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Less scattered logic                           | Two parsing paths                        | Central grammar and controlled evaluator |
+| Legacy engine and generated-Python path remain | Converter, browser, and restore behavior | Full interpreter ownership               |
+
+<p class="rs-takeaway">
+  A controllable language boundary adds responsibility rather than removing it.
+</p>
+
+Note:
 MathJSON can layer onto the incremental work. LALR is a deeper replacement. Even after a grammar replacement, some source-normalization and compatibility concepts from the incremental work may remain useful.
+
+The LALR path gives PrairieLearn explicit control over the permitted mathematical language and ordinary evaluation boundary, without generated Python evaluation. The team must still test permitted functions, semantic validation, resource exhaustion, dependency packaging, and rollback behavior.
 
 Sources:
 https://github.com/PrairieLearn/PrairieLearn/issues/15970
 https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6295825579
 https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6635264864
 
----
++++
 
-### Evidence required before a merge
+### Compatibility and source-span gates
 
-- **Compatibility:** accept or reject outcome, error guidance, stored `SympyJson`, and older answers
-- **Source spans:** raw-input carets across rewrites, repeated tokens, and end-of-input errors
-- **Performance:** realistic mixed workloads with named warm, cold, and direct baselines
-- **Reliability and security:** no unexpected exceptions, packaged resources, and enforced language boundaries
-- **Release:** option-specific rollback and a clear boundary for inactive code
+- Match accept or reject outcomes.
+- Preserve error guidance and stored `SympyJson` structures.
+- Map repeated tokens, rewrites, and end-of-input errors to raw input.
 
 <p class="rs-takeaway">
-  Each option needs gates that cover its own failure modes.
+  Student-facing equivalence requires more than an acceptance count.
 </p>
 
 <p class="rs-citation">
@@ -423,18 +444,15 @@ https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-663526486
 </p>
 
 Note:
-For the incremental path, verify raw-source mapping and retain a deliberate JSON-validation decision. For MathJSON, test real Compute Engine payloads, messages, stored structures, named domains, restoration, cache behavior, and browser responsiveness. For LALR, enforce the full compatibility oracle, built-package grammar import, the Python-construct security boundary, and the final paired benchmark gate.
+For the incremental path, verify raw-source mapping and retain a deliberate JSON-validation decision. For MathJSON, test real Compute Engine payloads, messages, stored structures, named domains, restoration, and pre-upgrade answers. For LALR, enforce the full compatibility oracle across acceptance, exception category and message, SymPy type and structure, and serialized value.
 
-The current evidence suggests several fixes, but suggested fixes do not count as measured results.
-
----
++++
 
 ### Decision questions
 
 - Which parsing complexity does PrairieLearn want to own?
 - Does the formula-editor experience justify a second path after the measured regressions are fixed?
 - What evidence would make the grammar replacement acceptable?
-- Which incremental repairs provide value regardless of the longer-term engine choice?
 
 <p class="rs-takeaway">
   The next decision concerns evidence and ownership, not a predetermined
@@ -457,7 +475,7 @@ Invite discussion rather than a vote on incomplete evidence. One possible outcom
 Note:
 Use these slides for baseline, status, or measurement questions.
 
----
++++
 
 ### Early full-stack benchmark through #15987
 
@@ -476,15 +494,13 @@ This early warm-start benchmark covered the full incremental stack through draft
 
 The main talk focuses on measurements with clearer named comparisons. This slide preserves the earlier issue evidence without implying a direct head-to-head result.
 
----
++++
 
 ### Measurement contexts are distinct
 
-| Result                | Candidate and baseline                              | Context                                                              |
-| --------------------- | --------------------------------------------------- | -------------------------------------------------------------------- |
-| **1.06 to 0.77 ms**   | Setup optimization versus the measured legacy parse | Import globals once; shallow-copy locals                             |
-| **+33.3% and +45.1%** | MathJSON candidates versus their stack baseline     | Serializer corpus and Compute Engine workload; shared-cache confound |
-| **17.41% faster**     | LALR versus non-parser JSON-validation stack        | 6,272 cases; zero accept or reject changes                           |
+- **Setup: 1.06 to 0.77 ms** against the measured legacy parse
+- **MathJSON: +33.3% and +45.1%** against its stack baseline, with a cache confound
+- **LALR: 17.41% faster** than the refactored legacy baseline on all 6,272 cases
 
 <p class="rs-takeaway">
   No source reports a single head-to-head experiment across all three options.
@@ -498,7 +514,7 @@ https://github.com/PrairieLearn/PrairieLearn/issues/15970
 https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6635264864
 https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6295825579
 
----
++++
 
 ### MathJSON browser timing detail
 
@@ -525,20 +541,32 @@ The benchmark used 3,080 formula-editor cases with 20 dispatches each in headles
 
 The same comment reports median first-field initialization of 3.7 versus 33 ms at normal CPU and 15 versus 130 ms at 4× throttling. Script evaluation changed from 8.9 to 13.3 ms at normal CPU and 35 to 53 ms at 4× throttling. JavaScript heap changed from 3.9 to 6.8 MB.
 
----
++++
 
-### Proposal status on November 4, 2026
+### Incremental proposal status on November 4, 2026
 
-| Work                                                                                                                                 | Status      | Scope                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ----------- | --------------------------------------- |
-| [#15972](https://github.com/PrairieLearn/PrairieLearn/pull/15972)                                                                    | Merged      | SymPy parser setup                      |
-| [#15973](https://github.com/PrairieLearn/PrairieLearn/pull/15973)                                                                    | Open draft  | Source-mapped normalization             |
-| [#15974](https://github.com/PrairieLearn/PrairieLearn/pull/15974)                                                                    | Open draft  | Raw-submission error localization       |
-| [#15987](https://github.com/PrairieLearn/PrairieLearn/pull/15987)                                                                    | Open draft  | Avoid submission re-parsing             |
-| [#14839](https://github.com/PrairieLearn/PrairieLearn/pull/14839)                                                                    | Open        | Hybrid MathJSON pipeline                |
-| [#16068](https://github.com/PrairieLearn/PrairieLearn/pull/16068), [#16069](https://github.com/PrairieLearn/PrairieLearn/pull/16069) | Open drafts | Grammar evaluator and production switch |
+| Work                                                              | Status     | Scope                             |
+| ----------------------------------------------------------------- | ---------- | --------------------------------- |
+| [#15972](https://github.com/PrairieLearn/PrairieLearn/pull/15972) | Merged     | SymPy parser setup                |
+| [#15973](https://github.com/PrairieLearn/PrairieLearn/pull/15973) | Open draft | Source-mapped normalization       |
+| [#15974](https://github.com/PrairieLearn/PrairieLearn/pull/15974) | Open draft | Raw-submission error localization |
+| [#15987](https://github.com/PrairieLearn/PrairieLearn/pull/15987) | Open draft | Avoid submission re-parsing       |
 
 Note:
-PR state matters because the benchmarked branches include proposed work that PrairieLearn has not deployed. The merged setup optimization is the exception. Issue #16067 instructs both LALR PRs to remain drafts until their lower stack and blocker settle.
+PR state matters because the benchmarked branches include proposed work that PrairieLearn has not deployed. The merged setup optimization is the exception.
+
++++
+
+### Alternative proposal status on November 4, 2026
+
+| Work                                                                | Status     | Scope                        |
+| ------------------------------------------------------------------- | ---------- | ---------------------------- |
+| [#14839](https://github.com/PrairieLearn/PrairieLearn/pull/14839)   | Open       | Hybrid MathJSON pipeline     |
+| [#16068](https://github.com/PrairieLearn/PrairieLearn/pull/16068)   | Open draft | Grammar evaluator            |
+| [#16069](https://github.com/PrairieLearn/PrairieLearn/pull/16069)   | Open draft | Production parser switch     |
+| [#16067](https://github.com/PrairieLearn/PrairieLearn/issues/16067) | Open issue | Acceptance and release gates |
+
+Note:
+Issue #16067 instructs both LALR PRs to remain drafts until their lower stack and blocker settle. PR #14839 remains open and has not deployed the MathJSON path.
 
 Status sources are the linked GitHub pull-request pages as read on November 4, 2026.

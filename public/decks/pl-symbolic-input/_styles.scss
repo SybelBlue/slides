@@ -1,0 +1,11 @@
+.reveal:has(.plsi-deck-marker) .slides {
+  a,
+  a:visited {
+    color: #07546b;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: #003f51;
+  }
+}
