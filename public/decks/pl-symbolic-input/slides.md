@@ -282,6 +282,52 @@ Acceptance alone does not establish compatibility. Many changed rejections lose 
 
 +++
 
+### Formula-editor error reconstruction
+
+<div class="r-stack rs-max-w-80 rs-mx-auto">
+  <figure class="fragment fade-out" data-fragment-index="0">
+    <img
+      src="decks/pl-symbolic-input/error-pointer.png"
+      alt="Formula-editor expression with an arrow pointing to the final closing parenthesis"
+    />
+    <figcaption>
+      <strong>Reported location</strong><br />
+      <small
+        ><code>missing paren</code> points to the final visible delimiter</small
+      >
+    </figcaption>
+  </figure>
+  <figure class="fragment fade-in" data-fragment-index="0">
+    <img
+      src="decks/pl-symbolic-input/rendered-invisible-closers.png"
+      alt="The formula-editor expression with inferred invisible parentheses rendered in red"
+    />
+    <figcaption>
+      <strong>Inferred grouping</strong><br />
+      <small
+        >Rendering invisible closers exposes the structure the parser
+        expected</small
+      >
+    </figcaption>
+  </figure>
+</div>
+
+<p class="rs-takeaway fragment fade-in">
+  A useful error needs the visible location and the grouping the editor
+  inferred.
+</p>
+
+<p class="rs-citation">
+  <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
+    >Issue #15970, formula-editor parsing example</a
+  >
+</p>
+
+Note:
+Advance once to replace the reported error location with the parser's inferred grouping. The red parentheses are normally invisible closers. This example shows why a formula-editor error needs to communicate both where the visible expression fails and which hidden grouping produced the failure. Advance again for the takeaway.
+
++++
+
 ### MathJSON browser regressions
 
 - The new blur handler reached p95 115 ms at normal CPU.
@@ -309,6 +355,7 @@ Additional page-load measurements from the same comment: first-field initializat
 - Native source spans through the intermediate representation and lowering
 - No generated Python/`eval`
 - Explicit control over permitted syntax and operations
+- Client-side parser matches by default, but formula-editor integration needs investigation
 
 <p class="rs-takeaway">
   The controlled boundary comes with full responsibility for the grammar and
