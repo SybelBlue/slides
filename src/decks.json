@@ -68,5 +68,18 @@
       "Learnvia",
       "Planning"
     ]
+  },
+  "general-pl-demo": {
+    "title": "General PrairieLearn Demo",
+    "description": "Converted from Mariana's Simple-Demo-Tutorial https://docs.google.com/presentation/d/1-k1nHWaevMl9tzPot88u6ICBYpe3ZFlO/edit?slide=id.p1#slide=id.p1",
+    "directory": "/decks/general-pl-demo",
+    "created": "2026-10-13T19:13:31.687Z",
+    "pinned": false,
+    "theme": "sky",
+    "tags": [
+      "demo",
+      "tutorial",
+      "mariana@prairielearn.com"
+    ]
   }
 }

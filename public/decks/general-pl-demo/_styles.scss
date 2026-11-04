@@ -1,0 +1,199 @@
+.reveal {
+  .gpd-split {
+    align-items: center;
+    font-size: 0.75em;
+    text-align: left;
+
+    img {
+      max-height: 420px;
+      margin: 0.4em auto;
+    }
+
+    ul {
+      margin: 0 0 0 1em;
+    }
+  }
+
+  .gpd-shots {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 0.5em;
+
+    img {
+      max-height: 440px;
+      margin: 0;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figcaption {
+      margin-top: 0.3em;
+      font-size: 0.45em;
+    }
+  }
+
+  .gpd-levels {
+    align-items: stretch;
+    margin-top: 1em;
+
+    .rs-card {
+      box-sizing: border-box;
+      font-size: 0.65em;
+      text-align: left;
+      transition: opacity 300ms ease;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 0.35em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.85em;
+      line-height: 1.3;
+    }
+
+    .gpd-dim {
+      opacity: 0.4;
+    }
+  }
+
+  .gpd-assessment-types {
+    display: grid;
+    gap: 0.5em;
+
+    .rs-card {
+      font-size: 0.85em;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 0.3em;
+    }
+
+    ul {
+      margin: 0 0 0 1em;
+      font-size: 0.85em;
+    }
+  }
+
+  .gpd-tall {
+    max-height: 470px;
+  }
+
+  .gpd-pair {
+    align-items: center;
+
+    img {
+      max-height: 520px;
+      margin: 0;
+    }
+  }
+
+  .gpd-end-of-term {
+    display: grid;
+    grid-template-columns: 0.6fr 1.6fr 0.4fr;
+    align-items: center;
+    gap: 0.6em;
+
+    img {
+      max-height: 480px;
+      margin: 0;
+    }
+  }
+
+  .gpd-question-list {
+    display: grid;
+    gap: 0.35em;
+    margin: 0;
+    padding: 0;
+    font-size: 0.55em;
+    list-style: none;
+
+    .rs-card {
+      padding: 0.4em 0.6em;
+    }
+  }
+
+  .gpd-copy {
+    margin: 0;
+
+    figcaption {
+      font-size: 0.45em;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  }
+
+  .gpd-add-numbers {
+    display: grid;
+    grid-template-areas:
+      "server html"
+      "server student";
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0.4em 0.8em;
+    align-items: start;
+
+    figure {
+      margin: 0;
+      text-align: left;
+    }
+
+    figcaption {
+      margin-bottom: 0.2em;
+      font-size: 0.45em;
+      font-weight: 700;
+    }
+
+    img {
+      margin: 0;
+    }
+
+    .gpd-server {
+      grid-area: server;
+    }
+
+    .gpd-html {
+      grid-area: html;
+    }
+
+    .gpd-student {
+      grid-area: student;
+    }
+  }
+
+  .gpd-carousel {
+    --rs-carousel-height: 520px;
+    --rs-carousel-item-width: 60%;
+    --rs-carousel-item-offset: 52%;
+  }
+
+  .gpd-workspaces {
+    align-items: start;
+    text-align: left;
+
+    img {
+      max-height: 200px;
+      margin: 0.2em 0;
+    }
+
+    p {
+      margin: 0.2em 0;
+    }
+
+    .gpd-logos {
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+
+      img {
+        height: 48px;
+      }
+    }
+  }
+}
