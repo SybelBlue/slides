@@ -205,6 +205,26 @@ Customize the layout with `--rs-carousel-height`,
 
 Presentation behavior is configured in [`src/main.ts`](src/main.ts), and shared visual overrides live in [`src/styles.scss`](src/styles.scss). A deck can add scoped Sass beside its slides and public dependencies in `_styles.scss`; Vite discovers and compiles these files automatically.
 
+### Wide content
+
+Add `rs-wide` to content that should extend beyond the normal slide width. It
+uses a width of 110% by default and removes the usual maximum-width constraint.
+Override `--rs-wide-width` when a different width is needed. Combine it with an
+`r-stretch rs-centered` parent to keep a wide image vertically centered and
+contained in the available slide height.
+
+```md
+### Benchmark results
+
+<div class="r-stretch rs-centered">
+  <img
+    class="rs-wide"
+    src="decks/example/benchmark.png"
+    alt="Benchmark chart"
+  />
+</div>
+```
+
 Choose a bundled Reveal theme with the catalog entry's `theme` property. Supported values are `beige`, `black`, `black-contrast`, `blood`, `dracula`, `league`, `moon`, `night`, `serif`, `simple`, `sky`, `solarized`, `white`, and `white-contrast`. Decks without a `theme` property use `sky`.
 
 Theme-specific overrides live in `src/theme-extensions/<theme>.scss`. The file name must match the catalog theme exactly. Reveal loads the matching extension after the base theme and shared styles, so its declarations take precedence. For example, `src/theme-extensions/moon.scss` can tune the heading font without affecting other themes.

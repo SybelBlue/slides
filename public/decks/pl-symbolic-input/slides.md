@@ -19,7 +19,13 @@ Primary source: https://github.com/PrairieLearn/PrairieLearn/issues/15970
 
 ### Parser Pipeline
 
-![Five text versions used by the legacy parse and error paths](decks/pl-symbolic-input/error-location-text-versions.png)
+<div class="r-stretch rs-centered">
+  <img
+    class="rs-wide"
+    src="decks/pl-symbolic-input/error-location-text-versions.png"
+    alt="Five text versions used by the legacy parse and error paths"
+  />
+</div>
 
 <p class="rs-citation">
   <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
@@ -80,8 +86,13 @@ Source: https://github.com/PrairieLearn/PrairieLearn/issues/15970
 
 ### Parsing Breakdown (pre-perf PRs)
 
-![Stage costs for a 50-character typed expression](decks/pl-symbolic-input/parse-stage-costs.png)
-<!-- .element: class="r-stretch" -->
+<div class="r-stretch rs-centered">
+  <img
+    class="rs-wide"
+    src="decks/pl-symbolic-input/parse-stage-costs.png"
+    alt="Stage costs for a 50-character typed expression"
+  />
+</div>
 
 <p class="rs-takeaway">
   <code>parse()</code> measured about 1.06 ms. JSON re-parse and validation used
@@ -258,8 +269,13 @@ The motivating benefit is less server-side inference of complex editor structure
 
 +++ <!-- .slide: data-auto-animate -->
 
-![MathJSON candidate timing ratios for serializer and Compute Engine payloads](decks/pl-symbolic-input/mathjson-behavior-browser.png)
-<!-- .element: class="r-stretch" -->
+<div class="r-stretch rs-centered">
+  <img
+    class="rs-wide"
+    src="decks/pl-symbolic-input/mathjson-behavior-browser.png"
+    alt="MathJSON candidate timing ratios for serializer and Compute Engine payloads"
+  />
+</div>
 
 Note:
 The serializer-payload mixed corpus measured 33.3% slower overall. The more realistic Compute Engine workload measured 45.1% slower overall. Unchanged plain submissions measured 31 to 38% slower when MathJSON cases ran in the same process, while the plain-only control stayed at baseline speed.
@@ -375,8 +391,13 @@ Current status on November 4, 2026: #16068 and #16069 remain open drafts.
 
 +++ <!-- .slide: data-auto-animate -->
 
-![LALR candidate timing ratios against the direct non-parser baseline and master context](decks/pl-symbolic-input/lalr-timing-ratios.png)
-<!-- .element: class="r-stretch" -->
+<div class="r-stretch rs-centered">
+  <img
+    class="rs-wide"
+    src="decks/pl-symbolic-input/lalr-timing-ratios.png"
+    alt="LALR candidate timing ratios against the direct non-parser baseline and master context"
+  />
+</div>
 
 <p class="rs-takeaway">
   Direct baseline: all 6,272 acceptance outcomes match. The raw and matched
@@ -487,8 +508,13 @@ Use these slides for baseline, status, or measurement questions.
 
 +++ <!-- .slide: data-auto-animate -->
 
-![Warm benchmark breakdown for the full refactor stack through PR 15987](decks/pl-symbolic-input/full-stack-warm-benchmark.png)
-<!-- .element: class="r-stretch" -->
+<div class="r-stretch rs-centered">
+  <img
+    class="rs-wide"
+    src="decks/pl-symbolic-input/full-stack-warm-benchmark.png"
+    alt="Warm benchmark breakdown for the full refactor stack through PR 15987"
+  />
+</div>
 
 <p class="rs-citation">
   <a
