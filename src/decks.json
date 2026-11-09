@@ -69,6 +69,7 @@
     "created": "2026-11-04T16:43:04.457Z",
     "pinned": false,
     "theme": "sky",
+    "slideNumber": false,
     "tags": ["PrairieLearn", "Architecture", "Parsing"]
   }
 }

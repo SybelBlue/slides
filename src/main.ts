@@ -1,5 +1,5 @@
 import { marked } from "marked";
-import Reveal from "reveal.js";
+import Reveal, { type RevealConfig } from "reveal.js";
 import Highlight from "reveal.js/plugin/highlight";
 import Markdown from "reveal.js/plugin/markdown";
 import RevealMath from "reveal.js/plugin/math";
@@ -30,6 +30,7 @@ interface DeckConfig extends SlideDefaultsConfig {
   pinned?: boolean | string;
   tags?: string[];
   theme?: RevealTheme;
+  slideNumber?: string | boolean;
 }
 
 type DeckSort = "default" | "name" | "created-newest" | "created-oldest";
@@ -71,6 +72,8 @@ const themeLoaders = {
 } satisfies Record<RevealTheme, () => Promise<unknown>>;
 
 const themeExtensionLoaders = import.meta.glob("./theme-extensions/*.scss");
+
+const DEFAULT_SLIDE_NUMBER_FORMAT = "c/t";
 
 const decks = deckCatalog as Record<string, DeckConfig>;
 const deckId = new URLSearchParams(window.location.search).get("deck");
@@ -128,7 +131,7 @@ async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
   const deck = new Reveal({
     hash: true,
     history: true,
-    slideNumber: "c/t",
+    slideNumber: resolveSlideNumber(deckConfig.slideNumber),
     transition: "slide",
     plugins: [
       Markdown,
@@ -163,6 +166,14 @@ function resolveRevealTheme(theme: unknown): RevealTheme {
   }
 
   return theme;
+}
+
+function resolveSlideNumber(
+  slideNumber: DeckConfig["slideNumber"] = true,
+): RevealConfig["slideNumber"] {
+  return (
+    slideNumber === true ? DEFAULT_SLIDE_NUMBER_FORMAT : slideNumber
+  ) as RevealConfig["slideNumber"];
 }
 
 async function loadThemeExtension(theme: RevealTheme): Promise<void> {

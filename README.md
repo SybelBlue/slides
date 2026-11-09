@@ -268,6 +268,8 @@ Choose a bundled Reveal theme with the catalog entry's `theme` property. Support
 
 Theme-specific overrides live in `src/theme-extensions/<theme>.scss`. The file name must match the catalog theme exactly. Reveal loads the matching extension after the base theme and shared styles, so its declarations take precedence. For example, `src/theme-extensions/moon.scss` can tune the heading font without affecting other themes.
 
+Configure slide numbers with the catalog entry's `slideNumber` property. Decks without the property, or with `true`, use the default `c/t` format (current slide / total slides). A string selects another [Reveal format](https://revealjs.com/slide-numbers/) such as `c`, `h.v`, or `h/v`, and `false` turns slide numbers off.
+
 The enabled Reveal.js plugins provide Markdown, syntax highlighting, KaTeX math, speaker notes, slide search, and zoom. Useful presenter shortcuts include:
 
 - <kbd>Space</kbd> or the arrow keys to navigate
