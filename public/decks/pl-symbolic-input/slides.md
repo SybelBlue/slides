@@ -3,7 +3,7 @@
 ### `pl-symbolic-input` Parser Architecture
 
 <p class="rs-lede rs-mx-auto">
-  performance, error locations, and architectural options
+  error locations, maintainability, and architectural options
 </p>
 
 <p class="rs-citation">
@@ -19,24 +19,40 @@ Primary source: https://github.com/PrairieLearn/PrairieLearn/issues/15970
 
 ### Parser Pipeline
 
-<div class="r-stretch rs-centered">
-  <img
-    class="rs-wide"
-    src="decks/pl-symbolic-input/error-location-text-versions.png"
-    alt="Five text versions used by the legacy parse and error paths"
-  />
+<div
+  class="plsi-pipeline"
+  role="img"
+  aria-label="Client-side typing normally continues through formula construction, which sends plaintext to server-side tokenizing. With no formula-editor, a shortcut after typing leads directly to tokenizing. The server then normalizes, parses, and executes the expression."
+>
+  <span class="plsi-lane-label plsi-client-label">Client-side</span>
+  <div class="plsi-stage plsi-typing">Typing</div>
+  <span class="plsi-connector plsi-typing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-formula">Formula construction</div>
+  <span class="plsi-connector plsi-formula-arrow" aria-hidden="true"></span>
+  <span class="plsi-primary-output-label">plaintext</span>
+  <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
+  <span class="plsi-shortcut-label">no formula-editor</span>
+  <span class="plsi-lane-label plsi-server-label">Server-side</span>
+  <div class="plsi-stage plsi-tokenizing">Tokenizing†</div>
+  <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-normalization">Normalization†</div>
+  <span
+    class="plsi-connector plsi-normalization-arrow"
+    aria-hidden="true"
+  ></span>
+  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-executing">Executing</div>
 </div>
 
 <p class="rs-citation">
   <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
-    >Issue #15970, error locations</a
+    >†Issue #15970, error locations</a
   >
 </p>
 
 Note:
-T0 is the raw student submission. Carets currently render on T1. Only T2 maps back to T1, while errors can carry positions from T2 or the generated Python in T3. No end-to-end map returns those locations to T0. The issue confirms that every listed problem also occurs on master.
-
-For the final example, the Markdown source writes two vertical bars on the left and one on the right. The legacy absolute-value rewrite can expose generated abs text in the error context.
+Formula-editor input takes the client-side formula-construction path. Plain text can bypass that step and enter server-side tokenizing directly. From tokenizing onward, both inputs share normalization, parsing, and execution.
 
 Full location analysis: https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6047774571
 
@@ -44,11 +60,7 @@ Full location analysis: https://github.com/PrairieLearn/PrairieLearn/issues/1597
 
 ### Three Core Problems
 
-<div class="rs-grid cols-3">
-  <div>
-    <h4>Performance</h4>
-    <p>Known gains, measured regressions, repeated work, and cache effects</p>
-  </div>
+<div class="rs-grid cols-3 rs-small">
   <div>
     <h4>Error localization</h4>
     <p>Carets and messages must refer to the text the student typed</p>
@@ -57,62 +69,18 @@ Full location analysis: https://github.com/PrairieLearn/PrairieLearn/issues/1597
     <h4>Maintainability</h4>
     <p>Normalization and error handling need a tractable ownership model</p>
   </div>
+  <div>
+    <h4>Client/Server Division</h4>
+    <p>
+      Feedback and parsing ownership need a clear boundary across both sides
+    </p>
+  </div>
 </div>
 
 <p class="rs-takeaway">Every option must answer all three problems.</p>
 
 Note:
-Use these criteria throughout the talk. Performance includes both direct parser time and effects on other work. Error localization includes messages and raw-source carets, not merely accept or reject behavior. Maintainability asks where future compatibility rules live and how many parsing paths the team supports.
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Why millis matter here
-
-- `parse()` is called repeatedly
-- Setup repeats even when inputs don't change.
-- One candidate clears a process-wide SymPy cache and slows later unrelated work.
-
-<p class="rs-takeaway">
-  The useful target is avoidable repeated work, not a production-scale
-  extrapolation.
-</p>
-
-Note:
-Address the premature-optimization question directly. A single millisecond rarely matters by itself. Repeated parsing, avoidable setup, and cache effects make the work worth measuring. Keep three motivations separate: predictable per-parse latency, repeated work inside measured workloads, and cross-request effects in a shared worker. The sources do not measure aggregate production savings or concurrency.
-
-Source: https://github.com/PrairieLearn/PrairieLearn/issues/15970
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Parsing Breakdown (pre-perf PRs)
-
-<div class="r-stretch rs-centered">
-  <img
-    class="rs-wide"
-    src="decks/pl-symbolic-input/parse-stage-costs.png"
-    alt="Stage costs for a 50-character typed expression"
-  />
-</div>
-
-<p class="rs-takeaway">
-  <code>parse()</code> measured about 1.06 ms. JSON re-parse and validation used
-  about 38%.
-</p>
-
-<p class="rs-citation">
-  <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
-    >Issue #15970, performance profile</a
-  >
-  ·
-  <a href="https://github.com/PrairieLearn/PrairieLearn/pull/15972"
-    >PR #15972</a
-  >
-</p>
-
-Note:
-The image shows the stage breakdown for one 50-character typed expression, including element preparation around the two parser passes. The issue summary reports about 1.06 ms for parse(). Importing SymPy globals once and replacing deep copies with shallow copies improved the measured parse time from 1.06 to 0.77 ms. PR #15972 merged on October 8. The remaining JSON re-parse protects against a serializer result that the parser cannot read, so removing it trades safety for speed.
-
-Do not describe JSON validation as a free optimization. The issue estimates about 0.4 ms for the round trip and proposes either retaining it or replacing it with a property test.
+Use these criteria throughout the talk. Error localization includes messages and raw-source carets, not merely accept or reject behavior. Maintainability asks where future compatibility rules live and how many parsing paths the team supports. Client/server division asks where parsing ownership belongs and how the client can provide timely feedback without drifting from server behavior.
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -179,11 +147,73 @@ The next vertical stack covers the three responses. Navigate down for the option
 
 +++ <!-- .slide: data-auto-animate -->
 
++### Current Parser Pipeline
+
+<div
+  class="plsi-pipeline"
+  role="img"
+  aria-label="The current parser pipeline. Client-side typing normally continues through formula construction, which sends plaintext to server-side tokenizing. With no formula-editor, typing leads directly to tokenizing. The server then normalizes, parses, and executes the expression."
+>
+  <span class="plsi-lane-label plsi-client-label">Client-side</span>
+  <div class="plsi-stage plsi-typing">Typing</div>
+  <span class="plsi-connector plsi-typing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-formula">Formula construction</div>
+  <span class="plsi-connector plsi-formula-arrow" aria-hidden="true"></span>
+  <span class="plsi-primary-output-label">plaintext</span>
+  <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
+  <span class="plsi-shortcut-label">no formula-editor</span>
+  <span class="plsi-lane-label plsi-server-label">Server-side</span>
+  <div class="plsi-stage plsi-tokenizing">Tokenizing†</div>
+  <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-normalization">Normalization†</div>
+  <span
+    class="plsi-connector plsi-normalization-arrow"
+    aria-hidden="true"
+  ></span>
+  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-executing">Executing</div>
+</div>
+
+<p class="rs-citation">
+  <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
+    >†Issue #15970, current pipeline</a
+  >
+</p>
+
+Note:
+Use this shared baseline to compare the option on the next slide. +
++++ <!-- .slide: data-auto-animate --> +
+
 ### Option 1: incremental changes
 
-- Map every rewrite back to raw input with `SourceText` and `SourceToken`.
-- Use one error locator and one renderer.
-- Retain the merged parser-setup improvement.
+<div
+  class="plsi-pipeline plsi-pipeline-option-1"
+  role="img"
+  aria-label="Option 1 retains the existing pipeline while changing tokenizing and normalization, outlined in gold. Client-side formula construction sends plaintext to server-side tokenizing. With no formula-editor, typing leads directly to tokenizing. The server then normalizes, parses, and executes the expression."
+>
+  <span class="plsi-lane-label plsi-client-label">Client-side</span>
+  <div class="plsi-stage plsi-typing">Typing</div>
+  <span class="plsi-connector plsi-typing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-formula">Formula construction</div>
+  <span class="plsi-connector plsi-formula-arrow" aria-hidden="true"></span>
+  <span class="plsi-primary-output-label">plaintext</span>
+  <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
+  <span class="plsi-shortcut-label">no formula-editor</span>
+  <span class="plsi-lane-label plsi-server-label">Server-side</span>
+  <div class="plsi-stage plsi-stage-highlight plsi-tokenizing">Tokenizing</div>
+  <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-stage-highlight plsi-normalization">
+    Normalization
+  </div>
+  <span
+    class="plsi-connector plsi-normalization-arrow"
+    aria-hidden="true"
+  ></span>
+  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-executing">Executing</div>
+</div>
 
 <p class="rs-takeaway">
   Source mapping improves carets and ownership boundaries without replacing the
@@ -230,11 +260,83 @@ The incremental path does not remove the parser engine or generated-Python machi
 
 +++ <!-- .slide: data-auto-animate -->
 
++### Current Parser Pipeline
+
+<div
+  class="plsi-pipeline"
+  role="img"
+  aria-label="The current parser pipeline. Client-side typing normally continues through formula construction, which sends plaintext to server-side tokenizing. With no formula-editor, typing leads directly to tokenizing. The server then normalizes, parses, and executes the expression."
+>
+  <span class="plsi-lane-label plsi-client-label">Client-side</span>
+  <div class="plsi-stage plsi-typing">Typing</div>
+  <span class="plsi-connector plsi-typing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-formula">Formula construction</div>
+  <span class="plsi-connector plsi-formula-arrow" aria-hidden="true"></span>
+  <span class="plsi-primary-output-label">plaintext</span>
+  <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
+  <span class="plsi-shortcut-label">no formula-editor</span>
+  <span class="plsi-lane-label plsi-server-label">Server-side</span>
+  <div class="plsi-stage plsi-tokenizing">Tokenizing†</div>
+  <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-normalization">Normalization†</div>
+  <span
+    class="plsi-connector plsi-normalization-arrow"
+    aria-hidden="true"
+  ></span>
+  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-executing">Executing</div>
+</div>
+
+<p class="rs-citation">
+  <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
+    >†Issue #15970, current pipeline</a
+  >
+</p>
+
+Note:
+Use this shared baseline to compare the option on the next slide. +
++++ <!-- .slide: data-auto-animate --> +
+
 ### Option 2: hybrid MathJSON path
 
-1. The formula editor asks Compute Engine for structured MathJSON.
-2. The server converts supported MathJSON nodes into SymPy values.
-3. Plain text, older submissions, and fallback cases keep the legacy parser.
+<div
+  class="plsi-pipeline plsi-pipeline-option-2"
+  role="img"
+  aria-label="Option 2 adds MathJSON after client-side formula construction. MathJSON sends structured output directly to server-side parsing, which then continues to execution. If formula construction fails, the input falls back to tokenizing. With no formula-editor, typing also follows the legacy server path through tokenizing, normalization, parsing, and executing."
+>
+  <span class="plsi-lane-label plsi-client-label">Client-side</span>
+  <div class="plsi-stage plsi-typing">Typing</div>
+  <span class="plsi-connector plsi-typing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-formula">Formula construction†</div>
+  <span
+    class="plsi-connector plsi-formula-to-mathjson-arrow"
+    aria-hidden="true"
+  ></span>
+  <div class="plsi-stage plsi-mathjson">MathJSON</div>
+  <span class="plsi-connector plsi-mathjson-arrow" aria-hidden="true"></span>
+  <span class="plsi-primary-output-label plsi-primary-output-label-mathjson"
+    >structured</span
+  >
+  <span
+    class="plsi-connector plsi-formula-fallback-arrow"
+    aria-hidden="true"
+  ></span>
+  <span class="plsi-formula-fallback-label">construction fails</span>
+  <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
+  <span class="plsi-shortcut-label">no formula-editor</span>
+  <span class="plsi-lane-label plsi-server-label">Server-side</span>
+  <div class="plsi-stage plsi-tokenizing">Tokenizing</div>
+  <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-normalization">Normalization</div>
+  <span
+    class="plsi-connector plsi-normalization-arrow"
+    aria-hidden="true"
+  ></span>
+  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-executing">Executing</div>
+</div>
 
 <p class="rs-takeaway">
   MathJSON can extend the incremental path. It does not replace the existing
@@ -248,7 +350,7 @@ The incremental path does not remove the parser engine or generated-Python machi
 </p>
 
 Note:
-Present the hybrid as an architectural extension of option 1. The formula editor supplies structure, but the server still needs the legacy path for typed input, submissions saved before an upgrade, and fallback conditions.
+Present the hybrid as an architectural extension of option 1. The formula editor supplies structure, but formula-construction failures fall back to tokenizing. The server also needs the legacy path for typed input, submissions saved before an upgrade, and other fallback conditions.
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -267,22 +369,6 @@ Present the hybrid as an architectural extension of option 1. The formula editor
 Note:
 The motivating benefit is less server-side inference of complex editor structure from serialized text. The conversion layer still must preserve PrairieLearn's accepted language, simplification rules, stored answer shapes, messages, named domains, and restoration behavior. The November 4 evidence shows why acceptance alone cannot establish equivalence.
 
-+++ <!-- .slide: data-auto-animate -->
-
-<div class="r-stretch rs-centered">
-  <img
-    class="rs-wide"
-    src="decks/pl-symbolic-input/mathjson-behavior-browser.png"
-    alt="MathJSON candidate timing ratios for serializer and Compute Engine payloads"
-  />
-</div>
-
-Note:
-The serializer-payload mixed corpus measured 33.3% slower overall. The more realistic Compute Engine workload measured 45.1% slower overall. Unchanged plain submissions measured 31 to 38% slower when MathJSON cases ran in the same process, while the plain-only control stayed at baseline speed.
-
-The candidate changes SymPy's global evaluate setting. SymPy clears the process-wide cache when that value changes. This confounds the per-slice timings because a MathJSON parse can slow whatever runs next in the worker. The issue author suggested constructing unevaluated nodes with local evaluate=False arguments but did not measure that change.
-
-Do not treat this as proof that MathJSON itself must cost 45.1%. Do not compare this number directly with the LALR result. The experiments use different candidates and baselines.
 +++ <!-- .slide: data-auto-animate -->
 
 ### Formula-editor error reconstruction
@@ -331,35 +417,67 @@ Advance once to replace the reported error location with the parser's inferred g
 
 +++ <!-- .slide: data-auto-animate -->
 
-### MathJSON browser regressions
++### Current Parser Pipeline
 
-- The new blur handler reached p95 115 ms at normal CPU.
-- At 4× CPU throttling, blur p95 reached 471 ms.
-- Large expressions reached p95 215 ms and 890 ms.
-- Skipping a needless highlight clear remains proposed and unmeasured.
+<div
+  class="plsi-pipeline"
+  role="img"
+  aria-label="The current parser pipeline. Client-side typing normally continues through formula construction, which sends plaintext to server-side tokenizing. With no formula-editor, typing leads directly to tokenizing. The server then normalizes, parses, and executes the expression."
+>
+  <span class="plsi-lane-label plsi-client-label">Client-side</span>
+  <div class="plsi-stage plsi-typing">Typing</div>
+  <span class="plsi-connector plsi-typing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-formula">Formula construction</div>
+  <span class="plsi-connector plsi-formula-arrow" aria-hidden="true"></span>
+  <span class="plsi-primary-output-label">plaintext</span>
+  <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
+  <span class="plsi-shortcut-label">no formula-editor</span>
+  <span class="plsi-lane-label plsi-server-label">Server-side</span>
+  <div class="plsi-stage plsi-tokenizing">Tokenizing†</div>
+  <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-normalization">Normalization†</div>
+  <span
+    class="plsi-connector plsi-normalization-arrow"
+    aria-hidden="true"
+  ></span>
+  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-executing">Executing</div>
+</div>
 
 <p class="rs-citation">
-  <a
-    href="https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6635265560"
-    >Issue #15970, November 4 browser results</a
+  <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
+    >†Issue #15970, current pipeline</a
   >
 </p>
 
 Note:
-The slow blur tail comes mainly from removeSourceErrorHighlights applying style across the entire expression on every blur, even when nothing received a highlight. The host used headless Chromium and CPU throttling, not production telemetry. The slowest nested expressions exceed typical typed depth, but the handler blocks the main thread whenever the case occurs.
-
-Additional page-load measurements from the same comment: first-field initialization changed from 3.7 to 33 ms at normal CPU and from 15 to 130 ms at 4× throttling. The added compute-engine script measured 2.2 MB, or 616 KB with gzip -9.
-
+Use this shared baseline to compare the option on the next slide.
++
 +++ <!-- .slide: data-auto-animate -->
-
++
 ### Option 3: Lark LALR \& interpreter
 
-**industry standard declarative grammar**
-
-- Native source spans through the intermediate representation and lowering
-- No generated Python/`eval`
-- Explicit control over permitted syntax
-- Client-side parser matches by default, but formula-editor integration needs investigation
+<div
+  class="plsi-pipeline plsi-pipeline-option-3"
+  role="img"
+  aria-label="Option 3 outlines client-side formula construction in gold. Formula construction sends structured output to LARK. On the server, LARK replaces tokenizing, normalization, and parsing. Tree-walking replaces execution. With no formula-editor, typing leads directly to LARK."
+>
+  <span class="plsi-lane-label plsi-client-label">Client-side</span>
+  <div class="plsi-stage plsi-typing">Typing</div>
+  <span class="plsi-connector plsi-typing-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-stage-highlight plsi-formula">
+    Formula construction†
+  </div>
+  <span class="plsi-connector plsi-formula-arrow" aria-hidden="true"></span>
+  <span class="plsi-primary-output-label">structured</span>
+  <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
+  <span class="plsi-shortcut-label">no formula-editor</span>
+  <span class="plsi-lane-label plsi-server-label">Server-side</span>
+  <div class="plsi-stage plsi-lark">LARK†</div>
+  <span class="plsi-connector plsi-lark-arrow" aria-hidden="true"></span>
+  <div class="plsi-stage plsi-tree-walking">Tree-walking†</div>
+</div>
 
 <p class="rs-takeaway">
   The controlled boundary comes with full responsibility for the grammar and
@@ -389,56 +507,16 @@ Interpreter ownership does not guarantee safety. The team must maintain grammar 
 
 Current status on November 4, 2026: #16068 and #16069 remain open drafts.
 
-+++ <!-- .slide: data-auto-animate -->
-
-<div class="r-stretch rs-centered">
-  <img
-    class="rs-wide"
-    src="decks/pl-symbolic-input/lalr-timing-ratios.png"
-    alt="LALR candidate timing ratios against the direct non-parser baseline and master context"
-  />
-</div>
-
-<p class="rs-takeaway">
-  Direct baseline: all 6,272 acceptance outcomes match. The raw and matched
-  master views cover different workloads.
-</p>
-
-Note:
-Emphasize the direct comparison. The LALR candidate measured 17.41% faster than the refactored legacy pipeline with JSON validation. The candidate-to-baseline ratio was 0.8259 with a 95% confidence interval of 0.8207 to 0.8350. Both implementations agreed on all 6,272 accept or reject outcomes and reported zero unexpected exceptions. Forty-eight rejection details differed in caret or snippet placement for disabled custom-function inputs.
-
-Raw means all 6,272 LALR-versus-master cases, including acceptance disagreements. That view measured LALR 11.60% faster. Matched means the 4,840 cases where LALR and master agree on accepting or rejecting the submission. That view measured LALR 22.69% faster. These views time different workloads.
-
-The 1,432 acceptance discrepancies come from the interface difference that predates LALR. Master supports legacy allow-sets, while the newer stack supports allowed-types. Master rejects 1,192 set expressions that the newer stack accepts. Master accepts 240 scalar expressions that the newer stack rejects under allowed-types="finite-set". Do not describe the raw-versus-matched difference as a regression caused by LALR.
-
-Issue #16067 still defines final acceptance and performance gates. Do not present the candidate as production-proven.
-
 --- <!-- .slide: class="rs-center" data-auto-animate -->
 
 ### Decision and Evidence
 
 <p class="rs-lede rs-mx-auto">
-  Compare all three options against all three problems
+  Compare all three options against the three core problems
 </p>
 
 Note:
-The next vertical stack returns to the decision criteria, then states the evidence gates and discussion questions. Navigate down for the comparison.
-
-+++ <!-- .slide: data-auto-animate -->
-
-### Performance
-
-| Incremental                      | MathJSON                                | Lark LALR                                   |
-| -------------------------------- | --------------------------------------- | ------------------------------------------- |
-| **1.06 to 0.77 ms** setup win    | **>33.3% slower** in current candidates | **>17.41% faster** than its direct baseline |
-| JSON-validation decision remains | Shared-cache effect confounds path cost | All 6,272 acceptance outcomes match         |
-
-<p class="rs-takeaway">
-  These results come from distinct candidates, baselines, and workloads.
-</p>
-
-Note:
-Keep the performance baselines separate. The incremental setup improvement compares 1.06 to 0.77 ms in its microprofile. The MathJSON figures compare #14839 against its stack or master baselines and include a shared-cache effect. The LALR figure compares the grammar candidate with the direct non-parser JSON-validation baseline on the fixed corpus.
+The next vertical stack returns to the three core decision criteria and the discussion questions. Navigate down for the comparison. Performance evidence is collected in the technical appendix.
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -481,6 +559,22 @@ https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-663526486
 
 +++ <!-- .slide: data-auto-animate -->
 
+### Client/Server Division
+
+| Incremental                 | MathJSON                          | Lark LALR                          |
+| --------------------------- | --------------------------------- | ---------------------------------- |
+| Same division as today      | Adds real-time feedback           | One declared grammar for both      |
+| Parsing ownership unchanged | Shifts parsing toward the clients | Requires a hand-rolled interpreter |
+
+<p class="rs-takeaway">
+  Each option places language ownership at a different boundary.
+</p>
+
+Note:
+The incremental option keeps the current client/server division exactly as it is. MathJSON adds real-time client feedback, but it moves parsing responsibility toward each client. Lark gives the client and server one declared grammar, while PrairieLearn must build and maintain the interpreter that executes the resulting tree.
+
++++ <!-- .slide: data-auto-animate -->
+
 ### Decision questions
 
 - Which parsing complexity does PrairieLearn want to own?
@@ -500,11 +594,59 @@ Invite discussion rather than a vote on incomplete evidence. One possible outcom
 ### Technical appendix
 
 <p class="rs-lede rs-mx-auto">
-  Additional benchmark context and current proposal status
+  Performance evidence and current proposal status
 </p>
 
 Note:
 Use these slides for baseline, status, or measurement questions.
+
++++ <!-- .slide: data-auto-animate -->
+
+### Performance
+
+| Incremental                      | MathJSON                                | Lark LALR                                   |
+| -------------------------------- | --------------------------------------- | ------------------------------------------- |
+| **1.06 to 0.77 ms** setup win    | **>33.3% slower** in current candidates | **>17.41% faster** than its direct baseline |
+| JSON-validation decision remains | Shared-cache effect confounds path cost | All 6,272 acceptance outcomes match         |
+
+<p class="rs-takeaway">
+  These results come from distinct candidates, baselines, and workloads.
+</p>
+
+Note:
+Keep the performance baselines separate. The incremental setup improvement compares 1.06 to 0.77 ms in its microprofile. The MathJSON figures compare #14839 against its stack or master baselines and include a shared-cache effect. The LALR figure compares the grammar candidate with the direct non-parser JSON-validation baseline on the fixed corpus.
+
++++ <!-- .slide: data-auto-animate -->
+
+### Parsing Breakdown (pre-perf PRs)
+
+<div class="r-stretch rs-centered">
+  <img
+    class="rs-wide"
+    src="decks/pl-symbolic-input/parse-stage-costs.png"
+    alt="Stage costs for a 50-character typed expression"
+  />
+</div>
+
+<p class="rs-takeaway">
+  <code>parse()</code> measured about 1.06 ms. JSON re-parse and validation used
+  about 38%.
+</p>
+
+<p class="rs-citation">
+  <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
+    >Issue #15970, performance profile</a
+  >
+  ·
+  <a href="https://github.com/PrairieLearn/PrairieLearn/pull/15972"
+    >PR #15972</a
+  >
+</p>
+
+Note:
+The image shows the stage breakdown for one 50-character typed expression, including element preparation around the two parser passes. The issue summary reports about 1.06 ms for parse(). Importing SymPy globals once and replacing deep copies with shallow copies improved the measured parse time from 1.06 to 0.77 ms. PR #15972 merged on October 8. The remaining JSON re-parse protects against a serializer result that the parser cannot read, so removing it trades safety for speed.
+
+Do not describe JSON validation as a free optimization. The issue estimates about 0.4 ms for the round trip and proposes either retaining it or replacing it with a property test.
 
 +++ <!-- .slide: data-auto-animate -->
 
@@ -550,6 +692,44 @@ https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-629582557
 
 +++ <!-- .slide: data-auto-animate -->
 
+<div class="r-stretch rs-centered">
+  <img
+    class="rs-wide"
+    src="decks/pl-symbolic-input/mathjson-behavior-browser.png"
+    alt="MathJSON candidate timing ratios for serializer and Compute Engine payloads"
+  />
+</div>
+
+Note:
+The serializer-payload mixed corpus measured 33.3% slower overall. The more realistic Compute Engine workload measured 45.1% slower overall. Unchanged plain submissions measured 31 to 38% slower when MathJSON cases ran in the same process, while the plain-only control stayed at baseline speed.
+
+The candidate changes SymPy's global evaluate setting. SymPy clears the process-wide cache when that value changes. This confounds the per-slice timings because a MathJSON parse can slow whatever runs next in the worker. The issue author suggested constructing unevaluated nodes with local evaluate=False arguments but did not measure that change.
+
+Do not treat this as proof that MathJSON itself must cost 45.1%. Do not compare this number directly with the LALR result. The experiments use different candidates and baselines.
+
++++ <!-- .slide: data-auto-animate -->
+
+### MathJSON browser regressions
+
+- The new blur handler reached p95 115 ms at normal CPU.
+- At 4× CPU throttling, blur p95 reached 471 ms.
+- Large expressions reached p95 215 ms and 890 ms.
+- Skipping a needless highlight clear remains proposed and unmeasured.
+
+<p class="rs-citation">
+  <a
+    href="https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-6635265560"
+    >Issue #15970, November 4 browser results</a
+  >
+</p>
+
+Note:
+The slow blur tail comes mainly from removeSourceErrorHighlights applying style across the entire expression on every blur, even when nothing received a highlight. The host used headless Chromium and CPU throttling, not production telemetry. The slowest nested expressions exceed typical typed depth, but the handler blocks the main thread whenever the case occurs.
+
+Additional page-load measurements from the same comment: first-field initialization changed from 3.7 to 33 ms at normal CPU and from 15 to 130 ms at 4× throttling. The added compute-engine script measured 2.2 MB, or 616 KB with gzip -9.
+
++++ <!-- .slide: data-auto-animate -->
+
 ### MathJSON browser timing detail
 
 | Event handler             | Normal CPU p50 / p95 | 4× throttling p50 / p95 |
@@ -574,6 +754,30 @@ Note:
 The benchmark used 3,080 formula-editor cases with 20 dispatches each in headless Chromium. CPU throttling stood in for slower devices. A CPU profile attributed about 97% of the 16 slowest cases to removeSourceErrorHighlights applying style across the full expression. Parsing and placeholder handling together stayed under 1 ms.
 
 The same comment reports median first-field initialization of 3.7 versus 33 ms at normal CPU and 15 versus 130 ms at 4× throttling. Script evaluation changed from 8.9 to 13.3 ms at normal CPU and 35 to 53 ms at 4× throttling. JavaScript heap changed from 3.9 to 6.8 MB.
+
++++ <!-- .slide: data-auto-animate -->
+
+<div class="r-stretch rs-centered">
+  <img
+    class="rs-wide"
+    src="decks/pl-symbolic-input/lalr-timing-ratios.png"
+    alt="LALR candidate timing ratios against the direct non-parser baseline and master context"
+  />
+</div>
+
+<p class="rs-takeaway">
+  Direct baseline: all 6,272 acceptance outcomes match. The raw and matched
+  master views cover different workloads.
+</p>
+
+Note:
+Emphasize the direct comparison. The LALR candidate measured 17.41% faster than the refactored legacy pipeline with JSON validation. The candidate-to-baseline ratio was 0.8259 with a 95% confidence interval of 0.8207 to 0.8350. Both implementations agreed on all 6,272 accept or reject outcomes and reported zero unexpected exceptions. Forty-eight rejection details differed in caret or snippet placement for disabled custom-function inputs.
+
+Raw means all 6,272 LALR-versus-master cases, including acceptance disagreements. That view measured LALR 11.60% faster. Matched means the 4,840 cases where LALR and master agree on accepting or rejecting the submission. That view measured LALR 22.69% faster. These views time different workloads.
+
+The 1,432 acceptance discrepancies come from the interface difference that predates LALR. Master supports legacy allow-sets, while the newer stack supports allowed-types. Master rejects 1,192 set expressions that the newer stack accepts. Master accepts 240 scalar expressions that the newer stack rejects under allowed-types="finite-set". Do not describe the raw-versus-matched difference as a regression caused by LALR.
+
+Issue #16067 still defines final acceptance and performance gates. Do not present the candidate as production-proven.
 
 +++ <!-- .slide: data-auto-animate -->
 

@@ -33,7 +33,7 @@ Or provide the values in one command:
 make new-deck ID=workshop TITLE="Workshop" DESCRIPTION="Hands-on exercises" TAGS="Teaching, PrairieLearn"
 ```
 
-The command creates `public/decks/<id>/slides.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing deck directories. Catalog entries use `directory` and point only to the deck's public directory; the loader requires that directory to contain exactly one `slides.md` or `slides.html` file. New entries record the current time in `created`, set `pinned` to `false`, and use the `sky` theme by default. Set `pinned` to `true` for a permanent pin or to an ISO 8601 timestamp to pin the deck until that time. Active pins appear first in the selector's default order and display a pin marker. Add tags with the optional comma-separated `TAGS` value or edit the catalog's `tags` array directly. The selector can filter by deck name, sort by name or creation time, and filter by one tag at a time. Use **All** to reset the tag filter.
+The command creates `public/decks/<id>/slides.md` and adds its metadata to [`src/decks.json`](src/decks.json). It refuses invalid identifiers, duplicate catalog entries, and existing deck directories. Catalog entries use `directory` and point only to the deck's public directory; the loader requires that directory to contain exactly one `slides.md` or `slides.html` file. New entries record the current time in `created`, set `pinned` to `false`, use the `sky` theme, and enable auto-animation for all slides by default. Set `pinned` to `true` for a permanent pin or to an ISO 8601 timestamp to pin the deck until that time. Active pins appear first in the selector's default order and display a pin marker. Add tags with the optional comma-separated `TAGS` value or edit the catalog's `tags` array directly. The selector can filter by deck name, sort by name or creation time, and filter by one tag at a time. Use **All** to reset the tag filter.
 
 For example, a `workshop` entry would be available at `?deck=workshop`. If the URL has no `deck` parameter—or the key is not recognized—the selection list is shown.
 
@@ -100,6 +100,45 @@ vertical stack:
 <section>
   <section><h2>Vertical slide one</h2></section>
   <section><h2>Vertical slide two</h2></section>
+</section>
+```
+
+### Default slide attributes and classes
+
+Set `defaultSlideAttrs` or `defaultSlideClasses` on a deck's catalog entry to
+apply shared defaults to every horizontal and vertical slide, regardless of
+whether the deck uses Markdown or HTML:
+
+```json
+{
+  "defaultSlideAttrs": {
+    "data-auto-animate": true,
+    "data-transition": "fade"
+  },
+  "defaultSlideClasses": ["shared-layout"]
+}
+```
+
+Use `true` for a presence-only attribute and a string for a valued attribute.
+An attribute written directly on a slide takes precedence over its default.
+Default classes are merged with the slide's own classes. Reveal's native
+`data-auto-animate-id` and `data-auto-animate-restart` attributes continue to
+group or restart auto-animation sequences normally.
+
+Add `data-exclude-defaults` to leave one slide out of all default attributes
+and classes. The marker does not hide the slide or remove attributes and
+classes written directly on it. In Markdown, place it in the slide attribute
+comment:
+
+```md
+--- <!-- .slide: data-exclude-defaults -->
+```
+
+In HTML, place it directly on the section:
+
+```html
+<section data-exclude-defaults>
+  <h2>This slide uses only its own attributes and classes</h2>
 </section>
 ```
 

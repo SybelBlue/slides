@@ -3,6 +3,7 @@ import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, normalizePath, type Plugin } from "vite";
 import { isRevealTheme, REVEAL_THEMES } from "./src/reveal-themes.ts";
+import { validateSlideDefaultsConfig } from "./src/slide-defaults.ts";
 
 const projectRoot = dirname(fileURLToPath(import.meta.url));
 const catalogPath = resolve(projectRoot, "src/decks.json");
@@ -134,6 +135,8 @@ function getDeckDirectories(): string[] {
         `Deck “${id}” has invalid theme “${String(entry.theme)}”. Choose one of: ${REVEAL_THEMES.join(", ")}.`,
       );
     }
+
+    validateSlideDefaultsConfig(entry, id);
 
     return resolvePublicDirectory(entry.directory, id);
   });

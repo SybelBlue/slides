@@ -12,13 +12,17 @@ import {
   isRevealTheme,
   RevealTheme,
 } from "./reveal-themes";
+import {
+  createSlideDefaultsPlugin,
+  type SlideDefaultsConfig,
+} from "./slide-defaults";
 
 import "reveal.js/reveal.css";
 import "./highlight-atom-one-dark.css";
 
 import deckCatalog from "./decks.json";
 
-interface DeckConfig {
+interface DeckConfig extends SlideDefaultsConfig {
   title: string;
   description: string;
   directory: string;
@@ -128,6 +132,7 @@ async function initializePresentation(deckConfig: DeckConfig): Promise<void> {
     transition: "slide",
     plugins: [
       Markdown,
+      createSlideDefaultsPlugin(deckConfig),
       Highlight,
       RevealMath.KaTeX,
       Notes,

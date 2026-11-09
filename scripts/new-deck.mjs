@@ -68,6 +68,9 @@ try {
       created: new Date().toISOString(),
       pinned: false,
       theme: "sky",
+      defaultSlideAttrs: {
+        "data-auto-animate": true,
+      },
       tags,
     },
   };
