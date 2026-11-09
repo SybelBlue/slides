@@ -1,6 +1,6 @@
 <!-- .slide: class="rs-center plsi-deck-marker" data-auto-animate -->
 
-### `pl-symbolic-input` Parser Architecture
+### `pl-symbolic-input` <br /> Parser Architecture
 
 <p class="rs-lede rs-mx-auto">
   error locations, maintainability, and architectural options
@@ -579,7 +579,7 @@ The incremental option keeps the current client/server division exactly as it is
 
 - Which parsing complexity does PrairieLearn want to own?
 - Does the formula-editor experience justify a second path after the measured regressions are fixed?
-- What further evidence wdo we need for this decision?
+- What further evidence do we need for this decision?
 
 <p class="rs-takeaway">
   The next decision concerns evidence and ownership, not a predetermined
