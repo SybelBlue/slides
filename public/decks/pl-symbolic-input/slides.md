@@ -33,21 +33,21 @@ Primary source: https://github.com/PrairieLearn/PrairieLearn/issues/15970
   <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
   <span class="plsi-shortcut-label">no formula-editor</span>
   <span class="plsi-lane-label plsi-server-label">Server-side</span>
-  <div class="plsi-stage plsi-tokenizing">Tokenizing†</div>
+  <div class="plsi-stage plsi-tokenizing">Tokenizing<sup>†</sup></div>
   <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
-  <div class="plsi-stage plsi-normalization">Normalization†</div>
+  <div class="plsi-stage plsi-normalization">Normalization<sup>†</sup></div>
   <span
     class="plsi-connector plsi-normalization-arrow"
     aria-hidden="true"
   ></span>
-  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <div class="plsi-stage plsi-parsing">Parsing<sup>†</sup></div>
   <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
   <div class="plsi-stage plsi-executing">Executing</div>
 </div>
 
 <p class="rs-citation">
   <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
-    >†Issue #15970, error locations</a
+    ><sup>†</sup>Issue #15970, error locations</a
   >
 </p>
 
@@ -63,17 +63,15 @@ Full location analysis: https://github.com/PrairieLearn/PrairieLearn/issues/1597
 <div class="rs-grid cols-3 rs-small">
   <div>
     <h4>Error localization</h4>
-    <p>Carets and messages must refer to the text the student typed</p>
+    <p>Errors must point to the text the student typed</p>
   </div>
   <div>
     <h4>Maintainability</h4>
-    <p>Normalization and error handling need a tractable ownership model</p>
+    <p>Parsing rules need a tractable ownership model</p>
   </div>
   <div>
     <h4>Client/Server Division</h4>
-    <p>
-      Feedback and parsing ownership need a clear boundary across both sides
-    </p>
+    <p>Parsing ownership must support timely client feedback</p>
   </div>
 </div>
 
@@ -147,7 +145,7 @@ The next vertical stack covers the three responses. Navigate down for the option
 
 +++ <!-- .slide: data-auto-animate -->
 
-+### Current Parser Pipeline
+### Base Parser Pipeline
 
 <div
   class="plsi-pipeline"
@@ -163,27 +161,28 @@ The next vertical stack covers the three responses. Navigate down for the option
   <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
   <span class="plsi-shortcut-label">no formula-editor</span>
   <span class="plsi-lane-label plsi-server-label">Server-side</span>
-  <div class="plsi-stage plsi-tokenizing">Tokenizing†</div>
+  <div class="plsi-stage plsi-tokenizing">Tokenizing<sup>†</sup></div>
   <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
-  <div class="plsi-stage plsi-normalization">Normalization†</div>
+  <div class="plsi-stage plsi-normalization">Normalization<sup>†</sup></div>
   <span
     class="plsi-connector plsi-normalization-arrow"
     aria-hidden="true"
   ></span>
-  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <div class="plsi-stage plsi-parsing">Parsing<sup>†</sup></div>
   <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
   <div class="plsi-stage plsi-executing">Executing</div>
 </div>
 
 <p class="rs-citation">
   <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
-    >†Issue #15970, current pipeline</a
+    ><sup>†</sup>Issue #15970, current pipeline</a
   >
 </p>
 
 Note:
-Use this shared baseline to compare the option on the next slide. +
-+++ <!-- .slide: data-auto-animate --> +
+Use this shared baseline to compare the option on the next slide.
+
++++ <!-- .slide: data-auto-animate -->
 
 ### Option 1: incremental changes
 
@@ -210,7 +209,7 @@ Use this shared baseline to compare the option on the next slide. +
     class="plsi-connector plsi-normalization-arrow"
     aria-hidden="true"
   ></span>
-  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <div class="plsi-stage plsi-parsing">Parsing<sup>†</sup></div>
   <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
   <div class="plsi-stage plsi-executing">Executing</div>
 </div>
@@ -260,7 +259,7 @@ The incremental path does not remove the parser engine or generated-Python machi
 
 +++ <!-- .slide: data-auto-animate -->
 
-+### Current Parser Pipeline
+### Base Parser Pipeline
 
 <div
   class="plsi-pipeline"
@@ -276,27 +275,28 @@ The incremental path does not remove the parser engine or generated-Python machi
   <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
   <span class="plsi-shortcut-label">no formula-editor</span>
   <span class="plsi-lane-label plsi-server-label">Server-side</span>
-  <div class="plsi-stage plsi-tokenizing">Tokenizing†</div>
+  <div class="plsi-stage plsi-tokenizing">Tokenizing<sup>†</sup></div>
   <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
-  <div class="plsi-stage plsi-normalization">Normalization†</div>
+  <div class="plsi-stage plsi-normalization">Normalization<sup>†</sup></div>
   <span
     class="plsi-connector plsi-normalization-arrow"
     aria-hidden="true"
   ></span>
-  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <div class="plsi-stage plsi-parsing">Parsing<sup>†</sup></div>
   <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
   <div class="plsi-stage plsi-executing">Executing</div>
 </div>
 
 <p class="rs-citation">
   <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
-    >†Issue #15970, current pipeline</a
+    ><sup>†</sup>Issue #15970, current pipeline</a
   >
 </p>
 
 Note:
-Use this shared baseline to compare the option on the next slide. +
-+++ <!-- .slide: data-auto-animate --> +
+Use this shared baseline to compare the option on the next slide.
+
++++ <!-- .slide: data-auto-animate -->
 
 ### Option 2: hybrid MathJSON path
 
@@ -308,7 +308,7 @@ Use this shared baseline to compare the option on the next slide. +
   <span class="plsi-lane-label plsi-client-label">Client-side</span>
   <div class="plsi-stage plsi-typing">Typing</div>
   <span class="plsi-connector plsi-typing-arrow" aria-hidden="true"></span>
-  <div class="plsi-stage plsi-formula">Formula construction†</div>
+  <div class="plsi-stage plsi-formula">Formula construction<sup>†</sup></div>
   <span
     class="plsi-connector plsi-formula-to-mathjson-arrow"
     aria-hidden="true"
@@ -333,7 +333,7 @@ Use this shared baseline to compare the option on the next slide. +
     class="plsi-connector plsi-normalization-arrow"
     aria-hidden="true"
   ></span>
-  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <div class="plsi-stage plsi-parsing">Parsing<sup>†</sup></div>
   <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
   <div class="plsi-stage plsi-executing">Executing</div>
 </div>
@@ -417,7 +417,7 @@ Advance once to replace the reported error location with the parser's inferred g
 
 +++ <!-- .slide: data-auto-animate -->
 
-+### Current Parser Pipeline
+### Base Parser Pipeline
 
 <div
   class="plsi-pipeline"
@@ -433,29 +433,29 @@ Advance once to replace the reported error location with the parser's inferred g
   <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
   <span class="plsi-shortcut-label">no formula-editor</span>
   <span class="plsi-lane-label plsi-server-label">Server-side</span>
-  <div class="plsi-stage plsi-tokenizing">Tokenizing†</div>
+  <div class="plsi-stage plsi-tokenizing">Tokenizing<sup>†</sup></div>
   <span class="plsi-connector plsi-tokenizing-arrow" aria-hidden="true"></span>
-  <div class="plsi-stage plsi-normalization">Normalization†</div>
+  <div class="plsi-stage plsi-normalization">Normalization<sup>†</sup></div>
   <span
     class="plsi-connector plsi-normalization-arrow"
     aria-hidden="true"
   ></span>
-  <div class="plsi-stage plsi-parsing">Parsing†</div>
+  <div class="plsi-stage plsi-parsing">Parsing<sup>†</sup></div>
   <span class="plsi-connector plsi-parsing-arrow" aria-hidden="true"></span>
   <div class="plsi-stage plsi-executing">Executing</div>
 </div>
 
 <p class="rs-citation">
   <a href="https://github.com/PrairieLearn/PrairieLearn/issues/15970"
-    >†Issue #15970, current pipeline</a
+    ><sup>†</sup>Issue #15970, current pipeline</a
   >
 </p>
 
 Note:
 Use this shared baseline to compare the option on the next slide.
-+
+
 +++ <!-- .slide: data-auto-animate -->
-+
+
 ### Option 3: Lark LALR \& interpreter
 
 <div
@@ -467,16 +467,16 @@ Use this shared baseline to compare the option on the next slide.
   <div class="plsi-stage plsi-typing">Typing</div>
   <span class="plsi-connector plsi-typing-arrow" aria-hidden="true"></span>
   <div class="plsi-stage plsi-stage-highlight plsi-formula">
-    Formula construction†
+    Formula construction<sup>†</sup>
   </div>
   <span class="plsi-connector plsi-formula-arrow" aria-hidden="true"></span>
   <span class="plsi-primary-output-label">structured</span>
   <span class="plsi-connector plsi-shortcut-arrow" aria-hidden="true"></span>
   <span class="plsi-shortcut-label">no formula-editor</span>
   <span class="plsi-lane-label plsi-server-label">Server-side</span>
-  <div class="plsi-stage plsi-lark">LARK†</div>
+  <div class="plsi-stage plsi-lark">LARK<sup>†</sup></div>
   <span class="plsi-connector plsi-lark-arrow" aria-hidden="true"></span>
-  <div class="plsi-stage plsi-tree-walking">Tree-walking†</div>
+  <div class="plsi-stage plsi-tree-walking">Tree-walking<sup>†</sup></div>
 </div>
 
 <p class="rs-takeaway">
@@ -561,10 +561,10 @@ https://github.com/PrairieLearn/PrairieLearn/issues/15970#issuecomment-663526486
 
 ### Client/Server Division
 
-| Incremental                 | MathJSON                          | Lark LALR                          |
-| --------------------------- | --------------------------------- | ---------------------------------- |
-| Same division as today      | Adds real-time feedback           | One declared grammar for both      |
-| Parsing ownership unchanged | Shifts parsing toward the clients | Requires a hand-rolled interpreter |
+| Incremental                 | MathJSON                                      | Lark LALR                          |
+| --------------------------- | --------------------------------------------- | ---------------------------------- |
+| Same division as today      | Parser<sup>†</sup> maintained by MathField.js | One declared grammar for both      |
+| Parsing ownership unchanged | Shifts parsing toward the clients             | Requires a hand-rolled interpreter |
 
 <p class="rs-takeaway">
   Each option places language ownership at a different boundary.
